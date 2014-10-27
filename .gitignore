@@ -18,3 +18,8 @@
 
 *.doc
 *.docx
+
+#LaTeX makefile files
+*.log
+*.aux
+*.synctex.gz

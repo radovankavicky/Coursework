@@ -1,5 +1,6 @@
 clear all
 set more off
+*set matsize 8000
 *shell cd -cd/d %~dp0-
 cd "D:\GitHub\Coursework\Finance\Advanced Financial Econometrics 2014F\Assignment II\WorkingData"
 
@@ -176,11 +177,18 @@ drop lenSKT
 rename Reptdt Accper
 rename D0101b CEOName
 rename D0301b CEOGender
+replace CEOGender = "1" if CEOGender == "ÄÐ"
+replace CEOGender = "0" if CEOGender == "Å®"
 rename D0401b CEOAge
 rename D0501b CEOEdu
 rename D0901b CEOisSalary
 rename D1001b CEOSalary
 rename D1101b CEOShare
+
+destring _all, replace
+keep Stkcd Accper CEOGender CEOAge CEOSalary CEOShare
+collapse (mean)CEOGender CEOAge CEOSalary CEOShare, by(Stkcd Accper)
+tostring Stkcd, replace
 sort Stkcd Accper
 save CEO.dta, replace
 
@@ -235,6 +243,24 @@ tab _merge
 drop _merge
 sort Stkcd Accper
 
+merge Stkcd Accper using Shareholders.dta
+tab _merge
+drop _merge
+sort Stkcd Accper
+
+/*
+merge Stkcd Accper using CEOIncentive.dta
+tab _merge
+drop _merge
+sort Stkcd Accper 
+*/
+
+merge Stkcd Accper using CEO.dta
+tab _merge
+drop _merge
+sort Stkcd Accper 
+
+
 *2.m:1
 merge Stkcd using IPO.dta
 tab _merge
@@ -246,7 +272,9 @@ tab _merge
 drop _merge
 sort Stkcd 
 */
+
 *3.reptdt
+
 *gen stkid = group(Stkcd)
 destring _all, replace
 save main.dta, replace
@@ -254,17 +282,23 @@ save main.dta, replace
 ***************************************************************
 ************** REGRESSION                         *************
 ***************************************************************
-use main.dta, clear
-gen AccDate = date(Accper, "YMD")
-xtset Stkcd AccDate
 
-*Dup
+use main.dta, clear
+keep if Reptyp==4
+
+*Duplication check 
 capture drop dup
 bysort Stkcd Accper: gen dup = _N
 gsort -dup Stkcd Accper
 
+bysort Stkcd Accper: keep if _n==1
+gen AccDate = date(Accper, "YMD")
+*xtset Stkcd AccDate
+
+
+
 *Sample
-keep if Reptyp==4
+
 gen CorpAge = date(Accper,"YMD")-date(Estbdt,"YMD")
 gen CorpAge2 = CorpAge^2
 
@@ -279,15 +313,19 @@ gen year = year(AccDate)
 
 *Q1.
 *OLS
-xi: reg DERatio CorpAge CorpAge2 Asset ROE i.Indcd i.year
-estimates store reg
-heckman DERatio Asset
+xi: reg DERatio CorpAge CorpAge2 Asset ROE LiquidityRatio HHI10 PBRatio SGAe i.Indcd i.year
+est table, keep(CorpAge CorpAge2 Asset ROE) b se
 
 *Fixed-Effect
-xtreg DERatio CorpAge CorpAge2 Asset ROE, fe
+xi: xtreg DERatio CorpAge CorpAge2 Asset ROE LiquidityRatio HHI10 PBRatio SGAe i.year, fe i(Stkcd)
+*xi: areg DERatio CorpAge CorpAge2 Asset ROE i.Stkcd i.year
+estimate store fe
 
 *Random-Effect
-xtreg DERatio CorpAge CorpAge2 Asset ROE, re
+xtreg DERatio CorpAge CorpAge2 Asset ROE LiquidityRatio HHI10 PBRatio SGAe, re
+estimate store re
 
 *Q2.
+hausman fe re, sigmamore
 
+*Q4.
