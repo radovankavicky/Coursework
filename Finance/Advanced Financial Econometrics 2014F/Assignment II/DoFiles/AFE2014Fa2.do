@@ -323,3 +323,4 @@ estimate store re
 hausman fe re, sigmamore
 
 *Q4.
+xtivreg `Y' (`X' = MainBusinessIncome) `ControlVar', fe small
