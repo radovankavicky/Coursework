@@ -273,32 +273,27 @@ drop _merge
 sort Stkcd 
 */
 
-*3.reptdt
-
-*gen stkid = group(Stkcd)
 destring _all, replace
 save main.dta, replace
 
 ***************************************************************
 ************** REGRESSION                         *************
 ***************************************************************
-
 use main.dta, clear
+*1.Initilization
 keep if Reptyp==4
 
-*Duplication check 
+*1.1.Duplication check 
 capture drop dup
 bysort Stkcd Accper: gen dup = _N
 gsort -dup Stkcd Accper
 
+*1.2.Drop Dulicates
 bysort Stkcd Accper: keep if _n==1
-gen AccDate = date(Accper, "YMD")
-*xtset Stkcd AccDate
+gen year = year(date(Accper, "YMD"))
+xtset Stkcd AccDate
 
-
-
-*Sample
-
+*1.3.Generating Variables 
 gen CorpAge = date(Accper,"YMD")-date(Estbdt,"YMD")
 gen CorpAge2 = CorpAge^2
 
@@ -307,22 +302,21 @@ gen ListAge2 = ListAge^2
 
 gen DERatio = Liability/(Asset - Liability)
 
-gen year = year(AccDate)
-
-
 
 *Q1.
+local Y DERatio
+local X CorpAge CorpAge2 Asset ROE
+local ControlVar LiquidityRatio HHI10 PBRatio SGAe 
 *OLS
-xi: reg DERatio CorpAge CorpAge2 Asset ROE LiquidityRatio HHI10 PBRatio SGAe i.Indcd i.year
-est table, keep(CorpAge CorpAge2 Asset ROE) b se
+xi: reg `Y' `X' `ControlVar' i.Indcd i.year
+est table, keep(`X') b se
 
 *Fixed-Effect
-xi: xtreg DERatio CorpAge CorpAge2 Asset ROE LiquidityRatio HHI10 PBRatio SGAe i.year, fe i(Stkcd)
-*xi: areg DERatio CorpAge CorpAge2 Asset ROE i.Stkcd i.year
+xtreg `Y' `X' `ControlVar' i.year, fe i(Stkcd)
 estimate store fe
 
 *Random-Effect
-xtreg DERatio CorpAge CorpAge2 Asset ROE LiquidityRatio HHI10 PBRatio SGAe, re
+xtreg `Y' `X' `ControlVar' i.year, re
 estimate store re
 
 *Q2.
