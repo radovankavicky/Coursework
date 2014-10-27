@@ -1,0 +1,214 @@
+
+<html>
+<head>
+<meta http-equiv="Content-type" content="text/html; charset=iso-8859-1">
+<meta http-equiv="Content-Style-Type" content="text/css">
+<style type="text/css">
+BODY{background-color: ffffff;
+    font-family: monaco, "courier new", monospace;
+     color: #000000}
+.input {color: #CC6600}
+.result{color: #000099}
+.error{color: #dd0000}
+</style>
+</head>
+<body>
+<pre>
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+      name:  <span class=result>&lt;unnamed&gt;</span>
+<span class=result>       </span>log:  <span class=result>E:\Dropbox\Gap Year\GSM\½ðÈÚ¼ÆÁ¿\µÚÒ»´Î×÷Òµ\DoFiles\medo.scml</span>
+<span class=result>  </span>log type:  <span class=result>smcl</span>
+<span class=result> </span>opened on:  <span class=result>13 Oct 2014, 08:48:02</span>
+<br><br>
+<span class=input>. type A1.do</span>
+<span class=result>clear all</span>
+<span class=result>set trace off</span>
+<span class=result>set more off</span>
+<span class=result>cd "E:\Dropbox\Gap Year\GSM\........\..........\RawData\Dalyr"</span>
+<br><br>
+<span class=result>***************************************************************</span>
+<span class=result>************** INITILIZATION                      *************</span>
+<span class=result>***************************************************************</span>
+<span class=result>*1.Data of Stocks</span>
+<span class=result>local file : dir . files "*.xls",nofail</span>
+<span class=result>gen filename=""</span>
+<span class=result>local obs = 1</span>
+<span class=result>foreach f of local file {</span>
+<span class=result>        import excel using "`f'", firstrow clear</span>
+<span class=result>        gen source = "`obs'"</span>
+<span class=result>        save "..\..\WorkingData\Dalyr_`obs'", replace</span>
+<span class=result>        local obs = `obs' +1</span>
+<span class=result>}</span>
+<br><br>
+<br><br>
+<span class=result>cd ..\..\WorkingData\</span>
+<br><br>
+<span class=result>use Dalyr_1.dta, clear</span>
+<span class=result>local end = `obs' - 1</span>
+<span class=result>forvalue i = 2(1)`end'{</span>
+<span class=result>        append using "Dalyr_`i'.dta"</span>
+<span class=result>}</span>
+<br><br>
+<span class=result>gen lenSKT = strlen(Stkcd)</span>
+<span class=result>keep if lenSKT == 6</span>
+<span class=result>drop lenSKT</span>
+<span class=result>destring Dretwd, replace</span>
+<span class=result>sort Trddt</span>
+<span class=result>save Stocks.dta, replace</span>
+<br><br>
+<br><br>
+<span class=result>*2.Data of Index</span>
+<span class=result>import excel using ..\RawData\TRD_Index.xls, firstrow clear</span>
+<span class=result>drop in 1/2</span>
+<span class=result>destring Retindex, replace</span>
+<span class=result>keep if Indexcd =="000001"</span>
+<span class=result>sort Trddt</span>
+<span class=result>save Index.dta, replace</span>
+<br><br>
+<br><br>
+<span class=result>*3.Data of Asset, Liability</span>
+<span class=result>import excel using ..\RawData\FS_Combas.xls, firstrow clear</span>
+<span class=result>drop in 1/2</span>
+<span class=result>keep if Accper =="2011-12-31"</span>
+<span class=result>rename A001000000 Asset</span>
+<span class=result>rename A002000000 Liability</span>
+<span class=result>destring Asset Liability, replace</span>
+<span class=result>gen Lev = Liability / Asset</span>
+<span class=result>save Lev.dta, replace</span>
+<br><br>
+<span class=result>*Merging</span>
+<span class=result>use Stocks.dta, clear</span>
+<span class=result>merge m:1 Trddt using Index.dta</span>
+<span class=result>tab _merge</span>
+<span class=result>keep if _merge ==3</span>
+<span class=result>drop _merge</span>
+<span class=result>sort Stkcd</span>
+<span class=result>merge m:1 Stkcd using Lev.dta</span>
+<span class=result>keep if _merge ==3</span>
+<span class=result>tab _merge</span>
+<span class=result>drop _merge</span>
+<br><br>
+<br><br>
+<span class=result>*Format</span>
+<span class=result>replace Trddt = subinstr(Trddt, "-", "",.)</span>
+<span class=result>rename Stkcd StkID</span>
+<span class=result>rename Trddt date</span>
+<span class=result>rename Dretwd Dreturn</span>
+<span class=result>rename Retindex Mreturn</span>
+<br><br>
+<span class=result>keep StkID date Dreturn Mreturn Lev</span>
+<span class=result>destring StkID, replace</span>
+<span class=result>save StocksMerged.dta, replace</span>
+<span class=result>outsheet using "Stocks.csv", comma replace</span>
+<br><br>
+<br><br>
+<br><br>
+<br><br>
+<span class=result>*Beta</span>
+<span class=result>use StocksMerged.dta, clear</span>
+<span class=result>gen Date = date(date,"YMD")</span>
+<span class=result>keep if Date &lt; date("20120101", "YMD")</span>
+<span class=result>drop Date</span>
+<span class=result>statsby _b[_cons] _b[Mreturn] e(rmse), by(StkID) clear: reg Dreturn Mreturn</span>
+<span class=result>rename _stat_1 Alpha</span>
+<span class=result>rename _stat_2 Beta</span>
+<span class=result>rename _stat_3 nonSE</span>
+<span class=result>sort StkID</span>
+<span class=result>save Beta.dta, replace</span>
+<br><br>
+<span class=result>use Stocksmerged.dta, clear</span>
+<span class=result>sort StkID</span>
+<span class=result>merge StkID using Beta.dta</span>
+<span class=result>tab _merge</span>
+<span class=result>drop _merge</span>
+<span class=result>gen ui = Dreturn - Alpha - Beta*Mreturn</span>
+<span class=result>gen Date = date(date,"YMD")</span>
+<span class=result>gen year = year(Date)</span>
+<span class=result>*bysort StkID year: drop if _N&lt;400</span>
+<span class=result>tsset StkID Date</span>
+<span class=result>egen Stkgp = group(StkID)</span>
+<span class=result>save StocksMerged.dta, replace</span>
+<br><br>
+<br><br>
+<span class=result>***************************************************************</span>
+<span class=result>**************                       *************</span>
+<span class=result>***************************************************************</span>
+<span class=result>use StocksMerged.dta, clear</span>
+<br><br>
+<br><br>
+<span class=result>*Q1</span>
+<br><br>
+<span class=result>qui sum Stkgp</span>
+<span class=result>sca randomgp = round(runiform()*r(max),1)</span>
+<span class=result>keep if Stkgp == randomgp</span>
+<span class=result>reg ui l1.ui l2.ui l3.ui l4.ui </span>
+<span class=result>twoway lfitci ui l1.ui || scatter ui l1.ui </span>
+<br><br>
+<span class=result>use StocksMerged.dta, clear</span>
+<span class=result>qui sum Stkgp</span>
+<span class=result>sca randomgp = round(runiform()*r(max),1)</span>
+<span class=result>keep if Stkgp == randomgp</span>
+<span class=result>reg ui l1.ui l2.ui l3.ui l4.ui </span>
+<span class=result>twoway lfitci ui l1.ui || scatter ui l1.ui </span>
+<br><br>
+<br><br>
+<span class=result>*Q2</span>
+<span class=result>*Already done in the part BETA</span>
+<br><br>
+<br><br>
+<span class=result>*Q3</span>
+<span class=result>use Stocksmerged.dta, clear</span>
+<span class=result>capture drop Date</span>
+<span class=result>gen Date = date(date,"YMD")</span>
+<span class=result>keep if Date &gt;= date("20120101", "YMD")</span>
+<span class=result>collapse (mean)Dreturn Lev, by(StkID)</span>
+<span class=result>rename Dreturn return12</span>
+<span class=result>sort StkID</span>
+<span class=result>save Return12.dta, replace</span>
+<br><br>
+<span class=result>use Beta.dta, clear</span>
+<span class=result>bysort StkID: keep if _n==1</span>
+<span class=result>merge StkID using Return12.dta</span>
+<span class=result>tab _merge</span>
+<span class=result>drop _merge</span>
+<span class=result>gen Beta_Lev = Beta*Lev</span>
+<span class=result>reg return12 Lev nonSE Beta</span>
+<br><br>
+<span class=result>*Q4</span>
+<span class=result>reg return12 Lev nonSE Beta_Lev Beta</span>
+<span class=result>test Beta_Lev = 0</span>
+<br><br>
+<span class=result>*Q5</span>
+<br><br>
+<span class=result>hettest</span>
+<span class=result>reg return12 Lev nonSE Beta_Lev Beta, robust</span>
+<br><br>
+<span class=result>*WLS=FGLS</span>
+<span class=result>quietly {</span>
+<span class=result>        reg return12 Lev nonSE Beta_Lev Beta </span>
+<span class=result>        predict el, res </span>
+<span class=result>        gen lne2=log(el^2)</span>
+<span class=result>        reg lne2 Lev nonSE Beta_Lev Beta  </span>
+<span class=result>        predict lne2f</span>
+<span class=result>        gen e2f=exp(lne2f) </span>
+<span class=result>}</span>
+<span class=result>reg return12 Lev nonSE Beta_Lev Beta [aw=1/e2f] </span>
+<br><br>
+<span class=result>*FGLS</span>
+<span class=result>*xtreg return12 Lev nonSE Beta_Lev Beta,re</span>
+<br><br>
+<span class=result>*Q6</span>
+<span class=result>cumul Lev, gen(cuLev)</span>
+<span class=result>recode cuLev(0/0.5 = 0)(0.5/1 = 1)</span>
+<span class=result>reg return12 c.Lev##cuLev c.nonSE##cuLev c.Beta_Lev##cuLev c.Beta##cuLev, robust</span>
+<span class=result>contrast cuLev cuLev#c.Lev cuLev#c.nonSE cuLev#c.Beta_Lev cuLev#c.Beta, overall</span>
+<br><br>
+<span class=input>. log close</span>
+<span class=result>      </span>name:  <span class=result>&lt;unnamed&gt;</span>
+<span class=result>       </span>log:  <span class=result>E:\Dropbox\Gap Year\GSM\½ðÈÚ¼ÆÁ¿\µÚÒ»´Î×÷Òµ\DoFiles\medo.scml</span>
+<span class=result>  </span>log type:  <span class=result>smcl</span>
+<span class=result> </span>closed on:  <span class=result>13 Oct 2014, 08:48:14</span>
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+</pre>
+</body>
+</html>

@@ -1,5 +1,20 @@
 # Object file
 *.o
 
-# Ada Library Information
-*.ali
+
+#Unrelated files
+*.xls
+*.xlsx
+*.csv
+*.dta
+
+
+*.txt
+*.rar
+*.zip
+
+*.pdf
+*.caj
+
+*.doc
+*.docx
