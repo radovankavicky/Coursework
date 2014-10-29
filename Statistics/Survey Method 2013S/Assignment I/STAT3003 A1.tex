@@ -1,0 +1,131 @@
+\documentclass{article}
+ \usepackage{amsmath}
+  \usepackage{amssymb}
+\topmargin=-1.2cm \oddsidemargin=0.1cm \evensidemargin=0.1cm
+\textwidth=16 true cm \textheight=23 true cm
+
+\font\euler=EUSM10 \font\eulers=EUSM7
+
+\begin{document}
+\title{STAT 3003 Survey Methods \\Assignment $1^{\text{st}}$}
+\author{{\normalsize Leonard Sheng(SHENG, Hao), 1155035947, via \LaTeX}}
+\date{\today}
+
+\maketitle
+
+\def \Pr{{\rm Pr}}
+
+
+\baselineskip 0.6cm
+
+\begin{description}
+
+
+    \item[3.10 ]\hfill\\
+        {\bf Answer:} Define $c_i$ as the Calories(C) of each drink, and $d_i$ as the Cost(D) of each drink. \\
+        (a)\\
+        The  mean of calories is a good summary number for typical calories per serving.\\
+        The deviation(or variation) of calories is a good summary number for the variation in the calories.\\
+        (b)\\
+        The  mean of cost is a good summary number for typical cost per serving. If we are bothered by the extreme value of {\it Hydra}, we can calculate the mean after dropping it.\\
+        The deviation(or variation) of cost is a good summary number for the variation in the cost.\\
+        (c) \\
+            No. We don't care about the calories taken in the population.\\
+            No. Neither do we care about the total cost in such drinks.\\
+        (d)
+        It doesn't has much impact on the average calories per serving. But it will raise the standard deviation.\\
+        It will decrease the average cost per serving, and decrease the standard deviation.
+        \begin{align}
+            \overset{-}{c}'&=\sum _{i\neq 6}^{n'} c_i=\frac{1}{8}(60+70+60+70+50+60+67+80)\doteq 64.63<64.78\doteq \overset{-}{c}\\
+            s_c'&=\sqrt{\frac{1}{n'-1}\sum _{i\neq 6}^{n'} \left(c_i-\overset{-}{c}\right){}^2} \notag \\
+            &=\sqrt{\frac{1}{7}\left(\left(60-\frac{658}{9}\right)^2+\left(70-\frac{658}{9}\right)^2+\ldots +\left(80-\frac{658}{9}\right)^2\right)}\doteq 9.06>8.51\doteq s_c\\
+            \overset{-}{d}'&=\sum _{i\neq 6}^{n'} d_i=\frac{1}{8}(.22+.24+.26+.34+.26+.22+.24+.35)\doteq .267<.294\doteq \overset{-}{d}\\
+            s_d'&=\sqrt{\frac{1}{n'-1}\sum _{i\neq 6}^{n'} \left(d_i-\overset{-}{d}\right){}^2} \notag \\
+            &=\sqrt{\frac{1}{7}\left(\left(.22-\frac{53}{180}\right)^2+\left(.24-\frac{53}{180}\right)^2+\ldots +\left(.35-\frac{53}{180}\right)^2\right)}\doteq .051<.097\doteq s_d
+           \end{align}\newpage
+        (e)\\
+        Snapple Snap-Up. $$\text{Max}\left\{\left|c_i-\overset{-}{c}\right|\right\}=c_9-\overset{-}{c}\doteq 15.22$$
+        Since each drink is of same weight, Snapple will influence the average most due to its largest deviation from the average.\\
+    \item[3.11 ]\hfill \\
+        {\bf Answer:}\\
+        (a)\\
+            No. Because these powered drinks are of 32-serving container, adding them to the list will increase the average significantly. \\
+        (b)\\
+            Neither. Now the average cost per serving is \$.2863, a little lower. Its standard deviation is .089 now, also a little lower.\\
+        (c)\\
+            Yes. Now the average calories is 55.45, much lower. But its standard deviation is 22.68, much higher than 8.51 before. \\
+        (d)\\
+            We can use median rather than the mean as the summary number. Or we can calculate mean when MAX and MIN values were excluded.\\
+    \item[4.5 ]\hfill \\
+        {\bf Answer:}\\
+        (a) Larger farms now are of a higher possibility been taken into sample. Thus there may be a upward bias.\\
+        (b) The professor select a sample using his/her own judgment: that is a haphazard sampling. If we assume that succussed valedictorians attract him/her more, and are of a higher possibility been taken into sample, the result of possibility may suffer from a upward bias.\\
+        (c) The sample is constructed partly by the asker haphazardly, partly by the responser. If we assume teachers whose student perform well in the AP will response more urgently, we get a upward bias in the estimated pass rate.\\
+        (d) Because of their difference in length, longer stings are more likely of been picked up. Thus the estimator may be upward biased. \\
+        (e) The sample is constructed by the responsor. If we assume that woman who are satisfied with their marriages are more likely busy with their families, while woman who has more problems will response urgently, their may be an overestimating of marital unhappiness.   \\
+    \item[4.11 ] \hfill \\
+        {\bf Answer:}\\
+        (a) No. Once the form is given, there is no choice for the later student to get into the sample, which violates the basic equal-possibility requirement of simple random sampling. Consider the form of the roll sheet: usually the position of the class roil sheet is not settled randomly, it may be decided by the school performance or something else.\\
+        (b) No. The selection of individual students are not independent.
+        (c) No. The selection of individual students are not independent.\\
+        (d) Yes.\\
+        (e) No. Given 3 boys and 2 girls enrolled, the last one must be a girl. This means the selection of individual students are not independent.\\
+        (f) No. The selection of individual students are not independent.\\
+    \item[4.19 ] \hfill \\
+        {\bf Answer:} Define $c_i$ as the number of cavities(cavity) of child $i$.\\
+            \begin{align}
+            \overset{-}{c}&=\sum _{i=1}^{10} c_i=2 \\
+            s_c{}^2&=\frac{1}{9}\sum _{i=1}^{10} \left(c_i-2\right){}^2\doteq 2.22\\
+            \end{align}
+            So, we estimate the population mean $\mu$ as $\hat{\mu }=\overset{-}{c}=2$.\\
+            The bound on the error is $2\sqrt{\hat{V}\left(\overset{-}{c}\right)}=2\sqrt{\left(1-\frac{n}{N}\right)\frac{s_c{}^2}{n}}\doteq .938$.\\
+    \item[4.20 ] \hfill \\
+        {\bf Answer:} Define $y_i$ as 1 if hunter $i$ says he or she hunted game birds, 0 for not.\\
+            \begin{align}
+            \hat{p}&=\overset{-}{y}=\frac{\sum _{i=1}^{1000} y_i}{n}\doteq .43\\
+            2\sqrt{\hat{V}\left(\hat{P}\right)}&=2\sqrt{\left(1-\frac{n}{N}\right)\frac{\hat{p}\hat{q}}{n-1}}\doteq 0.031
+            \end{align}\\
+    \item[4.21 ] \hfill \\
+        {\bf Answer:}\\
+        \begin{align}
+        n=\frac{\text{Npq}}{\frac{(N-1)B^2}{4}+\text{pq}}
+        \end{align}
+        Using the estimator of $p$, the $\hat{p}$, we have:\\
+        \begin{align}
+        n=\frac{99000*0.43*0.57}{\frac{(99000-1)*0.02^2}{4}+0.43*0.57}\doteq 2391.8
+        \end{align}
+        So, the sample size should be no less than 2392.\\
+    \item[4.27 ] \hfill \\
+    {\bf Answer:}\\
+        \begin{align}
+        \tau &=N\overset{-}{y}=1500*25.2=37800\\
+        2\sqrt{\hat{V}\left(N\overset{-}{y}\right)}&=2\sqrt{N^2\left(1-\frac{n}{N}\right)\left(\frac{s^2}{n}\right)}\doteq 3379.94.
+        \end{align}
+        The estimator of total number is 37800, with a bound on the error of estimation of 3379.94.
+    \item[4.34 ] \hfill \\
+    {\bf Answer:}\\
+        \begin{align}
+        n=\frac{\text{N$\sigma $}^2}{\frac{(N-1)B^2}{4N^2}+\sigma ^2}
+        \end{align}
+        Here, ${\sigma}^2$ is approximately equal to $s^2$. Thus, we have:\\
+        \begin{align}
+        n\doteq \frac{1500*136}{\frac{1499*1500^2}{4*1500^2}+136}\doteq 399.41
+        \end{align}
+        So, the sample size should be no less than 400.\\
+    \item[4.39 ] \hfill \\
+    {\bf Answer:}\\Define $p_w$ as the proportion of batting in World Series play, $p_r$ as the proportion of batting in regular season, $p_l$ as the proportion of batting in League Championship Series. This are all unknown population parameter which can be seen as potential batting rate.\\
+    \begin{align}
+    \hat{p}_w&=0.357\\
+    \hat{p}_r&=0.262\\
+    \hat{p}_l&=0.227
+    \end{align}
+    Thus we have:
+    \begin{align}
+      \hat{p}_w-\hat{p}_r&\doteq 0.095\\
+      \hat{V}\left(\hat{p}_w-\hat{p}_r\right)&=\frac{\hat{p}_w\left(1-\hat{p}_w\right)}{n_w}+\frac{\hat{p}_r\left(1-\hat{p}_r\right)}{n_r}\doteq 0.0024\\
+      \hat{p}_w-\hat{p}_l&\doteq 0.13\\
+      \hat{V}\left(\hat{p}_w-\hat{p}_l\right)&=\frac{\hat{p}_w\left(1-\hat{p}_w\right)}{n_w}+\frac{\hat{p}_l\left(1-\hat{p}_l\right)}{n_l}\doteq 0.0034
+    \end{align}
+    Because $\hat{p}_w-\hat{p}_r-2\sqrt{\hat{V}\left(\hat{p}_w-\hat{p}_r\right)}\doteq -0.0021<0$ and $\hat{p}_w-\hat{p}_l-2\sqrt{\hat{V}\left(\hat{p}_w-\hat{p}_l\right)}\doteq 0.01338>0$, we can not reject the hypothesis that the nickname isn't justified compared with the regular season, but we can say the nickname is justified compared with the League Championship Series, both at the significant level of 5\%.
+\end{description}
+\end{document}

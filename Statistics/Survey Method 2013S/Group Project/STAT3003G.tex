@@ -1,0 +1,677 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Simple Sectioned Essay Template
+% LaTeX Template
+%
+% This template has been downloaded from:
+% http://www.latextemplates.com
+%
+% Note:
+% The \lipsum[#] commands throughout this template generate dummy text
+% to fill the template out. These commands should all be removed when
+% writing essay content.
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%----------------------------------------------------------------------------------------
+%	PACKAGES AND OTHER DOCUMENT CONFIGURATIONS
+%----------------------------------------------------------------------------------------
+
+\documentclass[12pt]{article} % Default font size is 12pt, it can be changed here
+
+\usepackage{geometry} % Required to change the page size to A4
+\geometry{a4paper} % Set the page size to be A4 as opposed to the default US Letter
+
+\usepackage{graphicx} % Required for including pictures
+
+\usepackage{float} % Allows putting an [H] in \begin{figure} to specify the exact location of the figure
+\usepackage{wrapfig} % Allows in-line images such as the example fish picture
+
+\usepackage{lipsum} % Used for inserting dummy 'Lorem ipsum' text into the template
+\usepackage{setspace}
+\usepackage{amsmath}
+  \usepackage{amssymb}
+  \usepackage{graphicx}
+  \usepackage{float}
+\linespread{1.2} % Line spacing
+
+%\setlength\parindent{0pt} % Uncomment to remove all indentation from paragraphs
+
+\graphicspath{{./Pictures/}} % Specifies the directory where pictures are stored
+
+\begin{document}
+
+%----------------------------------------------------------------------------------------
+%	TITLE PAGE
+%----------------------------------------------------------------------------------------
+
+\begin{titlepage}
+
+\newcommand{\HRule}{\rule{\linewidth}{0.5mm}} % Defines a new command for the horizontal lines, change thickness here
+
+\center % Center everything on the page
+
+\textsc{\LARGE STAT3003 SURVEY METHOD}\\[1.5cm] % Name of your university/college
+\textsc{\Large Group Project }\\[0.5cm] % Major heading such as course name
+\textsc{\large Group 9}\\[0.5cm] % Minor heading such as course title
+
+\HRule \\[0.4cm]
+{ \huge \bfseries The class attending behavior:}\\[0.4cm] % Title of your document
+\textsc{\large Skipping and being late to morning classes}
+\HRule \\[1.5cm]
+
+\begin{minipage}{0.4\textwidth}
+\begin{flushleft} \large
+\emph{Group Members:}\\
+CHOW \textsc{Tze Kin}\\
+MAO \textsc{Jiahui}\\
+SHENG \textsc{Hao}\\
+TAM \textsc{Ching Man}
+YEUNG \textsc{Cho Yin}
+\end{flushleft}
+\end{minipage}
+~
+\begin{minipage}{0.4\textwidth}
+\begin{flushright} \large
+\emph{Instructor:} \\
+Dr. John \textsc{Wright} % Supervisor's Name
+\end{flushright}
+\end{minipage}\\[4cm]
+
+{\large \today}\\[3cm] % Date, change the \today to a set date if you want to be precise
+
+%\includegraphics{Logo}\\[1cm] % Include a department/university logo - this will require the graphicx package
+
+\vfill % Fill the rest of the page with whitespace
+
+\end{titlepage}
+
+%----------------------------------------------------------------------------------------
+%	TABLE OF CONTENTS
+%----------------------------------------------------------------------------------------
+
+\tableofcontents % Include a table of contents
+
+\newpage % Begins the essay on a new page instead of on the same page as the table of contents
+
+%----------------------------------------------------------------------------------------
+%	INTRODUCTION
+%----------------------------------------------------------------------------------------
+
+\section{Introduction} % Major section
+
+Most university students like getting up around noon and prefer to schedule classes that start later in a day. Unfortunately, morning classes are sometimes unavoidable. For example, some classes which are needed to meet students¡¯ academic requirement are given in the morning only, so students are forced to register for these morning classes. Or a course which students are particularly interested in is a morning class and they cannot resist its charm.\\\\
+Still, most people find it hard to drag themselves to early classes. The attendance rate and punctuality of morning class are undesirable. How frequently they skip or are late for lessons in the morning and their reasons for doing so are of our interest.
+
+
+\section{Objectives} % Major section
+
+In the project, we would to like to look into the skipping class and lateness behaviors of Department of Statistics¡¯ students in the Chinese University of Hong Kong (CUHK). We conduct a research to investigate the behaviors, to examine which factors contributing in skipping or being late for class and to study whether there are any behavioral differences between different years of study, gender and college.\\
+
+There are some conjectures we would like to verify:
+\begin{description}
+  \item[I.]Living in dormitory
+  \item[II.]Sleeping Behavior
+  \item[III.]Academic performance
+\end{description}
+%------------------------------------------------
+
+\section{Survey Method}
+\subsection{Target population} % Sub-section
+  As we want to study the class attending behaviors of CUHK Statistics students, it is intuitive that the target population is {\bf all Year 1 to Year 3 Students in Statistics Department of the Chinese University of Hong Kong (including STAT, RMS and IQR)}
+\subsection{The frame} % Sub-section
+   We make use of the phone book issued by Society of Department of Statistics. This book provides us Statistics student¡¯s information like: 
+   \begin{spacing}{0.8}
+    \begin{itemize}
+      \item Major
+      \item Year
+      \item Name
+      \item Nickname
+      \item Birthday
+      \item Phone no.
+      \item Mobile Network
+      \item Region
+      \item Hostel
+      \item Email
+    \end{itemize}
+    \end{spacing}
+\subsection{Sampling design and measurement instrument}
+   Stratified sampling is used in our survey. We define Year1, Year2 and Year3 as the stratum since the phone book already displays student¡¯s information according to their year of study.\\
+    Counted from the phone book, the stratum size is listed as below.
+   \begin{center}
+             % Table generated by Excel2LaTeX from sheet 'Sheet1'
+        \begin{tabular}{cccc}
+        \hline
+        \hline
+        {\bf Year 1} & {\bf Year 2} & {\bf Year 3} & {\bf Total} \\
+        \hline
+                85 &         76 &         84 &        235 \\
+        \hline
+        \hline
+        \end{tabular}
+        \\
+        {\bf Table3.3.1} The size of each strata
+   \end{center}
+
+\subsection{Method of measurement}
+We used both online questionnaire and telephone interview. We sent the link of questionnaire to each sampled students by email. If there was some non-response, we had callbacks by conducting telephone interview.
+
+\subsection{Pretest}
+Before the main survey, we performed the pretest by conducting online questionnaire. The aim of the pretest is to find out the choices that can mostly represent the choices answered in the open questions and then the choices found will be the fixed alternatives in our main questionnaire. Moreover, we can make use of the questions in the pretest to estimate the population variance by sample variance and then calculate the sample size needed in the main questionnaire.
+%------------------------------------------------
+\section{Data Analysis for Pretest}
+\subsection{Pretest result}
+There are total 42 samples in the pretest and a brief summary of result in QB22 ,QB32 and QC1 are listed below since we will only use these 4 questions to determine our fixed alternatives and the sample size required in our main questionnaire (the pretest questionnaire is included in appendix):
+\begin{center}
+% Table generated by Excel2LaTeX from sheet 'Sheet4'
+\begin{tabular}{ccc}
+\hline
+\hline
+{\bf Year 1} & {\bf Year 2} & {\bf Year 3} \\
+\hline
+        14 &         17 &         11 \\
+\hline
+\hline
+\end{tabular}
+
+{\bf Table4.1.1}Distribution of the response to Question A1 in pretest
+\end{center}
+
+
+\begin{center}
+\begin{tabular}{ccccc}
+\hline
+\hline
+{\bf Not enough} & {\bf Lessons start } & {\bf No interest } & \multicolumn{ 1}{c}{{\bf Not free}} & \multicolumn{ 1}{c}{{\bf Others}} \\
+
+{\bf  sleeping time} & {\bf too early} & {\bf in lessons} & \multicolumn{ 1}{c}{{\bf }} & \multicolumn{ 1}{c}{{\bf }} \\
+\hline
+    45.8\% &     16.7\% &      8.3\% &      8.3\% &     20.8\% \\
+\hline
+\hline
+\end{tabular}
+
+{\bf Table4.1.2}Distribution of the response to Question B22 in pretest
+\end{center}
+
+\begin{center}
+% Table generated by Excel2LaTeX from sheet 'Sheet4'
+\begin{tabular}{ccccc}
+\hline
+\hline
+\multicolumn{ 1}{c}{{\bf Wake up late}} & \multicolumn{ 1}{c}{{\bf Having breakfast}} & \multicolumn{ 1}{c}{{\bf Transportation}} & {\bf The first 10 minutes } & \multicolumn{ 1}{c}{{\bf Others}} \\
+
+\multicolumn{ 1}{c}{{\bf }} & \multicolumn{ 1}{c}{{\bf }} & \multicolumn{ 1}{c}{{\bf }} & {\bf of teaching content} & \multicolumn{ 1}{c}{{\bf }} \\
+
+\multicolumn{ 1}{c}{{\bf }} & \multicolumn{ 1}{c}{{\bf }} & \multicolumn{ 1}{c}{{\bf }} & {\bf  is not important} & \multicolumn{ 1}{c}{{\bf }} \\
+\hline
+    31.6\% &     21.1\% &     10.5\% &     10.5\% &     26.3\% \\
+\hline
+\hline
+\end{tabular}
+
+
+{\bf Table4.1.3}Distribution of the response to Question B32 in pretest
+\end{center}
+By QB22, we can set the fixed four alternatives of QB24 in formal test as: Not enough sleeping time, Lessons start too early, No interest in lessons and Not free.\\
+By QB32, we can set the fixed four alternatives of QB33 in formal test as: Wake up late, Having breakfast, Transportation and The first 10 minutes of teaching content is not important.
+
+\subsection{Calculation of the sample size required in formal test}
+As we use stratified random sampling as the sampling design, we determine the sample size required in formal test by the formula:
+\begin{align}
+  n=\frac{\sum _{i=1}^L N_i^2\frac{\sigma _i^2}{a_i}}{\frac{N^2B^2}{4}+\sum _{i=1}^L N_i\sigma _i^2}
+\end{align}
+where $a_i$ is the fraction of observations allocated to stratum $i$ for $i=1,2,3$ \\
+      $\sigma_i^2$  is the population variance for stratum $i$ for $i=1,2,3$\\ 
+      $B$ is the bound of error.\\\\
+      We use the pretest sample variance to estimate the population variance. Also, we choose the bound of error, $B$ to be 0.075 and calculate the corresponding sample size required in formal test. By calculation,
+\begin{align}
+  n=49.53738\doteq50
+\end{align}
+
+With the method of proportional allocation, we can determine the sample size required in the formal test in each stratum by the equation: 
+\begin{align}
+  n_i=n\left(\frac{N_i}{N}\right)
+\end{align}
+which gives us:
+\begin{align}
+  n_1\doteq17.34694\doteq17\\
+  n_2\doteq15.5102\doteq15\\
+  n_3\doteq17.14285\doteq17
+\end{align}
+\subsection{Revisal of question in formal test}
+In our pretest, we have two questions:\\
+{\it B2. In recent two weeks, did you skip any morning lecture sections? (NOT INCLUDING sections which you were LATE for)}\\
+{\it B3. In recent two weeks, were you late for morning lecture sections? (late refers to arrival after the official start time of class)}\\\\
+In formal test, these two questions changed to\\
+{\it B3. In recent week (8/4-12/4), did you skip any morning lecture sections? (NOT INCLUDING sections which you were LATE for)}\\
+{\it B3. In recent week (8/4-12/4), were you late for morning lecture sections? (late refers to arrival after the official start time of class)}\\
+
+The reason is that there are 2 holidays during the week 1/4 -5/4, and we cannot determine the actual attendance of the interviewees if this week is included in the questions. Therefore, we only consider the previous week of the day conducting the survey.
+
+\section{Data Analysis for Main test}
+\subsection{Non-response rate and data error problem} % Sub-sub-section
+As after few days we sent the link to the people, there were some sampled students not doing the questionnaire, we did the call-back. After the call-back, 4 students gave their response. Moreover, there are 2 observations in our data that have skipping rate (or late rate) larger than one. We take this as a typing error. And since it is only a small part of our sample, we can treat the rate of these two observations as zero and this error problem will not change our result largely.
+\subsection{General result and response rate}
+\begin{center}
+  % Table generated by Excel2LaTeX from sheet 'Sheet3'
+\begin{tabular}{rrrrrr}
+\hline
+\hline
+        \multicolumn{ 5}{r}{{\bf Total number of respondents}} &         48 \\
+\hline
+\multicolumn{ 5}{r}{{\bf Total number of respondents with valid response}} &         46 \\
+\hline
+{\bf Gender} &            & {\bf Year} &            & {\bf College} &            \\
+\hline
+\multicolumn{ 1}{r}{Male} &         28 & \multicolumn{ 1}{r}{Year 1} &         18 & \multicolumn{ 1}{r}{CC} &         15 \\
+
+\multicolumn{ 1}{r}{} & (3 call-backs) & \multicolumn{ 1}{r}{} & (3 call-backs) & \multicolumn{ 1}{r}{} & (1 call-back) \\
+
+\multicolumn{ 1}{r}{} & (I invalid) & \multicolumn{ 1}{r}{} & (I invalid) & \multicolumn{ 1}{r}{} & (I invalid) \\
+
+\multicolumn{ 1}{r}{Female} &         18 & \multicolumn{ 1}{r}{Year 2} & \multicolumn{ 1}{r}{15} & \multicolumn{ 1}{r}{UC} &         19 \\
+
+\multicolumn{ 1}{r}{} & (1 call-back) & \multicolumn{ 1}{r}{} & \multicolumn{ 1}{r}{} & \multicolumn{ 1}{r}{} & (2 call-backs) \\
+
+\multicolumn{ 1}{r}{} & (I invalid) & \multicolumn{ 1}{r}{} & \multicolumn{ 1}{r}{} & \multicolumn{ 1}{r}{} &            \\
+
+\multicolumn{ 1}{r}{} & \multicolumn{ 1}{r}{} & \multicolumn{ 1}{r}{Year 3} &         15 & \multicolumn{ 1}{r}{NA} &         11 \\
+
+\multicolumn{ 1}{r}{} & \multicolumn{ 1}{r}{} & \multicolumn{ 1}{r}{} & (1 call-back) & \multicolumn{ 1}{r}{} & (1 call back) \\
+
+\multicolumn{ 1}{r}{} & \multicolumn{ 1}{r}{} & \multicolumn{ 1}{r}{} & (I invalid) & \multicolumn{ 1}{r}{} & (I invalid) \\
+\hline
+\hline
+\end{tabular}
+    {\bf Table5.2.1}General result of the main survey.
+\end{center}
+In our survey, we define the response rate as $\frac{\text{completed interviews}}{\text{number of unit contracted}}$.\\
+In overall, the response rate is $\frac{18+15+15}{18+15+15}=100\%$.	
+
+\subsection{Estimating the skipping rate and late rate}
+\subsubsection{Ratio estimation} % Sub-sub-section
+Since the number of early class sections and the number of those he(she) skipped are both random variables, we will estimate the skipping rate using ratio estimation:
+\begin{align}
+  \hat{r}_{\text{skip},r}&=\frac{\overset{-}{x_{22}}}{\overset{-}{x_2}}\doteq 0.3659\\
+  \hat{\text{Var}}\left(\hat{r}_{\text{skip},r}\right)&=\left(1-\frac{n}{N}\right)\left(\frac{1}{\mu _x^2}\right)\frac{s_r^2}{n}\doteq \left(1-\frac{n}{N}\right)\left(\frac{1}{\overset{-}{x_2}{}^2}\right)\frac{s_r^2}{n}\doteq 0.00425
+\end{align}
+%------------------------------------------------
+Here, we denote the response to the {\it Question B22} in the main questionnaire as $x_{22}$, and $x_2$ represents the response to {\it Question B2} in the main questionnaire.
+The 95\% CI for $\hat{r}_{\text{skip},r}$ would be [0.23544659, 0.49626073].\\\\
+For late rate:
+\begin{align}
+  \hat{r}_{\text{late},r}&=\frac{\overset{-}{x_{32}}}{\overset{-}{x_2}}\doteq 0.3902\\\hat{\text{Var}}\left(\hat{r}_{\text{late},r}\right)&=\left(1-\frac{n}{N}\right)\left(\frac{1}{\mu _x^2}\right)\frac{s_r^2}{n}\doteq \left(1-\frac{n}{N}\right)\left(\frac{1}{\overset{-}{x_2}{}^2}\right)\frac{s_r^2}{n}\doteq 0.00229
+\end{align}
+So, the 95\% CI for $\hat{r}_{\text{late},r}$ would be [0.29455158, 0.48593622].\\
+\subsubsection{Behavioral difference between freshman, sophomore and junior}The information of Year and Hostel in the phone book seems to be helpful because it is reasonable to assume students of different year or hostel behave differently in attending classes. We will use the year information as Hostel may be a little out of date.\\\\
+In this part, we try to find out if we can use the population size of statistic freshmen, sophomore and junior to have a better estimation of two rate of our interest. We also study if the post-stratification method will help.\\\\
+We divide the sample into sub-groups of freshmen, sophomore and junior. For each sub-group, like what we have done before, we use ratio estimation method to estimate the rates and their variance so as to make comparisons.\\
+{\bf (i).Skipping rate}
+\begin{center}
+  % Table generated by Excel2LaTeX from sheet 'Sheet1'
+        \begin{tabular}{cccc}
+        \hline
+        \hline
+        {\bf Year(y)} &  {\bf Obs} & {\bf Mean} & {\bf Std. Dev.} \\
+        \hline
+                 1 &         17 &     0.1656 &     0.2694 \\
+
+                 2 &         15 &     0.5944 &     0.4235 \\
+
+                 3 &         15 &     0.2889 &     0.4105 \\
+        \hline
+        \hline
+        \end{tabular}
+
+        {\bf Table5.2.1}Skipping rate summary by year (ratio)
+\end{center}
+To examine if there is significant difference between different groups, we need to assume they are independent with each other. This may not necessarily be true in the real life: the behavior of sophomore and junior may have an effect on those of freshman. \\
+But at this stage, we just suppose they are independent with each other. Thus, we can form an 95\% approximate CI for the difference of $r_{\text{skip},r,y=2}$ and $r_{\text{skip},r,y=1}$:
+$$\hat{r}_{\text{skip},r,y=2}-\hat{r}_{\text{skip},r,y=1}\pm 2\sqrt{\hat{\text{Var}}\left(r_{\text{skip},r,y=2}\right)+\hat{\text{Var}}\left(r_{\text{skip},r,y=1}\right)}$$
+,which is [-0.57505, 1.43265].\\
+In a similar way,\\ the 95\% approximate CI for $r_{\text{skip},r,y=2}-r_{\text{skip},r,y=3}$ is [-0.874097, 1.4851];\\
+The 95\% approximate CI for $r_{\text{skip},r,y=3}-r_{\text{skip},r,y=1}$ is [-0.858711, 1.10531].\\
+Unfortunately, all of these three CIs contains zero, thus we can not say these sub-groups are significant different in the sense of skipping rate.\\
+{\bf (ii).Late rate}
+\begin{center}
+  % Table generated by Excel2LaTeX from sheet 'Sheet1'
+        \begin{tabular}{cccc}
+        \hline
+        \hline
+        {\bf Year} &  {\bf Obs} & {\bf Mean} & {\bf Std. Dev.} \\
+        \hline
+                 1 &         16 &     0.4385 &     0.3931 \\
+
+                 2 &         15 &     0.3778 &     0.3791 \\
+
+                 3 &         15 &        0.5 &     0.3832 \\
+        \hline
+        \hline
+        \end{tabular}
+
+        {\bf Table5.3.1}Late rate summary by year (ratio)
+\end{center}
+We also can not say these sub-groups are significant different in the sense of late rate.
+A 95\% CI for $r_{\text{late},r,y=1}-r_{\text{late},r,y=2}$, $r_{\text{late},r,y=3}-r_{\text{late},r,y=2}$ and $r_{\text{late},r,y=3}-r_{\text{late},r,y=1}$ are [-1.03154,1.15294], [-0.955871, 1.20027], [-1.03644, 1.20027] respectively.
+\subsubsection{Behavioral difference between gender}
+{\bf (i).Skipping rate}
+\begin{center}
+          % Table generated by Excel2LaTeX from sheet 'Sheet1'
+        \begin{tabular}{cccc}
+        \hline
+        \hline
+        {\bf Gender} &  {\bf Obs} & {\bf Mean} & {\bf Std. Dev.} \\
+        \hline
+                 M &         28 &     0.4125 &   0.099874 \\
+
+                 F &         18 &    0.27907 & 0.19962447 \\
+        \hline
+        \hline
+        \end{tabular}
+
+        {\bf Table5.3.2}Skipping rate summary by gender (ratio)
+\end{center}
+Since,
+\begin{align}
+  &0.4125-0.27907-2*\sqrt{0.099874^2+0.19962447^2}\doteq -0.313<0
+\end{align}
+We can not say there is a significant difference between male and female in a 95\% level.\\
+{\bf (ii).Late rate}
+\begin{center}
+
+
+                % Table generated by Excel2LaTeX from sheet 'Sheet1'
+        \begin{tabular}{cccc}
+        \hline
+        \hline
+        {\bf Gender} &  {\bf Obs} & {\bf Mean} & {\bf Std. Dev.} \\
+        \hline
+                 M &         28 &     0.3625 & 0.10201474 \\
+
+                 F &         18 &    0.44186 &  0.1893082 \\
+        \hline
+        \hline
+        \end{tabular}
+
+        {\bf Table5.2.4}Late rate summary by gender (ratio)
+\end{center}
+Since,
+\begin{align}
+  &0.4125-0.27907-2*\sqrt{0.099874^2+0.19962447^2}\doteq -0.313<0
+\end{align}
+We can not say there is a significant difference between male and female in a 95\% level.\\
+
+\subsubsection{Behavioral difference between college}
+\begin{center}
+          % Table generated by Excel2LaTeX from sheet 'Sheet1'
+        \begin{tabular}{cccc}
+        \hline
+        \hline
+        {\bf College} &  {\bf Obs} & {\bf Mean} & {\bf Std. Dev.} \\
+        \hline
+                CC &         16 &    0.52632 & 0.20199358 \\
+
+                NA &         15 &    0.20588 & 0.26475248 \\
+
+                UC &         15 &    0.35294 &   0.162743 \\
+        \hline
+        \hline
+        \end{tabular}
+
+         {\bf Table5.2.5}Skipping rate summary by college (ratio)
+\end{center}
+
+
+\begin{center}
+          % Table generated by Excel2LaTeX from sheet 'Sheet1'
+        \begin{tabular}{cccc}
+        \hline
+        \hline
+        {\bf College} &  {\bf Obs} & {\bf Mean} & {\bf Std. Dev.} \\
+        \hline
+                CC &         16 &    0.52632 & 0.20199358 \\
+
+                NA &         15 &    0.20588 & 0.26475248 \\
+
+                UC &         15 &    0.35294 &   0.162743 \\
+        \hline
+        \hline
+        \end{tabular}
+
+        {\bf Table5.2.6}Late rate summary by college (ratio)
+\end{center}
+After similar calculation, we refuse that there is significant difference between colleges in a 95\% level.
+\subsubsection{Post-stratification method}
+Still, we want to see if the post-stratification method will help since the estimated variance of our estimator varies among sub-groups and the year-distribution of our sample is slightly different from the targeted population.
+For skipping rate, we have:
+\begin{align}
+  \hat{r}_{\text{skip},\text{pst}}&=\frac{N_1}{N}\hat{r}_{\text{skip},r,y=1}+\frac{N_2}{N}\hat{r}_{\text{skip},r,y=2}+\frac{N_1}{N}\hat{r}_{\text{skip},r,y=2}\doteq 0.3625\\
+  \hat{\text{Var}}\left(\hat{r}_{\text{skip},\text{pst}}\right)&=\frac{1}{n}\left(1-\frac{n}{N}\right)\sum _{i=1}^3 \frac{N_i}{N}s_i^2+\frac{1}{n^2}\sum _{i=1}^3 \left(1-\frac{N_i}{N}\right)s_i^2\doteq 0.000854
+  \intertext{where,}
+  s_i^2&=\hat{\text{Var}}\left(\hat{r}_{\text{skip},r,y=i}\right),i\in \{1,2,3\}
+\end{align}
+A 95\% CI would be: [0.3041,0.4210].\\\\
+For late rate, in a similar way we have:
+\begin{align}
+  \hat{r}_{\text{late},\text{pst}}&\doteq 0.4016\\
+  \hat{\text{Var}}\left(\hat{r}_{\text{late},\text{pst}}\right)&\doteq 0.000828
+\end{align}
+A 95\% CI would be: [0.3441,0.4592].
+\subsection{Factors leading to skipping behavior}
+\subsubsection{Direct response from interviewees}
+In the survey, we use open-ended questions to ask the interviewees the reason why interviewees are late or skip the classes (if applicable) .The information can be summarized by the two tables listed below:
+        \begin{center}
+          % Table generated by Excel2LaTeX from sheet 'Sheet2'
+        \begin{tabular}{rc}
+        \hline
+        \hline
+        {\bf Reason} & {\bf Frequence} \\
+        \hline
+        Lack of sleep &         17 \\
+
+        Not interested in the class issue &         16 \\
+
+        Busy for doing other things &          9 \\
+
+        Other reasons &          2 \\
+        \hline
+        \end{tabular}
+
+        {\bf Table5.3.1}Reasons for skipping classes
+\end{center}
+
+
+\begin{center}
+                % Table generated by Excel2LaTeX from sheet 'Sheet2'
+        \begin{tabular}{rrc}
+        \hline
+        \hline
+        {\bf Motivation} & {\bf Reason} & {\bf Frequence} \\
+        \hline
+        \multicolumn{ 1}{c}{Unintended} & Wake up late &         23 \\
+
+        \multicolumn{ 1}{c}{} &  Commuting &         12 \\
+
+        \multicolumn{ 1}{c}{} &  Breakfast &          6 \\
+
+        \multicolumn{ 1}{c}{Intended} & The begining of class & \multicolumn{ 1}{c}{10} \\
+
+        \multicolumn{ 1}{c}{} & is not that important & \multicolumn{ 1}{c}{} \\
+        \hline
+        \hline
+        \end{tabular}
+
+        {\bf Table5.3.2}Reasons for being late 
+\end{center}
+\subsubsection{Assumptions needed for regression and hypothesis testing}
+In this section, we try to use our data to determine each factor¡¯s contribution to the possibility of being late or skipping behavior. This cannot be done separately because there may be strong correlation between the five variables we listed. For example:
+    \begin{align}
+      \text{Cor}\left(x_{A5},x_{A3}\right)\doteq 0.4531
+    \end{align}
+Thus when we compare the behaviors in sub-groups separately, we can hardly tell the effect of year separately from the effect of sleeping behavior. Here we use a liner multi-variable regression to get the coefficient. We also need some different assumptions before doing this.\\\\
+Rather than treating the number of class he(she) has and number of class he(she) skipped (or was late) as random variables respectively, we now focus on their behavior pattern. We assume that:
+    \begin{description}
+         \item[(i).]they have made the decision far before the class (which is the behavior of 8 students out of 25 who response having skipped class);
+         \item[(ii).]or they keep the same attending behavior which will not easily be change in a short time (one term).
+    \end{description}
+We cannot observe if the second assumption is right from our crosssection survey, here we just suppose it is true.
+\subsubsection{Regression and result}
+Holding such assumptions, we treated the skipping or late rate (which are the ratio of two response) now as a ordinary random variable.\\
+First we only regress the rates on the variables we are looking into:
+\begin{align}
+  r_{\text{skip},i}&=\beta _0+\beta _1x_{\text{A4},i}+\beta _2x_{\text{A6},i}+\beta _1x_{\text{C1},i}+u_i\\
+  r_{\text{late},i}&=\beta _0+\beta _1x_{\text{A4},i}+\beta _2x_{\text{A6},i}+\beta _1x_{\text{C1},i}+u_i
+\end{align}
+Then we try to put the demographic information into the equation:
+\begin{align}
+  r_{\text{skip},i}&=\beta _0+\alpha _1x_{\text{A1},i}+\alpha _{21}x_{\text{A21},i}+\alpha _{22}x_{\text{A22},i}+\alpha _3x_{\text{A3},i}+\beta _1x_{\text{A4},i}+\beta _2x_{\text{A6},i}+\beta _1x_{\text{C1},i}+u_i\\
+    r_{\text{late},i}&=\beta _0+\alpha _1x_{\text{A1},i}+\alpha _{21}x_{\text{A21},i}+\alpha _{22}x_{\text{A22},i}+\alpha _3x_{\text{A3},i}+\beta _1x_{\text{A4},i}+\beta _2x_{\text{A6},i}+\beta _1x_{\text{C1},i}+u_i
+\end{align}
+,where $x_{\text{Aj},i}$ denotes the i-th interviewee's answer the the question $Aj$.\\
+We use dummy variable to characterize their sleeping behavior. One unit increase in $x_{\text{A6}}$ means a two hours later on average in the time of going to bed. \\
+And for college, we split it into three boolean variables: $x_{\text{A21},i}$ is $1$ if observation $i$ is in CC; zero for other possibility. $x_{\text{A22},i}$ is $1$ if observation $i$ is in NA; zero for other possibility. To avoid the {\it perfect multicollinearity problem} in the regression, we did not use $$x_{\text{A23},i}=1-x_{\text{A22},i}-x_{\text{A22},i}$$
+The result of regressions is in the table below:
+\begin{center}
+          % Table generated by Excel2LaTeX from sheet 'Sheet5'
+        \begin{tabular}{lrrrr}
+        \hline
+        \hline
+                   &        (1) &        (2) &        (3) &        (4) \\
+
+                   & Skipping rate &  Late rate & Skipping rate &  Late rate \\
+        \hline
+        Living in campus &     0.273* &     -0.206 &      0.227 &     -0.192 \\
+
+                   &    (-2.25) &    (-1.60) &    (-1.92) &    (-1.40) \\
+
+                   &            &            &            &            \\
+
+        Sleeping time &     0.207* &    0.00291 &     0.206* &    0.00572 \\
+
+                   &    (-2.12) &    (-0.03) &    (-2.22) &    (-0.05) \\
+
+                   &            &            &            &            \\
+
+               GPA &      -0.16 &      0.249 &      -0.28 &      0.268 \\
+
+                   &    (-0.76) &    (-1.11) &    (-1.36) &    (-1.12) \\
+
+                   &            &            &            &            \\
+
+            Female &            &            &     -0.199 &      0.111 \\
+
+                   &            &            &    (-1.93) &    (-0.93) \\
+
+                   &            &            &            &            \\
+
+                CC &            &            &      0.116 &    -0.0248 \\
+
+                   &            &            &    (-0.98) &    (-0.18) \\
+
+                   &            &            &            &            \\
+
+                NA &            &            &      -0.15 &     0.0534 \\
+
+                   &            &            &    (-1.18) &    (-0.36) \\
+
+                   &            &            &            &            \\
+
+              Year &            &            &     0.0755 &     0.0198 \\
+
+                   &            &            &    (-1.23) &    (-0.28) \\
+
+                   &            &            &            &            \\
+
+             cons &     0.0603 &     -0.265 &      0.385 &     -0.428 \\
+
+                   &    (-0.08) &    (-0.31) &     (-0.5) &    (-0.48) \\
+        \hline
+           {\it N} &         46 &         46 &         46 &         46 \\
+        \hline
+        \hline
+        \end{tabular}
+\end{center}
+t statistics in parentheses\\
+* $p < 0.05$, ** $p < 0.01$, *** $p < 0.001$
+\begin{center}
+  {\bf Table5.3.3} The result of regressions
+\end{center}
+\subsubsection{Hypothesis testing}
+For each coefficients we care about, we use t-test. As we can see in the table of last section, when we control the demographic information variables, only the coefficient of {\it Sleeping time} is significant different from zero. \\
+
+To test the joint significance, we use F-test. The F-statistics for the first regression is $F(  3,    42) =    5.74$, which has a p-value of $0.0022$. So, we can say the three conjectures' effect on skipping rate are joint significant on 1\% level.
+For late rate, however, even when we control the demographic information, the F-statistics for the last regression is $  F(  7,    38) =    0.65$. As a result, the relevant p-value is quiet large: $0.7148$. In this case, we can not reject that they are zeros, jointly.
+\subsection{Prediction and compare with direct observation}
+In order to evaluate our estimation, we made two direct observation in the {\it STAT3003} classes, namely 15/04/2013 and 22/04/2013 Monday morning class. There is 51 students registering {\it STAT3003} this term, but only 19 and 17 showed up in the 15/4 and 22/4 's classroom respectively.\\\\
+If we assume that students in the {\it STAT3003} are representative of all the statistic students, we should have the skipping rate of class close to the population skipping rate. Using the CI from the section 5.2.5, a typical attendance of a 51 students class should be [27.5808, 33.4509]. So, the actual attendance of $STAT3003$ does not fall into the 95\%CI we constructed.
+
+
+%----------------------------------------------------------------------------------------
+%	MAJOR SECTION X - TEMPLATE - UNCOMMENT AND FILL IN
+%----------------------------------------------------------------------------------------
+
+%\section{Content Section}
+
+%\subsection{Subsection 1} % Sub-section
+
+% Content
+
+%------------------------------------------------
+
+%\subsection{Subsection 2} % Sub-section
+
+% Content
+
+%----------------------------------------------------------------------------------------
+%	CONCLUSION
+%----------------------------------------------------------------------------------------
+
+\section{Conclusion} % Major section
+Generally speaking, we did not get the bounds we really want through this survey, and our prediction of the skipping rate in {\it STAT3003} is far from the fact. We list our argument, explanation and further improvements in this section.
+\subsection{Estimation}
+Overall, we have achieve an estimated bound less than the 0.075 set in the pretest by post-stratification method. But we can still narrow down the variance by using post-stratification over specific courses and the weekdays. In the prediction section, we find that the skipping and late behavior may largely depends on the courses and which day it is in. 
+
+\subsection{Regression}
+The regression assure us the effect of sleeping behavior is robust, but there may be some {\it endogenous problems}. There may be some unobserved factors that have effect on the skipping or late behavior while have a highly correlation with our sleeping behavior variable. For example, if the students sleep later and less are those who like knowledge less, it's hard to find out which factor lead to their skipping or late behavior in our project. We can use {\it Instrumental variable method} to deal with this problem.
+
+\subsection{Prediction and compare with direct observation}
+We have an argument that the {\it STAT3003} is not representative of all the courses statistic students take. First, the $STAT3003$ is in the Monday morning, which may make it different from other early courses. If there is a pattern in the variation of the skipping rate through a week, there may be a large deviation. Second, the register students for this course may not be representative, there may be no freshman in this course. In this case, we can not suppose the skipping rate of this course have an expected value equal to the population rate.\\\\
+On the other hand if we can collect the information of students register this course, we can use regression function estimated to predict a better result.
+
+\subsection{Further improvements}
+Due to the shortage list above, we should take care of the thins listed below, if there is another survey on this issue:
+\begin{itemize}
+  \item Doing the survey several times in a term, rather in one week.
+  \item The skipping and late behavior may have a pattern from Monday to Friday. We should specify the exactly day in the questionnaire, or use direct observation of different days in a week.
+  \item The skipping and late behavior may largely depends on the courses. We should specify the courses or at least course levels in the questionnaire.
+  \item To better predict the attendance of a course, we need to collect the information of students register this course.
+  \item Using {\it Instrumental variable method} to solve the endogenous problems in the regression.
+\end{itemize}
+\section{Appendix}
+\subsection{Questionnaire of pretest: in English}
+\begin{center}
+IN THE NEXT PAGE
+\end{center}
+\newpage
+\subsection{Questionnaire of main survey: in English}
+\begin{center}
+IN THE NEXT PAGE
+\end{center}
+\newpage
+
+\subsection{Questionnaire of pretest: in Chinese}
+\begin{center}
+IN THE NEXT PAGE
+\end{center}
+\newpage
+\subsection{Questionnaire of main survey: in Chinese}
+\begin{center}
+IN THE NEXT PAGE
+\end{center}
+
+
+
+%----------------------------------------------------------------------------------------
+
+\end{document}
+

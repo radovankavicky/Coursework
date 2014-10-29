@@ -1,0 +1,120 @@
+\documentclass{article}
+ \usepackage{amsmath}
+  \usepackage{amssymb}
+\topmargin=-1.2cm \oddsidemargin=0.1cm \evensidemargin=0.1cm
+\textwidth=16 true cm \textheight=23 true cm
+
+\font\euler=EUSM10 \font\eulers=EUSM7
+
+\begin{document}
+\title{STAT 3003 Survey Methods \\Assignment $3^{\text{rd}}$}
+\author{{\normalsize Leonard Sheng(SHENG, Hao), 1155035947, via \LaTeX}}
+\date{\today}
+
+\maketitle
+
+\def \Pr{{\rm Pr}}
+
+\baselineskip 0.6cm
+\begin{description}
+    \item[7.3:]{\bf Answer:}\\
+    {\bf (a):}Possible samples:\\
+     \{1, 11, 21, 31\}, \\ \{2, 12, 22, 32\},\\ \{3, 13, 23, 33\},\\ \{4, 14, 24, 34\},\\ \{5, 15, 25, 35\},\\ \{6, 16, 26, 36\},\\ \{7, 17, 27, 37\},\\ \{8, 18, 28, 38\},\\ \{9, 19, 29, 39\},\\ \{10, 20, 30, 40\}.\\
+    We have:
+    \begin{align} \notag
+      \hat{p}_1&=\hat{p}_3=\hat{p}_4=\frac{3}{4}\\ \notag
+      \hat{p}_2&=1\\ \notag
+      \hat{p}_5&=\hat{p}_9=\hat{p}_{10}=\frac{1}{4}\\ \notag
+      \hat{p}_6&=\hat{p}_7=\hat{p}_8=0
+    \end{align}
+    Thus,$$\text{Var}\left(\hat{p}_{\text{sys},n=4}\right)=\frac{1}{10}\sum _{i=1}^{10} \left(\hat{p}_i-0.4\right){}^2=0.1275$$
+    {\bf (b):}Possible samples:\\
+    \{1, 6, 11, 16, 21, 26, 31, 36\},\\
+    \{2, 7, 12, 17, 22, 27, 32, 37\},\\
+    \{3, 8, 13, 18, 23, 28, 33, 38\},\\
+    \{4, 9 , 14, 19, 24, 29, 34, 39\},\\
+    \{5, 10, 15, 20, 25, 30, 35, 40\}.\\
+    We have:
+    \begin{align} \notag
+      \hat{p}_1=\hat{p}_3=\frac{3}{8}\\ \notag
+      \hat{p}_2=\hat{p}_4=\frac{4}{8}\\ \notag
+      \hat{p}_5=\frac{2}{8}
+    \end{align}
+    Thus,$$\text{Var}\left(\hat{p}_{\text{sys},n=8}\right)=\frac{1}{5}\sum _{i=1}^5 \left(\hat{p}_i-0.4\right){}^2=0.00875$$
+    {\bf (c):}
+    \begin{align} \notag
+      \text{Var}\left(\hat{p}_{n=4}\right)=\frac{N-n}{N-1}\frac{\text{pq}}{n}=\frac{40-4}{40-1}*\frac{0.4*0.6}{4}\doteq 0.0554<\text{Var}\left(\hat{p}_{\text{sys},n=4}\right)\\ \notag
+      \text{Var}\left(\hat{p}_{n=8}\right)=\frac{N-n}{N-1}\frac{\text{pq}}{n}=\frac{40-8}{40-1}*\frac{0.4*0.6}{8}\doteq 0.0246>\text{Var}\left(\hat{p}_{\text{sys},n=8}\right)
+    \end{align}
+    Generally speaking, we can not conclude if the method of systematic sampling will give us a smaller variance (same sample size of course) without the information of the population patterns. Systematic sampling will perform poorly when the $k$ is close to the period, like the case in problem {\bf (b)}.
+    \item[7.19:]{\bf Answer:}\\
+    {\bf Step 1.}Estimating the variance using a pretest\\
+    First, we denote each plant a number, from 1 to 80,000. We use a simple random sampling with a sample size, say, 50. With the formula:
+    $$s^2=\frac{1}{n-1}\sum _{i=1}^n \left(x_i-\overset{-}{x}\right){}^2$$\\
+    we get the estimated population variance.\\
+    {\bf Step 2.}Deciding the sample size\\
+    If we assume that the estimator's variance of systematic sampling is close to that of simple random sampling, we can choose the sample size using the formula below:
+    $$n=\frac{\text{N$\sigma $}^2}{(N-1)\frac{B^2}{4N^2}+\sigma ^2}$$
+    where we replace $\sigma ^2$ with $s^2$, and $B=2000$.\\
+    {\bf Step 3.}Deciding $k$\\
+    We choose $k=\frac{20*400}{n}$.\\
+    {\bf Step 4.}Conducting the systematic sampling\\
+    We pick a random number $1\leq n_0\leq k$, and add this plant and every one in k-th following to our sample. We will estimate the total using:$$\hat{\tau }_{\text{sys}}=\frac{N}{n}\sum _{i=1}^n y_i$$
+    And its estimated variance:$$\hat{\text{Var}}\left(\hat{\tau }_{\text{srs}}\right)=N^2\left(1-\frac{n}{N}\right)\left(\frac{s^2}{n}\right)$$
+    
+    \item[8.6:]{\bf Answer:}\\
+    Average score:
+    \begin{align} \notag
+            \hat{\mu }_{\text{cs}}&=\frac{\sum _{i=1}^n y_i}{\sum _{i=1}^n m_i}=\frac{34957}{678}=51.559\\ \notag
+            s_r^2&=\frac{\sum _{i=1}^n \left(y_i-\overset{-}{y}m_i\right){}^2}{n-1}\doteq 10808\\ \notag
+    \end{align}
+    Estimated variance and bound:
+    \begin{align} \notag
+            \hat{\text{Var}}\left(\hat{\mu}_{\text{cs}}\right)&=\left(1-\frac{n}{N}\right)\left(\frac{1}{\overset{-}{M}^2}\right)\left(\frac{s_r^2}{n}\right)\doteq \left(1-\frac{n}{N}\right)\left(\frac{1}{\overset{-}{m}}\right)\left(\frac{s_r^2}{n}\right)\\ \notag
+            &=\left(1-\frac{25}{108}\right)*\left(\frac{1}{27.12^2}\right)*\left(\frac{10808}{25}\right)\doteq 0.4517\\ \notag
+            B&=2\sqrt{\hat{\text{Var}}\left(\hat{\mu }_{\text{cs}}\right)}\doteq 1.344
+    \end{align}
+    \item[9.14:]{\bf Answer:}\\
+    We can estimate the total and its variance using the formulas:
+    \begin{align} \notag
+      \hat{\tau }_{\text{TSCS}}&=\frac{N}{n}\sum _{i=1}^n M_i\overset{-}{y}_i=\frac{300}{4}*\left(18*1+14*1+9*\frac{4}{3}+12*\frac{2}{3}\right)=3900\\ \notag
+      \hat{\text{Var}}\left(\hat{\tau }_{\text{TSCS}}\right)&=\left(1-\frac{n}{N}\right)\left(\frac{N^2}{n}\right)s_b^2+\frac{N}{n}\sum _{i=1}^n M_i^2\left(1-\frac{m_i}{M_i}\right)\left(\frac{s_i^2}{m_i}\right)
+    \end{align}
+    where,
+    \begin{align} \notag
+      s_b^2&=\frac{\sum _{i=1}^n \left(M_i\overset{-}{y}_i-\overset{-}{M}\hat{\mu }\right){}^2}{n-1}=\frac{52}{3}\\ \notag
+      s_i^2&=\frac{\sum _{i=1}^{m_i} \left(y_{\text{ij}}-\overset{-}{y}_i\right){}^2}{m_i-1}, (i = 1, 2, 3, 4)
+    \end{align}
+    So, we have:
+    \begin{align} \notag
+     \hat{\text{Var}}\left(\hat{\tau }_{\text{TSCS}}\right)&=\left(1-\frac{4}{300}\right)*\left(\frac{300^2}{4}\right)*\frac{52}{3}\\ \notag&+\frac{300}{4}\left(18^2*\left(1-\frac{3}{18}\right)*\frac{1}{3}+\cdots +12^2*\left(1-\frac{3}{12}\right)*\frac{1}{9}\right)=404450 \\ \notag
+      B&=2\sqrt{404450}\doteq 1271.928
+    \end{align}
+    \item[2.7:]{\bf Answer:}\\
+    {\bf (a):}Personal interviews get the highest response rate among these three. It can also eliminate interviewees' misunderstanding, say, the word of {\it certain hour}.Sometimes, trained interviewers can note specific reaction about the questions asked.\\
+    Telephone interviews are less expensive due to the elimination of travel expenses. And still, people response better to people.\\
+    Mailed questionnaires are cheapest among these three.\\
+    {\bf (b):}Personal interviews get the highest response rate among these three. It can also eliminate interviewees' misunderstanding and note specific reaction about the questions asked. It's a complicated issue about people's attitudes. Trained interviewers can find out something beyond the questionnaires.\\
+    Telephone interviews are less expensive due to the elimination of travel expenses. And still, people response better to people.\\
+    Mailed questionnaires are cheapest among these three. Since there is no interviewer in this method, it won't introduce a interview bias by improper implication if the questionnaires are well-designed.\\
+    {\bf (c):}Personal interviews get the highest response rate among these three. Interviews can illustrate the how this issue is consistent with the benefit of the interviewees.It can also eliminate interviewees' misunderstanding and note specific reaction about the questions asked.\\
+    Telephone interviews are less expensive due to the elimination of travel expenses. And still, people response better to people.\\
+    Mailed questionnaires are cheapest among these three.\\
+    {\bf (d):}Personal interviews get the highest response rate among these three. It can also eliminate interviewees' misunderstanding and note specific reaction about the questions asked.\\
+    Telephone interviews are less expensive due to the elimination of travel expenses. And still, people response better to people.\\
+    In this case, mailed questionnaires are preferred since it's a closed question and we only need a number. Self-administered questionnaires can make in a cheapest way.\\
+    \item[2.10:]{\bf Answer:}\\
+    Question: You definitely hold the strong belief that Steve Nash could be a good player in Tottenham Hotspur F.C. after his career in NBA, do you?\\
+    Answer: A. Yes, I do; B. No, I don't.
+    \item[2.21:]{\bf Answer:}\\
+    {\bf (a):}The poll was conducted inappropriately. The people they sampled, that is the reader of {\it Popular Science}, can not represent the total population. Generally speaking, those who read the science magazine usually care more and know more about science and technology, thus more confident about using nuclear energy. This, if is true, may yield a up-ward bias of their estimation.\\
+    {\bf (b):}The question was worded in an inappropriate way. The question is not well balanced. It should use generating plant rather than generators in the latter part. Moreover, The word {\it so-called safe} is implicating that nuclear generators are not as safe as they seem to be; there may be potential crisis like nuclear leak.\\
+    {\bf (c):}Due to the reasons mentioned above, the result is not a good estimation of the prevailing mood of the country.
+    \item[2.31:]{\bf Answer:}\\
+    Between A1 and B1:\\
+    B1 will get a lower percentage of responses favoring the law. There are people have an ambiguous opinion. A1 will lead this people into the option of favoring the law, while B1 will force them to make a choice without unbalanced implication.\\
+    Between A2 and B2:\\
+    B2 will get a lower percentage of responses favoring the law. First, it argues since the law can not be easily enforced which may lead the respondent to oppose the law. Second, it may implicates that to response yes means you admit there is a way to enforce the law properly.
+
+\end{description}
+\end{document}

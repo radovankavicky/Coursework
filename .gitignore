@@ -16,11 +16,20 @@
 *.pdf
 *.caj
 
+#MS related files
+*.rtf
 *.doc
 *.docx
 
-#LaTeX makefile files
+#LaTeX related files
 *.log
 *.aux
 *.synctex.gz
 *.fdb_latexmk
+*.dvi
+*.blg
+*.tex.sav
+*.tex.bak
+*.ps
+*.toc
+

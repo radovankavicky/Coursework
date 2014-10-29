@@ -1,0 +1,102 @@
+\documentclass{article}
+ \usepackage{amsmath}
+  \usepackage{amssymb}
+\topmargin=-1.2cm \oddsidemargin=0.1cm \evensidemargin=0.1cm
+\textwidth=16 true cm \textheight=23 true cm
+
+\font\euler=EUSM10 \font\eulers=EUSM7
+
+\begin{document}
+\title{STAT 3003 Survey Methods \\Assignment $2^{\text{st}}$}
+\author{{\normalsize Leonard Sheng(SHENG, Hao), 1155035947, via \LaTeX}}
+\date{\today}
+
+\maketitle
+
+\def \Pr{{\rm Pr}}
+
+\baselineskip 0.6cm
+\begin{description}
+    \item[5.1:]{\bf Answer:}\\
+        \begin{align}
+        \hat{p}_{\text{st}}&=\frac{1}{65+42+93+25}\left(65*\frac{4}{14}+42*\frac{2}{9}+93*\frac{8}{21}+25*\frac{1}{6}\right)=\frac{3}{10}\\
+        \hat{V}\left(\hat{p}_{\text{st}}\right)&=\frac{1}{N^2}\sum _{i=1}^L N^2{}_i\left(1-\frac{n_i}{N_i}\right)\frac{\hat{p}_i\hat{q}_i}{n_i-1}\doteq 0.00344\\
+        B&=2\sqrt{\hat{V}\left(\hat{p}_{\text{st}}\right)}\doteq 0.117
+        \end{align}\\
+    \item[5.5:]{\bf Answer:}\\
+        \begin{align}
+          B&=2\sqrt{V\left(\overset{-}{y}_{\text{st}}\right)}=2*\sqrt{0.1}\doteq 0.6325\\
+          n&=\frac{\sum _{i=1}^L \frac{N_i\sigma _i}{\sqrt{c_i}}\sum _{j=1}^L N_j\sigma _j\sqrt{c_j}}{\frac{N^2B^2}{4}+\sum _{i=1}^L N_i\sigma ^2{}_i}\doteq 26.26
+        \end{align}
+        So, we need at least a sample size of 27.
+        \begin{align}
+          n_1&\doteq \frac{26.26}{\left(\frac{112*\sqrt{2.25}}{\sqrt{9}}+\frac{68*\sqrt{3.24}}{\sqrt{25}}+\frac{39*\sqrt{3.24}}{\sqrt{36}}\right)}*\frac{112*\sqrt{2.25}}{\sqrt{9}}\doteq 15.95\\
+          n_2&\doteq \frac{26.26}{\left(\frac{112*\sqrt{2.25}}{\sqrt{9}}+\frac{68*\sqrt{3.24}}{\sqrt{25}}+\frac{39*\sqrt{3.24}}{\sqrt{36}}\right)}*\frac{68*\sqrt{3.24}}{\sqrt{25}}\doteq 6.97\\
+          n_3&\doteq \frac{26.26}{\left(\frac{112*\sqrt{2.25}}{\sqrt{9}}+\frac{68*\sqrt{3.24}}{\sqrt{25}}+\frac{39*\sqrt{3.24}}{\sqrt{36}}\right)}*\frac{39*\sqrt{3.24}}{\sqrt{36}}\doteq 3.33
+        \end{align}
+        We can roughly choose $n_1=16, n_2=7$ and $n_3=4$. Note that it will not guarantee that the expected variance is within the 0.1 bound:
+        \begin{align}
+          \hat{V}\left(\hat{p}_{\text{st}}\right)
+          &=\frac{1}{N^2}\sum _{i=1}^L N^2{}_i\left(1-\frac{n_i}{N_i}\right)\sigma ^2\\ \notag
+          &=\frac{1}{(112+68+39)^2}*\left(112^2*\left(1-\frac{16}{112}\right)*\frac{2.25}{15}+68^2*\left(1-\frac{7}{68}\right)*\frac{3.24}{6}+39^2*\left(1-\frac{4}{39}\right)*\frac{3.24}{3}\right)\\ \notag
+          &\doteq0.109952
+        \end{align}
+    \item[5.21:]{\bf Answer:}\\
+        {\bf (a):}
+            \begin{align}
+                \hat{p}&=\frac{6+10}{38+62}=0.16\\
+                \hat{V}\left(\hat{p}\right)&=\left(1-\frac{n}{N}\right)\left(\frac{\hat{p}\hat{q}}{n-1}\right)\doteq \frac{\hat{p}\hat{q}}{n-1}=\frac{0.16*(1-0.16)}{100-1}\doteq 0.001358\\
+                B&=2\sqrt{\hat{V}\left(\hat{p}\right)}\doteq 0.0737
+                \end{align}
+        {\bf (b):}
+            \begin{align}
+              \hat{p}_{\text{st}}&=\frac{1}{1}*\left(0.6*\frac{6}{38}+0.4*\frac{10}{62}\right)\doteq 0.15925\\
+              \hat{V}\left(\hat{p}_{\text{st}}\right)&=\frac{1}{N^2}\sum _{i=1}^L N^2{}_i\left(1-\frac{n_i}{N_i}\right)\frac{\hat{p}_i\hat{q}_i}{n_i-1}=0.6^2*\frac{\frac{6}{38}*\left(1-\frac{6}{38}\right)}{38-1}+0.6^2*\frac{\frac{10}{62}*\left(1-\frac{10}{62}\right)}{62-1}\doteq 0.00165\\
+              B&=2\sqrt{\hat{V}\left(\hat{p}\right)}\doteq 0.0812
+            \end{align}
+            Since there is no significant difference between these two strata, at least from information of this particular sample($\frac{6}{38}\doteq 0.158$ and $\frac{10}{62}\doteq 0.161$), it is hard to say there is strong variance between strata. And because the results don't deviate from each other much, we can skimpily accept one with less variance (that is the SRS result) if there is no other evidence suggesting the necessity of stratified method.\\\\
+    \item[5.25:]{\bf Answer:}\\
+        From Eq.(5.7), we know for any given variance bound and budget constraint, to minimize the variance, the optimal allocation should be: $$n_i=n\frac{\left(\frac{N_i\sigma _i}{\sqrt{c_i}}\right)}{\sum _{k=1}^L \frac{N_k\sigma _k}{\sqrt{c_k}}}$$
+        Consider the budget constraint, we have:
+        \begin{align}
+          &\sum _{i=1}^L n_ic_i\leq c-c_0\\
+          \Longleftrightarrow &\sum _{i=1}^L n\frac{\left(\frac{N_i\sigma _i}{\sqrt{c_i}}\right)c_i}{\sum _{k=1}^L \frac{N_k\sigma _k}{\sqrt{c_k}}}\leq c-c_0\\
+          \Longleftrightarrow &n\leq \frac{\left(c-c_0\right)\sum _{i=1}^L \frac{N_k\sigma _k}{\sqrt{c_k}}}{\sum _{i=1}^L \left(\frac{N_i\sigma _i}{\sqrt{c_i}}\right)c_i}=\frac{\left(c-c_0\right)\sum _{i=1}^L \frac{N_i\sigma _i}{\sqrt{c_i}}}{\sum _{i=1}^L N_i\sigma _i\sqrt{c_i}}
+        \end{align}
+        And we know that, with optimal allocation, a larger sample size come up with a smaller variance($\hat{V}\left(\hat{\tau }_{\text{st}}\right)=\frac{1}{n}\sum _{i=1}^L N^2{}_i\left(1-\frac{n_i}{N_i}\right)\frac{s^2{}_i}{a_i}$, when $N_i$ is larger enough, $\hat{V}\left(\hat{\tau }_{\text{st}}\right)$ will get smaller when $n$ grows, as $a_i$ is fixed now). Thus, to maximize the information on $\mu$, the appropriate choice for n should be $\frac{\left(c-c_0\right)\sum _{i=1}^L \frac{N_i\sigma _i}{\sqrt{c_i}}}{\sum _{i=1}^L N_i\sigma _i\sqrt{c_i}}$.\\\\
+    \item[5.46:]{\bf Answer:}\\
+        \begin{align}
+          \hat{\tau }_{\text{st}}&=\sum _{i=1}^L N_i\hat{y}_i=136*5.2+181*11.6+56*39.2+155*5.1+99*17.8+38*40\doteq 9074.7\\
+          \hat{V}\left(\hat{\tau }_{\text{st}}\right)&=\sum _{i=1}^L N^2{}_i\left(1-\frac{n_i}{N_i}\right)\frac{s^2{}_i}{n_i}\\ \notag
+          &=136^2*\left(1-\frac{9}{136}\right)*\frac{6.78^2}{9}+181^2*\left(1-\frac{21}{181}\right)*\frac{10.15^2}{21}+56^2*\left(1-\frac{6}{56}\right)*\frac{30.87^2}{6}\\ \notag
+          &+155^2*\left(1-\frac{10}{155}\right)*\frac{4.69^2}{10}+99^2*\left(1-\frac{8}{99}\right)*\frac{15.59^2}{8}+38^2*\left(1-\frac{7}{38}\right)*\frac{22.96^2}{7}\\
+          &\doteq 1086857.16\\
+          B&=1.96*\sqrt{\hat{V}\left(\hat{\tau }_{\text{st}}\right)}\doteq 2043.35
+        \end{align}
+        With this bound, we can construct a $\%95$ CI, $[7031.35, 11118]$.\\\\
+    \item[5.47:]{\bf Answer:}\\
+        To optimize sample allocation, we have $n_i=\frac{\text{nN}_i\sigma _i}{\sum _{i=1}^6 N_i\sigma _i}$.\\
+        If the SD and Mean we get from sample will not change dramatically, the estimated total number will not change significantly as well. But now we have:
+        \begin{align}
+          \hat{V}\left(\hat{\tau }_{\text{st}}\right)&=\sum _{i=1}^L N^2{}_i\left(1-\frac{n_i}{N_i}\right)\frac{s^2{}_i}{n_i}=828805.0\\
+          B&=1.96*\sqrt{\hat{V}\left(\hat{\tau }_{\text{st}}\right)}\doteq 1820.775
+        \end{align}
+        This bound gives us a more precise CI, namely $[7253.925, 10859.06]$.\newpage
+    \item[6.1:]{\bf Answer:}\\
+        \begin{align}
+          r&=\frac{\sum _{i=1}^{12} y_i}{\sum _{i=1}^{12} x_i}\doteq 21.194\\
+          \hat{\tau }_y&=\text{r$\tau $}_x\doteq 1589.56\\
+          s^2{}_r&=\frac{\sum _{i=1}^{12} \left(y_i-r_ix_i\right){}^2}{11}\doteq 1.75\\
+          \hat{V}\left(\hat{\tau }_y\right)&=N^2\left(1-\frac{n}{N}\right)\frac{s^2{}_r}{n}\doteq 8677.083\\
+          B&=2\sqrt{\hat{V}\left(\hat{\tau }_y\right)}\doteq 186.30
+        \end{align}\\
+    \item[6.2:]{\bf Answer:}\\
+        \begin{align}
+          \overset{-}{y}&\doteq 11.8333\\
+          \hat{\tau }_y&=N\overset{-}{y}=250*11.833\doteq 2958.25\\
+          \hat{V}\left(N\overset{-}{y}\right)&=N\hat{V}\left(\overset{-}{y}\right)=N^2\left(1-\frac{n}{N}\right)\frac{s^2}{n}\doteq 133274\\
+          B&=2\sqrt{\hat{V}\left(N\overset{-}{y}\right)}\doteq 730.134
+        \end{align}
+        When we have the information of total basal area, we can doublecheck if the sample we have is representative. Because $\mu _x=\frac{\tau _x}{N}=0.3<\overset{-}{x}\doteq .5583333$ , the trees in our sample on average is much larger than the population mean, which gives us an upward bias of total volume when simply taking this simple as representative.
+\end{description}
+\end{document}

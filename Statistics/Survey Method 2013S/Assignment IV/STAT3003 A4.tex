@@ -1,0 +1,128 @@
+\documentclass{article}
+ \usepackage{amsmath}
+  \usepackage{amssymb}
+\topmargin=-1.2cm \oddsidemargin=0.1cm \evensidemargin=0.1cm
+\textwidth=16 true cm \textheight=23 true cm
+
+\font\euler=EUSM10 \font\eulers=EUSM7
+
+\begin{document}
+\title{STAT 3003 Survey Methods \\Assignment $4^{\text{TH}}$}
+\author{{\normalsize Leonard Sheng(SHENG, Hao), 1155035947, via \LaTeX}}
+\date{\today}
+
+\maketitle
+
+\def \Pr{{\rm Pr}}
+
+\baselineskip 0.6cm
+\begin{description}
+    \item[11.6:]{\bf Answer:}
+    \begin{align}
+      \hat{\mu }_1&=\overset{-}{y}_1=\frac{1}{n_1}\sum _{i=1}^{n_1} y_{1j}\doteq 9.8042\\
+      \hat{V}\left(\hat{\mu }_1\right)&=\left(1-\frac{n_1}{N_1}\right)\frac{s_1^2}{n_1}\\
+      \intertext{,where}
+      S_1^2&=\frac{1}{n_1-1}\sum _{i=1}^{n_1} \left(y_{1j}-\overset{-}{y}_1\right){}^2\doteq 36.06129\\
+      \frac{n_1}{N_1}&\doteq \frac{30}{493}\\
+      \intertext{Thus,}
+      \hat{V}\left(\overset{-}{y}_1\right)&=\left(1-\frac{n_1}{N_1}\right)\frac{s_1^2}{n_1}\doteq 1.41112\\
+      B&=2\sqrt{\hat{V}\left(\hat{\mu }_1\right)}=2.37581
+    \end{align}
+    \item[11.11:]{\bf Answer:}\\
+    *note: in the textbook, the actual sample sizes of stratum 2 is 14 rather than 13.\\
+    For each group, we have:
+    \begin{align} \notag
+        &\overset{-}{y}_1=323.33, s_1^2=39720.67\\ \notag
+        &\overset{-}{y}_2=648, s_2^2=188922.7\\ \notag
+        &\overset{-}{y}_3=636, s_3^2=130163\\ \notag
+        &\overset{-}{y}_4=1051.286, s_4^2=197183.2\\ \notag
+        &\overset{-}{y}_1=633.75, s_1^2=409178.9
+    \end{align}
+    Thus the estimated total and its estimated variance are:
+    \begin{align}
+      \hat{\tau }_{\text{pst}}&=N\sum _{i=1}^5 \frac{N_1}{N}\overset{-}{y}_1\doteq \sum _{i=1}^5 \frac{n_1}{n}\overset{-}{y}_1\doteq 48941\\
+      \hat{V}\left(\hat{\tau }_{\text{pst}}\right)&=N^2\left(\frac{1}{n}\left(1-\frac{n}{N}\right)\sum _{i=1}^5 \frac{N_i}{N}s_i^2+\frac{1}{n^2}\sum _{i=1}^5 \left(1-\frac{N_i}{N}\right)s_i^2\right)\\ \notag
+      &\doteq \frac{1}{n}\left(1-\frac{n}{N}\right)\sum _{i=1}^5 \frac{n_i}{n}s_i^2+\frac{1}{n^2}\sum _{i=1}^5 \left(1-\frac{n_i}{n}\right)s_i^2\doteq 1982.804
+    \end{align}
+    And the bound:
+    \begin{align}
+      B=2\sqrt{\hat{V}\left(\hat{\tau }_{\text{pst}}\right)}\doteq 6234.75
+    \end{align}
+    The assumption we need is that there isn't a significant difference in the number of students enrolled between response and non-response element. Also $\frac{n_i}{n}$ need to be close to $\frac{N_i}{N}$\\
+    Our estimate seems to have a smaller estimated variance. However, our estimator is biased because we estimate the size strata. This bias increases the mean square error of the estimate.
+    \item[11.13:]{\bf Answer:}
+    \begin{align}
+      \hat{p}&=\frac{1}{2\theta -1}\left(\frac{n_1}{n}-(1-\theta )\right)=\frac{1}{2\times 0.8-1}\left(\frac{145}{200}-(1-0.8)\right)=0.875\\
+      \hat{V}\left(\hat{p}\right)&=\frac{1}{(2\theta -1)^2}\frac{N-n}{N}\frac{1}{n-1}\frac{n_1}{n}\left(1-\frac{n_1}{n}\right)\doteq 0.002783\\
+      B&=2\sqrt{\hat{V}\left(\hat{p}\right)}\doteq 0.10551
+    \end{align}
+    \item[10.5:]{\bf Answer:}
+    \begin{align}
+      \hat{N}&=\frac{n*t}{s}\doteq 1811\\
+      \hat{V}\left(\hat{N}\right)&=\frac{t^2*n*(n-s)}{s^3}\doteq 29672\\
+      B&=2\sqrt{\frac{t^2*n*(n-s)}{s^3}}\doteq 344.51\\
+      \intertext{Also, we can use the Chapman estimator:}
+      \hat{N}_c&=\frac{(t+1)(n+1)}{s+1}-1\doteq 1799\\
+      \hat{V}\left(\hat{N}_c\right)&=\frac{(t+1)(n+1)(t-s)(n-s)}{(s+1)^2(s+2)}\doteq 20431.4\\
+      B_c&=2\sqrt{\frac{(t+1)(n+1)(t-s)(n-s)}{(s+1)^2(s+2)}}\doteq 285.88
+    \end{align}
+    \item[10.7:]{\bf Answer:}
+    \begin{align}
+      \hat{N}&=\frac{n*t}{s}\doteq 3348\\
+      \hat{V}\left(\hat{N}\right)&=\frac{t^2*n*(n-s)}{s^3}\doteq 51782\\
+      B&=2\sqrt{\frac{t^2*n*(n-s)}{s^3}}\doteq 455.11\\
+      \intertext{Also, we can use the Chapman estimator:}
+      \hat{N}_c&=\frac{(t+1)(n+1)}{s+1}-1\doteq 3336\\
+      \hat{V}\left(\hat{N}_c\right)&=\frac{(t+1)(n+1)(t-s)(n-s)}{(s+1)^2(s+2)}\doteq 39346.3\\
+      B_c&=2\sqrt{\frac{(t+1)(n+1)(t-s)(n-s)}{(s+1)^2(s+2)}}\doteq 396.72
+    \end{align}
+    \item[10.10:]{\bf Answer:}\\
+    The optimizing problem is:
+    \begin{align} \notag
+        &\text{Min}\left\{\hat{V}\left(\hat{N}\right)=\frac{t^2*n*(n-s)}{s^3}\right\}\text{,s.t.} c(n+t)=\overset{-}{C}\\
+        \intertext{Since}&\hat{V}\left(\hat{N}\right)\longrightarrow \frac{1}{n}\left(\frac{1}{t}-\frac{1}{N}\right)N^3\\
+        \mathcal{L}&=\frac{1}{n}\left(\frac{1}{t}-\frac{1}{N}\right)N^3+\lambda \left(\overset{-}{C}-c(n+t)\right)\\
+        \intertext{FOC:}
+        \frac{\partial \mathcal{L}}{\partial t}&=-\frac{1}{N^2}\left(\frac{1}{t}-\frac{1}{N}\right)N^3-\text{$\lambda $c}=0\\
+        \frac{\partial \mathcal{L}}{\partial n}&=-\frac{1}{t^2}\frac{N^3}{n}-\text{$\lambda $c}=0
+        \intertext{Thus,}
+        t&=\left(\frac{N}{N-t}\right)n>n
+    \end{align}
+    \item[10.21:]{\bf Answer:}\\
+    \begin{align}
+      \hat{M}=4*\frac{1}{n}\sum _{i=1}^n y_i=6\\
+      \hat{V}\left(\hat{M}\right)\doteq N^2\frac{s^2}{n}=0.8
+    \end{align}
+     The assumption is: every possible number of calls in a 15-minute period has the same chance of being selected from the population; and the selection of each period is independent.\\\\
+     Or we can use the quadrates sampling with Poisson assumption:
+     \begin{align}
+       \hat{M}&=\frac{\overset{-}{m}}{a}A=6\\
+       \hat{V}\left(\hat{M}\right)&=A^2\left(\frac{\overset{-}{m}}{a^2n}\right)=2.4
+     \end{align}
+     Which moreover require the number of calling in to be Poisson distributed.    
+    \item[10.23:]{\bf Answer:}
+    For each of the 15 possibilities, we have:
+    \begin{align}\notag
+      &\left\{a_{11},a_{22}\right\},m_1=3,y_1=3,m_2=1,y_2=0, \hat{\mu }_1=1.5\\ \notag
+      &\left\{a_{11},a_{13}\right\},m_1=3,y_1=3,m_2=1,y_2=0, \hat{\mu }_2=1.5\\  \notag
+      &\left\{a_{11},a_{21}\right\},m_1=3,y_1=3,m_2=1,y_2=0, \hat{\mu }_3=1.5\\ \notag
+      &\left\{a_{11},a_{22}\right\},m_1=3,y_1=3,m_2=3,y_2=3, \hat{\mu }_4=3\\ \notag
+      &\left\{a_{11},a_{23}\right\},m_1=3,y_1=3,m_2=3,y_2=3, \hat{\mu }_5=3\\ \notag
+      &\left\{a_{12},a_{13}\right\},m_1=1,y_1=0,m_2=1,y_2=0, \hat{\mu }_6=0\\ \notag
+      &\left\{a_{12},a_{21}\right\},m_1=1,y_1=0,m_2=1,y_2=0, \hat{\mu }_7=0\\ \notag
+      &\left\{a_{12},a_{22}\right\},m_1=1,y_1=0,m_2=3,y_2=3, \hat{\mu }_8=1.5\\ \notag
+      &\left\{a_{12},a_{23}\right\},m_1=1,y_1=0,m_2=3,y_2=3, \hat{\mu }_9=1.5\\ \notag
+      &\left\{a_{13},a_{21}\right\},m_1=1,y_1=0,m_2=1,y_2=0, \hat{\mu }_{10}=0\\ \notag
+      &\left\{a_{13},a_{22}\right\},m_1=1,y_1=0,m_2=3,y_2=3, \hat{\mu }_{11}=1.5\\ \notag
+      &\left\{a_{13},a_{22}\right\},m_1=1,y_1=0,m_2=3,y_2=3, \hat{\mu }_{12}=1.5\\ \notag
+      &\left\{a_{21},a_{22}\right\},m_1=1,y_1=0,m_2=3,y_2=3, \hat{\mu }_{13}=1.5\\ \notag
+      &\left\{a_{21},a_{23}\right\},m_1=1,y_1=0,m_2=3,y_2=3, \hat{\mu }_{14}=1.5\\ \notag
+      &\left\{a_{22},a_{23}\right\},m_1=3,y_1=3,m_2=3,y_2=3, \hat{\mu }_{15}=3
+      \intertext{,where $\{a_{ij},a_{kl}\}$ denotes the sample including the cell in the i-th column, j-th row and cell in the k-th column, l-th row}
+      \intertext{As a result, we have:}
+      &E\left(\hat{\mu }\right)=\frac{1}{15}\sum _{i=1}^{10} \hat{\mu }_i=1.5
+    \end{align}
+
+
+\end{description}
+\end{document}
