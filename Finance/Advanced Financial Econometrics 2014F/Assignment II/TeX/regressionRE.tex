@@ -1,0 +1,51 @@
+\begin{table}[htbp]\centering
+\def\sym#1{\ifmmode^{#1}\else\(^{#1}\)\fi}
+\caption{Result of Random Effect Model \label{tab:regressionRE}}
+\begin{tabular}{l*{2}{c}}
+\hline\hline
+            &\multicolumn{1}{c}{(1)}&\multicolumn{1}{c}{(2)}\\
+            &\multicolumn{1}{c}{RE}&\multicolumn{1}{c}{RE$^{1}$}\\
+\hline
+CorpAge     &       0.025***&       0.018***\\
+            &     (0.001)   &     (0.001)   \\
+[1em]
+CorpAge2    &      -0.000***&      -0.000***\\
+            &     (0.000)   &     (0.000)   \\
+[1em]
+Size        &       0.065***&       0.068***\\
+            &     (0.001)   &     (0.002)   \\
+[1em]
+ROE         &      -0.020***&      -0.020***\\
+            &     (0.001)   &     (0.002)   \\
+[1em]
+LiquidityRatio&               &      -0.012***\\
+            &               &     (0.000)   \\
+[1em]
+HHI10       &               &      -0.133***\\
+            &               &     (0.017)   \\
+[1em]
+PBRatio     &               &       0.005***\\
+            &               &     (0.001)   \\
+[1em]
+SGAe        &               &       0.000***\\
+            &               &     (0.000)   \\
+[1em]
+CEOGender   &               &       0.063***\\
+            &               &     (0.018)   \\
+[1em]
+CEOAge      &               &      -0.002***\\
+            &               &     (0.001)   \\
+[1em]
+CEOSalary   &               &      -0.000***\\
+            &               &     (0.000)   \\
+[1em]
+CEOShare    &               &      -0.000***\\
+            &               &     (0.000)   \\
+\hline
+\(N\)       &       21496   &        9946   \\
+adj. \(R^{2}\)&               &               \\
+\hline\hline
+\multicolumn{3}{l}{\footnotesize Standard errors in parentheses}\\
+\multicolumn{3}{l}{\footnotesize * \(p<0.1\), ** \(p<0.05\), *** \(p<0.01\)}\\
+\end{tabular}
+\end{table}

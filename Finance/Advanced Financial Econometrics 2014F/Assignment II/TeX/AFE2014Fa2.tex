@@ -20,17 +20,41 @@
 \def \Pr{{\rm Pr}}
 \baselineskip 0.6cm
 
-This assignment is for the graduate course Financial Econometrics at GSM(Guanghua School of Management, Peking Univ.). In this assignment, we are asked to explain the capital structure of listed Chinese firms(SSE\&SZSE) by firm-level variable, and try to solve the endogenous problem.
-\section{OLS, Fix Effect Model or Random Effect Model}
+This assignment is for the graduate course Financial Econometrics at GSM(Guanghua School of Management, Peking Univ.). In this assignment, we are asked to explain the capital structure of listed Chinese firms(SSE\&SZSE) by firm-level variable, and try to solve the endogenous problem. 
+\section{Introduction}
+\subsection{Data Description}
+Our data covers all the listed stocks in SSE(Shanghai Stock Exchange) and SZSE(Shenzhen Stock Exchange)in from Jan.1$^{\text{st}}$ 2001 to Dec.31$^{\text{th}}$ 2013. Since banking industry may have a completely different pattern of capital structure(Wei 2013), we drop all the observations in that industry(up to 35 individual stocks, less than 1\% of all). We also drop those of insolvency, that is to say, those with asset less than liability. 
+\subsection{Explain Variables}
+\subsection{Control Variables}
 \newpage
-\input{esttab.tex}
+\section{OLS, Fix Effect Model or Random Effect Model}
+\input{regression.tex}
+At this point, we cannot rush to the conclusion which model did a better job in estimation. The following part conduct a further hypothesis test in specification.
+
+\newpage
 \section{Hausman Test}
+\begin{center}
+	\begin{stlog}
+	\input{HausmanTest.log.tex}\nullskip
+	\end{stlog}
+\end{center}
+As is shown in the result above, the statistics given by the {\bf Hausman Test} corresponds to a p-value of less than 0.01 percent. Thus, we can refuse the $H_0$, which is to say, we can rule out the potential existence of {\it Random Effect} upon 0.01 percent level and there is no need to do the further {\bf Breusch-Pagan Test}. 
+Therefore, We stop here and would like to report the result of {\bf Fixed Effect Model}:
+\input{regressionFE.tex}
+
+\newpage
 \section{Endogenous Problem}
+It's arguable that all the main explaining variables we care have endogenous problem:
+\begin{description}
+	\item [CorpAge]: Older company my 
+	\item [Size]:
+	\item [ROE]:
+\end{description}
 \section{IV: }
 
-\section{Stata Do-file}
-\section{Stata Log-file}
-\begin{stlog}
-\input{StataLog.log.tex}\nullskip
-\end{stlog}
+\begin{appendix}
+\section*{Appendix}
+\subsection{Stata Do-file}
+\subsection{Stata Log-file}
+\end{appendix}
 \end{document}

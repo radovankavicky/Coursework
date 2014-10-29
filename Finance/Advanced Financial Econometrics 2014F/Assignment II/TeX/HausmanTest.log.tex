@@ -1,0 +1,43 @@
+. hausman fe re, sigmamore all
+{\smallskip}
+Note: the rank of the differenced variance matrix (18) does not equal the
+        number of coefficients being tested (21); be sure this is what you
+        expect, or there may be problems computing the test.  Examine the
+        output of your estimators for anything unexpected and possibly consider
+        scaling your variables so that the coefficients are on a similar scale.
+{\smallskip}
+                 \HLI{4} Coefficients \HLI{4}
+             {\VBAR}      (b)          (B)            (b-B)     sqrt(diag(V_b-V_B))
+             {\VBAR}       fe           re         Difference          S.E.
+\HLI{13}{\PLUS}\HLI{64}
+     CorpAge {\VBAR}    .0106019     .0181147       -.0075128        .0004116
+    CorpAge2 {\VBAR}    -.000325    -.0002734       -.0000516        .0000156
+        Size {\VBAR}    .0689096     .0676359        .0012737        .0015681
+         ROE {\VBAR}   -.0176346    -.0199971        .0023625        .0003106
+LiquidityR{\tytilde}o {\VBAR}   -.0118523    -.0124975        .0006452         .000226
+       HHI10 {\VBAR}   -.1120814    -.1331003        .0210189        .0096215
+     PBRatio {\VBAR}    .0050196     .0048176         .000202        .0003633
+        SGAe {\VBAR}    .0004396     .0004565       -.0000169        .0000535
+   CEOGender {\VBAR}    .0669536     .0629066        .0040471        .0081593
+      CEOAge {\VBAR}   -.0017962    -.0016219       -.0001742        .0003227
+   CEOSalary {\VBAR}   -7.48e-08    -7.58e-08        9.87e-10        3.69e-09
+    CEOShare {\VBAR}   -1.97e-09    -2.66e-09        6.90e-10        2.70e-10
+ 2004bn.year {\VBAR}    .0135711     .0042706        .0093005               .
+   2005.year {\VBAR}     .032335     .0137249        .0186101               .
+   2006.year {\VBAR}    .0342641     .0059687        .0282953               .
+   2007.year {\VBAR}    .0196853     -.017442        .0371273               .
+   2008.year {\VBAR}    .0159427    -.0301181        .0460608               .
+   2009.year {\VBAR}    .0147383    -.0410092        .0557476               .
+   2010.year {\VBAR}    .0180731    -.0474253        .0654984               .
+   2011.year {\VBAR}    .0031531    -.0722948        .0754479               .
+   2012.year {\VBAR}    .0002649    -.0855381        .0858029               .
+\HLI{13}{\BOTT}\HLI{64}
+                           b = consistent under Ho and Ha; obtained from xtreg
+            B = inconsistent under Ha, efficient under Ho; obtained from xtreg
+{\smallskip}
+    Test:  Ho:  difference in coefficients not systematic
+{\smallskip}
+                 chi2(18) = (b-B)'[(V_b-V_B){\caret}(-1)](b-B)
+                          =      154.84
+                Prob>chi2 =      0.0000
+                (V_b-V_B is not positive definite)

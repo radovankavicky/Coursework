@@ -3,7 +3,6 @@ set more off
 *set matsize 8000
 *shell cd -cd/d %~dp0-
 cd "D:\GitHub\Coursework\Finance\Advanced Financial Econometrics 2014F\Assignment II\WorkingData"
-sjlog using ..\TeX\StataLog, replace
 
 ***************************************************************
 ************** INITILIZATION                      *************
@@ -249,6 +248,10 @@ tab _merge
 drop _merge
 sort Stkcd Accper
 
+merge Stkcd Accper using CEO.dta
+tab _merge
+drop _merge
+sort Stkcd Accper
 /*
 merge Stkcd Accper using CEOIncentive.dta
 tab _merge
@@ -296,19 +299,31 @@ gen AccDate = date(Accper, "YMD")
 xtset Stkcd AccDate
 
 *1.3.Generating Variables 
-gen CorpAge = date(Accper,"YMD")-date(Estbdt,"YMD")
+gen CorpAge = (date(Accper,"YMD")-date(Estbdt,"YMD"))/365
 gen CorpAge2 = CorpAge^2
 
-gen ListAge = date(Accper,"YMD")-date(Listdt,"YMD")
+gen ListAge = (date(Accper,"YMD")-date(Listdt,"YMD"))/365
 gen ListAge2 = ListAge^2
 
-gen DERatio = Liability/(Asset - Liability)
+gen DERatio = Liability/Asset
 gen Size = log(Asset)
 
+*1.4.Clean
+*drop industry with firms less than 10
+capture drop IndcdN
+bysort Indcd year: gen IndcdN = _N
+drop if IndcdN<10
+capture drop IndcdN
+
+drop if Asset<0
+drop if Asset < Liability
+***************************************************************
+************** ASSIGNMENT                         *************
+***************************************************************
 *Q1.
 local Y DERatio
 local X CorpAge CorpAge2 Size ROE
-local ControlVar LiquidityRatio HHI10 PBRatio SGAe 
+local ControlVar LiquidityRatio HHI10 PBRatio SGAe CEO*
 *OLS
 xi: reg `Y' `X' i.Indcd i.year
 est table, keep(`X') b se
@@ -327,20 +342,39 @@ estimate store fe
 *Random-Effect
 xtreg `Y' `X' i.year, re
 est store model31
-xtreg `Y' `X' `ControlVar' i.year, re
+xtreg `Y' `X' `ControlVar' i.year, re i(Stkcd)
 est store model32
 estimate store re
 
 *Q2.
-hausman fe re, sigmamore
-
+sjlog using ..\TeX\HausmanTest, replace
+hausman fe re, sigmamore all
 sjlog close, replace nolog
+
 *Q4.
+
+*TeXtify
 #delimit ;
-esttab model* using ..\TeX\esttab.tex, drop(_* *year) replace
-title("Results of OLS, FE and RE"\label{tab:esttab})
-mtitle("OLS" "OLS" "FE" "FE" "RE" "RE")
-b(%6.3f) t(%6.3f) star(* 0.1 ** 0.05 *** 0.01) ar2
+esttab model* using ..\TeX\regression.tex, drop(_* *year) replace
+title("Results of OLS, FE and RE"\label{tab:regression})
+mtitle("OLS" "OLS$^{1}$" "FE" "FE$^{1}$" "RE" "RE$^{1}$")
+b(%6.3f) se(%6.3f) star(* 0.1 ** 0.05 *** 0.01) ar2
+coeflabels(mpg2 "mpg$?2$" _cons Constant);
+#delimit cr
+
+#delimit ;
+esttab model21 model22 using ..\TeX\regressionFE.tex, drop(_* *year) replace
+title("Result of Fixed Effect Model"\label{tab:regressionFE})
+mtitle("RE" "RE$^{1}$")
+b(%6.3f) se(%6.3f) star(* 0.1 ** 0.05 *** 0.01) ar2
+coeflabels(mpg2 "mpg$?2$" _cons Constant);
+#delimit cr
+
+#delimit ;
+esttab model31 model32 using ..\TeX\regressionRE.tex, drop(_* *year) replace
+title("Result of Random Effect Model"\label{tab:regressionRE})
+mtitle("RE" "RE$^{1}$")
+b(%6.3f) se(%6.3f) star(* 0.1 ** 0.05 *** 0.01) ar2
 coeflabels(mpg2 "mpg$?2$" _cons Constant);
 #delimit cr
 /*
