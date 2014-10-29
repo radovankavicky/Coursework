@@ -1,0 +1,97 @@
+\documentclass{ctexart}
+  \usepackage{amsmath}
+  \usepackage{amssymb}
+  \usepackage{graphicx}
+  \usepackage{float}
+  \usepackage{setspace}
+\topmargin=-1.2cm \oddsidemargin=0.1cm \evensidemargin=0.1cm
+\textwidth=16 true cm \textheight=23 true cm
+
+\font\euler=EUSM10 \font\eulers=EUSM7
+
+\begin{document}
+\title{发展经济学 \\第2次作业}
+\author{{\normalsize 盛浩, 学号:1000017438, \LaTeX}}
+\date{\today}
+
+\maketitle
+
+\def \Pr{{\rm Pr}}
+
+\baselineskip 0.6cm
+\begin{description}
+    \item[2.2]{\bf 答：}\\
+    生育率随着土地的拥有量{\bf 先升后降}。
+    1930年代，中国农民仍然存在自耕农（地主），（半）佃农，雇农等多种成分。我们恰好可以用课本中，贝克尔人口理论-生育率变化的三个阶段来解释：\\
+     \begin{center}
+        \includegraphics[angle=0, width=0.7\textwidth]{DEHW2P1}\\
+        {\bf 图.1 生育率随土地拥有量的变化}\\
+     \end{center}
+     对于完全没有土地的{\bf 雇农}来说，他们生养孩子的边际成本是低的：孩子基本在地主家长大；只要孩子长到能干些活的时候，就可以给地主做工，没多少抚养成本。但同时从生养孩子获得的边际效用也是低的。土地拥有量几乎没有，单位劳动力投入的农业产出少的可怜。孩子为家庭带来的收入不多，和父母亲近的时候不多，孩子自己的生活也相当可怜。这个时候的生育率为$n_0$。\\
+     对于有一些土地的{\bf 半佃农}或者租赁土地的{\bf 佃农}来说，他们下地的收入会比雇农为地主打长短工高，因此他们生养孩子的机会成本也相应较高。但一旦孩子成年，其作为家庭新添的劳动力也可以下地提升家庭的收入。随着土地拥有量的增加，单位劳动投入的农业产出也在上升。因此相较于雇农，生养孩子的边际受益也提高了。这个时候的生育率可能上升到$n_1$。\\
+     {\bf 地主}的子女一般是要读书上学当少爷或者小姐的，因为他们最有可能走出农村，进入一个重视人力资本的社会。对他们进行教育投资是地主的理性选择，这时的生育边际成本是相当高的。同时，由于地主的孩子往往要分家析产并且并不直接给家庭带来收入（他们基本不会下地），生育孩子的边际收益非常低。生育率下降到$n_2$。\\\\
+     从上面的分析知，从雇农到地主，生育孩子的边际成本上升、边际受益下降，因此生育率是{\bf 下降的}。\\\\
+     出生率增长最快的地方应该是{\bf 外来务工人员较多的二、三线城市}。“单独二胎”政策带来的生育率增量主要来自独生子女和非独生子女婚配的家庭。原有的生育政策下，非独生子女主要来自农村，独生子女主要来自城市。外来务工人员进城务工是适龄农村户籍人口与城市户籍人口接触、婚配的最主要方式。但是北上广等一线城市子女的抚养成本太高，因此生育率的增长最快的应该是外来务工人员较多的二、三线城市。\\\\
+    \item[2.4]{\bf 答：}\\
+    首先我们有劳动力转移的两部门工资均衡的条件:
+    \begin{align}
+      \frac{\partial Q}{\partial L_A}\cdot P_A&=P_A\cdot \text{a$\alpha $}\left(\frac{T}{L_A}\right){}^{1-\alpha }=w=\text{m$\beta$}\left(\frac{K}{L_M}\right){}^{1-\beta }=\frac{\partial M}{\partial L_M}\cdot P_M\\
+      \intertext{因此, 可计算劳动收入占总产出比重为:}
+      \frac{w\cdot L}{Y}&=\frac{\text{wL}_A+\text{wL}_M}{P_AQ+P_MM}=\frac{\text{$\alpha $P}_AQ+\text{$\beta $P}_MM}{P_AQ+P_MM}=\alpha -\frac{(\alpha -\beta )}{1+\frac{P_AQ}{M}}\\
+      \intertext{其中,}
+      \frac{P_AQ}{M}&=\frac{\text{m$\beta $}\left(\frac{K}{L_M}\right){}^{1-\beta }}{\text{a$\alpha $}\left(\frac{T}{L_A}\right){}^{1-\alpha }}\cdot \frac{\text{aT}^{1-\alpha }L_A^{\alpha }}{\text{mK}^{1-\beta }L_M^{\beta }}=\frac{\beta }{\alpha }\frac{L-L_M}{L_M}\\
+      \intertext{因此:}
+      &\frac{\partial \left(\frac{P_AQ}{M}\right)}{L_M}<0,\frac{\partial \left(\frac{w\cdot L}{Y}\right)}{\partial \left(\frac{P_AQ}{M}\right)}>0\\
+      &\frac{\partial \left(\frac{w\cdot L}{Y}\right)}{\partial L_M}=\frac{\partial \left(\frac{P_AQ}{M}\right)}{L_M}\cdot \frac{\partial \left(\frac{w\cdot L}{Y}\right)}{\partial \left(\frac{P_AQ}{M}\right)}<0
+    \end{align}
+    这表明当劳动力从农业向工业转移时（$L_M$上升），经济中劳动收入比重下降。{\bf Q.E.D.}
+    \item[3.2]{\bf 答：}\\
+    {\bf 解释一，监督成本与激励：}
+    南方主要种水稻，需要先育苗，然后移植到大田里，期间还要时时控制水量，除草也非常麻烦。北方种小麦，不需要育苗，也不需要经常浇水，除草施肥相对简单。也就是说，南方农业生产中劳动力的产出弹性更大，同时种植的环节多，监督困难（监督成本高），因此地主愿意以把田按固定租租给小农的方式给他们激励。而北方不存在这种问题，监督较容易，因此采用雇农方式。\\
+    {\bf 解释二，气候波动风险：}
+    这种解释认为，土地兼并导致土地主要集中在地主手中，因此制度的安排主要出于地主的利益。南方的水稻需要精耕细作，对水量的要求苛刻，而南方的梅雨-伏天具有年际的不确定性，因此产量的年际波动相对北方较大。采用佃农制可以有效地将风险转嫁到佃农头上。北方则不需要这样。\\\\
+    \item[3.3]{\bf 答：}\\
+    假设农民被束缚在土地上，即由于劳动力不能流向其他产业，不存在外生的劳动力价格。\\
+    假设农民的期望效用是:
+    \begin{align}
+      E_p(U)&=(1-r)F(T,L)-V(L)-0.5\pi \sigma ^2(1-r)(F(T,L))^2
+    \end{align}
+    其中，$r$为分成税比例；$T$为每户农民的土地；$L$为农民的劳动力投入；$\pi$为风险偏好系数；\\
+    $V(L)$为$L$单位劳动力投入带来的负效用, 劳动力的影子价格可由$\frac{V(L)}{L}$表示\\
+    地主的期望效用是:
+    \begin{align}
+      E_l(U)&=\text{nrF}\left(\frac{\overset{-}{T}}{n},L\right)-0.5\pi \sigma ^2r\left(F\left(\frac{\overset{-}{T}}{n},L\right)\right)^2
+    \end{align}
+     其中，$n$为地主平均分配土地给$n$个农民；$\overset{-}{T}$为地主的土地总量\\
+     农民最优化其效用的一阶条件：
+     \begin{align}
+      F_x(T,L)&=\frac{V'(L)}{(1-r)\left(1-(1-r)\pi \sigma ^2F(T,L)\right)}>V'(L)\\
+      \intertext{令，}
+      f (l) &= F (1, L/T) = 1/T F (T, L)\\
+      \intertext{由于，}
+      f'(l)&=\frac{\partial \left(\frac{1}{T}F(T,L)\right)}{\partial L}\cdot \frac{\partial L}{\partial l}=F_x(T,L)\\
+      \intertext{一阶条件可写作，}
+      f'(l)&-\frac{V'(L)}{\lambda -\text{$\mu $F}(T,L)}=0,\lambda =1-r,\mu =(1-r)^2\pi \sigma ^2\\
+      \intertext{对$T$求导得：}
+      f''(l)\frac{\partial l}{\partial T}&-\frac{V''(L)\left(l+T\frac{\partial l}{\partial T}\right)+V'(L)\text{$\mu $F}_T(T,L)}{(\lambda -\text{$\mu $F}(T,L))^2}=0\\
+      \frac{\partial l}{\partial T}&=\frac{V''(L)l+V'(L)\text{$\mu $F}_T(T,L)}{(\lambda -\text{$\mu $F}(T,L))^2f''(l)-V''(L)T}<0
+    \end{align}
+    我们假设$1-\pi \sigma ^2F(T,L)>0$以保证上式有解。
+    此时，
+    \begin{align}
+      E_l(U)&=\overset{-}{T}\text{rf}(l)-0.5\pi \sigma ^2r\overset{-}{T}^2f^2(l)\\
+      \frac{\partial E_l(U)}{\partial T}&=\frac{\partial E_l(U)}{\partial l}\cdot \frac{\partial l}{\partial T}=\overset{-}{T}r(1)f'\left(1-\pi \sigma ^2F(T,L)\right)\frac{\partial l}{\partial T}<0
+    \end{align}
+    也就是说，随着人均土地下降，地主的期望效用增加。但是显然，地主不能无限把土地细分，因为附近的佃农、雇农可能一共就几十个到几百个。这个模型推断地主将试图把土地平均分给每个佃户。{\bf Q.E.D.}\\\\
+    \item[3.4]{\bf 答：}\\
+    \begin{align}
+      e_{F,I}&=\frac{\frac{\partial C_F}{C_F}}{\frac{\partial I}{I}}\doteq \frac{\frac{C_{F,2004}-C_{F,2003}}{C_{F,2003}}}{\frac{I_{2004}-I_{2003}}{I_{2003}}}\\ \notag
+      &=\frac{\frac{E_{F,2004}\cdot C_{2004}-E_{F,2003}\cdot C_{2003}}{E_{F,2003}\cdot C_{2003}}}{\frac{I_{2004}-I_{2003}}{I_{2003}}}=\frac{\frac{E_{F,2004}}{E_{F,2003}}\left(1+e_{C,I}\frac{I_{2004}-I_{2003}}{I_{2003}}\right)-1}{\frac{I_{2004}-I_{2003}}{I_{2003}}}
+      \intertext{根据文献估计，取：}
+      e_{C,I}&\doteq 1.1\\
+      e_{F,I}&\doteq \frac{\frac{0.371}{0.377}*(1+1.1*0.077)-1}{0.077}\doteq 0.77
+    \end{align}
+    \item[3.6]{\bf 答：}\\
+    商品率为20\%。
+\end{description}
+\end{document}
