@@ -33,4 +33,5 @@
 *.tex.bak
 *.ps
 *.toc
+*.bbl
 
