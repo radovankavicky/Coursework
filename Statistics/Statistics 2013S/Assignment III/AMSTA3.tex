@@ -1,0 +1,89 @@
+\documentclass{ctexart}
+  \usepackage{amsmath}
+  \usepackage{amssymb}
+  \usepackage{graphicx}
+  \usepackage{float}
+  \usepackage{setspace}
+\topmargin=-1.2cm \oddsidemargin=0.1cm \evensidemargin=0.1cm
+\textwidth=16 true cm \textheight=23 true cm
+
+\font\euler=EUSM10 \font\eulers=EUSM7
+
+\begin{document}
+\title{数学双学位：统计学 \\第3次作业}
+\author{{\normalsize 盛浩, 学号:1000017438, \LaTeX}}
+\date{\today}
+
+\maketitle
+
+\def \Pr{{\rm Pr}}
+
+\baselineskip 0.6cm
+{\bf 习题七}
+\begin{description}
+    \item[17.]{\bf 解：}\\
+    联合分布密度函数：
+    \begin{align} \notag
+        p\left(x_1,\cdots ,x_n;\theta \right)&=\prod _{i=1}^n \left(\frac{1}{\sqrt{2\pi \sigma }}\exp \left\{-\frac{1}{2\sigma ^2}\left(x_i-\mu \right){}^2\right\}\right)\\ \notag
+        &=\left(\frac{1}{\sqrt{2\pi \sigma }}\right)^n\exp \left\{-\frac{\text{n$\mu $}^2}{2\sigma ^2}\right\}\exp \left\{\frac{\mu }{\sigma ^2}\sum _{i=1}^n x_i-\frac{1}{2\sigma ^2}\sum _{i=1}^n \left(x_i\right){}^2\right\} \notag
+    \end{align}
+    由定理4.3知$T=\left(\sum _{i=1}^n X_i,\sum _{i=1}^n X_i^2\right)$是完全充分统计量.\\
+    又：
+    \begin{align} \notag
+      E\left(T\left(X_1,\cdots ,X_n\right)\right)&=E\left(\overset{-}{X}^2-\frac{1}{n(n-1)}\left(\sum _{i=1}^n X_i^2-2\sum _{i=1}^n X_iX+n\overset{-}{X}^2\right)\right)\\ \notag
+      &=\frac{1}{n(n-1)}E\left(n^2\overset{-}{X}^2-\sum _{i=1}^n X_i^2\right)\\ \notag
+      &=\frac{1}{n(n-1)}\left(n^2\left(\text{Var}\left(\overset{-}{X}\right)+\left(E\overset{-}{X}\right)^2\right)-n\left(\text{Var}\left(X_i\right)+\left(\text{EX}_i\right){}^2\right)\right)\\ \notag
+      &=\frac{1}{n(n-1)}\left(n^2\left(\frac{\sigma ^2}{n}+\mu ^2\right)-n\left(\sigma ^2+\mu ^2\right)\right)=\mu ^2 \notag
+    \end{align}
+    故$T\left(X_1,\cdots ,X_n\right)$是$\mu ^2$的UMVU估计. \newpage
+    \item[19.]{\bf 解：}\\
+    易知$\tilde{T}$仅可以取$1,2,3$：
+    \begin{align} \notag
+      P\left(\tilde{T}=0|T=t\right)&=\frac{C_{n-t}^2}{C_n^2}\\ \notag
+      P\left(\tilde{T}=1|T=t\right)&=\frac{C_t^1C_{n-t}^1}{C_n^2}\\ \notag
+      P\left(\tilde{T}=2|T=t\right)&=\frac{C_t^2}{C_n^2}
+    \end{align}
+    均与$p$无关.
+    \item[21.]{\bf 解：}\\
+    其联合分布密度函数:$$p\left(x_1,\cdots ,x_n;\theta \right)=\prod _{i=1}^n \theta (1-\theta )^{X_i-1}=\theta (1-\theta )^{-n}\exp \left\{\ln (1-\theta )\sum _{i=1}^n x_i\right\}$$
+    为指数族分布. 故其完全充分统计量为: $T=\sum _{i=1}^n x_i$.
+    \item[23.]{\bf 解：}\\
+    {\bf 1):}记$Y=\sum _{i=1}^m X_i$, $q_m(y,\lambda )$为其分布密度. 下对$m$归纳：\\
+    i) $m=1$时, $q_m(y,\lambda )$即$p(x,\lambda )$, 显然成立. \\
+    ii) 假设$m=n$时, 原命题均成立. 考虑$m=n+1$. $Y=\sum _{i=1}^{n+1} X_i=\sum _{i=1}^n X_i+X_{n+1}$, 其中, $\sum _{i=1}^n X_i$与$X_{n+1}$相互独立, 由卷积公式: 
+    \begin{align} \notag
+      q_{n+1}(y,\lambda )&=\int _0^yq_n(y-x,\lambda )q_1(x,\lambda )dx\\  \notag
+      &=\int _0^yI_{[0,+\infty )}(y-x)\frac{1}{\Gamma (n)}\lambda ^n(y-x)^{n-1}\exp \{-\lambda (y-x)\}I_{[0,+\infty )}(x)\text{$\lambda $exp}\{-\text{$\lambda $}x\}dx\\  \notag
+      &=I_{[0,+\infty )}(y)\frac{\lambda ^{n+1}}{\Gamma (n)}\exp \{-\text{$\lambda $}y\}\int_0^y (y-x)^{n-1} \, dx\\  \notag
+      &=I_{[0,+\infty )}(y)\frac{\lambda ^{n+1}}{(n+1)\Gamma (n) }y^n\exp \{-\text{$\lambda $}y\}
+    \end{align}
+    原命题对$m=n+1$成立.
+    由 i)、ii), 原命题得证.\\
+    {\bf 2):}一阶矩$\alpha _1=\text{EX}=\int _0^{\infty }\text{$\lambda $xexp}\{-\text{$\lambda $x}\}dx=\frac{1}{\lambda }$.\\
+    令$\overset{-}{x}=\frac{1}{\lambda }$, 得到矩估计$\hat{\lambda }=\frac{1}{\overset{-}{x}}$.
+    {\bf 3):}联合分布密度函数:$$q\left(x_{1,}\cdots ,x_n;\lambda \right)=I_{[0,+\infty )}\left(\sum _{i=1}^n x_i\right)\frac{1}{\Gamma (n)}\lambda ^n\left(\sum _{i=1}^n x_i\right){}^{n-1}\exp \left\{-\lambda \left(\sum _{i=1}^n x_i\right)\right\},\lambda >0$$
+    是指数族分布. 故$T=\sum _{i=1}^n x_i$是其完全充分统计量.\\
+    {\bf 4):}
+    \begin{align} \notag
+      E\left(\frac{1}{\overset{-}{X}}\right)&=\text{nE}\left(\frac{1}{\left(\sum _{i=1}^n x_i\right)}\right)\\ \notag
+      &=n\int _0^{\infty }\frac{1}{y}\frac{\lambda ^n}{\Gamma (n)}y^{n-1}\exp \{-\text{$\lambda $y}\}dy\\ \notag
+      &=\frac{\text{n$\Gamma $}(n-1)\lambda }{\Gamma (n)}\int _0^{\infty }\frac{\lambda ^{n-1}y^{n-2}}{\Gamma (n-1)}\exp \{-\text{$\lambda $y}\}dy\\  \notag
+      &=\frac{\text{n$\lambda $}}{n-1}
+    \end{align}
+    故修正后的$E\left(\frac{n-1}{\sum _{i=1}^n x_i}\right)=\lambda$是$\lambda$的UMVU估计.\newpage
+\end{description}
+    {\bf 补充题}
+\begin{description}
+  \item[6.2.]{\bf 解：}\\
+  甲：联合分布密度函数：$$p_1\left(x_{1,}\cdots ,x_n;\theta \right)=\frac{1}{\theta ^n}\exp \left\{-\frac{1}{\theta }\sum _{i=1}^n x_i\right\}$$
+  是指数族分布.\\ 故$T_1=\sum _{i=1}^n x_i$是完全充分统计量.\\
+  由于$\text{EX}_i=\theta$, $E\left(\frac{1}{n}T_1\right)=\theta$. 
+  \\$\hat{\theta }_1=\frac{1}{n}\sum _{i=1}^n x_i=\overset{-}{x}$是$\theta$的UMVU估计.\\\\
+  乙：联合分布密度函数：$$p_2\left(x_1,x_2,x_3;\theta \right)=\frac{1}{\theta ^3}\frac{10!}{(10-3)!}\exp \left\{-\frac{1}{\theta }\left(x_1+x_2+8x_3\right)\right\}$$
+  是指数族分布.\\ 故$T_2=x_1+x_2+8x_3$是完全充分统计量.\\
+  $\hat{\theta }_2=\frac{1}{10}\left(x_1+x_2+8x_3\right)$是$\theta$的UMVU估计.\\\\
+  丙：联合分布密度函数：$$p_3\left(x_{1,}\cdots ,x_{n_1};\theta \right)=\frac{1}{\theta ^{n_1}}\frac{n!}{\left(n-n_1\right)!}\exp \left\{-\frac{10}{\theta }\left(n-n_1\right)\right\}\exp \left\{-\frac{1}{\theta }\sum _{i=1}^{n_1} x_i\right\}$$
+  是指数族分布.\\ 故$T_3=\sum _{i=1}^{n_1} x_i$是完全充分统计量.\\
+  $\hat{\theta }_3=\frac{1}{n_1}\sum _{i=1}^{n_1} x_i$是$\theta$的UMVU估计.
+\end{description}
+\end{document}

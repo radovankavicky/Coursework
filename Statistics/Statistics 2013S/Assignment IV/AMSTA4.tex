@@ -1,0 +1,81 @@
+\documentclass{ctexart}
+  \usepackage{amsmath}
+  \usepackage{amssymb}
+  \usepackage{graphicx}
+  \usepackage{float}
+  \usepackage{setspace}
+\topmargin=-1.2cm \oddsidemargin=0.1cm \evensidemargin=0.1cm
+\textwidth=16 true cm \textheight=23 true cm
+
+\font\euler=EUSM10 \font\eulers=EUSM7
+
+\begin{document}
+\title{数学双学位：统计学 \\第4次作业}
+\author{{\normalsize 盛浩, 学号:1000017438, \LaTeX}}
+\date{\today}
+
+\maketitle
+
+\def \Pr{{\rm Pr}}
+
+\baselineskip 0.6cm
+{\bf 习题七}
+\begin{description}
+    \item[23.]{\bf 解：}\\
+    {\bf (5):}易得: $E\left(X_i\right)=\frac{1}{\lambda }, E\left(X_i^2\right)=\frac{2}{\lambda ^2}$.\\
+    故, $\text{Var}\left(X_i\right)=\frac{2}{\lambda ^2}-\left(\frac{1}{\lambda }\right)^2=\frac{1}{\lambda ^2}<\infty$. 由中心极限定理：$$\sqrt{n}\left(\overset{-}{X}-\frac{1}{\lambda }\right)\overset{w}{\longrightarrow }N\left(0,\frac{1}{\lambda ^2}\right)$$
+    令$h(x)=\frac{n-1}{n}\frac{1}{x},$则$h'(x)=-\frac{n-1}{n}\frac{1}{x^2}$. 利用$\Delta$方法, 有：
+    $$\sqrt{n}\left(\frac{n-1}{n}\frac{1}{\overset{-}{X}}-\frac{n-1}{n}\lambda \right)\overset{w}{\longrightarrow }N\left(0,\frac{1}{\lambda ^2}\left(-\frac{n-1}{n}\lambda ^2\right)^2\right)\longrightarrow N\left(0,\lambda ^2\right),(n\longrightarrow \infty )$$
+    {\bf (6):}似然函数:$$\mathcal{L}\left(x_1,x_2\cdots ,x_n;\lambda \right)=I_{[0,+\infty )}\left(\underset{i=1,2\cdots ,n}{\min }\left\{x_i\right\}\right)\lambda ^n\exp \left\{-\lambda \sum _{i=1}^n x_i\right\}$$
+    令：$$\frac{\partial (\text{Log}[\mathcal{L}])}{\partial \lambda }=\frac{n}{\lambda }-\sum _{i=1}^n x_i=0$$
+    得到$\lambda =\frac{n}{\sum _{i=1}^n x_i}=\frac{1}{\overset{-}{X}}$. 取$\overset{-}{X}$为$\frac{1}{\lambda}$的ML估计.\\
+    由中心极限定理直接得到渐进分布:$$\sqrt{n}\left(\overset{-}{X}-\frac{1}{\lambda }\right)\overset{w}{\longrightarrow }N\left(0,\frac{1}{\lambda ^2}\right)$$
+    \item[27.]{\bf 解：}\\
+    我们只需证明：$$\forall K>0,P\left\{\left|\xi _n-a\right|<K\right\}\longrightarrow 1,(n\longrightarrow \infty )$$
+    由于$\frac{\sqrt{n}\left(\xi _n-a\right)}{\sigma }\overset{w}{\longrightarrow }N(0,1),(n\longrightarrow \infty )$, $$P\left\{\left|\xi _n-a\right|<\frac{\sigma }{\sqrt{n}}\right\}\longrightarrow 2\emptyset (1)-1,(n\longrightarrow \infty )$$
+    故：$$P\left\{\left|\xi _n-a\right|<K\right\}\longrightarrow 2\emptyset \left(\frac{K}{\frac{\sigma }{\sqrt{n}}}\right)-1,(n\longrightarrow \infty )$$
+    而对于给定$K$, $\frac{K}{\frac{\sigma }{\sqrt{n}}}\longrightarrow \infty ,(n\longrightarrow \infty )$. 即$2\emptyset \left(\frac{K}{\frac{\sigma }{\sqrt{n}}}\right)-1\longrightarrow 1,(n\longrightarrow \infty )$, 从而原命题得证
+\end{description}
+    {\bf 补充题}
+\begin{description}
+    \item[1.]{\bf 解：}\\
+    记$X_n$的分布函数为$F_n(x)$, $n=1,2,\cdots$. $X$的分布函数为$F(x)$.\\
+    要证明$X_n=O_p(1)$, 只要证明$P\left\{\left|X_n\right|<K\right\}\longrightarrow 1$在$K\longrightarrow \infty$过程中对$n$一致成立. 即: \begin{align} \notag
+    &\text{对}\forall \epsilon >0,\exists K>0\\ \notag
+    &\text{st}. \forall n=1,2,\cdots ,\left|F_n(K)-F_n(-K)-1\right|<\epsilon
+    \end{align}
+    由于$X_n\overset{w}{\longrightarrow }X$, $F_n(K)\longrightarrow F(K),(n\longrightarrow \infty )$:
+    \begin{align} \notag
+      &\exists N_1,\text{st}. \forall n>N_{1,}\left|F_n(K)-F(K)\right|<\frac{\epsilon }{4}\\ \notag
+      &\exists N_2,\text{st}. \forall n>N_{2,}\left|F_n(-K)-F(-K)\right|<\frac{\epsilon }{4}
+    \end{align}
+    取$N=\max \left\{N_1,N_2\right\}$, 则:$$\forall n>N,\left|F_n(K)-F_n(-K)-1\right|<|F(K)-F(-K)-1|+\frac{\epsilon }{2}$$
+    由于$F(K)-F(-K)\longrightarrow 1,K\longrightarrow \infty$, $$\exists K_0>0,\text{st}.\left|F\left(K_0\right)-F\left(-K_0\right)-1\right|<\frac{\epsilon }{2}$$
+    i)对于$n=N,N+1,\cdots$, 已经证得$\exists K_0>0,\text{st}.\left|F_n\left(K_0\right)-F_n\left(-K_0\right)-1\right|<\epsilon$.
+    ii)对于$n=1,2,\cdots ,N-1$，由于$F_n(K)-F_n(-K)\longrightarrow 1,K\longrightarrow \infty$,
+    $$\exists K_n>0,\text{st}.\left|F_n\left(K_n\right)-F\left(-K_n\right)-1\right|<\epsilon$$
+    综上，取$K=\max \left\{K_0,K_1,\cdots ,K_{N-1}\right\}$. 则$$\left|F_n\left(K_n\right)-F\left(-K_n\right)-1\right|<\epsilon\text{, 对所有$n$成立.}$$
+    从而原命题得证.
+    \item[2.]{\bf 解：}\\
+    类似于{\bf 习题7.27},
+    \begin{align} \notag
+      &\forall K>0,\\ \notag
+      &P\left\{\frac{\left|T_n-g(\theta )\right|}{\frac{\sigma }{\sqrt{n}}}<\frac{K}{\frac{\sigma }{\sqrt{n}}}\right\}\longrightarrow 2\phi \left(\frac{K}{\frac{\sigma }{\sqrt{n}}}\right)-1,(n\longrightarrow \infty )
+    \end{align}
+    而对于给定$K$, $\frac{K}{\frac{\sigma }{\sqrt{n}}}\longrightarrow \infty ,(n\longrightarrow \infty )$. 即$2\emptyset \left(\frac{K}{\frac{\sigma }{\sqrt{n}}}\right)-1\longrightarrow 1,(n\longrightarrow \infty )$, 从而原命题得证
+    \item[3.]{\bf 解：}\\
+    {\bf (i)}(即{\bf 习题7.1}).似然函数：$$\mathcal{L}(p)=p^n(1-p)^{\sum _{i=1}^n x_i-n},p\in (0,1)$$.\\
+    令$\frac{\partial (\text{Log}[\mathcal{L}])}{\partial p}=\frac{n}{p}+\frac{\sum _{i=1}^n x_i-n}{1-p}=0$,\\
+    解得：$p=\frac{n}{\sum _{i=1}^n x_i}=\frac{1}{\overset{-}{x}}$. 即取$\frac{1}{\overset{-}{x}}$为ML估计.\\
+    {\bf (ii)}联合分布密度函数:$$p\left(x_1,\cdots ,x_n;\theta \right)=\theta ^n(1-\theta )^{-n}\exp \left\{\text{Ln}(\theta )\sum _{i=1}^n x_i\right\}$$
+    是指数族分布. 由定理4.3知$T=\sum _{i=1}^n x_i$是完全充分统计量. 易知, $T$的分布密度函数:$$P(T=k)=C_{k-1}^{n-1}\theta ^n(1-\theta )^{\text{kn}}, k=n,n+1,\cdots$$\\
+    考察统计量$T_1=\frac{n-1}{\sum _{i=1}^n x_i-1}$
+    $$E\left(\frac{n-1}{\sum _{i=1}^n x_i-1}\right)=\sum _{k=n}^{\infty } C_{n-1}^{k-1}\theta ^n(1-\theta )^{\text{kn}}\frac{n-1}{k-1}=\theta$$
+        故$T_1$是$\theta$的UMVU估计量.\\
+    {\bf (iii)}由于: $\text{Var}\left(\overset{-}{x}\right)=\frac{1}{n^2}\text{Var}(x)=\frac{1}{n^2}\left(\sum _{i=1}^{\infty } \theta (1-\theta )^ii^2-\frac{1}{\theta ^2}\right)=\frac{1-\theta }{\text{n$\theta $}^2}$, 由中心极限定理我们得到:$$\sqrt{n}\left(\overset{-}{x}-\frac{1}{\theta }\right)\overset{w}{\longrightarrow }N\left(0,\frac{1-\theta }{\theta ^2}\right)$$
+    由$\Delta$方法我们得到ML和UMVU估计量的渐进分布:
+    \begin{align} \notag
+      \sqrt{n}\left(\frac{1}{\overset{-}{x}}-\theta \right)\overset{w}{\longrightarrow }N\left(0, (1-\theta )\theta ^2\right)\\ \notag \sqrt{n}\left(\frac{n-1}{n\overset{-}{x}-1}-\theta \right)\overset{w}{\longrightarrow }\left(0,(1-\theta )\theta ^2\right)
+    \end{align}
+\end{description}
+\end{document}

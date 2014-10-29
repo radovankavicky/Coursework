@@ -1,0 +1,64 @@
+\documentclass{ctexart}
+  \usepackage{amsmath}
+  \usepackage{amssymb}
+  \usepackage{graphicx}
+  \usepackage{float}
+  \usepackage{setspace}
+\topmargin=-1.2cm \oddsidemargin=0.1cm \evensidemargin=0.1cm
+\textwidth=16 true cm \textheight=23 true cm
+
+\font\euler=EUSM10 \font\eulers=EUSM7
+
+\begin{document}
+\title{数学双学位：统计学 \\第11次作业}
+\author{{\normalsize 盛浩, 学号:1000017438, \LaTeX}}
+\date{\today}
+
+\maketitle
+
+\def \Pr{{\rm Pr}}
+
+\baselineskip 0.6cm
+{\bf 习题九}
+\begin{description}
+    \item[8.]{\bf 解：}\\
+        \begin{description}
+          \item[i.]
+            \begin{align}
+              Y&=\text{Xb}+e\\
+              \intertext{其中,}
+              X&=\left(\begin{array}{ccc} 1 & 1 & 0 \\ 1 & 1 & 1 \\ 1 & 0 & 1 \\ 1 & 0 & 0\end{array}\right),b=\left(\begin{array}{c} \theta _1 \\ \theta _2 \\ \theta _3\end{array}\right),e\sim N\left(0,\sigma ^2I_n\right)
+            \end{align}
+          \item[ii.]
+            记,
+            \begin{align}
+              \hat{b}&=\left(X^TX\right)^{-1}X^TY\\
+              (Y-\text{Xb})^T(Y-\text{Xb})&=\left(\left(Y-X\hat{b}\right)+X\left(\hat{b}-b\right)\right)^T\left(\left(Y-X\hat{b}\right)+X\left(\hat{b}-b\right)\right)\\
+              \intertext{由于,}
+              \left(X\left(\hat{b}-b\right)\right)^T(Y-\text{Xb})&=\left(\hat{b}-b\right)^T\left(X^TY-X^TX\left(X^TX\right)^{-1}X^TY\right)=0\\
+              (Y-\text{Xb})^T(Y-\text{Xb})&=\left(Y-X\hat{b}\right)^T\left(Y-X\hat{b}\right)+X\left(\hat{b}-b\right)^TX\left(\hat{b}-b\right)
+            \end{align}
+            由$b$的任意性, $\hat{b}$为$b=\left(\begin{array}{c} \theta _1 \\ \theta _2 \\ \theta _3\end{array}\right)$最小二乘估计.
+.          \item[iii.]
+            \begin{align}
+              \hat{\sigma }^2=\frac{\left(Y-X\hat{b}\right)^T\left(Y-X\hat{b}\right)}{n-p}=\frac{\left(y_1-y_2+y_3-y_4\right){}^2}{4}
+            \end{align}
+        \end{description}
+\end{description}
+\newpage
+{\bf 补充题}
+\begin{description}
+    \item[1.]{\bf 解：}\\
+        \begin{align}
+          \left(\left\|X_1+X_2\right\|\right){}^2&=\left(X_1+X_2\right){}^T\left(X_1+X_2\right)\\
+          &=X_1{}^TX_1+X_2{}^TX_2+2\left(X_1\right){}^TX_2\\
+          &=\left(\left\|X_1\right\|\right){}^2+\left(\left\|X_2\right\|\right){}^2
+        \end{align}
+    \item[2.]{\bf 解：}\\
+        \begin{align}
+          &\left(\tilde{Y}-\tilde{X}\hat{b}\right)+\tilde{X}\left(\hat{b}-b\right)+1\left(\overset{-}{Y}-\overset{-}{X}b-b_0\right)\\
+          &=\left(\tilde{Y}+1\overset{-}{Y}\right)-\left(\tilde{X}+1\overset{-}{X}\right)b-1b_0\\
+          &=Y-1b_0-\text{Xb}
+        \end{align}
+\end{description}
+\end{document}

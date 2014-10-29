@@ -1,0 +1,78 @@
+\documentclass{ctexart}
+  \usepackage{amsmath}
+  \usepackage{amssymb}
+  \usepackage{graphicx}
+  \usepackage{float}
+  \usepackage{setspace}
+\topmargin=-1.2cm \oddsidemargin=0.1cm \evensidemargin=0.1cm
+\textwidth=16 true cm \textheight=23 true cm
+
+\font\euler=EUSM10 \font\eulers=EUSM7
+
+\begin{document}
+\title{数学双学位：统计学 \\第6次作业}
+\author{{\normalsize 盛浩, 学号:1000017438, \LaTeX}}
+\date{\today}
+
+\maketitle
+
+\def \Pr{{\rm Pr}}
+
+\baselineskip 0.6cm
+{\bf 习题八}
+\begin{description}
+    \item[2.]{\bf 解：}\\
+    经计算得:
+    $$\lambda (x)=\frac{f_1(x)}{f_2(x)}=\begin{cases}
+ +\infty  & x>1 \\
+ 1 & 0\leq x\leq 1 \\
+ 0 & x<0
+\end{cases}$$
+从而有:
+$$\{\lambda (x)>c\}\longrightarrow \left\{
+\begin{array}{ll}
+ \{x>1\} & c\geq 1 \\
+ \{x\geq 0\} & 0\leq c<1 \\
+ \{\forall x\in \mathbb{R}\} & c<0
+\end{array}
+\longrightarrow \begin{cases}
+ P_{f_0}(\mathcal{W})=0 & c\geq 1 \\
+ P_{f_0}(\mathcal{W})=\frac{1}{2} & 0\leq c<1 \\
+ P_{f_0}(\mathcal{W})=1 & c<0
+\end{cases}
+\right.$$
+为了使得水平$\alpha$的否定域得到良好定义,\\ 我们定义$\mathcal{W}=\{x:\lambda (x)>c\}\cup B$, 其中$B\subset \{x:\lambda (x)=c\}$.
+则, $$\mathcal{W}=\{x:x\geq 1-2\alpha \}$$
+ 由NP引理, 此即为水平$\alpha$的UMP否定域.
+    \item[3.]{\bf 解：}\\
+    样本空间$\chi =[0,1]$, 经计算, 似然比$\lambda (x)=3x^2$.\\
+    $$\{\lambda (x)>c\}\longrightarrow \{x>c\}$$
+    设$\mathcal{W}=\{x:x\geq 1-\alpha \}$, 则$P_{f_0}(\mathcal{W})=\alpha$.\\
+    由NP引理, 此即为水平$\alpha$的UMP否定域.
+\end{description}
+\newpage
+{\bf 补充题}
+\begin{description}
+    \item[1.]{\bf 解：}\\
+    由习题8.3的过程知, $\mathcal{W}=\{x:x\geq 1-\alpha \}$是检验问题$(f_0,f_1)$的水平$\alpha$的UMP否定域, 也是检验问题$(f_0,f_2)$的水平$\alpha$的UMP否定域. 从而$\mathcal{W}$是检验问题$(f_0,\{f_1,f_2\})$的水平$\alpha$的UMP否定域.
+    \item[2.]{\bf 解：}\\
+    1)$\mathcal{W}_0=\phi ,\mathcal{W}_1=\{-2\},\mathcal{W}_2=\{2\}$\\
+    2)$\mathcal{W}_1=\{-2\},\mathcal{W}_2=\{2\}$\\
+    3)$P_{\theta =1}\left(\mathcal{W}_1\right)<P_{\theta =2}\left(\mathcal{W}_1\right),P_{\theta =2}\left(\mathcal{W}_1\right)>P_{\theta =1}\left(\mathcal{W}_1\right)$故没有UMP否定域.
+    4)没有UMPU否定域.
+    5)
+    \begin{description}
+    \item i)$\mathcal{W}_0=\phi ,\mathcal{W}_1=\{-2\},\mathcal{W}_2=\{2\},\mathcal{W}_3=\{-1\},\mathcal{W}_4=\{1\},\mathcal{W}_5=\{2,-2\}$
+      \item ii)$\mathcal{W}_5=\{2,-2\}$
+      \item iii)$\mathcal{W}_0$, $\mathcal{W}_3$, $\mathcal{W}_4$, $\mathcal{W}_5$
+      \item iv)$\mathcal{W}_5=\{2,-2\}$
+    \end{description}
+    \item[3.]{\bf 解：}\\
+    以获得的证据为样本, 待检验假设:
+    $$H_0:\text{无罪}\longleftrightarrow H_1:\text{有罪}$$
+    则其秉持的原则是尽可能减少抓错人的概率.
+    反之, 
+    $$H_0:\text{有罪}\longleftrightarrow H_1:\text{无罪}$$
+    则是尽可能减少放错人的概率.
+\end{description}
+\end{document}

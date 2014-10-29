@@ -1,0 +1,84 @@
+\documentclass{ctexart}
+  \usepackage{amsmath}
+  \usepackage{amssymb}
+  \usepackage{graphicx}
+  \usepackage{float}
+  \usepackage{setspace}
+\topmargin=-1.2cm \oddsidemargin=0.1cm \evensidemargin=0.1cm
+\textwidth=16 true cm \textheight=23 true cm
+
+\font\euler=EUSM10 \font\eulers=EUSM7
+
+\begin{document}
+\title{数学双学位：统计学 \\第12次作业}
+\author{{\normalsize 盛浩, 学号:1000017438, \LaTeX}}
+\date{\today}
+
+\maketitle
+
+\def \Pr{{\rm Pr}}
+
+\baselineskip 0.6cm
+{\bf 习题九}
+\begin{description}
+    \item[20.]{\bf 解：}\\
+       \begin{align}
+         &L_{1,1}L_{11.2}^{-1}-L_{1,2}L_{2,2}^{-1}L_{2,1}L_{11.2}^{-1}\\
+         &=\left(L_{1,1}-L_{1,2}L_{2,2}^{-1}L_{2,1}\right)L_{11.2}^{-1}\\ \notag
+         &=1
+         \intertext{ }
+         &-L_{1,1}L_{11,2}^{-1}L_{1,2}L_{2,2}^{-1}+L_{1,2}\left(L_{2,2}^{-1}+L_{2,2}^{-1}L_{2,1}L_{11,2}^{-1}L_{1,2}L_{22}^{-1}\right)\\
+         &=\left(-L_{1,1}L_{11,2}^{-1}+L_{1,2}\left(L_{2,2}^{-1}+L_{2,2}^{-1}L_{2,1}L_{11,2}^{-1}\right)\right)L_{1,2}L_{2,2}^{-1} \\ \notag
+         &=\left(1-L_{11,2}L_{11,2}^{-1}\right)L_{1,2}L_{2,2}^{-1}\\ \notag
+         &=0
+         \intertext{ }
+         &L_{2,1}L_{11.2}^{-1}-L_{2,2}L_{2,2}^{-1}L_{2,1}L_{11.2}^{-1}\\
+         &=L_{2,1}L_{11.2}^{-1}-L_{2,1}L_{11.2}^{-1}\\ \notag
+         &=0
+         \intertext{ }
+         &-L_{2,1}L_{11,2}^{-1}L_{1,2}L_{2,2}^{-1}+L_{2,2}\left(L_{2,2}^{-1}+L_{2,2}^{-1}L_{2,1}L_{11,2}^{-1}L_{1,2}L_{22}^{-1}\right)\\
+         &=-L_{2,1}L_{11,2}^{-1}L_{1,2}L_{2,2}^{-1}+1+L_{2,1}L_{11,2}^{-1}L_{1,2}L_{2,2}^{-1}\\ \notag
+         &=1 \notag
+       \end{align}
+    \item[21.]{\bf 解：}\\
+        \begin{align}
+          \text{cov}\left(\overset{-}{Y},\hat{b}\right)&=\text{cov}\left(\left(1^T1\right)^{-1}1^TY,\left(\tilde{X}^T\tilde{X}\right)^{-1}\tilde{X}^TY\right)\\
+          &=\left(1^T1\right)^{-1}1^T\text{cov}(Y,Y)\tilde{X}\left(\tilde{X}^T\tilde{X}\right)^{-1}\\
+          &=\left(1^T1\right)^{-1}1^T\sigma ^2I_n\tilde{X}\left(\tilde{X}^T\tilde{X}\right)^{-1}\\
+          &=\sigma ^2\left(1^T1\right)^{-1}1^T\tilde{X}\left(\tilde{X}^T\tilde{X}\right)^{-1}\\
+          &=0
+        \end{align}      
+\end{description}
+\newpage
+{\bf 补充题}
+\begin{description}
+    \item[1.]{\bf 解：}\\
+        \begin{description}
+          \item[i.]
+            \begin{align}
+              Y&=\text{X$\theta $}+e
+              \intertext{其中,}
+              X&=\left(\begin{array}{ccc} 1 & 1 & 1 \\ 1 & -1 & 1 \\ 1 & 1 & 1 \\ 1 & 1 & -1\end{array}\right),\theta =\left(\begin{array}{c} \theta _0 \\ \theta _1 \\ \theta _2\end{array}\right)
+              \intertext{$\theta_i$的ML估计为:}
+              \hat{\theta }&=\left(X^TX\right)^{-1}X^TY
+            \end{align}
+          \item[ii.]
+          令,
+            \begin{align}
+              \zeta &=\text{A$\theta $}
+              \intertext{其中,}
+              A&=\left(\begin{array}{ccc} 1 & 0 & 0 \\ 0 & 1 & 0 \\ 0 & -2 & 1\end{array}\right)
+              \intertext{则,}
+              Y&=x{XA}^{-1}\zeta +e\\
+              {XA}^{-1}&=\left(\begin{array}{ccc} 1 & 3 & 1 \\ 1 & 1 & 1 \\ 1 & 3 & 1 \\ 1 & -1 & -1\end{array}\right)
+              \intertext{假设检验问题为,}
+              &H_0:\zeta _2=0\longleftrightarrow H_1:\zeta _2\neq 0
+              \intertext{所求否定域:}
+              \mathcal{W}_{\alpha }&=\left\{\frac{\hat{\zeta }_2}{l_{2,2}Q}>F_{1-\alpha }(1,1)\right\}
+              \intertext{其中}
+              \hat{\zeta }&=\left(\left(A^T\right)^{-1}X^TX\left(A^T\right)^{-1}\right)^{-1}\left(\text{XA}^{-1}\right)^TY=A\left(X^TX\right)^{-1}X^TY
+              \intertext{${\zeta }_2$为$\zeta$中第二项}\notag
+            \end{align}
+        \end{description}
+\end{description}
+\end{document}

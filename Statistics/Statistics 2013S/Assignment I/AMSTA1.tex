@@ -1,0 +1,54 @@
+\documentclass{ctexart}
+  \usepackage{amsmath}
+  \usepackage{amssymb}
+  \usepackage{graphicx}
+  \usepackage{float}
+  \usepackage{setspace}
+\topmargin=-1.2cm \oddsidemargin=0.1cm \evensidemargin=0.1cm
+\textwidth=16 true cm \textheight=23 true cm
+
+\font\euler=EUSM10 \font\eulers=EUSM7
+
+\begin{document}
+\title{数学双学位：统计学 \\第1次作业}
+\author{{\normalsize 盛浩, 学号:1000017438, \LaTeX}}
+\date{\today}
+
+\maketitle
+
+\def \Pr{{\rm Pr}}
+
+\baselineskip 0.6cm
+{\bf 习题六}
+\begin{description}
+    \item[1.]{\bf 解：}\\
+    1）因为$x_1,x_{2,}\ldots ,x_n$相互独立，我们可将$\overset{\to }{x}=\left(x_1,x_{2,}\ldots ,x_n\right)$看成来自总体的随机向量$\overset{\to }{X}=\left(X_1,X_2,\ldots ,X_n\right)$的观测值，其中$X_1,X_2,\ldots ,X_n\sim \text{iid} P_{\lambda }(\lambda >0)$，$P_{\lambda }$为参数为${\lambda }$的泊松分布. $\overset{\to }{X}\sim P_{\theta }$形成一个统计模型，其中$P_{\theta }$为样本$\overset{\to }{X}$的分布.\\
+    2）$\overset{\to }{X}$的分布$P_{\theta }$具有概率密度：$$f_{\theta }\left(\overset{\to }{x}\right)=\prod _{i=1}^n \frac{\lambda ^{x_i}}{x_i!}e^{-\lambda },i=1,2,\ldots ,n$$其中$\overset{\to }{x}=\left(x_1,x_{2,}\ldots ,x_n\right)\in \mathbb{N}^n$, $\theta =(\lambda )\in \mathbb{R}^+$\\
+    3）设$x_1,x_2\sim P_{\lambda }$,则：
+        \begin{align}
+        P\left(x_1+x_2=k\right)&=\sum _{i=0}^k P\left(x_1=i,x_2=k-i\right)=\sum _{i=0}^k \frac{\lambda ^i}{i!}e^{-\lambda }\frac{\lambda ^{k-i}}{(k-i)!}e^{-\lambda }\\
+        &=\frac{\lambda ^ke^{-2\lambda }}{k!}\sum _{i=0}^k \frac{k!}{i!(k-i)!}=\frac{(2\lambda )^ke^{-2\lambda }}{k!}
+        \end{align}
+        这说明$(x_1+x_2)$服从参数为$2{\lambda }$的泊松分布，泊松分布具有可加性. 类似的，$T$服从参数为$10{\lambda }$的泊松分布，即：$$P(T=k)=\frac{(\text{n$\lambda $})^ke^{-\text{n$\lambda $}}}{k!}, n=10, k=0,1,2,\ldots $$\\\\
+    \item[2.]{\bf 解：}\\    
+    可以设甲获得的观测值为$\overset{\to }{x}=\left(x_1,x_{2},\ldots ,x_{10}\right)$; 乙获得的是$x_{(1)},x_{(2)},x_{(3)}$，是$x_i,(i=1,\ldots ,10)$的次序统计量；丙得到的数据是$x_{(1)},x_{(2)},\ldots ,x_{\left(n^*\right)}$，其中$n^*=\max \left\{i:x_{(i)}\leq 10\right\}$. 为了给出相应的统计模型，只要计算观测数据的统计分布族即可.\\
+    甲：
+    \begin{align}
+    p(x,\theta )&=\prod _{i=1}^{10} \frac{1}{\theta }e^{-\frac{x_i}{\theta }}=\frac{e^{-\frac{1}{\theta }\sum _{i=1}^{10} x_i}}{\theta ^{10}},\\&x_i>0,i=1,2,\ldots ,10,\theta >0
+    \end{align}
+    乙：
+    \begin{align}
+    p\left(x_1,x_2,x_3,\theta \right)&=\frac{10!}{(10-3)!}f\left(x_1\right)f\left(x_2\right)f\left(x_3\right)\left(1-F\left(x_3\right)\right){}^{10-3}\\
+    &=\frac{e^{-\frac{x_1+x_2+8x_3}{\theta }}}{720\theta ^3}, 
+    \\&0<x_1<x_2<x_3, \theta >0
+    \end{align}
+    丙：\begin{align}
+   p\left(x_1,x_2,\ldots ,x_{n^*},\theta \right)&=\frac{10!}{\left(10-n^*\right)!}\prod _{i=1}^{n^*} f\left(x_i\right)\cdot \left(1-F\left(x_{n^*}\right)\right){}^{10-n^*}\\
+   &=\frac{10!}{\left(10-n^*\right)!\theta ^{n^*}}e^{-\frac{1}{\theta }\left(\sum _{i=1}^{n^*} x_i+10\left(n-n^*\right)\right)},\\& 0<x_1<x_2<\ldots <x_{n^*}, \theta >0
+    \end{align}\\\\
+   \item[4.]{\bf 解：}\\    
+    记观测数据为$\overset{\to }{x}=\left(x_1,x_{2,}\ldots ,x_8\right)$，是来自正态总体样本$\overset{\to }{X}$的观测值. $\overset{\to }{X}$的联合分布密度函数为：$$f\left(\overset{\to }{x}\right)=\frac{e^{-\frac{1}{2\delta ^2}\sum _{i=1}^8 \left(x_i-\mu \right){}^2}}{(2\pi )^{\frac{n}{2}}\delta ^n}$$参数空间为$\left\{\left(\mu ,\delta ^2\right):\mu \in \mathbb{R},\delta ^2\in \mathbb{R}^+\right\}$.\\\\
+    \item[5.]{\bf 解：}\\    
+    分布为：$P(X=i)=P($前$(i-1)$次未射中且第$i$次射中$)=(1-p)^{i-1}p, i=1,2,\ldots$.
+\end{description}
+\end{document}

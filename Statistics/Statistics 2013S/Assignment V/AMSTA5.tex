@@ -1,0 +1,239 @@
+\documentclass{ctexart}
+  \usepackage{amsmath}
+  \usepackage{amssymb}
+  \usepackage{graphicx}
+  \usepackage{float}
+  \usepackage{setspace}
+\topmargin=-1.2cm \oddsidemargin=0.1cm \evensidemargin=0.1cm
+\textwidth=16 true cm \textheight=23 true cm
+
+\font\euler=EUSM10 \font\eulers=EUSM7
+
+\begin{document}
+\title{数学双学位：统计学 \\第5次作业}
+\author{{\normalsize 盛浩, 学号:1000017438, \LaTeX}}
+\date{\today}
+
+\maketitle
+
+\def \Pr{{\rm Pr}}
+
+\baselineskip 0.6cm
+{\bf 习题七}
+\begin{description}
+    \item[34.]{\bf 解：}\\
+    {\bf (1):}
+    易知$X=\left(
+\begin{array}{c}
+ X_1 \\
+ X_2
+\end{array}
+\right)\sim N\left(\left(
+\begin{array}{c}
+ \mu  \\
+ \mu
+\end{array}
+\right),\sigma ^2I_2\right)$.\\
+记: $Y=\left(
+\begin{array}{cc}
+ 1 & 1 \\
+ 1 & -1
+\end{array}
+\right)\left(
+\begin{array}{c}
+ X_1 \\
+ X_2
+\end{array}
+\right)=\text{AX}$, 则:$$E(Y)=\text{AE}(X)=\left(
+\begin{array}{cc}
+ 1 & 1 \\
+ 1 & -1
+\end{array}
+\right)\left(
+\begin{array}{c}
+ \mu  \\
+ \mu
+\end{array}
+\right)=\left(
+\begin{array}{c}
+ 2\mu  \\
+ 0
+\end{array}
+\right)$$ $$\text{Var}(Y)=A\sigma ^2I_2A^T=\sigma ^2\left(
+\begin{array}{cc}
+ 1 & 1 \\
+ 1 & -1
+\end{array}
+\right)\left(
+\begin{array}{cc}
+ 1 & 1 \\
+ 1 & -1
+\end{array}
+\right)=2\sigma ^2I_2$$
+故知${\bf Y}$服从分布 $Y\sim N\left(\left(
+\begin{array}{c}
+ 2\mu  \\
+ 0
+\end{array}
+\right),2\sigma ^2I_2\right)$.\\
+    {\bf (2):}记$A_1=\left(
+\begin{array}{cc}
+ 1 & 1
+\end{array}
+\right),A_2=\left(
+\begin{array}{cc}
+ 1 & -1
+\end{array}
+\right)$, 则$X_1+X_2=A_1X, X_1-X_2=A_2X$.\\
+$\text{Cov}\left(A_1X,A_2X\right)=A_1\sigma ^2I_2A_2^T=0$, 即$X_1+X_2,X_1-X_2$相互独立.
+    \item[35.]{\bf 解：}\\
+    {\bf (1):}易知: $$E\left(A^TX\right)=A^T\left(
+\begin{array}{c}
+ \mu  \\
+ \vdots  \\
+ \mu
+\end{array}
+\right)$$ $$\text{Var}\left(A^TX\right)=A^T\sigma ^2I_nA=\sigma ^2A^TA$$
+故其服从分布: $A^TX\sim N\left(A^T\left(
+\begin{array}{c}
+ \mu  \\
+ \vdots  \\
+ \mu
+\end{array}
+\right),\sigma ^2A^TA\right)$.\\
+{\bf (2):}由于$\text{Cov}\left(A^TX,B^TX\right)=A^T\sigma ^2I_nB=\sigma ^2A^TB=0$, ${\bf A^TX}$,${\bf B^TX}$相互独立.
+    \item[36.]{\bf 解：}\\
+    记$A_1=\left(
+\begin{array}{cc}
+ 1 & 0
+\end{array}
+\right), A_2=\left(
+\begin{array}{cc}
+ -b & 1
+\end{array}
+\right)$, 则$$\text{Cov}\left(X_1,X_2-\text{bX}_1\right)=\text{Cov}\left(A_1X,A_2X\right)=A_1\text{MA}_2^T$$
+令$M=\left(
+\begin{array}{cc}
+ m_{11} & m_{12} \\
+ m_{21} & m_{22}
+\end{array}
+\right)$. $X_1, X_2-bX_1$相互独立, 要求:$$A_1\text{MA}_2^T=-\text{bm}_{11}+m_{12}=0$$ 解得$b=\frac{m_{12}}{m_{11}}$.
+    \item[37.]{\bf 解：}\\
+    易得:$$E(Y)=\text{A$\mu $}+d=\left(
+\begin{array}{ccc}
+ 2 & 1 & 0 \\
+ 0 & 1 & 1
+\end{array}
+\right)\left(
+\begin{array}{c}
+ 1 \\
+ 0 \\
+ 3
+\end{array}
+\right)+\left(
+\begin{array}{c}
+ -2 \\
+ 1
+\end{array}
+\right)=\left(
+\begin{array}{c}
+ 4 \\
+ 4
+\end{array}
+\right)$$
+$$\text{Var}(Y)=\text{AI}_3A^T=\left(
+\begin{array}{ccc}
+ 2 & 1 & 0 \\
+ 0 & 1 & 1
+\end{array}
+\right)\left(
+\begin{array}{cc}
+ 2 & 0 \\
+ 1 & 1 \\
+ 0 & 1
+\end{array}
+\right)=\left(
+\begin{array}{cc}
+ 5 & 1 \\
+ 1 & 2
+\end{array}
+\right)$$
+故${\bf Y}$服从分布$Y\sim N\left(\left(
+\begin{array}{c}
+ 4 \\
+ 4
+\end{array}
+\right),\left(
+\begin{array}{cc}
+ 5 & 1 \\
+ 1 & 2
+\end{array}
+\right)\right)$.
+\end{description}
+\newpage
+    {\bf 补充题}
+\begin{description}
+    \item[5.1.]{\bf 解：}\\
+    易知$E(X_i)=\theta$, $\text{Var}\left(X_i\right)=\theta (1-\theta )$.\\
+
+    由中心极限定理, $$\frac{\sqrt{n}\left(\overset{-}{x}-\theta \right)}{\sqrt{\theta (1-\theta )}}\overset{w}{\longrightarrow }N(0,1)$$
+    从而, $$P\left\{\left|\frac{\frac{\sum _{i=1}^n X_i}{\sqrt{n}}-\sqrt{n}\theta }{\sqrt{\theta (1-\theta )}}\right|\leq z_{1-\frac{\alpha }{2}}\right\}\doteq 1-\alpha$$
+    解不等式$\left|\frac{\frac{X}{\sqrt{n}}-\sqrt{n}\theta }{\sqrt{\theta (1-\theta )}}\right|\leq z_{1-\frac{\alpha }{2}}$, 其中$X=\sum _{i=1}^n X_i$,\\ 得到: $\theta \in \left[\tilde{\theta }-\Delta ,\tilde{\theta }+\Delta \right]$, 其中：
+    \begin{align} \notag
+      \tilde{\theta }&=\frac{2 n X+n z_{1-\frac{\alpha }{2}}^2}{2 \left(n^2+n z_{1-\frac{\alpha }{2}}^2\right)}\\ \notag
+      \Delta &=\frac{\sqrt{n} z_{1-\frac{\alpha }{2}} \sqrt{4 n X-4 X^2+n z_{1-\frac{\alpha }{2}}^2}}{2 \left(n^2+n z_{1-\frac{\alpha }{2}}^2\right)}
+    \end{align}
+    \item[5.2.]{\bf 解：}\\
+    易知$\theta (1-\theta )=\sigma ^2$.\\
+    而$$\frac{\sum _{i=1}^n \left(X_i-\overset{-}{X}\right){}^2}{\sigma ^2}\sim \chi ^2(n-1)$$
+    从而$$P\left\{\frac{\sum _{i=1}^n \left(X_i-\overset{-}{X}\right){}^2}{\sigma ^2}\geq \chi _{\alpha }^2(n-1)\right\}=1-\alpha$$
+    解得置信上限$\overset{-}{T}\leq \frac{\sum _{i=1}^n \left(X_i-\overset{-}{X}\right){}^2}{\chi _{\alpha }^2(n-1)}$.
+    \item[5.3.]{\bf 解：}\\
+    由中心极限定理:$$\frac{\sqrt{n}\left(\overset{-}{x}-\lambda \right)}{\sqrt{\lambda }}\overset{w}{\longrightarrow }N(0,1)$$
+    从而,$$P\left\{\left|\frac{\sqrt{n}\left(\overset{-}{x}-\lambda \right)}{\sqrt{\lambda }}\right|\leq z_{1-\frac{\alpha }{2}}\right\}\doteq 1-\alpha$$
+    解不等式$\left|\frac{\sqrt{n}\left(\overset{-}{x}-\lambda \right)}{\sqrt{\lambda }}\right|\leq z_{1-\frac{\alpha }{2}}$, 得$\lambda \in \left[\tilde{\lambda }-\Delta ,\tilde{\lambda }+\Delta \right]$, 其中:
+    \begin{align} \notag
+      \tilde{\lambda }&=\frac{2 n \overset{-}{x}+z_{1-\frac{\alpha }{2}}^2}{2n}\\ \notag
+      \Delta &=\frac{\sqrt{4 n \overset{-}{x} z_{1-\frac{\alpha }{2}}^2+z_{1-\frac{\alpha }{2}}^4}}{2n}
+    \end{align}
+    \item[5.4.]{\bf 解：}\\
+    我们假定没有关于重量的波动情况的资料, 设X为猪的重量, 并且认为$X\sim N\left(\mu ,\sigma ^2\right),\mu \in (-\infty ,\infty ),\sigma ^2>0$.
+    $$T=\frac{\sqrt{n}\left(\overset{-}{X}-M\right)}{\sqrt{\frac{1}{n-1}\sum _{i=1}^n \left(X_i-\overset{-}{X}\right){}^2}}$$
+    是一个枢轴量, 服从自由度为$n-1$的$t$分布. 则:
+    $$P\left\{\left|\frac{\sqrt{n}\left(\overset{-}{X}-M\right)}{\sqrt{\frac{1}{n-1}\sum _{i=1}^n \left(X_i-\overset{-}{X}\right){}^2}}\right|\leq t_{1-\frac{\alpha }{2}}(n-1)\right\}=1-\alpha$$
+    解得置信区间:
+    $$\left[\overset{-}{X}-\frac{\hat{\sigma }t_{1-\frac{\alpha }{2}}(n-1)}{\sqrt{n}},\overset{-}{X}+\frac{\hat{\sigma }t_{1-\frac{\alpha }{2}}(n-1)}{\sqrt{n}}\right]$$
+    其中$\hat{\sigma }=\sqrt{\frac{\sum _{i=1}^n \left(x_i-\overset{-}{x}\right){}^2}{n-1}}$.
+    \item[5.5.]{\bf 解：}\\
+    易知: $$\sqrt{n}\left(\left(
+\begin{array}{c}
+ \overset{-}{x} \\
+ \overset{-}{x}^2
+\end{array}
+\right)-\left(
+\begin{array}{c}
+ \alpha _1 \\
+ \alpha _2
+\end{array}
+\right)\right)\overset{w}{\longrightarrow }N\left(\left(
+\begin{array}{c}
+ 0 \\
+ 0
+\end{array}
+\right),\left(
+\begin{array}{cc}
+ \alpha _2-\alpha _1^2 & \alpha _3-\alpha _1\alpha _2 \\
+ \alpha _3-\alpha _1\alpha _2 & \alpha _4-\alpha _2^2
+\end{array}
+\right)\right)$$
+其中, $\alpha _i=E\left(X^i\right),i=1,2,3,4$.
+从而, $$\sqrt{n}\left(\frac{\sqrt{\overset{-}{x^2}-\overset{-}{x}^2}}{\overset{-}{x}}-\frac{\sigma }{\mu }\right)\overset{w}{\longrightarrow }N\left(0,\frac{\alpha _2^2}{\alpha _1^4}-\frac{\alpha _2\left(\alpha _3-\alpha _1\alpha _2\right)}{\alpha _1^3\left(\alpha _1-\alpha _1^2\right)}+\frac{\alpha _4-\alpha _2^2}{4\alpha _1^2\left(\alpha _2-\alpha _1^2\right)}\right)$$
+可以解得$\text{CV}\in \left[\tilde{\text{CV}}-\Delta ,\tilde{\text{CV}}+\Delta \right]$,其中:
+\begin{align} \notag
+  \tilde{\text{CV}}&=\frac{\sqrt{\overset{-}{x^2}-\overset{-}{x}^2}}{\overset{-}{x}} \\ \notag
+  \Delta &=\left(\frac{a_2^2}{a_1^4}-\frac{a_2\left(a_3-a_1a_2\right)}{a_1^3\left(a_1-a_1^2\right)}+\frac{a_4-a_2^2}{4a_1^2\left(a_2-a_1^2\right)}\right)\frac{z_{1-\frac{\alpha }{2}}}{\sqrt{n}} \\ \notag
+  a_i&=\frac{1}{n}\sum _{j=1}^n x_j^i,i=1,2,3,4
+\end{align}
+
+\end{description}
+\end{document}

@@ -1,0 +1,66 @@
+\documentclass{ctexart}
+  \usepackage{amsmath}
+  \usepackage{amssymb}
+  \usepackage{graphicx}
+  \usepackage{float}
+  \usepackage{setspace}
+\topmargin=-1.2cm \oddsidemargin=0.1cm \evensidemargin=0.1cm
+\textwidth=16 true cm \textheight=23 true cm
+
+\font\euler=EUSM10 \font\eulers=EUSM7
+
+\begin{document}
+\title{数学双学位：统计学 \\第2次作业}
+\author{{\normalsize 盛浩, 学号:1000017438, \LaTeX}}
+\date{\today}
+
+\maketitle
+
+\def \Pr{{\rm Pr}}
+
+\baselineskip 0.6cm
+{\bf 习题七}
+\begin{description}
+    \item[1.]{\bf 解：}\\
+    {\bf (1):}似然函数：$$\mathcal{L}(p)=p^n(1-p)^{\sum _{i=1}^n x_i-n},p\in (0,1)$$.\\
+    {\bf (2):}令$\frac{\partial (\text{Log}[\mathcal{L}])}{\partial p}=\frac{n}{p}+\frac{\sum _{i=1}^n x_i-n}{1-p}=0$,\\
+    解得：$p=\frac{n}{\sum _{i=1}^n x_i}=\frac{1}{\overset{-}{x}}$. 即取$\frac{1}{\overset{-}{x}}$为ML估计.\\x
+    {\bf (3):}$\alpha _1=\text{EX}=\sum _{k=1}^{\infty } k\cdot P(X=k)=\sum _{k=1}^{\infty } P(X\geq k)=\sum _{k=1}^{\infty } \sum _{i=k}^{\infty } p(1-p)^i=\frac{1}{p}$, 取$\frac{1}{\overset{-}{x}}$为矩估计.
+    \item[2.]{\bf 解：}\\
+    {\bf (1):}似然函数：$$\mathcal{L}\left(\sigma ^2\right)=\left(\frac{1}{\sqrt{2\pi }\sigma }\right)^ne^{-\frac{1}{2\sigma ^2}\sum _{i=1}^n \left(x_i-\mu _0\right){}^2}, \sigma ^2\in \mathbb{R}^+$$.\\
+    令$\frac{\partial (\text{Log}[\mathcal{L}])}{\partial \sigma ^2}=-\frac{n}{2\sigma ^2}+\frac{1}{2\sigma ^4}\sum _{i=1}^n \left(x_i-\mu _0\right){}^2=0$.\\
+    解得：$\sigma ^2=\frac{\sum _{i=1}^n \left(x_i-\mu _0\right){}^2}{n}$. 取其为ML估计.\\
+    {\bf (2):}似然函数：$$\mathcal{L}(\theta )=\left(\frac{1}{\sqrt{2\pi }\sigma _0}\right){}^ne^{-\frac{1}{2\sigma _0^2}\sum _{i=1}^n \left(x_i-\mu \right){}^2}, \mu \in \mathbb{R}$$.\\
+    令$\frac{\partial (\text{Log}[\mathcal{L}(\theta )])}{\partial \mu }=-\frac{1}{\sigma _0^2}\sum _{i=1}^n \left(x_i-\mu \right)=0$\\
+    解得：$\mu =\frac{\sum _{i=1}^n x_i}{n}=\overset{-}{x}$, 取其为ML估计.
+    \item[3.]{\bf 解：}\\
+    似然函数：$$\mathcal{L}(\theta )=\exp \left\{-\sum _{x_i\geq \theta ,i=1,2,\ldots ,n} \left(x_i-\theta \right)\right\}\prod _{i=1}^n I_{[\theta ,\infty )}\left(x_i\right)$$$$=\exp \left\{-\sum _{x_i\geq \theta ,i=1,2,\ldots ,n} \left(x_i-\theta \right)\right\}I_{\left.\left(-\infty ,\min \left\{x_i\right\}\right.\right]\text{}}(\theta )$$$$,\theta \in \mathbb{R}$$.\\
+    $\theta \leq \underset{i=1,2,\ldots ,n}{\min \left\{x_i\right\}}$时，\\$\frac{\partial (\text{Log}[\mathcal{L}])}{\partial \theta }=\sum _{i=1}^n I_{[\theta ,\infty )}\left(x_i\right)\left(\sum _{x_i\geq \theta ,i=1,2,\ldots ,n} \left(x_i-\theta \right)\right)>0$.\\
+    $\theta >\underset{i=1,2,\ldots ,n}{\min \left\{x_i\right\}}$时，$\mathcal{L}(\theta )=0$.\\
+    故$\mathcal{L}(\theta )$在$\underset{i=1,2,\ldots ,n}{\min \left\{x_i\right\}}$处取到最大值. 取其为$\theta$的ML估计.
+
+    \item[4.]{\bf 解：}\\
+    {\bf (1):}$\text{Var}\left(X_1\right)=p(1-p)^2+(1-p)(p-0)^2=p(1-p)$.\\
+    {\bf (2):}由前例知$\overset{-}{x}$是$p$的ML估计量，故$\overset{-}{x}\left(1-\overset{-}{x}\right)$是$p(1-p)$的ML估计量.\\
+    {\bf (3):}
+    \begin{align}
+      E(T)&=E \left(\overset{-}{x}-\overset{-}{x}^2\right)=E\left(\overset{-}{x}\right)-E\left(\overset{-}{x}^2\right)\\&=E\left(\overset{-}{x}\right)-\left(\text{Var}\left(\overset{-}{x}\right)+(E(x))^2\right)
+      \\&=p-\left(\left(\frac{1}{n}\right)p(1-p)+p^2\right)=p(1-p)\frac{n-1}{n}
+    \end{align}
+    \item[5.]{\bf 解：}\\
+    {\bf (1):}$\text{Var}\left(\hat{p}\right)=\frac{1}{n^2}\text{Var}(S)=\frac{1}{n^2}\cdot \text{np}(1-p)=\frac{p(1-p)}{n}$\\
+    {\bf (2):}因为$\frac{s}{n}$是$p$的ML估计量，故$\frac{s}{n^2}\left(1-\frac{s}{n}\right)$是$\frac{p(1-p)}{n}$的ML估计量.
+    \item[6.]{\bf 解：}\\
+    {\bf (1):}$\alpha _1=\text{EX}=\int_{\theta }^{\infty } \text{xe}^{-(x-\theta )} \, dx=\int _0^{\infty }(x+\theta )e^{-x}dx=1+\theta$\\
+    故取$T_2=\overset{-}{x}-1$.\\
+    {\bf (2):}对于$T_1$，有:
+    $$p(x,\theta )=\begin{cases}
+ \text{ne}^{-n(x-\theta )} & x\geq \theta  \\
+ 0 & x<\theta
+\end{cases}$$
+因此：$$E\left(T_1\right)=\int_{\theta }^{\infty } \left({xne}^{-n(x-\theta )}\right) \, dx=\frac{1+n \theta }{n}$$
+$$E\left(T_1^2\right)=\int_{\theta }^{\infty } \left(x^2\text{ne}^{-n(x-\theta )}\right) \, dx=\frac{2+n \theta  (2+n \theta )}{n^2}$$
+故，$E_{\theta }\left(T_1-\theta \right){}^2=E\left(T_1^2\right)-\left(E\left(T_1\right)\right){}^2+\left(\text{Bias}\left(T_1,\theta \right)\right){}^2=\frac{2}{n^2}$.\\
+    $E_{\theta }\left(T_2-\theta \right){}^2=\text{Var}\left(T_2\right)+\left(\text{Bias}\left(T_2,\theta \right)\right){}^2=\text{Var}\left(\overset{-}{x}\right)=\frac{1}{n}\int _{\theta }^{\infty }(x-1-\theta )^2e^{-(x-\theta )}dx=\frac{1}{n}$
+\end{description}
+\end{document}

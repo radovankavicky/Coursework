@@ -1,0 +1,116 @@
+\documentclass{ctexart}
+  \usepackage{amsmath}
+  \usepackage{amssymb}
+  \usepackage{graphicx}
+  \usepackage{float}
+  \usepackage{setspace}
+\topmargin=-1.2cm \oddsidemargin=0.1cm \evensidemargin=0.1cm
+\textwidth=16 true cm \textheight=23 true cm
+
+\font\euler=EUSM10 \font\eulers=EUSM7
+
+\begin{document}
+\title{数学双学位：统计学 \\第7次作业}
+\author{{\normalsize 盛浩, 学号:1000017438, \LaTeX}}
+\date{\today}
+
+\maketitle
+
+\def \Pr{{\rm Pr}}
+
+\baselineskip 0.6cm
+{\bf 习题八}
+\begin{description}
+    \item[10(1).]{\bf 解：}\\
+    $X=\left(X_1,X_2,\ldots ,X_n\right)$的联合密度函数为:\\
+    $$\left(\frac{1}{\sqrt{2\pi }\sigma }\right)^n\exp \left\{-\frac{1}{2\sigma ^2}\sum \left(X_i-\mu _0\right){}^2\right\}$$
+    $$=S\left(\sigma ^2\right)\exp \left\{C\left(\sigma ^2\right)T(X)\right\}$$
+    其中
+    \begin{align} \notag
+      C(u)&=-\frac{1}{2u^2}\\ \notag
+      T(X)&=\sum \left(X_i-\mu _0\right){}^2
+    \end{align}
+    因此, 
+    $$\mathcal{W}_{\alpha }=\left\{\frac{\sum \left(X_i-\mu _0\right){}^2}{\sigma _0^2}\geq \chi _{1-\alpha }^2(n)\right\}$$
+    是其水平为$\alpha$的UMP否定域.
+    \item[13.]{\bf 解：}\\
+    由于
+    \begin{align} \notag
+      P_P\{X\geq c\}&=\sum _{i=c}^n \left(
+\begin{array}{c}
+ n \\
+ i
+\end{array}
+\right)p^i(1-p)^{n-i}=\ldots \\ \notag
+&=\int _0^p\left(
+\begin{array}{c}
+ n \\
+ c+1
+\end{array}
+\right)(1-x)^{n-(c+1)}dx+\left(
+\begin{array}{c}
+ n \\
+ c
+\end{array}
+\right)p^c(1-p)^{n-c}\\ \notag
+&=\int _0^p\left(
+\begin{array}{c}
+ n \\
+ c
+\end{array}
+\right)(1-x)^{n-c}dx^c
+    \end{align}
+    是$(0,1)$上的连续函数.
+    \item[19.]{\bf 解：}\\
+    记$q$为生产率, 其中$q_0$为70年代生存率, $q$为80年代生存率. 为了检验:
+    $$q\leq q_0\longleftrightarrow q>q_0$$
+    由小样本方法:
+    $$q\left(y_0\right)=\left(1+\frac{n-y_0+1}{y_0}F_{1-\alpha }\left(2\left(n-y_0+1\right),2y_0\right)\right){}^{-1}$$
+    其中, $n=50,y_0=40$.
+    则, $q\left(y_0\right)=0.6844<0.75$, 我们不能拒绝$H_0$.
+    即80年代的死亡率并没有统计显著的减少.
+\end{description}
+\newpage
+{\bf 补充题}
+\begin{description}
+    \item[1.]{\bf 解：}\\
+    1)$$\int _{-\infty }^{\infty }\phi (x)dx=\int_{-2}^{-1} \frac{x+2}{3} \, dx+\int_{-1}^1 \frac{1}{3} \, dx+\int_1^2 \frac{-x+2}{3} \, dx=1$$
+    故此为密度函数.\\
+    2)记$\Theta _0=\{\theta \leq 0\},\Theta _1=\{\theta >0\}$. 取$\theta _0=0\in \Theta _0,\theta _1=1\in \Theta _1$. 有如下似然比:
+    $$\lambda (x)=\frac{f(x-1)}{f(x)}=\begin{cases}
+ 0 & x\in [-2,1) \\
+ x+1 & x\in [-1,0) \\
+ 1 & x\in [0,1) \\
+ \frac{1}{2-x} & x\in [1,2) \\
+ \infty  & x\in [2,3) \\
+ \frac{0}{0} & 
+\end{cases}$$
+    易见其是上升函数, 故当$\alpha <\frac{1}{3},$
+    $$\mathcal{W}_{\alpha }=\left\{x\geq 2-\sqrt{12\alpha }\right\}$$
+    即$\mathcal{W}_{\alpha= }$是($\theta=0,\theta=1$)下水平$\alpha$的UPM否定域.
+    又, $\forall \theta \leq 0, P_{\theta }\left\{\mathcal{W}_{\alpha }\right\}\leq \alpha$. \\
+    因此, $\mathcal{W}_{\alpha= }$是($\theta \leq 0,\theta=1$)下水平$\alpha$的UPM否定域.\\
+    由于上述演算对于$\forall \theta _1>0$均成立, $\mathcal{W}_{\alpha= }$为所求UPM否定域.
+    \item[2.]{\bf 解：}\\
+    将第一小问看成第二小问的特殊情况.\\
+    2)记$\Theta _0=\{\theta \leq 0\},\Theta _1=\{\theta >0\}$. 取$\theta _0=0\in \Theta _0,\theta _1=1\in \Theta _1$. 有如下似然比:
+    $$\lambda (x)=\frac{I_{\min \left\{x_i>1\right\}}}{I_{\min \left\{x_i>0\right\}}}\exp \{n\}$$
+    这个函数只取0和$exp\{n\}$这两个值. 故水平$\alpha$的UMP否定域是:
+    $$\mathcal{W}_{\alpha }=\left\{\min  x_i\geq -\frac{\ln \{\alpha \}}{n}\right\}$$
+    由于$\forall \theta \leq 0,P_{\theta }\left\{\mathcal{W}_{\alpha }\right\}\leq \alpha$, $\mathcal{W}_{\alpha= }$是($\theta \leq 0,\theta=1$)下水平$\alpha$的UPM否定域.\\
+     由于上述演算对于$\forall \theta _1>0$均成立, $\mathcal{W}_{\alpha= }$为所求UPM否定域.
+    \newpage
+    \item[3.]{\bf 解：}\\
+    否定域
+    $$\mathcal{W}_{\alpha }=\left\{x\geq c_2\right\}\cup \left\{x\leq c_1\right\}$$
+    其中
+    $$c_2=\inf \left\{c:P_{p_0}(X>c)\leq \frac{\alpha }{2}\right\}$$
+    $$c_1=\sup \left\{c:P_{p_0}(X\leq c)\leq \frac{\alpha }{2}\right\}$$
+    易知
+    $$X\geq c_2\Longleftrightarrow p\left(x_0\right)\geq p_0,$$
+    $$p\left(x_0\right)=\left(1+\frac{n-x_0+1}{x_0}F_{1-\alpha }\left(2\left(n-x_0+1\right),2x_0\right)\right){}^{-1}$$
+    记$Y=n-X$,则
+    $$X\leq c_1\Longleftrightarrow Y\geq n-c_1\Longleftrightarrow q\left(y_0\right)\geq q_0$$
+    $$q\left(y_0\right)=\left(1+\frac{n-y_0+1}{y_0}F_{1-\alpha }\left(2\left(n-y_0+1\right),2y_0\right)\right){}^{-1}$$
+\end{description}
+\end{document}

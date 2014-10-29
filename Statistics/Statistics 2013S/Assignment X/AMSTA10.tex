@@ -1,0 +1,114 @@
+\documentclass{ctexart}
+  \usepackage{amsmath}
+  \usepackage{amssymb}
+  \usepackage{graphicx}
+  \usepackage{float}
+  \usepackage{setspace}
+\topmargin=-1.2cm \oddsidemargin=0.1cm \evensidemargin=0.1cm
+\textwidth=16 true cm \textheight=23 true cm
+
+\font\euler=EUSM10 \font\eulers=EUSM7
+
+\begin{document}
+\title{数学双学位：统计学 \\第10次作业}
+\author{{\normalsize 盛浩, 学号:1000017438, \LaTeX}}
+\date{\today}
+
+\maketitle
+
+\def \Pr{{\rm Pr}}
+
+\baselineskip 0.6cm
+{\bf 习题九}
+\begin{description}
+    \item[8.]{\bf 解：}\\
+    \begin{description}
+        \item[a.(2.18)]
+            \begin{align}
+              U&=\left\|\hat{Y}-1\overset{-}{Y}\right\|=\left\|1\hat{b}_0+X\hat{b}-1\overset{-}{X}\hat{b}-1\hat{b}_0\right\|\\
+              &=\hat{b}^T\tilde{X}^T\tilde{X}\hat{b}=\hat{b}^T\tilde{X}^T\tilde{X}\left(\tilde{X}^T\tilde{X}\right)^{-1}\tilde{X}^TY\\
+              &=\hat{b}^T\tilde{X}^TY=\hat{b}^T\tilde{X}^T\tilde{Y}=\hat{b}l_{\text{xy}}
+            \end{align}
+        \item[b.(2.19)]
+            \begin{align}
+              Y-1\overset{-}{Y}&=\left(Y-\hat{Y}\right)+\left(\hat{Y}-1\overset{-}{Y}\right)
+              \intertext{由于$Y-\hat{Y}$垂直于子空间$\mathcal{M}(1,X)$, $\left(\hat{Y}-1\overset{-}{Y}\right)\in \mathcal{M}(1,X)$, $Y-\hat{Y}$垂直于$\left(\hat{Y}-1\overset{-}{Y}\right)$}
+              \left(Y-1\overset{-}{Y}\right)^T\left(Y-1\overset{-}{Y}\right)&=\left(Y-\hat{Y}\right)^T\left(Y-\hat{Y}\right)+\left(\hat{Y}-1\overset{-}{Y}\right)^T\left(\hat{Y}-1\overset{-}{Y}\right)
+              \intertext{即,}
+              Q&=l_{\text{yy}}-U
+            \end{align}
+        \item[c.(2.20)]
+            \begin{align}
+             r^2&=\frac{\left(\tilde{X}^T\tilde{Y}\right)^2}{\tilde{X}^T\tilde{X}\tilde{Y}^T\tilde{Y}}=\frac{l_{\text{xy}}^2}{l_{\text{xx}}l_{\text{yy}}}=\frac{l_{\text{xy}}\cdot l_{\text{xy}}}{l_{\text{xx}}}\cdot \frac{1}{l_{\text{yy}}}=\frac{U}{l_{\text{yy}}}
+              \intertext{由前一小问结论,}
+              r^2&=\frac{U}{l_{\text{yy}}}=1-\frac{Q}{l_{\text{yy}}}
+            \end{align}
+    \end{description}
+    \item[9.]{\bf 解：}\\
+        \begin{description}
+          \item[a.]
+            \begin{align}
+              \sum _{i=1}^n \frac{\hat{y}_i}{n}&=\left(1^T1\right)^{-1}1^T\hat{Y}\\
+              &=\left(1^T1\right)^{-1}1^TY_{(1,X)}\\
+              &=\left(1^T1\right)^{-1}1^TY_{\left(1,\tilde{X}\right)}\\
+              &=\left(1^T1\right)^{-1}1^TY_1\\
+              &=\overset{-}{Y}
+            \end{align}
+           \item[b.]
+            \begin{align}
+              \sum _{i=1}^n \left(\hat{y}_i-\overset{-}{y}\right)\left(y_i-\overset{-}{y}\right)&=\left(\hat{Y}-\overset{-}{Y}\right)^T\left(Y-\overset{-}{Y}\right)\\
+              &=\left(\hat{Y}-1\overset{-}{Y}\right)^T\left(Y-\hat{Y}+\hat{Y}-1\overset{-}{Y}\right)\\
+              &=\left(\hat{Y}-1\overset{-}{Y}\right)^T\left(\hat{Y}-1\overset{-}{Y}\right)\\
+              &=U
+            \end{align}
+            \item[c.]
+            \begin{align}
+              r^2&=\frac{\left(\tilde{X}^T\tilde{Y}\right)^2}{\tilde{X}^T\tilde{X}\tilde{Y}^T\tilde{Y}}
+              \intertext{由上一小问结论}
+              U&=\left(\hat{Y}-\overset{-}{Y}\right)^T\left(Y-\overset{-}{Y}\right)\\
+              &=\left(\hat{b}\tilde{X}\right)^T\tilde{Y}\\
+              &=\left(\left(\tilde{X}^T\tilde{X}\right)^{-1}\tilde{X}^T\tilde{Y}\tilde{X}\right)^T\tilde{Y}\\
+              &=\frac{\tilde{X}^TY^T\tilde{X}\tilde{Y}}{\tilde{X}^T\tilde{X}}
+              \intertext{因此,}
+              \frac{U}{Y^TY}&=r^2
+            \end{align}
+        \end{description}
+    \item[10.]{\bf 解：}\\
+        由第9小题,显然得证.
+\end{description}
+\newpage
+{\bf 补充题}
+\begin{description}
+    \item[1.]{\bf 解：}\\
+        \begin{description}
+          \item[i.]
+            \begin{align}
+              Y\sim N\left(1b_0+\text{Xb},\sigma ^2I_n\right)
+            \end{align}
+          \item[ii.]
+            \begin{align}
+              \left(\frac{1}{\sqrt{2\pi }\sigma }\right)^n\exp \left\{-\frac{\left(Y-1b_0-\text{Xb}\right){}^T\left(Y-1b_0-\text{Xb}\right)}{2\sigma ^2}\right\}
+            \end{align}
+          \item[iii.]
+            \begin{align}
+              \hat{b}_0,\hat{b}&:\left(Y-1\hat{b}_0-X\hat{b}\right){}^T\left(Y-1\hat{b}_0-X\hat{b}\right)=\min \left\{\left(Y-1b_0-\text{Xb}\right){}^T\left(Y-1b_0-\text{Xb}\right)\right\}\\
+              \hat{\sigma }^2&:\hat{\sigma }^2=\frac{\left(Y-1\hat{b}_0-X\hat{b}\right){}^T\left(Y-1\hat{b}_0-X\hat{b}\right)}{n}
+            \end{align}
+        \end{description}
+    \item[3.]{\bf 解：}\\
+        显然$x,e$联合正态, 由于$y$是从$x,e$的非退化线性变换得到的, 故$y,e$联合正态.
+        \begin{description}
+          \item[i.]
+            \begin{align}
+              \text{cov}(x,y)&=\text{cov}\left(x,b_0+\text{bx}+e\right)=b\cdot \\
+              \text{cov}(x,x)&=\text{b$\sigma $}_x^2\text{cov}(x,x)=\sigma _x^2\\
+              \text{cov}(y,y)&=\text{cov}\left(b_0+\text{bx}+e,b_0+\text{bx}+e\right)=b^2\sigma _x^2+\sigma ^2\\
+              \left(\begin{array}{c} x \\ y\end{array}\right)&\sim N\left(\left(\begin{array}{c} \mu _x \\ \text{b$\mu $}_x+b_0\end{array}\right),\left(\begin{array}{cc} \sigma _x^2 & \text{b$\sigma $}_x^2 \\ \text{b$\sigma $}_x^2 & b^2\sigma _x^2+\sigma ^2\end{array}\right)\right)
+            \end{align}
+          \item[ii.]
+            \begin{align}
+              \rho _{\text{xy}}=\frac{\text{b$\sigma $}_x^2}{\sqrt{\sigma _x^2\left(b^2\sigma _x^2+\sigma ^2\right)}}=\frac{\text{b$\sigma $}_x}{b^2\sigma _x^2+\sigma ^2}
+            \end{align}
+        \end{description}
+\end{description}
+\end{document}

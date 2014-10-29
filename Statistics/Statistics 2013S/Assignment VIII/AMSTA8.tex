@@ -1,0 +1,138 @@
+\documentclass{ctexart}
+  \usepackage{amsmath}
+  \usepackage{amssymb}
+  \usepackage{graphicx}
+  \usepackage{float}
+  \usepackage{setspace}
+\topmargin=-1.2cm \oddsidemargin=0.1cm \evensidemargin=0.1cm
+\textwidth=16 true cm \textheight=23 true cm
+
+\font\euler=EUSM10 \font\eulers=EUSM7
+
+\begin{document}
+\title{数学双学位：统计学 \\第8次作业}
+\author{{\normalsize 盛浩, 学号:1000017438, \LaTeX}}
+\date{\today}
+
+\maketitle
+
+\def \Pr{{\rm Pr}}
+
+\baselineskip 0.6cm
+{\bf 习题八}
+\begin{description}
+    \item[11.]{\bf 解：}\\
+    \begin{description}
+        \item[a.]参数的ML估计
+            \begin{align}
+              \hat{\mu }&=\overset{-}{X}\\
+              \hat{\mu _0}&=\begin{cases} \overset{-}{X} & \overset{-}{X}\leq \mu _0 \\ \mu _0 & \overset{-}{X}>\mu _0\end{cases}
+            \end{align}
+        \item[b.]广义似然比
+            \begin{align}
+              \mathcal{L}\left(\hat{\mu }\right)&=\frac{1}{\left(\sqrt{2\pi }\sigma _0\right){}^n}\exp \left\{-\frac{1}{2\sigma _0^2}\sum _{i=1}^n \left(x_i-\overset{-}{x}\right){}^2\right\}\\
+              \mathcal{L}\left(\hat{\mu }_0\right)&=\frac{1}{\left(\sqrt{2\pi }\sigma _0\right){}^n}\exp \left\{-\frac{1}{2\sigma _0^2}\sum _{i=1}^n \left(x_i-\hat{\mu _0}\right){}^2\right\}
+            \end{align}
+            因此, 似然比函数为:
+            \begin{align}
+              \lambda (x)&=\frac{\mathcal{L}\left(\hat{\mu }\right)}{\mathcal{L}\left(\hat{\mu }_0\right)}\\
+              &=\exp \left\{\frac{1}{2\sigma _0^2}\sum _{i=1}^n \left(x_i-\hat{\mu _0}\right){}^2-\frac{1}{2\sigma _0^2}\sum _{i=1}^n \left(x_i-\overset{-}{x}\right){}^2\right\}\\
+              &=\exp \left\{n\frac{\left(\hat{\mu _0}-\overset{-}{x}\right){}^2}{2\sigma _0^2}\right\}
+            \end{align}
+        \item[c.]广义似然比否定域
+            \begin{align}
+              \mathcal{W}_{\alpha }&=\left\{x:\left(\overset{-}{x}-\hat{\mu _0}\right){}^2\geq c\right\}\longrightarrow \left\{x:\overset{-}{x}-\hat{\mu _0}\geq c\right\}
+              \intertext{其中}
+              \left(\overset{-}{x}-\hat{\mu _0}\right){}^2&=\begin{cases} 0 & x-\mu _0\leq 0 \\ \left(x-\mu _0\right){}^2 & x-\mu _0>0\end{cases}
+              \intertext{故所求UMP否定域为:}
+              \mathcal{W}_{\alpha }&=\left\{x:\frac{\sqrt{n}\left(\overset{-}{x}-\mu _0\right)}{\sigma _0}\geq \mathit{z}_{1-\alpha }\right\}
+            \end{align}
+    \end{description}
+    \item[15.]{\bf 解：}\\
+    \begin{description}
+        \item[a.]参数的ML估计
+            \begin{align}
+              \hat{p}&=\frac{X}{n}\\
+              \hat{p_0}&=\begin{cases}         \frac{X}{n} & \frac{X}{n}\leq p_0 \\         p_0 & \frac{X}{n}>p_0        \end{cases}
+            \end{align}
+        \item[b.]广义似然比
+            \begin{align}
+              \lambda (x)&=\left(\frac{\hat{p}}{\hat{p_0}}\right){}^x\left(\frac{1-\hat{p}}{1-\hat{p_0}}\right){}^{n-x}\\
+              &=\begin{cases} 1 & \frac{x}{n}\leq p_0 \\ \left(\frac{\frac{x}{n}}{p_0}\right){}^x\left(\frac{1-\frac{x}{n}}{1-p_0}\right){}^{n-x} & \frac{x}{n}>p_0\end{cases}
+            \end{align}
+        \item[c.]广义似然比否定域
+            \begin{align}
+              \mathcal{W}_{\alpha }&=\{x:\lambda (x)\geq c\}\longrightarrow \left\{x:(\lambda (x))^{\frac{1}{n}}\geq c\right\}\longrightarrow \left\{x:\frac{x}{n}\geq c\right\}\longrightarrow \{x:x\geq c\}
+              \intertext{这是因为, 记$y\equiv \frac{x}{n}$, 当$y>p_0$时, $\frac{y}{1-y}\cdot \frac{1-p_0}{p_0}>1$ 进而}
+              \frac{\partial (\lambda (x))^{\frac{1}{n}}}{\partial \left(\frac{x}{n}\right)}&=\left(\frac{1-y}{1-p_0}\right){}^{1-y} \left(\frac{y}{p_0}\right){}^y\text{Log}\left[\frac{y}{1-y}\cdot \frac{1-p_0}{p_0}\right]>0
+              \intertext{故所求UMP否定域为(我们无法找到确切的c 值):}
+              \mathcal{W}_{\alpha }&=\{x:x\geq c\} \notag
+            \end{align}
+    \end{description}
+\end{description}
+\newpage
+{\bf 补充题}
+\begin{description}
+    \item[1.]{\bf 解：}\\
+    \begin{description}
+        \item[a.]参数的ML估计
+            \begin{align}
+              \hat{\mu }&=\overset{-}{x}\\
+              \hat{\sigma }^2&=\frac{1}{n}\sum _{i=1}^n \left(x_i-\overset{-}{x}\right){}^2\\
+              \hat{\mu }_0&=\overset{-}{x}\\
+              \hat{\sigma }_0^2&=\begin{cases} \frac{1}{n}\sum _{i=1}^n \left(x_i-\overset{-}{x}\right){}^2 & \frac{1}{n}\sum _{i=1}^n \left(x_i-\overset{-}{x}\right){}^2<\sigma _0^2 \\ \sigma _0^2 & \frac{1}{n}\sum _{i=1}^n \left(x_i-\overset{-}{x}\right){}^2\geq \sigma _0^2\end{cases}
+            \end{align}
+        \item[b.]广义似然比
+            \begin{align}
+                \mathcal{L}\left(x,\hat{\mu }_0,\hat{\sigma }_0^2\right)&=\begin{cases} \left(\frac{n}{2\pi \sigma _0^2u}\right){}^{\frac{n}{2}}\exp \left\{-\frac{1}{2}n\right\} & u<n \\ \left(\frac{n}{2\pi \sigma _0^2}\right){}^{\frac{n}{2}}\exp \left\{-\frac{1}{2}n\right\} & u\geq n\end{cases}\\
+                \mathcal{L}\left(x,\hat{\mu },\hat{\sigma }^2\right)&=\left(\frac{n}{2\pi \hat{\sigma }^2}\right)^{\frac{n}{2}}\exp \left\{-\frac{1}{2}n\right\}\\
+                \varphi (u)&=\begin{cases} 1 & u<n \\ \left(\frac{n}{u}\right)^{\frac{n}{2}}\exp \left\{-\frac{1}{2}(n-u)\right\} & u\geq n\end{cases}
+                \intertext{其中,}
+                u&=\frac{1}{\sigma _0^2}\sum _{i=1}^n \left(x_i-\overset{-}{x}\right){}^2
+            \end{align}
+        \item[c.]广义似然比否定域
+            \begin{align}
+                \mathcal{W}_{\alpha }&=\{x:\lambda (x)\geq c\}\longrightarrow \{x:\varphi (u(X))\geq c\}\longrightarrow \left\{x:u(x)>\varphi ^{-1}(c)\right\}\\
+                \intertext{这是因为,}
+                \frac{\partial \varphi (u)}{\partial u}&\geq 0\\
+                \intertext{因此所求UMP否定域是}
+                \mathcal{W}_{\alpha }&=\left\{\frac{\sum _{i=1}^n \left(x_i-\overset{-}{x}\right){}^2}{\sigma _0^2}\geq \chi _{1-\alpha }^2(n-1)\right\}
+            \end{align}
+    \end{description}
+    \item[2.]{\bf 解：}\\
+        \begin{align}
+          \frac{\frac{V}{n_2-1}}{\frac{U}{n_1-1}}<F_{\frac{\alpha }{2}}\left(n_2-1,n_1-1\right)&\Longleftrightarrow \left(\frac{\frac{V}{n_2-1}}{\frac{U}{n_1-1}}\right){}^{-1}>\left(F_{\frac{\alpha }{2}}\left(n_2-1,n_1-1\right)\right){}^{-1}\\
+          &\Longleftrightarrow \frac{\frac{U}{n_1-1}}{\frac{V}{n_2-1}}>F_{1-\frac{\alpha }{2}}\left(n_1-1,n_2-1\right)
+          \intertext{同理,}
+          \frac{\frac{V}{n_2-1}}{\frac{U}{n_1-1}}>F_{1-\frac{\alpha }{2}}\left(n_2-1,n_1-1\right)&\Longleftrightarrow \frac{\frac{U}{n_1-1}}{\frac{V}{n_2-1}}F_{\frac{\alpha }{2}}\left(n_1-1,n_2-1\right) 
+        \end{align}
+        从而原命题得证.
+    \item[3.]{\bf 解：}\\
+    \begin{description}
+        \item[a.]参数的ML估计
+            \begin{align}
+              \hat{\mu }&=\overset{-}{x}\\
+              \hat{\sigma }^2&=\frac{1}{n}\sum _{i=1}^n \left(x_i-\overset{-}{x}\right){}^2\\
+              \hat{\mu }_0&=\overset{-}{x}\\
+              \hat{\sigma }_0^2&=\begin{cases} \frac{1}{n}\sum _{i=1}^n \left(x_i-\overset{-}{x}\right){}^2 & \frac{1}{n}\sum _{i=1}^n \left(x_i-\overset{-}{x}\right){}^2<\sigma _0^2 \\ \sigma _0^2 & \frac{1}{n}\sum _{i=1}^n \left(x_i-\overset{-}{x}\right){}^2\geq \sigma _0^2\end{cases}
+            \end{align}
+        \item[b.]广义似然比
+            \begin{align}
+                \lambda \left(X_1,X_2\right)&=\left(\frac{\sigma _0^2}{\sigma ^2}\right){}^{\frac{n_1+n_2}{2}}=\left(1+\frac{\frac{\left(\overset{-}{X}_1-\overset{-}{X}_2\right){}^2n_1n_2}{n_1+n_2}}{\sum \left(X_{1i}-\overset{-}{X}_1\right){}^2+\sum \left(X_{2i}-\overset{-}{X}_2\right){}^2}\right){}^{\frac{n_1+n_2}{2}}\\
+                \intertext{令,}
+                T&=\frac{\overset{-}{X}_1-\overset{-}{X}_2}{\sqrt{\sum \left(X_{1i}-\overset{-}{X}_1\right){}^2+\sum \left(X_{2i}-\overset{-}{X}_2\right){}^2}}\cdot \sqrt{\frac{\left(n_1+n_2-2\right)n_1n_2}{n_1+n_2}}
+                \intertext{则,}
+                \lambda \left(X_1,X_2\right)&=\left(1+\frac{T^2}{n_1+n_2-2}\right){}^{\frac{n_1+n_2}{2}}
+            \end{align}
+        \item[c.]广义似然比否定域
+            \begin{align}
+              \mathcal{W}_{\alpha }&=\left\{\lambda \left(X_1,X_2\right)\geq c\right\}\longrightarrow \{|T|>c\}
+                \frac{\partial \varphi (u)}{\partial u}&\geq 0\\
+                \intertext{又,}
+                T&\sim t\left(n_1+n_2-2\right)
+                \intertext{因此所求UMP否定域是}
+                \mathcal{W}_{\alpha }&=\left\{T>t_{1-\frac{\alpha }{2}}\left(n_1+n_2-2\right)\right\}\cup \left\{T<t_{\frac{\alpha }{2}}\left(n_1+n_2-2\right)\right\}
+            \end{align}
+    \end{description}
+\end{description}
+\end{document}

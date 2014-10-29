@@ -1,0 +1,56 @@
+\documentclass{ctexart}
+  \usepackage{amsmath}
+  \usepackage{amssymb}
+  \usepackage{graphicx}
+  \usepackage{float}
+  \usepackage{setspace}
+\topmargin=-1.2cm \oddsidemargin=0.1cm \evensidemargin=0.1cm
+\textwidth=16 true cm \textheight=23 true cm
+
+\font\euler=EUSM10 \font\eulers=EUSM7
+
+\begin{document}
+\title{数学双学位：统计学 \\第9次作业}
+\author{{\normalsize 盛浩, 学号:1000017438, \LaTeX}}
+\date{\today}
+
+\maketitle
+
+\def \Pr{{\rm Pr}}
+
+\baselineskip 0.6cm
+{\bf 习题八}
+\begin{description}
+    \item[7.]{\bf 解：}\\
+    相应的假设检验问题:
+    \begin{align}
+      H_0:\sigma \leq 0.005&\longleftrightarrow H_1:\sigma >0.005\\
+      \intertext{得到UMP否定域}
+      \mathcal{W}&=\left\{\frac{\sum _{i=1}^7 \left(x_i-\overset{-}{x}\right){}^2}{0.005^2}>\chi _{1-0.005}^2(6)\right\}\\
+      \intertext{p值的计算公式为}
+      p(x)&=\underset{\sigma \leq \sigma _0}{\sup } P_{\sigma }\left\{\frac{\sum _{i=1}^7 \left(X_i-\overset{-}{X}\right){}^2}{\sigma ^2}\geq \frac{\sum _{i=1}^7 \left(x_i-\overset{-}{x}\right){}^2}{0.005^2}\right\}\\ \notag
+      &=P\left\{\chi ^2(6)\geq 11.76\right\}=1-P\left\{\chi ^2(6)\leq 11.76\right\}\\ \notag
+      &=0.0675
+    \end{align}
+\end{description}
+\newpage
+{\bf 补充题}
+\begin{description}
+    \item[1.]{\bf 解：}\\
+    记,
+    \begin{align}
+      P_{i*}&\equiv P\left\{X_1=i\right\}\\
+      P_{*j}&\equiv P\left\{X_2=j\right\}\\
+      p_{\text{ij}}&\equiv P\left\{X_1=i,X_2=j\right\}=P_{i*}\cdot P_{*j}
+      \intertext{计算得,}
+      V&=\sum _{i=1}^2 \sum _{j=1}^2 \frac{\left(n_{\text{ij}}-n\hat{p}_{\text{ij}}\right){}^2}{n\hat{p}_{\text{ij}}}=\frac{n\left(n_{11}n_{22}-n_{12}n_{21}\right){}^2}{n_{1*}n_{2*}n_{*1}n_{*2}}=0.0495\\
+      p(v)&=0.824
+    \end{align}
+    \item[2.]{\bf 解：}\\
+    \begin{align}
+      \sum _{i=1}^2 \sum _{j=1}^2 \frac{\left(n_{\text{ij}}-n\hat{p}_{\text{ij}}\right){}^2}{n\hat{p}_{\text{ij}}}&=\sum _{i=1}^2 \sum _{j=1}^2 \frac{\left(n_{\text{ij}}-\frac{n_{i*}n_{*j}}{n}\right){}^2}{\frac{n_{i*}n_{*j}}{n}}=\sum _{i=1}^2 \sum _{j=1}^2 \frac{\left(\frac{n_{11}n_{22}-n_{12}n_{21}}{n}\right){}^2}{\frac{n_{i*}n_{*j}}{n}}\\ \notag
+      &=\frac{\left(n_{11}n_{22}-n_{12}n_{21}\right){}^2}{n_{1*}n_{2*}n_{*1}n_{*2}}\left(\frac{\sum _{i=1}^2 \sum _{j=1}^2 n_{i*}n_{*j}}{n}\right)\\ \notag
+      &=\frac{n\left(n_{11}n_{22}-n_{12}n_{21}\right)}{n_{1*}n_{2*}n_{*1}n_{*2}}
+    \end{align}
+\end{description}
+\end{document}
