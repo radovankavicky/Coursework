@@ -25,6 +25,7 @@
 *.log
 *.aux
 *.synctex.gz
+*.synctex.gz(busy)
 *.fdb_latexmk
 *.dvi
 *.blg

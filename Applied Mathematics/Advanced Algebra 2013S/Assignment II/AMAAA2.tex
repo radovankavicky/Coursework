@@ -1,0 +1,92 @@
+\documentclass{ctexart}
+  \usepackage{amsmath}
+  \usepackage{amssymb}
+  \usepackage{graphicx}
+  \usepackage{float}
+  \usepackage{ulem}
+  \usepackage{setspace}
+\topmargin=-1.2cm \oddsidemargin=0.1cm \evensidemargin=0.1cm
+\textwidth=16 true cm \textheight=23 true cm
+
+\font\euler=EUSM10 \font\eulers=EUSM7
+
+\begin{document}
+\title{数学双学位：高等代数 \\第2次作业}
+\author{{\normalsize 盛浩, 学号:1000017438, \LaTeX}}
+\date{\today}
+
+\maketitle
+
+\def \Pr{{\rm Pr}}
+
+\baselineskip 0.6cm
+{\bf 习题7.4}
+\begin{description}
+    \item[2.]{\bf 解：}\\
+    {\bf (1):}复数域：$$x^4+1=\left(x+\left(\frac{\sqrt{2}}{2}-\frac{\sqrt{2}}{2}i\right)\right)\left(x-\left(\frac{\sqrt{2}}{2}-\frac{\sqrt{2}}{2}i\right)\right)\left(x+\left(\frac{\sqrt{2}}{2}+\frac{\sqrt{2}}{2}i\right)\right)\left(x-\left(\frac{\sqrt{2}}{2}+\frac{\sqrt{2}}{2}i\right)\right)$$
+    实数域：
+    $$x^4+1=\left(x^2+\sqrt{2}x+1\right)\left(x^2-\sqrt{2}x+1\right)$$
+    有理数域上不可约.\\
+    {\bf (2):}复数域：
+    $$x^4+4=(x-(1-i))(x+(1-i))(x-(1+i))(x+(1+i))$$
+    实数域：$$x^4+4=\left(x^2+2x+2\right)\left(x^2-2x+2\right)$$
+    有理数域：$$x^4+4=\left(x^2+2x+2\right)\left(x^2-2x+2\right)$$
+    \item[3.]{\bf 解：}\\
+    {\bf 充分性：}$g(x)\left|f(x)\Longrightarrow g^2(x)\right|f(x)g(x)\Longrightarrow g^2(x)|f^2(x)$.\\
+    {\bf 必要性：}对于任意一个非零次$g(x)$的不可约因式，设其在$g(x)$中为$t_i$重，在$f(x)$中为$k_i$重.\\
+    则$g^2(x)\left|f^2(x)\Longrightarrow 2k_i\geq 2t_i\Longleftrightarrow k_i\geq t_i\Longrightarrow g(x)\right|f(x)$
+    \item[4.]{\bf 解：}\\
+    假设命题不成立，$p(x)$为可约因式. 特别的，$p(x)=p_1(x)p_2(x)$，其中$p_1(x),p_2(x)$为非零次因式.\\
+    取$f(x)=p_1(x),g(x)=p_2(x)$，则$p(x)|f(x)$.\\
+    但是另一方面:$\deg  f(x)=\deg  p(x)-\deg  g(x)<\deg  p(x)$，矛盾！故假设不成立，原命题得证.
+    \item[7.]{\bf 解：}\\
+    我们可以令$f,g_1,g_2$的标准分解式为：
+    $$g_1(x)=\text{ap}_1^{k_1}(x)p_2^{k_2}(x)\cdots p_l^{k_l}(x)q_{l+1}^{k_{l+1}}(x)\cdots q_{l+m}^{k_{l+m}}(x)$$
+    $$g_2(x)=\text{bp}_1^{t_1}(x)p_2^{t_2}(x)\cdots p_l^{t_l}(x)r_{l+1}^{k_{l+1}}(x)\text{$\cdots $r}_{l+n}^{k_{l+n}}(x)$$
+    $$f(x)=h_1^{a_1}(x)h_2^{a_2}(x)\cdots h_s^{a_s}(x)$$
+    则$\left(g_1,g_2\right)=p_1^{\min \left\{k_1,t_1\right\}}(x)p_2^{\min \left\{k_2,t_2\right\}}(x)\cdots p_l^{\min \left\{k_l,t_l\right\}}(x)$，\\
+    易见得，$\left(g_1,g_2\right)|\left(fg_1,g_2\right)$.\\
+    考虑$\left(fg_1,g_2\right)$的标准分解式： 由$\left(fg_1,g_2\right)|g_1$，我们知道，$\left(fg_1,g_2\right)$的不可约因式只能是$p_i(x)$, $q_i(x)$ 或$r_i(x)$. 但是由于$(f,g_2)=1$，$r_i(x)\nmid f(x)$，$\left(fg_1,g_2\right)$的标准分解式中$r_i(x)$指数为0. 同理，$q_i(x)$指数为0.\\ 同时，由于$p_i(x)\nmid f(x)$,$q_i(x)\nmid f(x)$的指数均不超过$\min \left\{k_1,t_1\right\}$.\\
+    综上，$\left(fg_1,g_2\right)$的标准分解式中每一项不可约因式的指数都小于其在$\left(g_1,g_2\right)$中的指数，故$\left(fg_1,g_2\right)|\left(g_1,g_2\right)$. 原命题得证.
+\end{description}
+\newpage
+{\bf 习题7.5}
+\begin{description}
+    \item[1.]{\bf 解：}\\
+    {\bf (1):}$f'(x)=3x^2+4x-11$，由多项式带余除法知：$$f(x)=f'(x)\left(\frac{2}{9}+\frac{x}{3}\right)-\left(\frac{86}{9}+\frac{74 x}{9}\right)$$
+    其中，$$f'(x)=\left(\frac{86}{9}+\frac{74 x}{9}\right)\left(\frac{171}{2738}+\frac{27 x}{74}\right)-\frac{15876}{1369}$$
+    故：
+    \begin{align} \notag
+    \left(f(x),f'(x)\right)&=\left(f'(x)\left(\frac{2}{9}+\frac{x}{3}\right)-\left(\frac{86}{9}+\frac{74 x}{9}\right),f'(x)\right)\\&=\left(\left(\frac{86}{9}+\frac{74 x}{9}\right),f'(x)\right)=\left(\left(\frac{86}{9}+\frac{74 x}{9}\right),-\frac{15876}{1369}\right)=1 \notag
+    \end{align}
+    原式没有重因式.
+    \item[2.]{\bf 解：}\\
+    $f'(x)=3x^2+2a$，由多项式带余除法知：$$f(x)=f'(x)\left(\frac{x}{3}\right)+\left(b+\frac{4 a x}{3}\right)$$
+    其中，$$f'(x)=-\left(\frac{27 b}{16 a^2}+\frac{9 x}{4 a}\right)\left(b+\frac{4 a x}{3}\right)+\left(2 a+\frac{27 b^2}{16 a^2}\right)$$
+    故：$\left(f(x),f'(x)\right)=\left(\left(b+\frac{4 a x}{3}\right),f'(x)\right)=\begin{cases}
+ 1 & \left(2 a+\frac{27 b^2}{16 a^2}\right)\neq 0 \\
+ \left(b+\frac{4 a x}{3}\right) & \left(2 a+\frac{27 b^2}{16 a^2}\right)=0
+\end{cases}$
+原式有重因式的充要条件是：$32a^3+27 b^2=0$.
+    \item[3.]{\bf 解：}\\
+    取$f(x)=x^k+3$，$x$是$f'(x)=x^{k-1}$的$k-1$重因式，但显然不是原多项式的$k$重因式.
+    \item[4.]{\bf 解：}\\
+    不妨设中$p(x)$是$f(x)$的$m$重因式，则$p(x)$是其导数$f'(x)$的$m-1$重因式. 由已知条件，$k-1=m-1$, $k=m$.\\ 即$p(x)$是$f(x)$的$k$重因式.
+\end{description}
+\newpage
+{\bf 习题8.1}
+\begin{description}
+    \item[1.]{\bf 解：}\\
+    {\bf (2):}是线性空间，验证如下:
+    \begin{align} \notag
+      1^{\circ }& \text{\hspace{8mm}} \alpha \oplus \beta =\alpha \beta =\beta \alpha =\beta \oplus \alpha\\ \notag
+      2^{\circ }& \text{\hspace{8mm}}(\alpha \oplus \beta )\oplus \gamma =(\alpha \beta )\gamma =\alpha (\beta \gamma )=\alpha \oplus (\beta \oplus \gamma )\\ \notag
+      3^{\circ }& \text{\hspace{8mm}零元素实数}1=\alpha _0\in \mathbb{R}^+, \alpha \oplus \alpha _0=\alpha ,\forall \alpha \in \mathbb{R}^+\\ \notag
+      4^{\circ }& \text{\hspace{8mm}}\forall \alpha \in \mathbb{R}^+,\text{负元素}\frac{1}{\alpha } \in \mathbb{R}^+,\alpha \oplus \left(\frac{1}{\alpha }\right)=\alpha _0\\ \notag
+      5^{\circ }& \text{\hspace{8mm}}1\otimes \alpha =\alpha ^1=\alpha\\ \notag
+      6^{\circ }& \text{\hspace{8mm}}(k\otimes l)\otimes \alpha =\left(l^k\right)^{\alpha }=\left(l^{\alpha }\right)^k=k\otimes (l\otimes \alpha )\\ \notag
+      7^{\circ }& \text{\hspace{8mm}}(k\oplus l)\otimes \alpha =\alpha ^{\text{kl}}=\alpha ^k\alpha ^l=k\otimes \alpha \oplus k\otimes l\\ \notag
+      8^{\circ }& \text{\hspace{8mm}}k\otimes (\alpha \oplus \beta )=(\alpha \beta )^k=\alpha ^k\beta ^k=k\otimes \alpha \oplus k\otimes \beta \notag
+    \end{align}
+\end{description}
+\end{document}

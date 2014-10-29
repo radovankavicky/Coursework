@@ -1,0 +1,142 @@
+\documentclass{ctexart}
+  \usepackage{amsmath}
+  \usepackage{amssymb}
+  \usepackage{graphicx}
+  \usepackage{float}
+  \usepackage{ulem}
+  \usepackage{setspace}
+  \usepackage{setspace}
+\topmargin=-1.2cm \oddsidemargin=0.1cm \evensidemargin=0.1cm
+\textwidth=16 true cm \textheight=23 true cm
+
+\font\euler=EUSM10 \font\eulers=EUSM7
+
+\begin{document}
+\title{数学双学位：高等代数 \\第1次作业}
+\author{{\normalsize 盛浩, 学号:1000017438, \LaTeX}}
+\date{\today}
+
+\maketitle
+
+\def \Pr{{\rm Pr}}
+
+\baselineskip 0.6cm
+{\bf 习题7.1}
+\begin{description}
+    \item[1.]{\bf 解：}\\
+    $f(x)$与$g(x)$的次数相等.
+    \item[2.]{\bf 解：}\\
+    $f(x)$与$g(x)$的次数都是0.
+    \item[3.]{\bf 解：}\\
+    $f(x)+g(x)$的次数不一定是3. \\反例：$f(x)=x^3+2x-1, g(x)=-x^3-2x^2+x$. 则$f(x)+g(x)=-2x^2+2x+x-1$，其次数为2.
+\end{description}
+\newpage
+{\bf 习题7.2}
+\begin{description}
+    \item[1.]{\bf 解：}\\
+    由已知条件，存在$u(x),v(x)\in K[x]$，使得$g(x)=u(x)f(x)$且$h(x)=v(x)g(x)$.\\
+    从而$h(x)=v(x)u(x)f(x)$, 所以$f(x)|h(x)$.
+    \item[2.]{\bf 解：}\\
+    由已知条件，存在$h_i(x)\in K[x]$，使得$f_i(x)=h_i(x)g(x), i=1,2,\ldots ,s.$.\\
+    则$\sum _{i=1}^s u_i(x)f_i(x)=\left(\sum _{i=1}^s u_i(x)h_i(x)\right)g(x)$.\\
+    从而$g(x)\left|\left(\sum _{i=1}^s u_i(x)f_i(x)\right)\right.$.
+    \item[3(1).]{\bf 解：}\\
+    \begin{spacing}{0.4}
+    \begin{align}
+      &x^4&&&&-3x^2&&-2x&&-1&\\ \notag
+      &x^4&&-2x^3&&+5x^2&&&&&\\ \notag
+      \intertext{\rule[0pt]{13cm}{0.5pt} \hspace{2mm} 除式$*x^2$}
+      &&&+2x^3&&-8x^2&&-2x&&-1&\\ \notag
+      &&&+2x^3&&-4x^2&&+10x&&&\\ \notag
+      \intertext{\rule[0pt]{13cm}{0.5pt} \hspace{2mm} 除式$*2x$}
+      &&&&&-4x^2&&-12x&&-1&\\ \notag
+      &&&&&-4x^2&&+8x&&-20&\\ \notag
+      \intertext{\rule[0pt]{13cm}{0.5pt} \hspace{2mm} 除式$*(-4)$}
+      &&&&&&&-20x&&+19&
+   \end{align}
+   \end{spacing}
+   商式是$x^2+2x-4$，余式是$-20x+19$.
+   \item[4.]{\bf 解：}\\
+   \begin{spacing}{0.4}
+   \begin{align}
+      &x^4&&-3x^3&&&&+a_1x&&+a_0&\\ \notag
+      &x^4&&-3x^3&&+x^2&&&&&\\ \notag
+      \intertext{\rule[0pt]{13cm}{0.5pt} \hspace{2mm} 除式$*x^2$}
+      &&&&&-x^2&&+a_1x&&+a_0&\\ \notag
+      &&&&&-x^2&&+3x&&-1&\\ \notag
+      \intertext{\rule[0pt]{13cm}{0.5pt} \hspace{2mm} 除式$*(-1)$}
+      &&&&&&&+(a_1-3)x&&+(a_0-1)&
+   \end{align}
+   \end{spacing}
+   余式是$(a_1-3)x+(a_0-1)$. 若$g(x)|f(x)$，则$(a_1-3)x+(a_0-1)=0\Longleftrightarrow a_1=3$且$a_0=1$.\newpage
+\end{description}
+{\bf 习题7.3}
+\begin{description}
+\item[1(1).]{\bf 解：}\\
+辗转相除第一次：
+    \begin{spacing}{0.4}
+     \begin{align}
+      &x^4&&+3x^3&&-x^2&&-4x&&-3&\\
+      &x^4&&+\frac{10}{3}x^3&&+\frac{2}{3}x^2&&-x&&&\\ \notag
+      \intertext{\rule[0pt]{13cm}{0.5pt} \hspace{2mm} 除式$*\frac{1}{3}x$}
+      &&&-\frac{1}{3}x^3&&-\frac{5}{3}x^2&&-3x&&-3&\\ \notag
+      &&&-\frac{1}{3}x^3&&-\frac{10}{9}x^2&&-\frac{2}{9}x&&-\frac{1}{3}3\\ \notag
+      \intertext{\rule[0pt]{13cm}{0.5pt} \hspace{2mm} 除式$*(-\frac{1}{9})$}
+      &&&&r_1(x)=&-\frac{5}{9}x^2&&-\frac{25}{9}x&&-\frac{10}{3}&\\ \notag
+   \end{align}
+   \end{spacing}
+   \vspace{15pt}
+   第二次：
+   \begin{spacing}{0.4}
+   \begin{align}
+      &3x^3&&+10x^2&&+2x&&-3&\\ \notag
+      &3x^3&&+15x^2&&+18x&&&\\ \notag
+      \intertext{\rule[0pt]{13cm}{0.5pt} \hspace{2mm} $r_1(x)*(-\frac{27}{5})x$}
+      &3&&-5x^2&&-16x&&-3&\\ \notag
+      &3&&-5x^2&&-25x&&-30&\\ \notag
+      \intertext{\rule[0pt]{13cm}{0.5pt} \hspace{2mm} $r_1(x)*(-9)$}
+      &&&&r_2(x)&=9x&&+27&
+   \end{align}
+   \end{spacing}
+   \vspace{15pt}
+   第三次：
+   \begin{spacing}{0.4}
+   \begin{align}
+   &-\frac{5}{9}x^2&&-\frac{25}{9}x&&-\frac{10}{3}&\\ \notag
+   &-\frac{5}{9}x^2&&-\frac{5}{3}x&&&\\ \notag
+   \intertext{\rule[0pt]{13cm}{0.5pt} \hspace{2mm} $r_2(x)*(-\frac{1}{81})x$}
+   &&&-\frac{10}{9}x&&-\frac{10}{3}&\\ \notag
+   &&&-\frac{10}{9}x&&-\frac{10}{3}&\\ \notag
+   \intertext{\rule[0pt]{13cm}{0.5pt} \hspace{2mm} $r_2(x)*(-\frac{10}{81})$}
+    &&&&&0&
+   \end{align}
+   \end{spacing}
+   综上，$(f(x),g(x))=r_2(x)=9x+27$.
+\item[3.]{\bf 解：}\\
+   存在$u(x),v(x)\in K[x]$使得$u(x)f(x)+v(x)g(x)=(f(x),g(x))$.\\ 故$(f(x),g(x))h(x)=u(x)f(x)h(x)+v(x)g(x)h(x)$.\\\\
+   下证当h(x)的首项系数为1时，$(f(x),g(x))h(x)=(f(x)h(x),g(x)h(x))$:\\
+   首先$$(f(x),g(x))|f(x)\Rightarrow (f(x),g(x))h(x)|h(x)f(x)$$同理$$(f(x),g(x))h(x)|h(x)g(x)$$
+   另一方面，对任意$f(x),g(x)$公因式$d(x)$，由于$d(x)|g(x)$且$d(x)|f(x)$, $$d(x)|u(x)f(x)h(x)+v(x)g(x)h(x)$$x即$d(x)|f(x),g(x))h(x)$.
+   从而得证.
+\item[4.]{\bf 解：}\\
+    设$f(x)=f_1(x)(f(x),g(x)), g(x)=g_1(x)(f(x),g(x))$, 则存在$u(x),v(x)\in K[x]$使得$$u(x)f(x)+v(x)g(x)=(f(x),g(x))$$
+    即$$u(x)f_1(x)(f(x),g(x))+v(x)g_1(x)(f(x),g(x))=(f(x),g(x))\Longleftrightarrow u(x)f_1(x)+v(x)g_1(x)=1$$
+    故$\left(f_1(x),g_1(x)\right)=1$.
+\item[5.]{\bf 解：}\\
+    同上题，若我们设$f(x)=f_1(x)(f(x),g(x)), g(x)=g_1(x)(f(x),g(x))$，则有$$u(x)f_1(x)+v(x)g_1(x)=1$$
+    其中$f(x),g(x)\in K[x]$. 故$\left(u(x),v(x)\right)=1$.
+\item[6.]{\bf 解：}\\
+    对于任意$\text{ad}-\text{bc}\neq 0$的$a,b,c,d\in K$
+    设存在$c(x)|f(x)$且$c(x)|g(x)$，显然$c(x)|af(x)+bg(x)$，$c(x)|cf(x)+dg(x)$.
+    设存在$d(x)|af(x)+bg(x)$且$cf(x)+dg(x)$，由于：$$f(x)=\frac{d}{\text{ad}-\text{bc}}(\text{af}(x)+\text{bg}(x))-\frac{b}{\text{ad}-\text{bc}}(\text{cf}(x)+\text{dg}(x))$$
+    $$g(x)=-\frac{c}{\text{ad}-\text{bc}}(\text{af}(x)+\text{bg}(x))+\frac{a}{\text{ad}-\text{bc}}(\text{cf}(x)+\text{dg}(x))$$
+    $d(x)|f(x)$且$d(x)|g(x)$
+    故$(af(x)+bg(x),cf(x)+dg(x))=(f(x),g(x))$.$$(f(x),f(x)+g(x))=1$$$$(g(x),f(x)+g(x))=1$$
+    结合$(f(x),g(x))=1$,$(f(x)g(x),f(x)+g(x))=1$
+\item[9.]{\bf 解：}\\
+    {\bf 必要性：}若$(f(x),g(x))\neq 1$，设$f(x)=f_1(x)(f(x),g(x)), g(x)=g_1(x)(f(x),g(x))$. 则$g_1(x),f_1(x)$即为合意的$u(x),v(x)$.\\
+    {\bf 充分性：}若不然，假设$(f(x),g(x))=1$. 由于$u(x)f(x)=v(x)g(x)$，$g(x)|u(x)f(x)$.\\
+    因为$(f(x),g(x))=1$，$g(x)|u(x)$，$deg$ $u(x)\geq deg$ $g(x)$. 矛盾！ 故假设不成立，充分性得证.\\
+    综上，原命题得证.
+\end{description}
+\end{document}

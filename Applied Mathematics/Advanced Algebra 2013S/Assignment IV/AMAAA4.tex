@@ -1,0 +1,123 @@
+\documentclass{ctexart}
+  \usepackage{amsmath}
+  \usepackage{amssymb}
+  \usepackage{graphicx}
+  \usepackage{float}
+  \usepackage{ulem}
+  \usepackage{setspace}
+  \usepackage{setspace}
+\topmargin=-1.2cm \oddsidemargin=0.1cm \evensidemargin=0.1cm
+\textwidth=16 true cm \textheight=23 true cm
+
+\font\euler=EUSM10 \font\eulers=EUSM7
+
+\begin{document}
+\title{数学双学位：高等代数 \\第4次作业}
+\author{{\normalsize 盛浩, 学号:1000017438, \LaTeX}}
+\date{\today}
+
+\maketitle
+
+\def \Pr{{\rm Pr}}
+
+\baselineskip 0.6cm
+{\bf 习题8.2}
+\begin{description}
+    \item[9.]{\bf 解：}\\
+    由于$V_1\neq V$, 因此存在$\alpha \notin V_1$. 若$\alpha \notin V_2$, 则$\alpha \notin V_1\cup V_2$. $V_1 \cup V_2$为$V$真子集.\\
+    若不然, $\alpha \in V_1$.
+    存在异于$\alpha$的元素$\beta \in V_2$. 若$\beta \notin V_1$, 则$\beta \notin V_1\cup V_2$. $V_1 \cup V_2$为$V$真子集.\\
+    下考虑$\beta \in V_1$, 我们证明$(\alpha+\beta)\notin V_1\cup V_2$.
+    若不然,\\ i)$(\alpha+\beta)\notin V_1$.
+    则$\beta=(\alpha+\beta)-\alpha \in V_1$, 矛盾！\\
+    ii)$(\alpha+\beta)\notin V_2$.
+    则$\alpha=(\alpha+\beta)-\beta \in V_2$, 矛盾！\\
+    故, 综上，原命题得证.
+    \item[12.]{\bf 解：}\\
+   考虑矩阵$A$的初等行变换:$$A=\left(\alpha _1,\alpha _2,\alpha _3,\beta _1,\beta _2\right)\longrightarrow \left(
+\begin{array}{ccccc}
+ 1 & 0 & -2 & 0 & 1 \\
+ 0 & 1 & 1 & 0 & 2 \\
+ 0 & 0 & 0 & 1 & -1 \\
+ 0 & 0 & 0 & 0 & 0
+\end{array}
+\right)$$
+从而, $\alpha _1,\alpha _2, \beta _1$是$V_1+V_2$的一个基. $\dim \left(V_1+V_2\right)=3$.\\\\
+$\dim \left(V_1\cap V_2\right)=\dim  V_1+\dim  V_2-\dim \left(V_1+V_2\right)=1.$\\
+    考虑方程$x_1\alpha _1+x_2\alpha _2+x_3\beta _1=\beta _2$, 由上述初等行变换知：$$\alpha _1+2\alpha _2-\beta _1=\beta _2$$
+    故, $\alpha _1+2\alpha _2=\beta _1+\beta _2=\left(
+\begin{array}{c}
+ 5 \\
+ -1 \\
+ 5 \\
+ 2
+\end{array}
+\right)$是$V_1\cap V_2$的一个基. \newpage
+    \item[15.]{\bf 解：}\\
+    {\bf (1):}首先$M_n^0(K)$非空, 例如, 我们总可以找到形如这样的矩阵：$\left(
+\begin{array}{cccc}
+ 0 & 1 & \cdots  & 1 \\
+ 1 & 0 & 0 & 0 \\
+ \vdots  & 0 & \ddots & \vdots  \\
+ 1 & 0 & \cdots  & 0
+\end{array}
+\right)$\\
+其次, 首先$M_n^0(K)$对加法和数乘封闭. 设$A, B\in M_n^0(K),k\in K$:
+\begin{align} \notag
+\text{tr}(A+B)&=\text{tr}(A)+\text{tr}(B)=0\\ \notag
+\text{tr}(\text{kA})&=k\cdot \text{tr}(A)=0
+\end{align}
+故$M_n^0(K)$是$M_n(K)$的一个子空间.\\
+    {\bf (2):}对于$\forall A=\left(a_{\text{ij}}\right)\in M_n^t(K)$, $\left(A-\frac{t}{n}I\right)\in M_n^0(K)$.
+    故$A$总可以写成：$$A=A_1+A_2, \text{其中}A_1\in \langle I\rangle, A_2\in M_n^0(K)$$
+    又对于任意非零的$A_1 \in \langle I\rangle$, $\text{tr}\left(A_1\right)\neq 0$, 从而 $A_1\notin M_n^0(K), \langle I\rangle \cap M_n^0(K)=0$.\\
+    故$M_n^0(K)=\langle I\rangle \oplus M_n^0(K)$.
+\end{description}
+\newpage
+{\bf 习题9.1}
+\begin{description}
+    \item[2.]{\bf 解：}\\
+    {\bf (1):} $A(x)$是线性变换.\\
+    对$\forall X,Y\in M_n(K), k\in K$. 有：
+    \begin{align} \notag
+      A(X+Y)&=\text{XA}+\text{YA}=A(X)+A(Y)\\ \notag
+      A(\text{kX})&=(\text{kX})A=k(\text{XA})=\text{kA}(X)
+    \end{align}
+    故$A(x)$是线性映射. 又$A(x)$将$M_n(K)$映射到$M_n(K)$, 故$A(x)$是线性变换.\\
+    {\bf (2):} $A(x)$是线性变换.\\
+    对$\forall X,Y\in M_n(K), k\in K$. 有：
+    \begin{align} \notag
+      A(X+Y)=\text{BXC}+\text{BYC}=A(X)+A(Y)\\ \notag
+      A(\text{kX})=B(\text{kX})C=k(\text{BXC})=\text{kA}(X)
+    \end{align}
+    故$A(x)$是线性映射. 又$A(x)$将$M_n(K)$映射到$M_n(K)$, 故$A(x)$是线性变换.
+    \item[3.]{\bf 解：}\\
+    $A(x)$是线性变换.\\
+    对$\forall f(x),g(x)\in K[x], k\in K$. 有：
+    \begin{align} \notag
+      A(f(x)+g(x))&=f(x+a)+g(x+a)=A(f(x))+A(g(x))\\ \notag
+      A(k\cdot f(x))&=k\cdot f(x+a)=k\cdot A(f(x))
+    \end{align}
+    故$A(x)$是线性映射. 又$A(x)$将$K[x]$映射到$K[x]$, 故$A(x)$是线性变换.
+    \item[7.]{\bf 解：}\\
+    {\bf (1):} $A(x)$是线性变换.\\
+    对$\forall f(x),g(x)\in K[x], k\in K$. 有：
+    \begin{align} \notag
+      A(f(x)+g(x))&=x\cdot f(x)+x\cdot g(x)=x\cdot (f(x)+g(x))=A(f(x))+A(g(x))\\ \notag
+      A(k\cdot f(x))&=x(kf(x))=k(xf(x))=k\cdot A(f(x))
+    \end{align}
+        故$A(x)$是线性映射. 又$A(x)$将$K[x]$映射到$K[x]$, 故$A(x)$是$K[x]$上的线性变换.\\
+        {\bf (2):} $\forall f(x)\in K[x]$:
+        \begin{align} \notag
+        (\text{DA}-\text{AD})(f(x))&=D(A(f(x)))-A(D(f(x)))=D(\text{xf}(x))-A\left(f'(x)\right)\\ \notag &=f(x)+x\left(f'(x)\right)-x\left(f'(x)\right)=f(x)
+        \end{align}
+        故$\text{DA}-\text{AD}=I$
+    \item[8.]{\bf 解：}\\
+    {\bf 必要性：}必要性显然. 若$A$可逆，则$A$是$V$上的一个同构映射. 由$\alpha _1,\alpha _2,\cdots ,\alpha _n$是$V$上的一个基立即可以得到$\text{A$\alpha $}_1,\text{A$\alpha $}_2,\cdots ,\text{A$\alpha $}_n$也是$V$上的一个基.\\
+    {\bf 充分性：}若$\text{A$\alpha $}_1,\text{A$\alpha $}_2,\cdots ,\text{A$\alpha $}_n$也是$V$上的一个基, 令:
+    $$\sigma \left(\sum _{i=1}^n a_i\alpha _i\right)=\sum _{i=1}^n a_i\left(\text{A$\alpha $}_i\right)$$
+    则$\sigma$是$V$到自身的同构映射, 且$\sigma \left(\alpha _i\right)=\text{A$\alpha $}_i$.\\
+    故$\sigma =A$. 从而$A$是$V$到自身的同构映射,$A$可逆.\\
+    综上，原命题得证.
+\end{description}
+\end{document}
