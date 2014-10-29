@@ -1,0 +1,92 @@
+\documentclass{ctexart}
+  \usepackage{amsmath}
+  \usepackage{amssymb}
+  \usepackage{graphicx}
+  \usepackage{float}
+  \usepackage{setspace}
+\topmargin=-1.2cm \oddsidemargin=0.1cm \evensidemargin=0.1cm
+\textwidth=16 true cm \textheight=23 true cm
+
+\font\euler=EUSM10 \font\eulers=EUSM7
+
+\begin{document}
+\title{数学双学位：常微分方程 \\第1次作业}
+\author{{\normalsize 盛浩, 学号:1000017438, \LaTeX}}
+\date{\today}
+
+\maketitle
+
+\def \Pr{{\rm Pr}}
+
+\baselineskip 0.6cm
+{\bf 习题2-2}
+\begin{description}
+    \item[1(2).]{\bf 解：}\\
+    \begin{align}
+      \frac{\text{$\mathbf{d}$y}}{\text{$\mathbf{d}$x}}&=\frac{x^2}{y\left(1+x^3\right)}\\
+      \Longleftrightarrow \text{y$\mathbf{d}$y}&=\frac{x^2}{1+x^3}\text{$\mathbf{d}$x}\\
+      \intertext{对两边积分, 得到: }
+      3y^2&-2\ln \left|1+x^3\right|=C,y\neq 0,x\neq -1
+    \end{align}
+    \item[1(3).]{\bf 解：}\\
+    当$y\neq 0$, 原方程化为:
+    \begin{align}
+    \frac{\text{$\mathbf{d}$y}}{y^2}+\sin  \text{x$\mathbf{d}$x}=0\\
+    \intertext{对两边积分, 得到: }
+    1+(C+\cos  x)y=0\\
+    \intertext{又$y=0$即是方程解, 又包含在上述方程通解中, 原方程的通解为:}
+    1+(C+\cos  x)y=0
+    \end{align}
+    \newpage
+    \item[2(1).]{\bf 解：}\\
+    直接对方程两边积分得到:
+    \begin{align}
+      \frac{-\cos  2x}{2}+\frac{\sin  3y}{3}=C\\
+    \intertext{又,}
+    \frac{-\cos  2\frac{\pi }{2}}{2}+\frac{\sin  3\frac{\pi }{3}}{3}=\frac{1}{2}\\
+    \intertext{故方程满足初值问题的解为:}
+    2\sin  3y-3\cos  2x=3
+    \end{align}
+    \item[3(1).]{\bf 解：}\\
+    直接对方程两边积分得到:
+    \begin{align}
+      y=\sin  x + C
+    \end{align}
+    积分曲线族图:
+    \begin{center}
+        \includegraphics[angle=0, width=0.6\textwidth]{ODEHW1P1}\\
+    \end{center}
+    \item[3(2).]{\bf 解：}\\
+    当$y\neq 0$时, 原方程等价于:
+    \begin{align}
+    \frac{\text{$\mathbf{d}$y}}{\text{ay}}&=\text{$\mathbf{d}$x}\\
+      \intertext{直接对方程两边积分得到:}
+      \frac{1}{a}\ln |y|&=x+C\\
+      y&=\text{Ce}^x(C>0)
+    \end{align}
+    又$y=0$也是原方程的解, 故积分曲线图如下:
+     \begin{center}
+        \includegraphics[angle=0, width=0.6\textwidth]{ODEHW1P2}\\
+    \end{center}
+    \item[5.]{\bf 解：}\\
+    注意到$y=a$是原方程的解. 当$f(y)\neq 0$时, 过$(x_0,y_0)$方程的解可以表示为:
+    \begin{align}
+      \int _{y_0}^y\frac{\text{$\mathbf{d}$y}}{f(y)}=x-x_0
+    \end{align}
+    {\bf 必要性：}
+    考虑过点$\left(x_0, a-\epsilon \right)$的积分曲线:
+    \begin{align}
+    \int _{a-\epsilon }^y\frac{dy}{f(y)}=x-x_0
+    \end{align}
+    若$\left|\int _{a-\epsilon }^a\frac{\text{$\mathbf{d}$y}}{f(y)}\right|$收敛, 则存在$x=x_1\in (-\infty ,\infty )$, 使得:
+    \begin{align}
+      \int _{a-\epsilon }^a\frac{dy}{f(y)}=x_1-x_0
+    \end{align}
+    从而过点$(x_1,a)$有两条积分曲线, 即原方程在该点至少有两个解.\\
+    {\bf 充分性：}若$\left|\int _{a-\epsilon }^a\frac{\text{$\mathbf{d}$y}}{f(y)}\right|$发散, 由式()知, 除$y=a$的积分曲线均以$y=a$为其渐近线.\\
+      \begin{center}
+        \includegraphics[angle=0, width=0.5\textwidth]{ODEHW1P3}\\
+    \end{center}
+    故$y=a$上点解局部唯一.
+\end{description}
+\end{document}

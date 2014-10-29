@@ -1,0 +1,55 @@
+\documentclass{ctexart}
+  \usepackage{amsmath}
+  \usepackage{amssymb}
+  \usepackage{graphicx}
+  \usepackage{float}
+  \usepackage{setspace}
+\topmargin=-1.2cm \oddsidemargin=0.1cm \evensidemargin=0.1cm
+\textwidth=16 true cm \textheight=23 true cm
+
+\font\euler=EUSM10 \font\eulers=EUSM7
+
+\begin{document}
+\title{数学双学位：常微分方程 \\第3次作业}
+\author{{\normalsize 盛浩, 学号:1000017438, \LaTeX}}
+\date{\today}
+
+\maketitle
+
+\def \Pr{{\rm Pr}}
+
+\baselineskip 0.6cm
+{\bf 习题2-6}
+\begin{description}
+    \item[1(1).]{\bf 解：}\\
+    由方程得：
+    $$\begin{cases}
+     x^2+y^2={cx} \\
+     (2x-c){\mathbf{d}x}+2{y\mathbf{d}y}=0
+    \end{cases}$$
+    消去$c$，得到：$$\frac{\mathbf{d}y}{\mathbf{d}x}=\frac{y^2-x^2}2{xy}$$
+    从而，正交轨线的微分方程为：$$\frac{\mathbf{d}y}{\mathbf{d}x}=\frac{2{xy}}{x^2-y^2}$$
+    也就是，$2{xy\mathbf{d}x}-\left(x^2-y^2\right){\mathbf{d}y}=0$\\
+    因此所求正交轨线为：$$x^2+y^2=Cy$$
+    \item[1(3).]{\bf 解：}\\
+       由方程得：
+    $$\begin{cases}
+ y^2={ax}^3 \\
+ 2{y\mathbf{d}y}-3\text{ax}^2{\mathbf{d}x}=0
+\end{cases}$$
+    消去$a$，得到：$$\frac{\mathbf{d}y}{\mathbf{d}x}=\frac{3y}{2x}$$
+    从而，正交轨线的微分方程为：$$\frac{\mathbf{d}y}{\mathbf{d}x}=\frac{-2x}{3y}$$
+    也就是，$2{x\mathbf{d}x}+3{y\mathbf{d}y}=0$\\
+    因此所求正交轨线为：$$2x^2+3y^2=C$$
+    \item[2(2).]{\bf 解：}\\
+    由方程得：
+    $$\begin{cases}
+ {xy}=c \\
+ {x\mathbf{d}y}+{y\mathbf{d}x}=0
+\end{cases}$$
+    消去$c$，得到：$$\frac{\mathbf{d}y}{\mathbf{d}x}=-\frac{y}{x}$$
+    从而，等角轨线的微分方程为：$$\frac{\mathbf{d}y}{\mathbf{d}x}=\frac{-\frac{y}{x}+\text{tg}\frac{\pi }{4}}{1-\left(-\frac{y}{x}\right)\text{tg}\frac{\pi }{4}}$$
+    也就是，$(x-y){\mathbf{d}x}-(x+y){\mathbf{d}y}=0$\\
+    因此所求等角轨线为：$$x^2-y^2-2{xy}=C$$ 
+\end{description}
+\end{document}
