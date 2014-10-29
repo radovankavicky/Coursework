@@ -4,6 +4,7 @@
   \usepackage{graphicx}
   \usepackage{float}
   \usepackage{setspace}
+  \usepackage{stata}
 \topmargin=-1.2cm \oddsidemargin=0.1cm \evensidemargin=0.1cm
 \textwidth=16 true cm \textheight=23 true cm
 
@@ -18,16 +19,18 @@
 
 \def \Pr{{\rm Pr}}
 \baselineskip 0.6cm
-\begin{description}
-	\item a).Specification
-	\begin{description}
-		\item i.OLS
-		\item ii.Fix Effect
-		\item iii.Random Effect
-\end{description}
-	\item b).Hausman Test
-	\item c).Endogenous Problem
-	\item d).IV (Instrument Variable)
-\end{description}
 
+This assignment is for the graduate course Financial Econometrics at GSM(Guanghua School of Management, Peking Univ.). In this assignment, we are asked to explain the capital structure of listed Chinese firms(SSE\&SZSE) by firm-level variable, and try to solve the endogenous problem.
+\section{OLS, Fix Effect Model or Random Effect Model}
+\newpage
+\input{esttab.tex}
+\section{Hausman Test}
+\section{Endogenous Problem}
+\section{IV: }
+
+\section{Stata Do-file}
+\section{Stata Log-file}
+\begin{stlog}
+\input{StataLog.log.tex}\nullskip
+\end{stlog}
 \end{document}

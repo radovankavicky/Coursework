@@ -1,0 +1,39 @@
+\begin{table}[htbp]\centering
+\def\sym#1{\ifmmode^{#1}\else\(^{#1}\)\fi}
+\caption{Results of OLS, FE and RE \label{tab:esttab}}
+\begin{tabular}{l*{6}{c}}
+\hline\hline
+            &\multicolumn{1}{c}{(1)}&\multicolumn{1}{c}{(2)}&\multicolumn{1}{c}{(3)}&\multicolumn{1}{c}{(4)}&\multicolumn{1}{c}{(5)}&\multicolumn{1}{c}{(6)}\\
+            &\multicolumn{1}{c}{OLS}&\multicolumn{1}{c}{OLS}&\multicolumn{1}{c}{FE}&\multicolumn{1}{c}{FE}&\multicolumn{1}{c}{RE}&\multicolumn{1}{c}{RE}\\
+\hline
+CorpAge     &       0.000   &       0.000   &       0.000   &       0.000   &       0.000   &       0.000   \\
+            &     (0.463)   &     (0.904)   &     (0.436)   &     (0.600)   &     (0.452)   &     (0.597)   \\
+[1em]
+CorpAge2    &       0.000   &      -0.000   &      -0.000   &      -0.000   &       0.000   &       0.000   \\
+            &     (0.054)   &    (-0.313)   &    (-0.283)   &    (-0.318)   &     (0.111)   &     (0.132)   \\
+[1em]
+Size        &       0.172   &       0.297** &      -0.240   &      -0.179   &       0.193   &       0.559***\\
+            &     (0.991)   &     (2.136)   &    (-0.507)   &    (-0.510)   &     (1.130)   &     (4.321)   \\
+[1em]
+ROE         &      -0.014   &      -0.014   &      -0.012   &      -0.012   &      -0.014   &      -0.014   \\
+            &    (-0.738)   &    (-0.778)   &    (-0.572)   &    (-0.618)   &    (-0.727)   &    (-0.762)   \\
+[1em]
+LiquidityRatio&      -0.046   &               &      -0.031   &               &      -0.047   &               \\
+            &    (-1.031)   &               &    (-0.419)   &               &    (-1.068)   &               \\
+[1em]
+HHI10       &       1.135   &               &       0.908   &               &       1.006   &               \\
+            &     (0.660)   &               &     (0.230)   &               &     (0.588)   &               \\
+[1em]
+PBRatio     &       0.065   &               &       0.085   &               &       0.068   &               \\
+            &     (0.398)   &               &     (0.446)   &               &     (0.415)   &               \\
+[1em]
+SGAe        &      -0.000   &               &      -0.000   &               &      -0.000   &               \\
+            &    (-0.153)   &               &    (-0.142)   &               &    (-0.155)   &               \\
+\hline
+\(N\)       &       19000   &       22026   &       19000   &       22026   &       19000   &       22026   \\
+adj. \(R^{2}\)&      -0.000   &       0.002   &      -0.154   &      -0.133   &               &               \\
+\hline\hline
+\multicolumn{7}{l}{\footnotesize \textit{t} statistics in parentheses}\\
+\multicolumn{7}{l}{\footnotesize * \(p<0.1\), ** \(p<0.05\), *** \(p<0.01\)}\\
+\end{tabular}
+\end{table}

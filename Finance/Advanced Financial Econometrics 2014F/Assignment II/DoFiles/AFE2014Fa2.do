@@ -3,6 +3,7 @@ set more off
 *set matsize 8000
 *shell cd -cd/d %~dp0-
 cd "D:\GitHub\Coursework\Finance\Advanced Financial Econometrics 2014F\Assignment II\WorkingData"
+sjlog using ..\TeX\StataLog, replace
 
 ***************************************************************
 ************** INITILIZATION                      *************
@@ -291,6 +292,7 @@ gsort -dup Stkcd Accper
 *1.2.Drop Dulicates
 bysort Stkcd Accper: keep if _n==1
 gen year = year(date(Accper, "YMD"))
+gen AccDate = date(Accper, "YMD")
 xtset Stkcd AccDate
 
 *1.3.Generating Variables 
@@ -301,26 +303,47 @@ gen ListAge = date(Accper,"YMD")-date(Listdt,"YMD")
 gen ListAge2 = ListAge^2
 
 gen DERatio = Liability/(Asset - Liability)
-
+gen Size = log(Asset)
 
 *Q1.
 local Y DERatio
-local X CorpAge CorpAge2 Asset ROE
+local X CorpAge CorpAge2 Size ROE
 local ControlVar LiquidityRatio HHI10 PBRatio SGAe 
 *OLS
-xi: reg `Y' `X' `ControlVar' i.Indcd i.year
+xi: reg `Y' `X' i.Indcd i.year
 est table, keep(`X') b se
+est store model11
+xi: reg `Y' `X' `ControlVar' i.Indcd i.year
+est store model12
+
 
 *Fixed-Effect
+xtreg `Y' `X' i.year, fe i(Stkcd)
+est store model21
 xtreg `Y' `X' `ControlVar' i.year, fe i(Stkcd)
+est store model22
 estimate store fe
 
 *Random-Effect
+xtreg `Y' `X' i.year, re
+est store model31
 xtreg `Y' `X' `ControlVar' i.year, re
+est store model32
 estimate store re
 
 *Q2.
 hausman fe re, sigmamore
 
+sjlog close, replace nolog
 *Q4.
+#delimit ;
+esttab model* using ..\TeX\esttab.tex, drop(_* *year) replace
+title("Results of OLS, FE and RE"\label{tab:esttab})
+mtitle("OLS" "OLS" "FE" "FE" "RE" "RE")
+b(%6.3f) t(%6.3f) star(* 0.1 ** 0.05 *** 0.01) ar2
+coeflabels(mpg2 "mpg$?2$" _cons Constant);
+#delimit cr
+/*
+esttab model1 model2 mode21 mode22 mode31 mode32 using ..\TeX\esttab1.tex, replace
 xtivreg `Y' (`X' = MainBusinessIncome) `ControlVar', fe small
+
