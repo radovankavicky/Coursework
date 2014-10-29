@@ -1,0 +1,79 @@
+\documentclass{article}
+  \usepackage{amsmath}
+  \usepackage{amssymb}
+  \usepackage{graphicx}
+  \usepackage{float}
+\topmargin=-1.2cm \oddsidemargin=0.1cm \evensidemargin=0.1cm
+\textwidth=16 true cm \textheight=23 true cm
+
+\font\euler=EUSM10 \font\eulers=EUSM7
+
+\begin{document}
+\title{ECON 3610B International Trade \\Assignment $3^{\text{rd}}$}
+\author{{\normalsize Leonard Sheng(SHENG,Hao), 1155035947, via \LaTeX}}
+\date{\today}
+
+\maketitle
+\baselineskip 0.6cm
+
+\begin{description}
+    \item[I. The Krugman Model]:{\bf Answer:}\\
+    {\bf (1):}In the equilibrium we have:
+    \begin{align} \notag
+      \text{AC}&=\frac{\text{FC}}{Q_i}+c_i=\frac{5000000000}{Q_i}+17000\\ \notag
+      &=P=17000+\frac{150}{n}
+    \end{align}
+    , which gives us the first equation:$$Q_i=\frac{100000000}{3}n$$
+    We also know that:$$S=\text{nQ}_i$$
+    So, for Europe, $$S_E=300000000=n_EQ_{\text{iE}}=\frac{100000000}{3}n_E^2$$
+    , which gives us $n_E=3$.\\\\
+    For the US, $$S_A=533000000=n_AQ_{\text{iA}}=\frac{100000000}{3}n_A^2$$
+    , which gives us $n_A=4$.\\\\
+    {\bf (2):}Using the formula $P=17000+\frac{150}{n}$, we can figure out that:
+    \begin{align} \notag
+      P_E&=17050\\ \notag
+      P_A&=17037.5
+    \end{align}\\\\
+    {\bf (3):}
+    $$S_W=833000000=n_WQ_{\text{iW}}=\frac{100000000}{3}n_W^2$$
+    Solving it, we get $\begin{cases}
+ n_W=5 \\
+ P_W=17030
+\end{cases}$\newpage
+    {\bf (4):}
+    The price in the United States is 17030 in (3) rather than that 17037.5 in (2). This is because as the markets integrate to one, the market size increases. Other things equal, this allows each firm to produce more and thus have lower average cost.\\
+    Yes; First, they now can buy the automobiles at a lower price($P_A=17037.5>P_W=17030$; $P_E=17050>P_W=17030$). Secondly, they can now choose the automobiles from 5 brands rather than 4 or 3 as they used to. \newpage
+    \item[II. The Melitz Model]:{\bf Answer:}\\
+    {\bf (1):}When we substitute the formula of demand curve into $Q_i$:
+    \begin{align} \notag
+      P_i&=c_i+\frac{Q_i}{\text{Sb}}=c_i+\frac{1}{\text{Sb}}S\left[\frac{1}{n}-b\left(P_i-\overset{-}{P}\right)\right]\\ \notag
+      &=c_i+\frac{1}{\text{nb}}-P_i+\overset{-}{P}
+    \end{align}
+    Thus, $P_i=\frac{1}{2}\left(c_i+\frac{1}{\text{nb}}+\overset{-}{P}\right)$, all of the parameters are exogenous.\\
+    The market share of firm i: $\frac{Q_i}{S}=b\left(P_i-c_i\right)=\frac{b}{2}\left(-c_i+\frac{1}{\text{nb}}+\overset{-}{P}\right)$ demands on its marginal cost.\\\\
+    {\bf (2):}$$P_i-c_i=\frac{1}{2}\left(-c_i+\frac{1}{\text{nb}}+\overset{-}{P}\right)$$
+    $$\frac{\partial \left(P_i-c_i\right)}{\partial c_i}=-\frac{1}{2}<0$$
+    So, as $c_i$ grows up, $(P_i-c_i)$ declines.\\
+    When $c_1<c_2$, $(P_1-c_1)>(P_2-c_2)$.\\\\
+    {\bf (3):}Yes; we can prove it mathematically:
+    $$\pi _i=\left(P_i-c_i\right)Q_i=\text{Sb}\left(P_i-c_i\right){}^2=\frac{\text{Sb}}{4}\left(-c_i+\frac{1}{\text{nb}}+\overset{-}{P}\right){}^2$$
+    ,where $\frac{Q_i}{\text{Sb}}=P_i-c_i=\frac{1}{2}\left(-c_i+\frac{1}{\text{nb}}+\overset{-}{P}\right)>0$\\
+    \begin{align} \notag
+      \frac{\partial \pi _i}{\partial c_i}&=-\frac{\text{Sb}}{2}\left(-c_i+\frac{1}{\text{nb}}+\overset{-}{P}\right)<0\\ \notag
+      \frac{\partial \pi _i}{\partial c_i}&=\frac{\text{Sb}}{2}>0
+    \end{align}\\
+    {\bf (4):}Suppose the fixed-cost investment of new technology is $F_t$; the marginal cost reduce it will bring is $\text{$\Delta $c}_t$. We can write down the cost and benefit of adopting the new technology for individual firms:
+    \begin{align} \notag
+      F_t&<\pi _i^{new}-\pi _i\\ \notag
+      \Longleftrightarrow F_t&<\frac{\text{Sb}}{4}\left(-\left(c_i-\text{$\Delta $c}_t\right)+\frac{1}{\text{nb}}+\overset{-}{P}\right){}^2-\frac{\text{Sb}}{4}\left(-c_i+\frac{1}{\text{nb}}+\overset{-}{P}\right){}^2\\ \notag
+      \Longleftrightarrow c_i&<\text{$\Delta $c}_t\left(\frac{1}{\text{nb}}+\overset{-}{P}\right)+\frac{1}{2}\text{$\Delta $c}_t-2\frac{F_{\text{it}}}{\text{Sb$\Delta $c}_t}
+    \end{align}
+    Let's denote $c^{t}$ as $\text{$\Delta $c}_t\left(\frac{1}{\text{nb}}+\overset{-}{P}\right)+\frac{1}{2}\text{$\Delta $c}_t-2\frac{F_{\text{it}}}{\text{Sb$\Delta $c}_t}$. It's the threshold level of marginal cost determining whether a firm will adopt new technology.\\
+    And let $c^*$ be the critical value of marginal cost if a firm will enter or survive in this industry.\\\\
+    Now we can answer for the first question: Yes, it could be, as long as $c^{t}<c^*$. When $c^{t}<c^*$, it may be profit maximizing for some firms to adopt the new technology but not for the others; when $c^{t}$ is above $c^*$, it's profitable for every firm to adopt this technology.\\
+    Firms with a lower marginal cost($c_i<c_i^{t}$) would choose to adopt the new technology. This means they are more productive and efficient than the others. Since a lower $c_i$ also come up with a higher $Q_i$ and $\pi _i$, they are also larger and have more operating profit. \\\\
+    {\bf (5):}Yes.\\
+    Suppose the trade cost is $t$. For those firms who export, they need to fit in a new constraint in foreign market:$$c_{\text{it}}+t<c_F^*$$
+    This at least requires their marginal cost to be relatively lower, to some extent. With the answer of part(4), we can conclude that exporting firms would be more likely to adopt the new technology.
+\end{description}
+\end{document}

@@ -1,0 +1,70 @@
+\documentclass{article}
+  \usepackage{amsmath}
+  \usepackage{amssymb}
+  \usepackage{graphicx}
+  \usepackage{float}
+  \usepackage{setspace}
+\topmargin=-1.2cm \oddsidemargin=0.1cm \evensidemargin=0.1cm
+\textwidth=16 true cm \textheight=23 true cm
+
+\font\euler=EUSM10 \font\eulers=EUSM7
+
+\begin{document}
+\title{ECON 3610B International Trade \\Assignment $2^{\text{st}}$}
+\author{{\normalsize Leonard Sheng(SHENG, Hao), 1155035947, via \LaTeX}}
+\date{\today}
+
+\maketitle
+
+\def \Pr{{\rm Pr}}
+
+\baselineskip 0.6cm
+\begin{description}
+    \item[I.]{\bf Answer:}\\
+    {\bf (1):}Between $\frac{2}{3}$ and 2. If the relative price of cloth is less than $\frac{2}{3}$, the economy will only produce food; if the relative price of cloth is above 2, it will only produce cloth.\\
+    {\bf (2):}The unit cost of producing one yard of cloth: $2r+2w$.\\
+    The unit cost of producing one calorie of food: $3r+w$.\\
+    {\bf (3):}We have:
+    \begin{equation}
+    \begin{cases}
+            2r+2w&=P_C\\
+            3r+w&=P_F
+    \end{cases}
+    \end{equation}
+    By solving these, we get $r=\frac{2P_F-P_C}{4}$ and $w=\frac{3P_C-2P_F}{4}$.\\
+    {\bf (4):}The capital price ($r$) will fall and the labor price ($w$) will rise.\\
+    The owners of labor gain but the owners of capital lose.\\ We can prove it like this: Consider how much the owner will gain from extra one-unit of labor input. From equations above, we have $\frac{w}{P_c}=\frac{3}{4}-\frac{1}{2}\left(\frac{P_F}{P_C}\right)$ and $\frac{w}{P_F}=\frac{3}{4}\left(\frac{P_C}{P_F}\right)-\frac{1}{2}$, both of which will rise if the price of cloth rises. This gives us a picture that the real return of labor is actually rising. Similarly, $\frac{r}{P_C}=\frac{1}{2}\left(\frac{P_F}{P_C}\right)-\frac{1}{4}$ and $\frac{r}{P_F}=\frac{1}{2}-\frac{1}{4}\left(\frac{P_C}{P_F}\right)$ indicate a decrease of the real return of capital if the relative price of cloth rises.\\
+    Yes. An increase of the relative price of one good raise the purchasing power of those who own the factor that the good is intensive in while lower the other.\\
+    {\bf (5):}The new resource constraint will be£º
+    \begin{equation}
+    \begin{cases}
+        2Q_C+3Q_F&\leq 4000\\
+        2Q_C+Q_F&\leq 2000
+    \end{cases}    
+    \end{equation}
+    \newpage
+    According to this constraint, we can draw the new production possibility frontier:
+    \begin{center}
+                    \includegraphics[angle=0, width=0.6\textwidth]{ECON3610A2P1}\\
+    \end{center}
+    {\bf (6):}If both goods are produced as is assumed in the problem, this economy will produce 500 yards of cloth and 1000 calories of food.\\
+    {\bf (7):}Because the relative price does not change, the wage-rental rate and the labor-capital ratio within either sector will not change. (That is to say, $\frac{L_C}{K_C}$ and $\frac{L_F}{K_F}$ remain the same.) We know from Part(6), however, the economy will produce more food but less cloth, which indicates that both more machine-hours and work-hours (proportional to the total) will be allocated to food sector. Specifically speaking, there used to be 1500 units of labor and 1500 units of capital spent in cloth; 500 units of labor and 1500 units of capital in food. But now there are 1000 units of labor and 1000 units of capital used for producing cloth; 1000 units of labor and 3000 units of capital used for producing food.\\
+    Yes. It confirm with cases with factor substitution. They follow the same process of reasoning in Part(7).\\\\
+    \item[II.]{\bf Answer:}\\
+    According to the {\bf Hecksher-Ohlin Theorem}, country A will export goods X and import goods Y. To keep the terms of trade consist, we should assume that the factor abundance does not change to the extent to alter the trade pattern. That is, country A will still export goods X and import goods Y; country B will export Y and import goods X. Then the term of trade of country A is $\frac{P_X}{P_Y}$, and the term of trade of country B is $\frac{P_Y}{P_X}$.\\
+    {\bf (1):}
+    Country A's term of trade decreases and Country B's term of trade rises; Country A gets worse and Country B gets better.\\
+    An increase in A¡¯s capital stock is an impact that leads to a X-biased growth. Thus more X will be produced at given relative price, which means a rightward shift of world relative supply curve (X over Y). If the relative demand curve remains still, there is a decrease of $\frac{P_X}{P_Y}$, which lowers the term of trade of Country A and rises that of Country B. This leads to the welfare change as is described.\\
+    {\bf (2):}Country B's term of trade decreases and Country A's term of trade rises; Country B gets worse and Country A gets better.\\
+    An increase in A¡¯s labor supply is an impact that leads to a Y-biased growth. Thus more Y will be produced at given relative price, which means a leftward shift of world relative supply curve (X over Y). If the relative demand curve remains still, there is a increase of $\frac{P_X}{P_Y}$, which rises the term of trade of Country A and lowers that of Country B. This leads to the welfare change as is described.\\
+    {\bf (3):}Country A's term of trade decreases and Country B's term of trade rises; Country A gets worse and Country B gets better.\\
+    It can be proved similarly as in part(1).\\
+    {\bf (4):}Country B's term of trade decreases and Country A's term of trade rises; Country B gets worse and Country A gets better.\\
+    It can be proved similarly as in part(2).\\\\
+    \item[II.]{\bf Answer:}\\
+    The terms of trade depend only on the external prices. So, we try to derive the relative external price change in both situations. On the other hand, Country Y imposes a ¡°countervailing¡± tariff that CAN offset the subsidy¡¯s effect, which means the goods Country X exports and subsidizes are the goods Country Y imports and taxes. Let's denote the goods Country X export as $A$, and the other goods as $B$. At first, there is no subsidization or tariff, so the internal prices equal to the external prices in both countries.\\
+    In the first cases, the relative prices in Country Y are unchanged, with a tariff on importing $A$. The world relative price of $A$ should be lower than the internal price in Country Y, which equals the original world relative price. We conclude that the world relative price of $A$ falls, which indicates: the term of trade of Country X falls; the term of trade of Country Y rises; Country X as a whole gets worse; Country Y as a whole gets better.\\
+    In the second cases, the relative prices in Country Y are unchanged, with a subsidization on exporting $B$. The world relative price of $B$ should be lower than the internal price in Country Y, which equals the original world relative price. We conclude that the world relative price of $A$ increases, which indicates: the term of trade of Country X rises; the term of trade of Country Y falls; Country X as a whole gets better; Country Y as a whole gets worse.\\
+    The two result are opposites.
+    \end{description}
+\end{document}
