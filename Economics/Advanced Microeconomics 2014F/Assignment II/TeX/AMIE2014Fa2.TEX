@@ -1,0 +1,46 @@
+\documentclass{article}
+  \usepackage{amsmath}
+  \usepackage{amssymb}
+  \usepackage{graphicx}
+  \usepackage{float}
+  \usepackage{setspace}
+  \usepackage{stata}
+\topmargin=-1.2cm \oddsidemargin=0.1cm \evensidemargin=0.1cm
+\textwidth=16 true cm \textheight=23 true cm
+
+\font\euler=EUSM10 \font\eulers=EUSM7
+
+\begin{document}
+\title{Advanced Microeconomics\\Assignment $2^{\text{nd}}$}
+\author{{\normalsize SHENG Hao, 1401211818, via \LaTeX}}
+\date{\today}
+
+\maketitle
+
+\def \Pr{{\rm Pr}}
+\baselineskip 0.6cm
+\section{Q1}
+
+This proposition can be extended to a $n$ dimension goods edition:
+For a two budget constrains $P^T_1X = I$ and $P^T_2X = I$, where $P^T_i(i=1,2)$ is a $n$ dimension row vector of price and $X$ is a $n$ dimension column vector of goods, if they intercept at some point, say $X_0$, then $X_0$ is also on the hyperplane of liner combination of price system $P^T_1$ and $P^T_2$. Moreover, the new hyperplane is always bounded by the original two budget constraints.
+
+Suppose we have:
+\begin{equation}
+P^T_1X_0 = I
+\end{equation}
+and
+\begin{equation}
+P^T_2X_0 = I
+\end{equation}
+Given that $P^T = \lambda P^T_1 + (1-\lambda) P^T_2$, we have:
+\begin{equation}
+P^TX_0 = \lambda P^T_1 X_0 + (1-\lambda) P^T_2 = I
+\end{equation}
+
+\newpage
+\begin{appendix}
+\section*{Appendix}
+\subsection{Stata Do-file}
+\subsection{Stata Log-file}
+\end{appendix}
+\end{document}

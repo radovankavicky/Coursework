@@ -284,6 +284,10 @@ save main.dta, replace
 ************** REGRESSION                         *************
 ***************************************************************
 use main.dta, clear
+local Y DERatio
+local X CorpAge CorpAge2 Size ROE
+local ControlVar LiquidityRatio HHI10 PBRatio SGAe CEO*
+
 *1.Initilization
 keep if Reptyp==4
 
@@ -315,15 +319,23 @@ bysort Indcd year: gen IndcdN = _N
 drop if IndcdN<10
 capture drop IndcdN
 
+*drop those without liquidity
 drop if Asset<0
 drop if Asset < Liability
+
+*drop
+
+*1.5.Winsor
+winsor2 `Y' `X' `ControlVar' , replace by(Indcd year) cuts(1 99)
 ***************************************************************
 ************** ASSIGNMENT                         *************
 ***************************************************************
+latabstat `Y' `X' `ControlVar', s(mean sd med min max ) ///
+cap(Summarize of Variables) clabel(tab:latabstat1) ///
+columns(s) f(%9.2fc) hw(16) replace ///
+tf(..\TeX\SumofVar)
+
 *Q1.
-local Y DERatio
-local X CorpAge CorpAge2 Size ROE
-local ControlVar LiquidityRatio HHI10 PBRatio SGAe CEO*
 *OLS
 xi: reg `Y' `X' i.Indcd i.year
 est table, keep(`X') b se
@@ -337,6 +349,8 @@ xtreg `Y' `X' i.year, fe i(Stkcd)
 est store model21
 xtreg `Y' `X' `ControlVar' i.year, fe i(Stkcd)
 est store model22
+xtivreg `Y' CorpAge CorpAge2 Size (ROE=MainBusiness) `ControlVar' i.year, fe i(Stkcd)
+est store model23
 estimate store fe
 
 *Random-Effect
@@ -344,6 +358,8 @@ xtreg `Y' `X' i.year, re
 est store model31
 xtreg `Y' `X' `ControlVar' i.year, re i(Stkcd)
 est store model32
+xtivreg `Y' CorpAge CorpAge2 Size (ROE=MainBusiness) `ControlVar' i.year, re i(Stkcd)
+est store model33
 estimate store re
 
 *Q2.
@@ -351,33 +367,35 @@ sjlog using ..\TeX\HausmanTest, replace
 hausman fe re, sigmamore all
 sjlog close, replace nolog
 
-*Q4.
+*Q4.FEGMM
+*xtabond2 `Y' `X' `ControlVar' i.year, gmmstyle(`X' `ControlVar') ivstyle(L(0/4).(`X' `ControlVar')) robust small
 
 *TeXtify
 #delimit ;
-esttab model* using ..\TeX\regression.tex, drop(_* *year) replace
+esttab model11 model12 model21 model22 model31 model32 using ..\TeX\regression.tex, drop(_* *year) replace
 title("Results of OLS, FE and RE"\label{tab:regression})
-mtitle("OLS" "OLS$^{1}$" "FE" "FE$^{1}$" "RE" "RE$^{1}$")
+mtitle("OLS" "OLS" "FE" "FE" "RE" "RE")
 b(%6.3f) se(%6.3f) star(* 0.1 ** 0.05 *** 0.01) ar2
 coeflabels(mpg2 "mpg$?2$" _cons Constant);
 #delimit cr
 
 #delimit ;
-esttab model21 model22 using ..\TeX\regressionFE.tex, drop(_* *year) replace
+esttab model21 model22 model23 using ..\TeX\regressionFE.tex, drop(_* *year) replace
 title("Result of Fixed Effect Model"\label{tab:regressionFE})
-mtitle("RE" "RE$^{1}$")
+mtitle("RE" "RE" "IV-RE")
 b(%6.3f) se(%6.3f) star(* 0.1 ** 0.05 *** 0.01) ar2
 coeflabels(mpg2 "mpg$?2$" _cons Constant);
 #delimit cr
 
 #delimit ;
-esttab model31 model32 using ..\TeX\regressionRE.tex, drop(_* *year) replace
+esttab model31 model32 model33 using ..\TeX\regressionRE.tex, drop(_* *year) replace
 title("Result of Random Effect Model"\label{tab:regressionRE})
-mtitle("RE" "RE$^{1}$")
+mtitle("FE" "FE" "IV-FE")
 b(%6.3f) se(%6.3f) star(* 0.1 ** 0.05 *** 0.01) ar2
 coeflabels(mpg2 "mpg$?2$" _cons Constant);
 #delimit cr
 /*
 esttab model1 model2 mode21 mode22 mode31 mode32 using ..\TeX\esttab1.tex, replace
 xtivreg `Y' (`X' = MainBusinessIncome) `ControlVar', fe small
+
 

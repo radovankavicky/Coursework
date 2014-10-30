@@ -5,6 +5,11 @@
   \usepackage{float}
   \usepackage{setspace}
   \usepackage{stata}
+  \usepackage{natbib}
+  \usepackage{indentfirst}
+  \usepackage[colorlinks, linkcolor=blue, anchorcolor=blue, citecolor=green]{hyperref}%For hyper-link reference
+\setlength{\parindent}{2em}
+
 \topmargin=-1.2cm \oddsidemargin=0.1cm \evensidemargin=0.1cm
 \textwidth=16 true cm \textheight=23 true cm
 
@@ -20,19 +25,43 @@
 \def \Pr{{\rm Pr}}
 \baselineskip 0.6cm
 
-This assignment is for the graduate course Financial Econometrics at GSM(Guanghua School of Management, Peking Univ.). In this assignment, we are asked to explain the capital structure of listed Chinese firms(SSE\&SZSE) by firm-level variable, and try to solve the endogenous problem. 
+This assignment is for the graduate course Financial Econometrics at GSM(Guanghua School of Management, Peking Univ.). In this assignment, we are asked to explain the capital structure of listed Chinese firms(SSE\&SZSE) by firm-level variables, and try to solve the endogenous problem. The answer to the four questions are in the sections: {\bf \nameref{sec:model}, \nameref{sec:test}, \nameref{sec:endogenous}, \nameref{sec:IV}}, respectively.
+
+
 \section{Introduction}
-\subsection{Data Description}
+\subsection{Data Description and Clean-up}
 Our data covers all the listed stocks in SSE(Shanghai Stock Exchange) and SZSE(Shenzhen Stock Exchange)in from Jan.1$^{\text{st}}$ 2001 to Dec.31$^{\text{th}}$ 2013. Since banking industry may have a completely different pattern of capital structure(Wei 2013), we drop all the observations in that industry(up to 35 individual stocks, less than 1\% of all). We also drop those of insolvency, that is to say, those with asset less than liability. 
-\subsection{Explain Variables}
+%drop those IPO oversea
+We also made a 1\% level {\it Winsor transformation}(Barnett and Lewis, 1994) to variable we care, in order to rule out the outliers' effect.
+
+\subsection{Explanatory Variables}
+Literature have tested enough factors that might have a casual relation with the capital leverage. In (Frank\&Goyal, 2004), 37 explanatory variables are included covering firm-level(size, profitability, governance, tax, etc.), industry-level and market-level(institution and marketization) variance.
+
+Since our aim is not exhaust the such possible factors, apart variables of interest(that is, {\it size, age, age$^2$, ROE}) , we only pick up several control variables like the ownership concentration, liquidity ratio, PB ratio, etc. We hope the coefficients of the variables we care and their significance change little when more are controlled. (This is another way to say controlling additional variable only serves as a placebo test, and might save us of the criticism of missing important variables.)
+
+In part \ref{sec:IV}, we will revisit the endogenous problem, and try to solve it with instrument variables.
+
+Here is a general summarize of the variables:
+\input{sum.tex}
+
+Before estimation, we can make a educated guess about the direction of our explain variables' effects. 
+\begin{description}
+\item [Performance]: Given that firms with a better performance raise money much more easier from the stock market, we suppose the coefficient of {\it ROE} would be positive. 
+\item [Size]: Banks may prefer lending to large firms for the 	
+\item []
+\item [Capital structure]:
+\item [CEO Characters]:
+\item [Concentration of shares]:
+\item [Liquidity]
+\end{description}
 \subsection{Control Variables}
 \newpage
-\section{OLS, Fix Effect Model or Random Effect Model}
+\section{Specification and Results} \label{sec:model}
 \input{regression.tex}
 At this point, we cannot rush to the conclusion which model did a better job in estimation. The following part conduct a further hypothesis test in specification.
 
 \newpage
-\section{Hausman Test}
+\section{Hausman Test}\label{sec:test}
 \begin{center}
 	\begin{stlog}
 	\input{HausmanTest.log.tex}\nullskip
@@ -43,18 +72,14 @@ Therefore, We stop here and would like to report the result of {\bf Fixed Effect
 \input{regressionFE.tex}
 
 \newpage
-\section{Endogenous Problem}
-It's arguable that all the main explaining variables we care have endogenous problem:
-\begin{description}
-	\item [CorpAge]: Older company my 
-	\item [Size]:
-	\item [ROE]:
-\end{description}
-\section{IV: }
+\section{Endogenous Problem}\label{sec:endogenous}
+It's arguable that all the main explaining variables we care may suffer from endogenous problem through the channel of uncontrolled CEO preference. But most 
 
-\begin{appendix}
-\section*{Appendix}
-\subsection{Stata Do-file}
-\subsection{Stata Log-file}
+\section{IV Regression}\label{sec:IV}
+
+\begin{appendix}\label{sec:appendix}
+\nocite{*}
+\bibliography{Library}
+\bibliographystyle{jpe}
 \end{appendix}
 \end{document}
