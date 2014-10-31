@@ -8,22 +8,22 @@ cd "D:\GitHub\Coursework\Finance\Advanced Financial Econometrics 2014F\Assignmen
 ************** INITILIZATION                      *************
 ***************************************************************
 *1.Asset, Liability
-import excel using ..\RawData\DEratio\FS_Combas.xls, firstrow clear
+import excel using ..\RawData\DARatio\FS_Combas.xls, firstrow clear
 drop in 1/2
 rename A001000000 Asset
 rename A002000000 Liability
-save DEratio1.dta, replace
+save DARatio1.dta, replace
 
-import excel using ..\RawData\DEratio\FS_Combas1.xls, firstrow clear
+import excel using ..\RawData\DARatio\FS_Combas1.xls, firstrow clear
 drop in 1/2
 rename A001000000 Asset
 rename A002000000 Liability
-save DEratio2.dta, replace
+save DARatio2.dta, replace
 
-use DEratio1.dta, clear
-append using DEratio2.dta
+use DARatio1.dta, clear
+append using DARatio2.dta
 sort Stkcd Accper
-save DEratio.dta, replace
+save DARatio.dta, replace
 
 *2.ROE
 import excel using ..\RawData\ROE\FI_T5.xls, firstrow clear
@@ -211,7 +211,7 @@ save MainBusinessIncome.dta, replace
 ***************************************************************
 ************** MERGE                              *************
 ***************************************************************
-use DEratio.dta, clear
+use DARatio.dta, clear
 *1.1:1
 merge Stkcd Accper using ROE.dta
 tab _merge
@@ -281,38 +281,40 @@ destring _all, replace
 save main.dta, replace
 
 ***************************************************************
-************** REGRESSION                         *************
+************** VARIABLE INI                       *************
 ***************************************************************
 use main.dta, clear
-local Y DERatio
+local Y DARatio
 local X CorpAge CorpAge2 Size ROE
 local ControlVar LiquidityRatio HHI10 PBRatio SGAe CEO*
 
-*1.Initilization
+*1.Annual report
 keep if Reptyp==4
 
-*1.1.Duplication check 
+*2.Duplication check 
 capture drop dup
 bysort Stkcd Accper: gen dup = _N
 gsort -dup Stkcd Accper
 
-*1.2.Drop Dulicates
+*3.Drop Dulicates
 bysort Stkcd Accper: keep if _n==1
 gen year = year(date(Accper, "YMD"))
 gen AccDate = date(Accper, "YMD")
 xtset Stkcd AccDate
 
-*1.3.Generating Variables 
+*4.Generating Variables 
 gen CorpAge = (date(Accper,"YMD")-date(Estbdt,"YMD"))/365
 gen CorpAge2 = CorpAge^2
 
 gen ListAge = (date(Accper,"YMD")-date(Listdt,"YMD"))/365
 gen ListAge2 = ListAge^2
 
-gen DERatio = Liability/Asset
+gen DARatio = Liability/Asset
 gen Size = log(Asset)
 
-*1.4.Clean
+gen lgMainBusiness = log(MainBusiness)
+
+*5.Drop
 *drop industry with firms less than 10
 capture drop IndcdN
 bysort Indcd year: gen IndcdN = _N
@@ -323,13 +325,13 @@ capture drop IndcdN
 drop if Asset<0
 drop if Asset < Liability
 
-*drop
-
-*1.5.Winsor
+*6.Winsor
 winsor2 `Y' `X' `ControlVar' , replace by(Indcd year) cuts(1 99)
 ***************************************************************
 ************** ASSIGNMENT                         *************
 ***************************************************************
+*Q0.
+
 latabstat `Y' `X' `ControlVar', s(mean sd med min max ) ///
 cap(Summarize of Variables) clabel(tab:latabstat1) ///
 columns(s) f(%9.2fc) hw(16) replace ///
@@ -349,7 +351,7 @@ xtreg `Y' `X' i.year, fe i(Stkcd)
 est store model21
 xtreg `Y' `X' `ControlVar' i.year, fe i(Stkcd)
 est store model22
-xtivreg `Y' CorpAge CorpAge2 Size (ROE=MainBusiness) `ControlVar' i.year, fe i(Stkcd)
+xtivreg `Y' CorpAge CorpAge2 Size (ROE=lgMainBusiness) `ControlVar' i.year, fe i(Stkcd)
 est store model23
 estimate store fe
 
@@ -358,7 +360,7 @@ xtreg `Y' `X' i.year, re
 est store model31
 xtreg `Y' `X' `ControlVar' i.year, re i(Stkcd)
 est store model32
-xtivreg `Y' CorpAge CorpAge2 Size (ROE=MainBusiness) `ControlVar' i.year, re i(Stkcd)
+xtivreg `Y' CorpAge CorpAge2 Size (ROE=lgMainBusiness) `ControlVar' i.year, re i(Stkcd)
 est store model33
 estimate store re
 
@@ -375,23 +377,23 @@ sjlog close, replace nolog
 esttab model11 model12 model21 model22 model31 model32 using ..\TeX\regression.tex, drop(_* *year) replace
 title("Results of OLS, FE and RE"\label{tab:regression})
 mtitle("OLS" "OLS" "FE" "FE" "RE" "RE")
-b(%6.3f) se(%6.3f) star(* 0.1 ** 0.05 *** 0.01) ar2
+b(%6.4f) se(%6.4f) star(* 0.1 ** 0.05 *** 0.01) ar2
 coeflabels(mpg2 "mpg$?2$" _cons Constant);
 #delimit cr
 
 #delimit ;
 esttab model21 model22 model23 using ..\TeX\regressionFE.tex, drop(_* *year) replace
 title("Result of Fixed Effect Model"\label{tab:regressionFE})
-mtitle("RE" "RE" "IV-RE")
-b(%6.3f) se(%6.3f) star(* 0.1 ** 0.05 *** 0.01) ar2
+mtitle("FE" "FE" "IV-FE")
+b(%6.4f) se(%6.4f) star(* 0.1 ** 0.05 *** 0.01) ar2
 coeflabels(mpg2 "mpg$?2$" _cons Constant);
 #delimit cr
 
 #delimit ;
 esttab model31 model32 model33 using ..\TeX\regressionRE.tex, drop(_* *year) replace
-title("Result of Random Effect Model"\label{tab:regressionRE})
+title("Result of Random Effect Model(IV used)"\label{tab:regressionRE})
 mtitle("FE" "FE" "IV-FE")
-b(%6.3f) se(%6.3f) star(* 0.1 ** 0.05 *** 0.01) ar2
+b(%6.4f) se(%6.4f) star(* 0.1 ** 0.05 *** 0.01) ar2
 coeflabels(mpg2 "mpg$?2$" _cons Constant);
 #delimit cr
 /*

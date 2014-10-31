@@ -30,9 +30,7 @@ This assignment is for the graduate course Financial Econometrics at GSM(Guanghu
 
 \section{Introduction}
 \subsection{Data Description and Clean-up}
-Our data covers all the listed stocks in SSE(Shanghai Stock Exchange) and SZSE(Shenzhen Stock Exchange)in from Jan.1$^{\text{st}}$ 2001 to Dec.31$^{\text{th}}$ 2013. Since banking industry may have a completely different pattern of capital structure(Wei 2013), we drop all the observations in that industry(up to 35 individual stocks, less than 1\% of all). We also drop those of insolvency, that is to say, those with asset less than liability. 
-%drop those IPO oversea
-We also made a 1\% level {\it Winsor transformation}(Barnett and Lewis, 1994) to variable we care, in order to rule out the outliers' effect.
+Our data covers all the listed stocks in SSE(Shanghai Stock Exchange) and SZSE(Shenzhen Stock Exchange)in from Jan.1$^{\text{st}}$ 2001 to Dec.31$^{\text{th}}$ 2013. Since banking industry may have a completely different pattern of capital structure(Wei 2013), we drop all the observations in that industry(up to 35 individual stocks, less than 1\% of all). We also drop those of insolvency, that is to say, those with asset less than liability. We also made a 1\% level {\it Winsor transformation}(Barnett and Lewis, 1994) to variable we care, in order to rule out the outliers' effect.
 
 \subsection{Explanatory Variables}
 Literature have tested enough factors that might have a casual relation with the capital leverage. In (Frank\&Goyal, 2004), 37 explanatory variables are included covering firm-level(size, profitability, governance, tax, etc.), industry-level and market-level(institution and marketization) variance.
@@ -41,42 +39,54 @@ Since our aim is not exhaust the such possible factors, apart variables of inter
 
 In part \ref{sec:IV}, we will revisit the endogenous problem, and try to solve it with instrument variables.
 
-Here is a general summarize of the variables:
+Table \ref{tab:Summary}: \nameref{tab:Summary} is a general summary of the variables.
 \input{sum.tex}
 
-Before estimation, we can make a educated guess about the direction of our explain variables' effects. 
-\begin{description}
-\item [Performance]: Given that firms with a better performance raise money much more easier from the stock market, we suppose the coefficient of {\it ROE} would be positive. 
-\item [Size]: Banks may prefer lending to large firms for the 	
-\item []
-\item [Capital structure]:
-\item [CEO Characters]:
-\item [Concentration of shares]:
-\item [Liquidity]
-\end{description}
-\subsection{Control Variables}
+Here $CorpAge$ are counted from the day the firm registered, and convented into years. We use the logarithm of Asset as the proxy of current firm size. $HHI10$ is the Herfindahl index of the top 10 shareholders, which would be a good measurement of ownership concentration. We use $SGAe$, the selling and administrative expense(financial expense included) as a proxy variable of Asset characteristics. And $CEO Salary$ are measured in CNY per year. Other variables are assigned as their literal meaning. 
 \newpage
 \section{Specification and Results} \label{sec:model}
 \input{regression.tex}
 At this point, we cannot rush to the conclusion which model did a better job in estimation. The following part conduct a further hypothesis test in specification.
 
+But the estimated coefficients, since they barely changes over different specification and are highly consistent with the literature, it's safe to make some intuitive explanations of their directions here:
+\begin{description}
+\item [Performance(ROE)]: Given that firms with a better performance raise money much more easier from the stock market, we suppose the coefficient of {\it ROE} would be positive. 
+\item [Size \& age]: Banks may prefer lending to large and old firms for the relatively low risk and audit cost, which renders the coefficient positive.
+\item [PBratio]: In China, growth enterprise may face regulation in new issue of shares.
+%\item [CEO's share]: As Harris and Raviv argued in (Harris\&Raviv, 1988), CEO may raise liability than equity in order to make his or her shares stick out.
+%\item [Concentration of shares]:
+%\item [Liquidity]:
+\end{description}
+
 \newpage
 \section{Hausman Test}\label{sec:test}
-\begin{center}
+
 	\begin{stlog}
 	\input{HausmanTest.log.tex}\nullskip
 	\end{stlog}
-\end{center}
+
 As is shown in the result above, the statistics given by the {\bf Hausman Test} corresponds to a p-value of less than 0.01 percent. Thus, we can refuse the $H_0$, which is to say, we can rule out the potential existence of {\it Random Effect} upon 0.01 percent level and there is no need to do the further {\bf Breusch-Pagan Test}. 
 Therefore, We stop here and would like to report the result of {\bf Fixed Effect Model}:
-\input{regressionFE.tex}
+
+Notice that the magnitude quadratic term, $CorpAge2$, is so small that renders a maximum of $CorpAge$'s effect at $\frac{0.0492}{-0.0002\times2}\approx 123$ years, which largely overpasses the observation maximum(we use the result of Fixed Effect Model but they are robust across specifications). Thus the general effect of $CorpAge$ is positive.
+
+The estimated result indicates that, {\bf ceteris paribus}: one older will raise the Debt Asset Ratio by about 0.049; one percent increase in the firm's size will result in a 0.074 rise in D/A Ratio; the effect of one percent's up in ROE to D/A Ratio is a -0.1171.
 
 \newpage
 \section{Endogenous Problem}\label{sec:endogenous}
-It's arguable that all the main explaining variables we care may suffer from endogenous problem through the channel of uncontrolled CEO preference. But most 
+It's arguable that all the main explaining variables we care may suffer from endogenous problem through the channel of uncontrolled CEO preference. But the most suspicious one is the $ROE$. As is illustrated in the {\bf DuPont Analysis}:
+\begin{align}
+	\notag
+	\textit{ROE} &= \frac{\text{Net income}}{\text{Sales}}\times\frac{\text{Sales}}{\text{Assets}}\times\frac{\text{Assets}}{\text{Equity}}\\
+	&= \text{Profit margin}\times\text{Total asset turnover}\times(\frac{1}{1-\textit{DARatio}})
+\end{align}
+Since the first two terms on the right(PM and TATO) hardly fluctuate drastically over year, there exists channel through which $DARatio$ will affect $ROE$, or at least we can say they are simultaneously determined.
 
 \section{IV Regression}\label{sec:IV}
+In this section, we use the Income of Main business as the instrumental variable. We assume that the main business income is completely determined by the capital budgeting decision, which is independent from the capital structure decision that takes care of the $DARatio$. 
+\input{regressionFE.tex}
 
+\newpage
 \begin{appendix}\label{sec:appendix}
 \nocite{*}
 \bibliography{Library}
