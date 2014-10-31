@@ -383,7 +383,7 @@ coeflabels(mpg2 "mpg$?2$" _cons Constant);
 
 #delimit ;
 esttab model21 model22 model23 using ..\TeX\regressionFE.tex, drop(_* *year) replace
-title("Result of Fixed Effect Model"\label{tab:regressionFE})
+title("Result of Fixed Effect Model(IV used)"\label{tab:regressionFE})
 mtitle("FE" "FE" "IV-FE")
 b(%6.4f) se(%6.4f) star(* 0.1 ** 0.05 *** 0.01) ar2
 coeflabels(mpg2 "mpg$?2$" _cons Constant);
