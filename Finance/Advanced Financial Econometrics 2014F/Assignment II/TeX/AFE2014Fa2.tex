@@ -8,7 +8,9 @@
   \usepackage{natbib}
   \usepackage{indentfirst}
   \usepackage{listings}
+  \usepackage{textcomp}
   \usepackage{color}
+  \usepackage{fontenc}
     \definecolor{gray}{rgb}{0.2,0.2,0.2}
     \definecolor{NavyBlue}{RGB}{0,0,128}
     \definecolor{Maroon}{RGB}{128,0,0}
@@ -31,7 +33,7 @@
     % Built-in functions
     morekeywords=[5]{rnormal, runiform},
     morecomment=[l]{//},
-    morecomment=[l]{*},  %// `*` maybe used as multiply operator. So use `//` as line comment.
+    morecomment=[f][commentstyle][0]{*},  %// `*` maybe used as multiply operator. So use `//` as line comment.
     morecomment=[s]{/*}{*/},
     % morecomment=[s]{,}{//},
     % The following is used by macros, like `lags'.
@@ -62,16 +64,22 @@
 
   \lstset{
    frame=shadowbox,
+   extendedchars=true,
    %commentstyle=\color{red!50!green!50!blue!50},  
    rulesepcolor=\color{gray},
    numbers=left, 
    numberstyle=\tiny, 
+   basicstyle=\ttfamily\small,
    breaklines=true, 
    breakautoindent=true, 
    basicstyle=\footnotesize,
+   fontadjust=true,
    flexiblecolumns=true, 
    aboveskip=1em,
    xleftmargin=2em,xrightmargin=2em,
+   upquote=false,
+   showspaces=false,
+   showstringspaces=false
    %texcl=true
 }
 
@@ -95,7 +103,7 @@
 \def \Pr{{\rm Pr}}
 \baselineskip 0.6cm
 
-This assignment is for the graduate course Financial Econometrics at GSM(Guanghua School of Management, Peking Univ.). In this assignment, we are asked to explain the capital structure of listed Chinese firms(SSE\&SZSE) by firm-level variables, and try to solve the endogenous problem. The answer to the four questions are in the sections: {\bf \nameref{sec:model}, \nameref{sec:test}, \nameref{sec:endogenous}, \nameref{sec:IV}}, respectively.
+{\courier This} assignment is for the graduate course Financial Econometrics at GSM(Guanghua School of Management, Peking Univ.). In this assignment, we are asked to explain the capital structure of listed Chinese firms(SSE\&SZSE) by firm-level variables, and try to solve the endogenous problem. The answer to the four questions are in the sections: {\bf \nameref{sec:model}, \nameref{sec:test}, \nameref{sec:endogenous}, \nameref{sec:IV}}, respectively.
 
 
 \section{Introduction}
