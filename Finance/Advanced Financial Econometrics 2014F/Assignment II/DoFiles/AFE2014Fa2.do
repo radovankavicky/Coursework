@@ -138,6 +138,7 @@ rename Reptdt Accper
 rename S0301a ShareholderName
 rename S0304a ShareholderRatio	
 
+
 destring ShareholderRatio, replace
 gen nShareholderRatio = -ShareholderRatio
 gen HHI = ShareholderRatio^2/10000
@@ -377,7 +378,7 @@ sjlog close, replace nolog
 esttab model11 model12 model21 model22 model31 model32 using ..\TeX\regression.tex, drop(_* *year) replace
 title("Results of OLS, FE and RE"\label{tab:regression})
 mtitle("OLS" "OLS" "FE" "FE" "RE" "RE")
-b(%6.4f) se(%6.4f) star(* 0.1 ** 0.05 *** 0.01) ar2
+b(%6.4f) se(%6.4f) star(* 0.1 ** 0.05 *** 0.01) ar2 
 coeflabels(mpg2 "mpg$?2$" _cons Constant);
 #delimit cr
 
