@@ -5,6 +5,8 @@
   \usepackage{float}
   \usepackage{setspace}
   \usepackage{stata}
+  \usepackage{bm}
+  \usepackage{amssymb}
 \topmargin=-1.2cm \oddsidemargin=0.1cm \evensidemargin=0.1cm
 \textwidth=16 true cm \textheight=23 true cm
 
@@ -19,37 +21,196 @@
 
 \def \Pr{{\rm Pr}}
 \baselineskip 0.6cm
-\section{Q1}
-
-This proposition can be extended to a $n$ dimension goods edition:
-For a two budget constrains $P^T_1X = I$ and $P^T_2X = I$, where $P^T_i(i=1,2)$ is a $n$ dimension row vector of price and $X$ is a $n$ dimension column vector of goods, if they intercept at some point, say $X_0$, then $X_0$ is also on the hyperplane of liner combination of price system $P^T_1$ and $P^T_2$. Moreover, the new hyperplane is always bounded by the original two budget constraints.
-
+\section{Q1\protect\footnotemark}
+\footnotetext{Without losing of clarity, the income or wealth $I$ or $w$ are all noted as $w$ in this assignment.}
+Note $\bm{x}$ as $(x_1,x_2)^T$, $\bm{P^{'}}$ as $(P^{'}_1, P^{'}_2)$ and $\bm{P^{''}}$ as $(P^{''}_1, P^{''}_2)$, which satisfy the following equations:
+\begin{align}
+	\bm{P^{'}} \cdot \bm{x} = I\\
+	\bm{P^{''}} \cdot \bm{x} = I
+\end{align}
 Suppose we have:
 \begin{equation}
-P^T_1X_0 = I
+	\bm{P} = \lambda \bm{P^{''}} +(1-\lambda)\bm{P^{''}},\quad\lambda \in (0, 1)
 \end{equation}
-and
+Then
 \begin{equation}
-P^T_2X_0 = I
+\bm{P} \cdot \bm{x} = \lambda \bm{P^{''}} \cdot \bm{x} + (1-\lambda) \bm{P^{''}} \cdot\bm{x} = I
 \end{equation}
-Given that $P^T = \lambda P^T_1 + (1-\lambda) P^T_2$, we have:
+This equation indicates that $\bm{x}$(the fixed point) is also on the new budget line.
+
+Moreover, this price line intercept with the axes at $(\frac{I}{P_1},0)^T, (0, \frac{I}{P_2})^T$, where
 \begin{equation}
-P^TX_0 = \lambda P^T_1 X_0 + (1-\lambda) P^T_2 = I
+	min(\frac{I}{P^{'}_i},\frac{I}{P^{''}_i})\leq \frac{I}{\lambda P^{'}_i +(1-\lambda)P^{''}_i} \leq max(\frac{I}{P^{'}_i},\frac{I}{P^{''}_i}),\quad i = 1,2
+\end{equation}
+The above relation is true because for $\lambda \in (0,1)$ the liner combination of the two, say $P^{'}_1$ and $P^{'}_1$ lines in between of them.
+Thus we reach the conclusion that $\bm{P} \cdot \bm{x} = I$ is always bounded by the original two budget constraints. $\blacksquare$
+
+\section{Q2\protect\footnotemark}
+\footnotetext{MWG.3.G.15$^\text{B}$}
+\subsection{(a)}
+We have First Order Conditions for this {\bf UMP}:
+\begin{align} \label{eq:FOC}
+	\nabla{u(x^{*})} =
+		\left(
+			\begin{array}{c}
+			 x_1{}^{-\frac{1}{2}} \\
+			 2x_2{}^{-\frac{1}{2}}
+			\end{array}
+		\right) 
+	=\lambda\bm{p}
+\end{align}
+Solving this problem(along with the utility function), we have:
+\begin{equation}
+	 \bm{h}(\bm{p},u) = 
+	\left(\frac{u}{p_2+4p_1}\right){}^2\left(
+		\begin{array}{c}
+		\left(\frac{p_2}{2}\right){}^2 \\
+		\left(p_1\right){}^2
+		\end{array}
+	\right)
 \end{equation}
 
-\section{Q2\footnote{MWG.3.G.15$^\text{B}$}}
+\subsection{(b)}
+\begin{align}
+\notag 
+e(\bm{p},u) &= \bm{p} \cdot \bm{h}\\
+	   &= \frac{p_{1}p_{2}u^2}{4p_2+16p_1} \label{eq:exp}
+\end{align}
+It's easy to verify:
+\begin{equation}
+	\nabla_{\bm{p}} e(\bm{p},u) = 
+		\left(\frac{u}{p_2+4p_1}\right){}^2\left(
+				\begin{array}{c}
+				\left(\frac{p_2}{2}\right){}^2 \\
+				\left(p_1\right){}^2
+				\end{array}
+		\right)
+	= \bm{h}(\bm{p},u)
+\end{equation}
+\subsection{(c)}
+This time, we solve the First Order Condition(eq.(\ref{eq:FOC})) along with the budget constraint,
+\begin{equation}
+	\bm{p}\cdot\bm{x}(\bm{p},w)=w
+\end{equation}
+, which leads to:
+\begin{equation}
+	\bm{x}(\bm{p},w) = 
+		\frac{w}{4p_1+p_2}\left(
+		\begin{array}{c}
+		\frac{p_2}{p_1} \\
+		4\frac{p_1}{\text{p2}}
+		\end{array}
+		\right)
+\end{equation}
 
+\subsection{(d)}
+Solve $\overset{-}{u}$ or $v$ from eq.(\ref{eq:exp})):
+\begin{equation}
+	v(\bm{p},w) = 2\sqrt{\frac{\left(4p_1+p_2\right)w}{p_1p_2}}
+\end{equation}
+Since the {\bf Roy's identity} says:
+\begin{equation}
+	\bm{x}(\bm{p},w) = -\frac{\nabla_{p}v(\bm{p},w)}{\nabla_{w}v(\bm{p},w)}\label{eq:roy0}
+\end{equation}
+Here we can verify it as:
+\begin{align}
+	 \frac{\partial v}{\partial w} &= (\frac{w}{p_1}+4\frac{w}{p_2})^{-\frac{1}{2}}(\frac{1}{p_1}+\frac{4}{p_2}) \label{eq:roy1}\\ 
+	 \nabla_{p}v(\bm{p},w) &=(\frac{w}{p_1}+4\frac{w}{p_2})^{-\frac{1}{2}}\left(
+		\begin{array}{c}
+		 -\frac{w}{p^2_{1}} \\
+		 -\frac{4w}{p^2_{2}}
+		\end{array}
+		\right) \label{eq:roy2}
+\end{align}
+Two sides equal when we substitute eq.(\ref{eq:roy1})(\ref{eq:roy2}) into (\ref{eq:roy0}). Thus the Roy Identity is verified. $\blacksquare$
+
+\subsection{(e)}
+\begin{align}
+	\frac{\partial x_2(\bm{p},w)}{\partial p_1} &= \frac{4w}{(p_2+4p_1)^2}\\
+	\frac{\partial h_2(\bm{p},u)}{\partial p_1} &= \frac{8w}{(p_2+4p_1)^2}\\
+	\frac{\partial x_2(\bm{p},u)}{\partial w}x_1(\bm{p},w) &= \frac{4w}{(p_2+4p_1)^2}
+\end{align}
+Therefore, 
+\begin{equation}
+	\frac{\partial x_2(\bm{p},w)}{\partial p_1}=\frac{\partial h_2(\bm{p},u)}{\partial p_1}=\frac{\partial x_2(\bm{p},u)}{\partial w}x_1(\bm{p},w)
+\end{equation}
+The {\bf Slusky Equation} holds.$\blacksquare$
 \section{Q3}
+Define {\bf UMP$_0$}:
+\begin{align} \notag
+	&\underset{\bm{x}}{Max}\quad u = \phi(\bm{x}) \\ \notag
+	&s.t. \quad \bm{p} \cdot \bm{x} \leq w
+\end{align}
+and {\bf UMP$_1$}:
+\begin{align} \notag
+	&\underset{\bm{x}}{Max}\quad u = \psi(\phi(\bm{x})) \\ \notag
+	&s.t. \quad \bm{p} \cdot \bm{x} \leq w
+\end{align}
+The {F.O.C.} are:
+\begin{align}
+	\nabla \phi(\bm{x^*}) = \lambda_{0}\bm{p}, \label{eq:FOC0}\\
+	\frac{\partial \psi(\phi^*)}{\partial \phi}\nabla \phi(\bm{x^*}) = \lambda_{1}\bm{p}\label{eq:FOC1}
+\end{align}
+respectively, where $\phi^*=\phi(\bm{x^*})$. 
+
+Since $\psi(\cdot)$ is monotone increasing function, the eq.(\ref{eq:FOC0}) and eq.(\ref{eq:FOC1}) give us the identical optimal $\bm{x}$.
+\begin{equation}
+	\bm{x^{*}_1}(\bm{p},w) = \bm{x^{*}_0}(\bm{p},w)
+\end{equation} 
+ Therefore, for a given $\bm{p}$ and $w$, 
+\begin{equation}
+	v_{1}(\bm{p},w) = v_{1}(\bm{x^{*}_1}(\bm{p},w)) = \psi(v_{0}(\bm{x^{*}_0}(\bm{p},w))) = \psi(v_{0}(\bm{p},w))
+\end{equation}
+
+Moreover, the corresponding {\bf EMP$_1$} is equivalent to {\bf EMP$_0$} if we let $u^{*}_0$ equals to $\psi^{-1}(u^{*}_1)$:
+\begin{align}\notag
+	&\underset{\bm{x}}{Min}\quad e(\bm{p},u) \\ \notag
+	&s.t. \phi(\bm{x}) \geq \psi^{-1}(u^*)
+\end{align}
+Now we also have:
+\begin{align}
+	\bm{h^{*}_1}(\bm{p},u^{*}_1) = \bm{h^{*}_0}(\bm{p},\psi^{-1}(u^{*}_1))\\
+	e_{1}(\bm{p},u^{*}_1) = e_{0}(\bm{p},\psi^{-1}(u^{*}_1))
+\end{align}
+$\blacksquare$
 
 \section{Q4}
+\begin{equation}
+	\frac{\partial^2 e(\bm{p},u)}{\partial p_{j} \partial u} = \frac{\partial}{\partial u}(\frac{\partial e(\bm{p},u)}{\partial p_{j}}) = \frac{\partial h_j(\bm{p},u)}{\partial u}
+\end{equation}
+And we know that $\frac{\partial v(\bm(p),w)}{w}>0$ for any $w$.\footnote{{\bf Proposition 3.D.3(ii)} in MWG}
+Differentiated on both side of 
+\begin{equation}
+	x_j (\bm{p},w) = h_j (\bm{p}, v(\bm{p},w))
+\end{equation}
+, we reach
+\begin{align}	\notag
+	&\frac{\partial x_{j}(\bm{p},w)}{\partial w} = \frac{h_j (\partial \bm{p}, u)}{\partial u}\cdot \frac{\partial v(\bm{p},w)}{w} > 0 \\ \notag
+	\Longleftrightarrow &\frac{h_j (\partial \bm{p}, u)}{\partial u}>0 \\ \notag
+	\Longleftrightarrow &\frac{\partial^2 e(\bm{p},u)}{\partial p_{j} \partial u} >0
+\end{align}
+This is to say, $\frac{\partial^2 e(\bm{p},u)}{\partial p_{j} \partial u} >0$ is necessary and sufficient condition that jokes are a normal good for Wenjia. $\blacksquare$
 
 \section{Q5}
+Rewrite the constraint as,
+\begin{equation}
+	I_{1} = (C_{0}-I_{0}) (1+r)+C_1
+\end{equation}
+Differentiated on both side of 
+\begin{equation}
+	h_{C_1}(r,I_0,u) = C_1 (r, I_0, I_1)
+\end{equation}
+with respect to $r$,
+\begin{equation}
+	\frac{\partial h_{C_1}(r,I_0,u)}{\partial r} =\frac{\partial C_1 (r, I_0, I_1)} {\partial r} + \frac{\partial C_1 (r, I_0, I_1)} {\partial I_1}  \frac{\partial e(r, I_0, u)}{\partial r}
+\end{equation}
+Diffentiated on both side of the constraint, with respect to $r$,
+\begin{equation}
+	\frac{\partial e(r, I_0, u)}{\partial r} = C_0 - I_0
+\end{equation}
+Thus, the Slusky Equation can be written as:
+\begin{equation}
+	\frac{\partial h_{C_1}(r,I_0,u)}{\partial r} = \frac{\partial C_1 (r, I_0, I_1)} {\partial r} - \frac{\partial C_1 (r, I_0, I_1)} {\partial I_1}  (I_0-C_0))
+\end{equation}
 
-
-\newpage
-\begin{appendix}
-\section*{Appendix}
-\subsection{Stata Do-file}
-\subsection{Stata Log-file}
-\end{appendix}
 \end{document}

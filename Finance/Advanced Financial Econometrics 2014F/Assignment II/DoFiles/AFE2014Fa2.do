@@ -301,7 +301,7 @@ gsort -dup Stkcd Accper
 bysort Stkcd Accper: keep if _n==1
 gen year = year(date(Accper, "YMD"))
 gen AccDate = date(Accper, "YMD")
-xtset Stkcd AccDate
+xtset Stkcd AccDate, yearly
 
 *4.Generating Variables 
 gen CorpAge = (date(Accper,"YMD")-date(Estbdt,"YMD"))/365
@@ -331,8 +331,8 @@ winsor2 `Y' `X' `ControlVar' , replace by(Indcd year) cuts(1 99)
 ***************************************************************
 ************** ASSIGNMENT                         *************
 ***************************************************************
+xtset Stkcd year, yearly
 *Q0.
-
 latabstat `Y' `X' `ControlVar', s(mean sd med min max ) ///
 cap(Summarize of Variables) clabel(tab:latabstat1) ///
 columns(s) f(%9.2fc) hw(16) replace ///
@@ -352,7 +352,8 @@ xtreg `Y' `X' i.year, fe i(Stkcd)
 est store model21
 xtreg `Y' `X' `ControlVar' i.year, fe i(Stkcd)
 est store model22
-xtivreg `Y' CorpAge CorpAge2 Size (ROE=lgMainBusiness) `ControlVar' i.year, fe i(Stkcd)
+sort Stkcd year
+xtivreg `Y' CorpAge CorpAge2 Size (ROE=lgMainBusiness L1.ROE) `ControlVar' i.year, fe i(Stkcd)
 est store model23
 estimate store fe
 
@@ -361,7 +362,8 @@ xtreg `Y' `X' i.year, re
 est store model31
 xtreg `Y' `X' `ControlVar' i.year, re i(Stkcd)
 est store model32
-xtivreg `Y' CorpAge CorpAge2 Size (ROE=lgMainBusiness) `ControlVar' i.year, re i(Stkcd)
+sort Stkcd year
+xtivreg `Y' CorpAge CorpAge2 Size (ROE=lgMainBusiness L1.ROE) `ControlVar' i.year, re i(Stkcd)
 est store model33
 estimate store re
 
