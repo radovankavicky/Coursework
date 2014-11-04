@@ -1,0 +1,171 @@
+\documentclass{article}
+  \usepackage{amsmath}
+  \usepackage{amssymb}
+  \usepackage{graphicx}
+  \usepackage{float}
+  \usepackage{setspace}
+  \usepackage{stata}
+  \usepackage{bm}
+  \usepackage{amssymb}
+  \usepackage{amsthm}
+\topmargin=-1.2cm \oddsidemargin=0.1cm \evensidemargin=0.1cm
+\textwidth=16 true cm \textheight=23 true cm
+
+\font\euler=EUSM10 \font\eulers=EUSM7
+
+\theoremstyle{plain}
+\newtheorem{asm}{Assumption}[section]
+\newtheorem{thm}{Theorem}[section]
+\newtheorem{lem}[thm]{Lemma}
+\newtheorem{prop}[thm]{Proposition}
+\newtheorem*{cor}{Corollary}
+
+\theoremstyle{definition}
+\newtheorem{defn}{Definition}[section]
+\newtheorem{conj}{Conjecture}[section]
+\newtheorem{exmp}{Example}[section]
+
+\theoremstyle{remark}
+\newtheorem*{rem}{Remark}
+\newtheorem*{note}{Note}
+
+\begin{document}
+\title{Advanced Microeconomics\\Notes}
+\author{{\normalsize SHENG Hao, 1401211818, via \LaTeX}}
+\date{\today}
+
+\maketitle
+
+\def \Pr{{\rm Pr}}
+\baselineskip 0.6cm
+\section{Production Problem}
+\subsection{Production Technology}
+\subsubsection{Production Function}
+\begin{equation}
+	Q = f(x_1,x_2,\dots,x_n)
+\end{equation}
+\begin{note}[1]
+Cardinal property matters.
+\end{note}
+\begin{note}[2]
+Monotonic technology:
+\begin{equation}
+	x^{'}_i\geq x_i \Rightarrow f(x^{'}_i, \overset{-}x_{-i})\geq f(x_i, \overset{-}x_{-i}), \quad \forall i = 1, 2, \dots, n
+\end{equation}
+\end{note}
+\begin{note}[3]
+Convex technology 
+\end{note}
+
+\begin{defn}[Input requirement set]
+\begin{equation}
+	\{ \bm{x}|f(\bm{x}) \geq y \}
+\end{equation}
+\end{defn}
+
+\begin{defn}[Isoquant Set]
+\begin{equation}
+	\{ \bm{x}|f(\bm{x}) = y \}
+\end{equation}
+\end{defn}
+
+\begin{defn}[Marginal rate of technological Substitution (MRTS)]
+\begin{equation}
+	\text{MRTS}_{x_1,x_2}=\frac{\frac{\partial f(x_1)}{\partial x_1}}{\frac{\partial f(x_2)}{\partial x_2}}
+\end{equation}
+\end{defn}
+
+\begin{defn}[Elasticity of Substitution]
+\begin{equation}
+	E_{x_1,x_2}= \frac{\rm{d}(\frac{x_1}{x_2})}{{\rm d} \text{MRTS}_{x_1,x_2}}	
+\end{equation}
+\end{defn}
+
+\subsubsection{Return to Scale}
+\begin{defn}[Constant return to scale]
+\begin{equation}
+	\forall \alpha >1, \bm{x}\in \bm{X}, f(\alpha \bm{x})= \alpha f(\bm{x})
+\end{equation}
+\end{defn}
+
+\begin{defn}[Increasing/Decreasing return to scale]
+\begin{equation}
+	\forall \alpha >1, \bm{x}\in \bm{X}, f(\alpha \bm{x})\gtrless \alpha f(\bm{x})
+\end{equation}
+\end{defn}
+
+\begin{note}[1]
+	The convexity/concavity of the function f(x) says nothing to the return of scale.
+\end{note}
+
+\begin{defn}[Elasticity of Scale(local concept)]
+	Let $y(\alpha) = f(\alpha \bm{x})$ for any $\alpha > 0$, then the elasticity of scale at point $\bm{x}$ is  
+	\begin{equation}
+		e(y) = \frac{\frac{\rm{d} y(\alpha)}{y(\alpha)}}{\frac{\rm{d} \alpha}{ \alpha}}
+	\end{equation}
+\end{defn}
+
+\begin{defn}[Homothetic Function]
+Assume $h(\cdot)$ is homothetic of degree one, and $g(\cdot)$  is a increasing function, then $f(x)=g(h(x))$ is homothetic of degree one.
+\end{defn}
+
+\begin{note}[1]
+	If $f(\bm{x}) = f(\bm{x^{'}})$, then $f(t\bm{x}) = f(t\bm{x^{'}})$ holds for any $t>0$.
+\end{note}
+
+\begin{note}[2]
+The MRTS is the same for proportional change in $\bm{x}$.
+\end{note}
+
+\begin{note}[3]
+Homethetic functions can be either constant increasing or decreasing return of scales.
+\end{note}
+
+
+\subsection{Profit Maximization}
+\begin{asm}
+	The objection of a firm is to maximize its profit.
+\end{asm}
+\begin{asm}
+	All the firms are price taker of the price of outputs $p$ and the price of input factors $\bm{w}$
+\end{asm}
+
+We can consider the firm owner's decision in two ways, a one-step way is:
+\begin{equation}
+	\underset{\bm{x}}{Max}\quad p f(\bm{x}) - \bm{w}\cdot\bm{x}
+\end{equation}
+From this problem, we can derive the demand function of $\bm{x(p,\bm{w})}$, and profit function $\Pi(p, \bm{w})$
+
+Or, we can derive a cost minimization responds for a given $f(x) = Q$:
+\begin{align} \notag
+	\underset{\bm{x}}{Min}\quad \bm{w}\cdot\bm{x}\\ \notag
+	s.t. \quad f(\bm{x})=Q
+\end{align}
+So we get a conditional factor demand function $\bm{x}(Q, \bm{w})$ first, and corresponding cost function $C(Q, \bm{w})$. In the second step, we solve another optimization problem:
+\begin{align} \notag
+	\underset{Q}{Max}\quad pQ - C(Q, \bm{w})
+\end{align}
+This leads to the supply function $Q(p, \bm{w})$ and profit function $\Pi(p,\bm{w}) = pQ(p, \bm{w}) - C(Q, \bm{w})$, which is identical to the first way, as:
+\begin{equation}
+	\bm{x}(p,\bm{w}) = \bm{x}(Q(p,\bm{w}), \bm{w})
+\end{equation}
+
+There are three reasons that we try to solve this problem in two ways. First, the second method gives us the cost function which is crucial in analyzing the cost(MC, AC, FC, VC). Second, for certain technology that has increasing return of technology, there is no meaningful solution for the profit maximization problem but for the cost minimization one. Finally, the second method is not bounded by the price taker assumption.
+
+\subsubsection{Solution of the problem}
+For the profit maximization problem:
+\begin{equation}
+	\underset{\bm{x}}{Max}\quad p f(\bm{x}) - \bm{w}\cdot\bm{x}
+\end{equation}
+There is the First Order Condition(\bf{F.O.C.}):
+\begin{equation}
+	p \cdot \nabla f(\bm{x})  = \bm{w}
+\end{equation}
+For a given profit level $\overset{-}{\Pi}$, since $\Pi = p f(\bm{x}) - \bm{w} \cdot \bm{x}$, 
+\begin{equation}
+	f(x_i,\overset{-}{x_{-i}}) = \frac{\overset{-}{\Pi}+}{p}
+\end{equation} 
+It's easy to check if there exist increasing return of scales, the optimal production level may be infinite. That's why we need the Second Order Condition. 
+\subsection{Cost Minimization}
+
+\end{document}
