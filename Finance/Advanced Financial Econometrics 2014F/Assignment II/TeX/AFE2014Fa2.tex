@@ -42,7 +42,7 @@ Our data covers all the listed stocks in SSE(Shanghai Stock Exchange) and SZSE(S
 \subsection{Explanatory Variables}
 Literature have tested enough factors that might have a casual relation with the capital leverage. In (Frank\&Goyal, 2004), 37 explanatory variables are included covering firm-level(size, profitability, governance, tax, etc.), industry-level and market-level(institution and marketization) variance.
 
-Since our aim is not exhaust the such possible factors, apart variables of interest(that is, {\it size, age, age$^2$, ROE}) , we only pick up several control variables like the ownership concentration, liquidity ratio, PB ratio, etc. We hope the coefficients of the variables we care and their significance change little when more are controlled. (This is another way to say controlling additional variable only serves as a placebo test, and might save us of the criticism of missing important variables.)
+Since our aim is not exhaust the such possible factors, apart variables of interest(that is, {\it size, age, age$^2$, ROE}) , we only pick up several control variables like the ownership concentration, liquidity ratio, PB ratio, etc. We hope the coefficients of the variables we care and their significance change little when more are controlled. (This is another way to say controlling additional variable only        as a placebo test, and might save us of the criticism of missing important variables.)
 
 In part \ref{sec:IV}, we will revisit the endogenous problem, and try to solve it with instrument variables.
 
@@ -90,7 +90,7 @@ It's arguable that all the main explaining variables we care may suffer from end
 Since the first two terms on the right(PM and TATO) hardly fluctuate drastically over year, there exists channel through which $DARatio$ will affect $ROE$, or at least we can say they are simultaneously determined.
 
 \section{IV Regression}\label{sec:IV}
-In this section, we use the Income of Main business as the instrumental variable. We assume that the main business income is completely determined by the capital budgeting decision, which is independent from the capital structure decision that takes care of the $DARatio$. 
+In this section, we use the Income of Main business as the instrumental variable. We assume that the main business income is completely determined by the capital budgeting decision, which is independent from the capital structure decision that takes care of the $DARatio$. GMM is also used as a placebo.
 \input{regressionFE.tex}
 
 \newpage

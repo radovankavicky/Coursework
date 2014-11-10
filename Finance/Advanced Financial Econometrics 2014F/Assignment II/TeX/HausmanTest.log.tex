@@ -1,43 +1,42 @@
 . hausman fe re, sigmamore all
 {\smallskip}
-Note: the rank of the differenced variance matrix (19) does not equal the number of coefficients being tested (22); be sure this is what you expect, or there may be
-        problems computing the test.  Examine the output of your estimators for anything unexpected and possibly consider scaling your variables so that the
-        coefficients are on a similar scale.
+Note: the rank of the differenced variance matrix (19) does not equal the number of coefficients being tested (22); be sure this is what you expect, or there may be problems computing the test.  Examine the output of your estimators
+        for anything unexpected and possibly consider scaling your variables so that the coefficients are on a similar scale.
 {\smallskip}
                  \HLI{4} Coefficients \HLI{4}
              {\VBAR}      (b)          (B)            (b-B)     sqrt(diag(V_b-V_B))
              {\VBAR}       fe           re         Difference          S.E.
 \HLI{13}{\PLUS}\HLI{64}
-         ROE {\VBAR}   -.4682587    -.4695522        .0012936               .
-     CorpAge {\VBAR}    .0560977       .01118        .0449177        .0078286
-    CorpAge2 {\VBAR}   -.0000982     -.000086       -.0000122               .
-        Size {\VBAR}    .0829311     .0754661         .007465               .
-LiquidityR{\tytilde}o {\VBAR}   -.0214697    -.0220952        .0006255               .
-       HHI10 {\VBAR}    .0052204    -.0314611        .0366815               .
-     PBRatio {\VBAR}   -.0006227    -.0005881       -.0000346               .
-        SGAe {\VBAR}   -.0374687    -.0201582       -.0173105        .0040812
-   CEOGender {\VBAR}    .0499749       .03785        .0121249               .
-      CEOAge {\VBAR}   -.0018239     -.002697        .0008731               .
-   CEOSalary {\VBAR}   -5.02e-08    -3.70e-08       -1.32e-08               .
-    CEOShare {\VBAR}   -2.53e-09    -2.72e-09        1.98e-10               .
+     CorpAge {\VBAR}    .0491693     .0135363        .0356329        .0123078
+    CorpAge2 {\VBAR}   -.0002082    -.0001711       -.0000371        .0000159
+        Size {\VBAR}    .0740539     .0690396        .0050143        .0015518
+         ROE {\VBAR}   -.1171078    -.1262236        .0091159        .0015327
+LiquidityR{\tytilde}o {\VBAR}   -.0168832    -.0180638        .0011805        .0002645
+       HHI10 {\VBAR}   -.0665986    -.0934657        .0268671        .0095555
+     PBRatio {\VBAR}    .0059242       .00676       -.0008358        .0005551
+        SGAe {\VBAR}    .0308308     .0225246        .0083062        .0035739
+   CEOGender {\VBAR}    .0702155     .0597212        .0104943        .0080236
+      CEOAge {\VBAR}   -.0017917    -.0021411        .0003494        .0003181
+   CEOSalary {\VBAR}   -8.28e-08    -7.62e-08       -6.58e-09        4.04e-09
+    CEOShare {\VBAR}   -4.50e-09    -4.88e-09        3.82e-10        5.93e-10
         year {\VBAR}
-       2004  {\VBAR}   -.0462213    -.0015673        -.044654        .0064473
-       2005  {\VBAR}   -.0910473    -.0028759       -.0881714        .0152399
-       2006  {\VBAR}   -.1252545     .0069457       -.1322001        .0234674
-       2007  {\VBAR}   -.1760088     .0016465       -.1776553        .0315272
-       2008  {\VBAR}   -.2540623    -.0312786       -.2227837        .0396719
-       2009  {\VBAR}   -.3046443    -.0364611       -.2681832        .0476961
-       2010  {\VBAR}   -.3412904    -.0278026       -.3134878        .0556914
-       2011  {\VBAR}   -.4062364    -.0485998       -.3576365         .063775
-       2012  {\VBAR}   -.4777151    -.0753089       -.4024062         .071842
-       2013  {\VBAR}   -.5400134     -.093089       -.4469244        .0798781
+       2004  {\VBAR}   -.0295862     .0052177       -.0348039        .0122927
+       2005  {\VBAR}   -.0551566     .0136563       -.0688129        .0247303
+       2006  {\VBAR}   -.0887046     .0137848       -.1024894        .0370376
+       2007  {\VBAR}   -.1395424    -.0013688       -.1381735        .0494388
+       2008  {\VBAR}   -.1914957    -.0186849       -.1728108        .0619019
+       2009  {\VBAR}    -.232505    -.0247123       -.2077927        .0743196
+       2010  {\VBAR}   -.2641968    -.0215034       -.2426934        .0866476
+       2011  {\VBAR}    -.324123    -.0474631         -.27666        .0990615
+       2012  {\VBAR}   -.3743868     -.064273       -.3101138        .1114861
+       2013  {\VBAR}   -.4213637    -.0759459       -.3454178        .1239088
 \HLI{13}{\BOTT}\HLI{64}
-                         b = consistent under Ho and Ha; obtained from xtivreg
-          B = inconsistent under Ha, efficient under Ho; obtained from xtivreg
+                           b = consistent under Ho and Ha; obtained from xtreg
+            B = inconsistent under Ha, efficient under Ho; obtained from xtreg
 {\smallskip}
     Test:  Ho:  difference in coefficients not systematic
 {\smallskip}
                  chi2(19) = (b-B)'[(V_b-V_B){\caret}(-1)](b-B)
-                          =       11.04
-                Prob>chi2 =      0.9225
-                (V_b-V_B is not positive definite)
+                          =      182.89
+                Prob>chi2 =      0.0000
+{\smallskip}

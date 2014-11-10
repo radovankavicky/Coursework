@@ -6,36 +6,36 @@
 {col 14}{c |}{col 21}(b){col 34}(B){col 49}(b-B){col 59}sqrt(diag(V_b-V_B))
 {col 14}{c |}{col 17}     fe     {col 30}     re     {col 46}Difference{col 66}S.E.
 {hline 13}{c +}{hline 64}
-{space 9}ROE {c |}{res}{col 18}-.4682587{col 31}-.4695522{col 47} .0012936{col 63}        .
-{txt}{space 5}CorpAge {c |}{res}{col 18} .0560977{col 31}   .01118{col 47} .0449177{col 63} .0078286
-{txt}{space 4}CorpAge2 {c |}{res}{col 18}-.0000982{col 31} -.000086{col 47}-.0000122{col 63}        .
-{txt}{space 8}Size {c |}{res}{col 18} .0829311{col 31} .0754661{col 47}  .007465{col 63}        .
-{txt}LiquidityR~o {c |}{res}{col 18}-.0214697{col 31}-.0220952{col 47} .0006255{col 63}        .
-{txt}{space 7}HHI10 {c |}{res}{col 18} .0052204{col 31}-.0314611{col 47} .0366815{col 63}        .
-{txt}{space 5}PBRatio {c |}{res}{col 18}-.0006227{col 31}-.0005881{col 47}-.0000346{col 63}        .
-{txt}{space 8}SGAe {c |}{res}{col 18}-.0374687{col 31}-.0201582{col 47}-.0173105{col 63} .0040812
-{txt}{space 3}CEOGender {c |}{res}{col 18} .0499749{col 31}   .03785{col 47} .0121249{col 63}        .
-{txt}{space 6}CEOAge {c |}{res}{col 18}-.0018239{col 31} -.002697{col 47} .0008731{col 63}        .
-{txt}{space 3}CEOSalary {c |}{res}{col 18}-5.02e-08{col 31}-3.70e-08{col 47}-1.32e-08{col 63}        .
-{txt}{space 4}CEOShare {c |}{res}{col 18}-2.53e-09{col 31}-2.72e-09{col 47} 1.98e-10{col 63}        .
+{space 5}CorpAge {c |}{res}{col 18} .0491693{col 31} .0135363{col 47} .0356329{col 63} .0123078
+{txt}{space 4}CorpAge2 {c |}{res}{col 18}-.0002082{col 31}-.0001711{col 47}-.0000371{col 63} .0000159
+{txt}{space 8}Size {c |}{res}{col 18} .0740539{col 31} .0690396{col 47} .0050143{col 63} .0015518
+{txt}{space 9}ROE {c |}{res}{col 18}-.1171078{col 31}-.1262236{col 47} .0091159{col 63} .0015327
+{txt}LiquidityR~o {c |}{res}{col 18}-.0168832{col 31}-.0180638{col 47} .0011805{col 63} .0002645
+{txt}{space 7}HHI10 {c |}{res}{col 18}-.0665986{col 31}-.0934657{col 47} .0268671{col 63} .0095555
+{txt}{space 5}PBRatio {c |}{res}{col 18} .0059242{col 31}   .00676{col 47}-.0008358{col 63} .0005551
+{txt}{space 8}SGAe {c |}{res}{col 18} .0308308{col 31} .0225246{col 47} .0083062{col 63} .0035739
+{txt}{space 3}CEOGender {c |}{res}{col 18} .0702155{col 31} .0597212{col 47} .0104943{col 63} .0080236
+{txt}{space 6}CEOAge {c |}{res}{col 18}-.0017917{col 31}-.0021411{col 47} .0003494{col 63} .0003181
+{txt}{space 3}CEOSalary {c |}{res}{col 18}-8.28e-08{col 31}-7.62e-08{col 47}-6.58e-09{col 63} 4.04e-09
+{txt}{space 4}CEOShare {c |}{res}{col 18}-4.50e-09{col 31}-4.88e-09{col 47} 3.82e-10{col 63} 5.93e-10
 {txt}{space 8}year {c |}
-{space 7}2004  {c |}{res}{col 18}-.0462213{col 31}-.0015673{col 47} -.044654{col 63} .0064473
-{txt}{space 7}2005  {c |}{res}{col 18}-.0910473{col 31}-.0028759{col 47}-.0881714{col 63} .0152399
-{txt}{space 7}2006  {c |}{res}{col 18}-.1252545{col 31} .0069457{col 47}-.1322001{col 63} .0234674
-{txt}{space 7}2007  {c |}{res}{col 18}-.1760088{col 31} .0016465{col 47}-.1776553{col 63} .0315272
-{txt}{space 7}2008  {c |}{res}{col 18}-.2540623{col 31}-.0312786{col 47}-.2227837{col 63} .0396719
-{txt}{space 7}2009  {c |}{res}{col 18}-.3046443{col 31}-.0364611{col 47}-.2681832{col 63} .0476961
-{txt}{space 7}2010  {c |}{res}{col 18}-.3412904{col 31}-.0278026{col 47}-.3134878{col 63} .0556914
-{txt}{space 7}2011  {c |}{res}{col 18}-.4062364{col 31}-.0485998{col 47}-.3576365{col 63}  .063775
-{txt}{space 7}2012  {c |}{res}{col 18}-.4777151{col 31}-.0753089{col 47}-.4024062{col 63}  .071842
-{txt}{space 7}2013  {c |}{res}{col 18}-.5400134{col 31} -.093089{col 47}-.4469244{col 63} .0798781
+{space 7}2004  {c |}{res}{col 18}-.0295862{col 31} .0052177{col 47}-.0348039{col 63} .0122927
+{txt}{space 7}2005  {c |}{res}{col 18}-.0551566{col 31} .0136563{col 47}-.0688129{col 63} .0247303
+{txt}{space 7}2006  {c |}{res}{col 18}-.0887046{col 31} .0137848{col 47}-.1024894{col 63} .0370376
+{txt}{space 7}2007  {c |}{res}{col 18}-.1395424{col 31}-.0013688{col 47}-.1381735{col 63} .0494388
+{txt}{space 7}2008  {c |}{res}{col 18}-.1914957{col 31}-.0186849{col 47}-.1728108{col 63} .0619019
+{txt}{space 7}2009  {c |}{res}{col 18} -.232505{col 31}-.0247123{col 47}-.2077927{col 63} .0743196
+{txt}{space 7}2010  {c |}{res}{col 18}-.2641968{col 31}-.0215034{col 47}-.2426934{col 63} .0866476
+{txt}{space 7}2011  {c |}{res}{col 18} -.324123{col 31}-.0474631{col 47}  -.27666{col 63} .0990615
+{txt}{space 7}2012  {c |}{res}{col 18}-.3743868{col 31} -.064273{col 47}-.3101138{col 63} .1114861
+{txt}{space 7}2013  {c |}{res}{col 18}-.4213637{col 31}-.0759459{col 47}-.3454178{col 63} .1239088
 {txt}{hline 13}{c BT}{hline 64}
-{ralign 78:b = consistent under Ho and Ha; obtained from xtivreg}
-{ralign 78:B = inconsistent under Ha, efficient under Ho; obtained from xtivreg}
+{ralign 78:b = consistent under Ho and Ha; obtained from xtreg}
+{ralign 78:B = inconsistent under Ha, efficient under Ho; obtained from xtreg}
 
     Test:  Ho:  difference in coefficients not systematic
 
 {ralign 25:chi2({res:19})} = (b-B)'[(V_b-V_B)^(-1)](b-B)
-{col 27}=  {res}     11.04
-{txt}{col 17}Prob>chi2 =  {res}    0.9225
-{txt}{col 17}(V_b-V_B is not positive definite)
+{col 27}=  {res}    182.89
+{txt}{col 17}Prob>chi2 =  {res}    0.0000
+{txt}
