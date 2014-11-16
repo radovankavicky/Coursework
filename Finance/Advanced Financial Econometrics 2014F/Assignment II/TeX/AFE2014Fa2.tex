@@ -12,8 +12,9 @@
   \usepackage{color}
   \usepackage{fontenc}
   \usepackage{accsupp}% http://ctan.org/pkg/accsupp
-  \usepackage[colorlinks, linkcolor=blue, anchorcolor=blue, citecolor=green]{hyperref}%For hyper-link reference
+  \usepackage[colorlinks, linkcolor=NavyBlue, anchorcolor=Maroon, citecolor=TealBlue]{hyperref}%For hyper-link reference
     \input{Stata.tex}% for stata language highlights
+  \usepackage{mdframed}
 \setlength{\parindent}{2em}
 
 \topmargin=-1.2cm \oddsidemargin=0.1cm \evensidemargin=0.1cm
@@ -37,12 +38,12 @@
 
 \section{Introduction}
 \subsection{Data Description and Clean-up}
-Our data covers all the listed stocks in SSE(Shanghai Stock Exchange) and SZSE(Shenzhen Stock Exchange)in from Jan.1$^{\text{st}}$ 2001 to Dec.31$^{\text{th}}$ 2013. Since banking industry may have a completely different pattern of capital structure(Wei 2013), we drop all the observations in that industry(up to 35 individual stocks, less than 1\% of all). We also drop those of insolvency, that is to say, those with asset less than liability. We also made a 1\% level {\it Winsor transformation}(Barnett and Lewis, 1994) to variable we care, in order to rule out the outliers' effect.
+Our data covers all the listed stocks in SSE(Shanghai Stock Exchange) and SZSE(Shenzhen Stock Exchange)in from Jan.1$^{\text{st}}$ 2001 to Dec.31$^{\text{th}}$ 2013. Since banking industry may have a completely different pattern of capital structure (\cite{DeAngelo2014}), we drop all the observations in that industry(up to 35 individual stocks, less than 1\% of all). We also drop those of insolvency, that is to say, those with asset less than liability. We also made a 1\% level {\it Winsor transformation} (\cite{Barnett1994}) to variable we care, in order to rule out the outliers' effect.
 
 \subsection{Explanatory Variables}
-Literature have tested enough factors that might have a casual relation with the capital leverage. In (Frank\&Goyal, 2004), 37 explanatory variables are included covering firm-level(size, profitability, governance, tax, etc.), industry-level and market-level(institution and marketization) variance.
+Literature have tested enough factors that might have a casual relation with the capital leverage. In \cite{Frank2004}, 37 explanatory variables are included covering firm-level(size, profitability, governance, tax, etc.), industry-level and market-level(institution and marketization) variance.
 
-Since our aim is not exhaust the such possible factors, apart variables of interest(that is, {\it size, age, age$^2$, ROE}) , we only pick up several control variables like the ownership concentration, liquidity ratio, PB ratio, etc. We hope the coefficients of the variables we care and their significance change little when more are controlled. (This is another way to say controlling additional variable only        as a placebo test, and might save us of the criticism of missing important variables.)
+Since our aim is not exhaust the such possible factors, apart variables of interest(that is, {\it size, age, age$^2$, ROE}) , we only pick up several control variables like the ownership concentration, liquidity ratio, PB ratio, etc. We hope the coefficients of the variables we care and their significance change little when more are controlled. (This is another way to say controlling additional variable only  as a placebo test, and might save us of the criticism of missing important variables.)
 
 In part \ref{sec:IV}, we will revisit the endogenous problem, and try to solve it with instrument variables.
 
@@ -67,10 +68,12 @@ But the estimated coefficients, since they barely changes over different specifi
 
 \newpage
 \section{Hausman Test}\label{sec:test}
-
+\begin{mdframed}
 	\begin{stlog}
 	\input{HausmanTest.log.tex}\nullskip
 	\end{stlog}
+  \end{mdframed}
+
 
 As is shown in the result above, the statistics given by the {\bf Hausman Test} corresponds to a p-value of less than 0.01 percent. Thus, we can refuse the $H_0$, which is to say, we can rule out the potential existence of {\it Random Effect} upon 0.01 percent level and there is no need to do the further {\bf Breusch-Pagan Test}. 
 Therefore, We stop here and would like to report the result of {\bf Fixed Effect Model}:

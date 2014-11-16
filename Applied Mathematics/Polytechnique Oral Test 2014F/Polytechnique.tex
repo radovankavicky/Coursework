@@ -1,0 +1,109 @@
+\documentclass{article}
+  \usepackage{amsmath}
+  \usepackage{amssymb}
+  \usepackage{graphicx}
+  \usepackage{float}
+  \usepackage{setspace}
+  \usepackage{stata}
+  \usepackage{natbib}
+  \usepackage{indentfirst}
+  \usepackage{listings}
+  \usepackage{textcomp}
+  \usepackage{color}
+  \usepackage{fontenc}
+  \usepackage{bm}
+  \usepackage{accsupp}% http://ctan.org/pkg/accsupp
+  \usepackage[colorlinks, linkcolor=blue, anchorcolor=blue, citecolor=green]{hyperref}%For hyper-link reference
+    %\input{Stata.tex}% for stata language highlights
+\setlength{\parindent}{2em}
+
+\topmargin=-1.2cm \oddsidemargin=0.1cm \evensidemargin=0.1cm
+\textwidth=16 true cm \textheight=23 true cm
+
+\font\euler=EUSM10 \font\eulers=EUSM7
+
+\begin{document}
+
+\title{Review of Polytechnique Oral Test Questions, 2014}   
+\author{{\normalsize Hari $@$ BDWM}}
+\date{\today}
+
+\maketitle
+
+\def \Pr{{\rm Pr}}
+\baselineskip 0.6cm
+
+\section{ANALYSIS}
+\subsection*{a)}
+For the sequence,
+\begin{align} \notag
+  q_0 &= 0\\
+  q_k &= 2q_{k-1}+1, \quad k=1,2,\dots
+\end{align}
+calculate the next three terms, namely, $q_1$, $q_2$ and $q_3$, and then find the general expression of $\mathcal{Q} = \{q_n\}$.
+
+\subsection*{b)}
+Suppose $f(x) = \sum _{k=0}^{\infty } a_{k}x^{k} \in \mathbb{R}^{\mathbb{R}}$ is a continuous and differentiable function. And we have,
+\begin{equation}
+  f^{'}(x) = f(x^2)
+\end{equation}
+Prove the following:
+\begin{equation}
+a_k=\begin{cases}
+ 0 & k\notin \mathcal{Q} \\
+ \frac{1}{q_1q_2\text{$\ldots $q}_n} & k\in\mathcal{Q},\quad k=q_n
+\end{cases}
+\end{equation}
+\subsection*{c)}
+Discuss the convergence property of infinite sequences $\sum _{k=0}^{\infty} a_k$ and $\sum _{k=0}^{\infty} ka_k$. And compare the sums if both of them do converge.
+\subsection*{d)}
+Prove that there does exist a continuous and differentiable function $f(x)\in \mathbb{R}^{\mathbb{R}}$ that satisfies:
+\begin{equation}
+  f^{'}(x) = f(x^2)
+\end{equation}
+\newpage
+\section{ALGEBRA}
+We say matrix $\bm{A}$ is {\bf positive}, noted as $\bm{A}>0$ if each of its entries, $a_{ij}$, is non-negative. Moreover, matrix $\bm{B}$ is {\bf monotonic} if it has a positive inverse. 
+\subsection*{a)}
+Prove that the following is sufficient and necessary for the positiveness of a $n\times n$ matrix $\bm{A}$:
+\begin{equation}
+  \forall \bm{X_{n \times 1}}, \quad\bm{X}>0 \Rightarrow \bm{A}\bm{X}>0
+\end{equation}
+
+\subsection*{b)}
+Prove that the following is a sufficient and necessary condition for a $n\times n$ matrix $\bm{A}$ has a positive inverse.\footnote{Notice that we need to prove $\bm{A}$ must be invertible under this condition.---Hari$@$BDWM}:
+\begin{equation}
+ \forall \bm{X_{n \times 1}}, \quad \bm{A}\bm{X}>0\Rightarrow \bm{X}>0 
+\end{equation}
+\subsection*{c)}
+Prove that the following matrix is positive:
+\begin{equation}
+\left(
+\begin{array}{cccccc}
+ 1+c_1 & -1 & 0 & 0 & \cdots  & 0 \\
+ -1 & 2+c_2 & -1 & 0 & \cdots  & 0 \\
+ 0 & -1 & 2+c_2 & -1 & \cdots  & 0 \\
+ \vdots  & \vdots  & \ddots & \ddots & \ddots & \vdots  \\
+ 0 & 0 & 0 & -1 & 2+c_{n-1} & -1 \\
+ 0 & 0 & 0 & 0 & -1 & 1+c_n
+\end{array}
+\right)
+\end{equation}
+\subsection*{d)}
+Consider a $n \times n$ matrix $\bm{B}$ that for each row or each column, there is only one non-positive entry with all other entries equaling zero. Prove that $\bm{B}$ is monotonic.
+\newpage
+\section{PHYSICS}
+\subsection*{a)}
+Why is electricity transported in high voltage but not in current?
+\subsection*{b)}
+There are two identical spheres made of uniform material: one is on the plane, the other is suspended by a nonelastic line. Now we heat them up with $\mathcal{Q}$ quantity of heat. Suppose there is no heat exchange with the outside environment. 
+\begin{figure}[!ht]
+\centering
+\includegraphics[width=0.8\textwidth]{PolytechniquePhy.png}
+
+\end{figure}
+\begin{description}
+  \item [i).]Which sphere will have a higher ending temperature?
+  \item [ii).]Calculate the difference of their ending temperature.
+\end{description}
+\end{document}
