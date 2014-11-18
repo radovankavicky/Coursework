@@ -157,7 +157,7 @@ For the profit maximization problem:
 \begin{equation}
 	\underset{\bm{x}}{Max}\quad p f(\bm{x}) - \bm{w}\cdot\bm{x}
 \end{equation}
-There is the First Order Condition(\bf{F.O.C.}):
+There is the First Order Condition({\bf F.O.C.}):
 \begin{equation}
 	p \cdot \nabla f(\bm{x})  = \bm{w}
 \end{equation}
@@ -166,6 +166,200 @@ For a given profit level $\overset{-}{\Pi}$, since $\Pi = p f(\bm{x}) - \bm{w} \
 	f(x_i,\overset{-}{x_{-i}}) = \frac{\overset{-}{\Pi}+}{p}
 \end{equation} 
 It's easy to check if there exist increasing return of scales, the optimal production level may be infinite. That's why we need the Second Order Condition. 
-\subsection{Cost Minimization}
+\subsubsection{Property of Profit Function}
+\begin{prop}
+$\Pi(p,\bm{w})$ is homogeneous of degree one.
+\end{prop}
+\begin{prop}
+$\Pi(p,\bm{w})$ is convex in $(p,\bm{w})$, i.e. $\forall \lambda \in (0,1)$, let $p_0 = \lambda p_1 + (1-\lambda)p_2$, $\bm{w_0} = \lambda \bm{w_1} + (1-\lambda) \bm{w_2}$, we will have:
+\begin{equation}
+	\Pi(p_0,\bm{w_0})\leq \lambda \Pi(p_1,\bm{w_1}) + (1-\lambda)\Pi(p_2,\bm{w_2})
+\end{equation}
+Proof.
+\end{prop}
+\begin{note}[1]
+If either wage or interest rate is cheap, since it's possible to substitute, it's better than no one is cheap.
+\end{note}
 
+\begin{prop}[Hotelling's Lemma]
+Assume the $\Pi(p,\bm{w})$ is differentiable for any $p,\bm{w}$, we have
+\begin{equation}
+\frac{\partial \Pi(p,\bm{w})}{\partial p} = Q(p,\bm{w}),  \quad \frac{\partial \Pi(p,\bm{w})}{\partial w_i} = - x_i(p,\bm{w})
+\end{equation}
+Proof.
+\end{prop}
+\begin{note}[1]
+The direct effect of price change is depicted by Hotelling's lemma, the indirect effect is the relative price change and the substitution.
+\end{note}
+
+\subsubsection{Factor Demand Function and Supply Function}
+\begin{prop}
+$x_i(p,\bm{w}), Q(p,\bm{w})$ is homogeneous of degree zero.
+\end{prop}
+\begin{prop}
+$x_i(p,\bm{w})$ is non-increasing in $w_i$.\\
+Proof.\\
+ The F.O.C of the profit maximization problem is:
+\begin{equation}
+	p \nabla_{\bm{x}} f(\bm{x}) - \bm{w} = 0
+\end{equation}
+Differentiate its i-th equation with respect to $w_i$, we will have:
+\begin{equation}
+	p \frac{ \partial^2 f(x)}{\partial  x_i^2} \frac{\partial x_i(p,\bm{w})}{\partial w_i} = 1
+\end{equation}
+For the optimal $x$, we also have S.O.C that indicates,
+\begin{equation}
+	p \frac{\partial^2 f(x)}{\partial x^2}<0
+\end{equation}
+Thus the $\frac{\partial x_i(p,\bm{w})}{\partial w_i}$ is less than zero too.\\
+Alternative Proof.\\
+Using Hotelling's lemma, 
+\begin{equation}
+	\frac{\partial x_i}{\partial w_i} = \frac{\partial}{\partial w_i}(\frac{\partial \Pi(p, \bm{w})}{\partial w_i}) = \frac{\partial^2 \Pi(p, \bm{w})}{{\partial w_i}^2}>0
+\end{equation}
+, while the right hand side is greater than zero because of the convexity.
+
+\end{prop}
+\begin{note}[1]
+There is no income effect for the non-existence of budget constraint.
+\end{note}
+\begin{note}[2]
+Because it's due to the shape of production function, it's hard to decide the $p$'s effect on $\bm{x}$
+\end{note}
+\begin{prop}
+$Q(p,\bm{w})$ is non-decreasing in $p$.
+\end{prop}
+
+\begin{prop}
+The cross price effect is symmetric.\\
+This is because, $\forall i,j$,
+\begin{equation}
+	\frac{\partial x_j}{\partial w_i} = \frac{\partial^2 \Pi(p, \bm{w})} {\partial w_i \partial w_j}=\frac{\partial^2 \Pi(p, \bm{w})} {\partial w_j \partial w_i} = \frac{\partial x_i}{\partial w_j}
+\end{equation}
+\end{prop}
+\subsection{Cost Minimization}\footnote{MWG 5C }
+The cost minimization problem is described as following:
+\begin{align}\notag
+\underset{\bm{x}}{Min} \quad \bm{w}\cdot \bm{x} \\ \notag
+s.t. f(\bm{x}) = Q
+\end{align}
+It's F.O.C:
+\begin{equation}
+	\text{MRTS}_{x_i,x_j}=\frac{\frac{\partial f(x_i)}{\partial x_i}}{\frac{\partial f(x_j)}{\partial x_j}} = \frac{w_i}{w_j}
+\end{equation}
+\subsubsection{Conditional factor demand function and cost function}
+\begin{prop}
+$C(Q,\bm{w})$ is homogeneous of degree 1 in $\bm{w}$.
+\end{prop}
+
+\begin{prop}
+$C(Q,\bm{w})$ is concave in $\bm{w}$, i.e. let $\bm{w_0} = \lambda \bm{w_1} + (1-\lambda)\bm{w_2}, \forall \lambda \in (0,1)$, 
+\begin{equation}
+	C(Q,\bm{w_0}) \geq \lambda C(Q,\bm{w_1}) + (1-\lambda)C(Q,\bm{w_2})
+\end{equation}
+\end{prop}
+
+\begin{prop}[Shephard's Lemma]
+Suppose the cost function is diffentiable at $(Q,\bm{w})$, for $w_i>0$, we have,
+\begin{equation}
+	\frac{\partial C(Q,\bm{w})}{\partial w_i} = x_i(Q,\bm{w})\geq 0
+\end{equation}
+\end{prop}
+and its three conjecture,
+\begin{conj}
+$C(Q,\bm{w})$ is non-decreasing in $w_i$.
+\end{conj}
+\begin{conj}
+\begin{equation}
+	\frac{\partial x_i(Q,\bm{w})}{\partial w_i} = \frac{\partial^2 C(Q,\bm{w})}{{\partial w_i}^2}\leq 0 (Concaveness)
+\end{equation}
+\end{conj}
+\begin{conj}
+Cross price effect is symmetric: 
+\begin{equation}
+\frac{\partial x_j}{\partial w_i} = \frac{\partial^2\C(Q, \bm{w})} {\partial {w_i} \partial {w_j}}=\frac{\partial^2 C(Q, \bm{w})} {\partial w_j \partial w_i} = \frac{\partial {x_i}}{\partial {w_j}}
+\end{equation}
+\end{conj}
+
+\subsubsection{Cost in the long run and short run}
+\begin{defn}[Average Cost]
+\begin{equation}
+	\text{AC} = \frac{C(Q,\bm{w})}{Q}
+\end{equation}
+\end{defn}
+\begin{defn}[Marginal Cost]
+\begin{equation}
+	\text{MC} = \frac{\partial C(Q,\bm{w})}{\partial Q}
+\end{equation}
+\end{defn}
+
+\begin{prop}
+AC keeps rising when MC$>$AC and vice versa.
+\begin{equation}
+	\frac{\partial AC}{\partial Q} = \frac{MC-AC}{Q}
+\end{equation}
+\end{prop}
+
+\begin{defn}[Variable Cost]
+\begin{equation}
+	VC  = \bm{w_v}\cdot \bm{x_v}
+\end{equation}
+\end{defn}
+\begin{defn}[Fix Cost]
+\begin{equation}
+	FC  = \bm{w_f}\cdot \bm{x_f}
+\end{equation}
+\end{defn}
+
+\begin{defn}[Short-run and Long-run]
+In the short-run, at least one input is fixed; in the long-run, all inputs can be adjusted: there is no fixed cost.
+\end{defn}
+
+\begin{defn}[Short-run Total Cost]
+\begin{equation}
+	\text{STC} = C(Q,\bm{w}, \bm{x_f}) = \bm{w_v}\bm{x_v(Q,\bm{w},\bm{x_f})} + \bm{w_f}\bm{x_f}
+\end{equation}
+
+\begin{defn}[Short-run Average Cost]
+\begin{equation}
+	\text{SATC} = \frac{\text{STC}}{Q}
+\end{equation}
+\end{defn}
+
+\begin{defn}[Short-run Average Variable Cost]
+\begin{equation}
+	\text{SAVC} = \frac{\bm{w_v}\bm{x_v(Q,\bm{w},\bm{x_f})}{Q}
+\end{equation}
+\end{defn}
+
+
+\begin{defn}[Short-run Average Fixed Cost]
+\begin{equation}
+	\text{SAFC} = \frac{\bm{w_f}\bm{x_f}}{Q}
+\end{equation}
+\end{defn}
+
+\begin{defn}[Short-run Marginal Cost]
+\begin{equation}
+	\text{SMC} = \frac{\partial \text{STC}}{\partial Q}
+\end{equation}
+
+\begin{defn}[Long-run Total Cost]
+\begin{equation}
+	\text{LTC} = C(Q,\bm{w}) = \bm{w_v}\bm{x_v(Q,\bm{w},\bm{x_f(Q,\bm{W})})} + \bm{w_f}\bm{x_f(Q,\bm{w})}
+\end{equation}
+
+\begin{prop}
+Denote $\bm{x^{*}}$ as the optimal long-run choice for $(Q^{*},\bm{w})$, 
+\begin{equation}
+	C(Q,\bm{w},\bm{x^{*}_f}) \geq C(Q,\bm{w},\bm{x_f(Q,\bm{w})})
+\end{equation}
+Equality is satisfied when $Q = Q^{*}$
+\end{prop}
+
+\begin{defn}[Accounting Profit and Economic Profit]
+Accounting profit = Revenue - Accounting cost\\
+Economic Profit = Revenue - Accounting cost - Opportunity cost
+\end{defn}
 \end{document}
+
