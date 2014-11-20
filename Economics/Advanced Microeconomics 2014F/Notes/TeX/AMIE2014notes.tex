@@ -38,6 +38,8 @@
 
 \def \Pr{{\rm Pr}}
 \baselineskip 0.6cm
+\tableofcontents
+\newpage
 \section{Production Problem}
 \subsection{Production Technology}
 \subsubsection{Production Function}
@@ -175,7 +177,13 @@ $\Pi(p,\bm{w})$ is convex in $(p,\bm{w})$, i.e. $\forall \lambda \in (0,1)$, let
 \begin{equation}
 	\Pi(p_0,\bm{w_0})\leq \lambda \Pi(p_1,\bm{w_1}) + (1-\lambda)\Pi(p_2,\bm{w_2})
 \end{equation}
-Proof.
+Proof.\\
+Denote $x_i$ the optimal choice for $(p_i,\bm{w_i}),\quad i = 0, 1, 2$ 
+\begin{align} \notag
+\Pi(p_0,\bm{w_0}) &= \lambda (p_1 f(\bm{x_0})-\bm{w_1}x_0) + (1-\lambda) (p_2 f(\bm{x_0})-\bm{w_2}x_0)\\ \notag
+		& \leq \lambda (p_1 f(\bm{x_1}) -\bm{w_1}x_1) + (1-\lambda)(p_2 f(\bm{x_2})-\bm{w_2}x_2)\\ \notag
+		& = \lambda \Pi(p_1,\bm{w_1}) + (1-\lambda)\Pi(p_2,\bm{w_2})
+\end{align}
 \end{prop}
 \begin{note}[1]
 If either wage or interest rate is cheap, since it's possible to substitute, it's better than no one is cheap.
@@ -186,7 +194,13 @@ Assume the $\Pi(p,\bm{w})$ is differentiable for any $p,\bm{w}$, we have
 \begin{equation}
 \frac{\partial \Pi(p,\bm{w})}{\partial p} = Q(p,\bm{w}),  \quad \frac{\partial \Pi(p,\bm{w})}{\partial w_i} = - x_i(p,\bm{w})
 \end{equation}
-Proof.
+Proof\footnote{More details need to be added.}.\\
+Let $g(p) = \Pi(p,Q^{*}) - pQ^{*} - \bm{w^{*}}\bm{x^{*}}$. It's easy to check that $g(p)\geq 0$.\\
+The equality condition is that $p=p^{*}$. Thus with the F.O.C, we have:
+\begin{equation}
+\frac{\partial \Pi(p,\bm{w})}{\partial p} = Q(p,\bm{w})
+\end{equation}
+The second equation can be proved in a similar way.
 \end{prop}
 \begin{note}[1]
 The direct effect of price change is depicted by Hotelling's lemma, the indirect effect is the relative price change and the substitution.
@@ -237,7 +251,7 @@ This is because, $\forall i,j$,
 	\frac{\partial x_j}{\partial w_i} = \frac{\partial^2 \Pi(p, \bm{w})} {\partial w_i \partial w_j}=\frac{\partial^2 \Pi(p, \bm{w})} {\partial w_j \partial w_i} = \frac{\partial x_i}{\partial w_j}
 \end{equation}
 \end{prop}
-\subsection{Cost Minimization}\footnote{MWG 5C }
+\subsection{Cost Minimization\protect \footnotemark}\footnotetext{MWG 5C }
 The cost minimization problem is described as following:
 \begin{align}\notag
 \underset{\bm{x}}{Min} \quad \bm{w}\cdot \bm{x} \\ \notag
@@ -277,7 +291,7 @@ $C(Q,\bm{w})$ is non-decreasing in $w_i$.
 \begin{conj}
 Cross price effect is symmetric: 
 \begin{equation}
-\frac{\partial x_j}{\partial w_i} = \frac{\partial^2\C(Q, \bm{w})} {\partial {w_i} \partial {w_j}}=\frac{\partial^2 C(Q, \bm{w})} {\partial w_j \partial w_i} = \frac{\partial {x_i}}{\partial {w_j}}
+\frac{\partial x_j}{\partial w_i} = \frac{\partial^2 C(Q, \bm{w})} {\partial {w_i} \partial {w_j}}=\frac{\partial^2 C(Q, \bm{w})} {\partial w_j \partial w_i} = \frac{\partial {x_i}}{\partial {w_j}}
 \end{equation}
 \end{conj}
 
@@ -319,6 +333,7 @@ In the short-run, at least one input is fixed; in the long-run, all inputs can b
 \begin{equation}
 	\text{STC} = C(Q,\bm{w}, \bm{x_f}) = \bm{w_v}\bm{x_v(Q,\bm{w},\bm{x_f})} + \bm{w_f}\bm{x_f}
 \end{equation}
+\end{defn}
 
 \begin{defn}[Short-run Average Cost]
 \begin{equation}
@@ -328,7 +343,7 @@ In the short-run, at least one input is fixed; in the long-run, all inputs can b
 
 \begin{defn}[Short-run Average Variable Cost]
 \begin{equation}
-	\text{SAVC} = \frac{\bm{w_v}\bm{x_v(Q,\bm{w},\bm{x_f})}{Q}
+	\text{SAVC} = \frac{\bm{w_v}\bm{x_v(Q,\bm{w},\bm{x_f})}}{Q}
 \end{equation}
 \end{defn}
 
@@ -343,23 +358,39 @@ In the short-run, at least one input is fixed; in the long-run, all inputs can b
 \begin{equation}
 	\text{SMC} = \frac{\partial \text{STC}}{\partial Q}
 \end{equation}
+\end{defn}
 
 \begin{defn}[Long-run Total Cost]
 \begin{equation}
-	\text{LTC} = C(Q,\bm{w}) = \bm{w_v}\bm{x_v(Q,\bm{w},\bm{x_f(Q,\bm{W})})} + \bm{w_f}\bm{x_f(Q,\bm{w})}
+	\text{LTC} = C(Q,\bm{w}) = \bm{w_v}\bm{x_v}(Q,\bm{w},\bm{x_f(Q,\bm{W}))} + \bm{w_f}\bm{x_f}(Q,\bm{w})
 \end{equation}
+\end{defn}
 
 \begin{prop}
 Denote $\bm{x^{*}}$ as the optimal long-run choice for $(Q^{*},\bm{w})$, 
 \begin{equation}
-	C(Q,\bm{w},\bm{x^{*}_f}) \geq C(Q,\bm{w},\bm{x_f(Q,\bm{w})})
+	C(Q,\bm{w},\bm{x^{*}_f}) \geq C(Q,\bm{w},\bm{x_f}(Q,\bm{w}))
 \end{equation}
 Equality is satisfied when $Q = Q^{*}$
 \end{prop}
 
-\begin{defn}[Accounting Profit and Economic Profit]
+\begin{defn}[Accounting Profit and Economic Profit]\quad\\
 Accounting profit = Revenue - Accounting cost\\
 Economic Profit = Revenue - Accounting cost - Opportunity cost
 \end{defn}
+
+\begin{defn}[Sunk Cost]
+\end{defn}
+
+\subsection{Supply Curve (Optimal Q)}
+This problem could be descarved as
+\begin{equation}
+	\underset{Q}{Max} \quad PQ - C(Q,\bm{w})
+\end{equation}
+Its F.O.C:
+\begin{equation}
+	P = \frac{\partial C(Q,\bm{w})}{\partial Q} = MC
+\end{equation}
+
 \end{document}
 
