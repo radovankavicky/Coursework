@@ -24,9 +24,9 @@
 \baselineskip 0.6cm
 \section*{Q1}
 \subsection*{1)}
-Notice that $f(x_1,x_2)$ can be written as $g(h(x_1,x_2))$ where $g(\cdot)$ is strictly increasing function and $h(\cdot)$is homogeneous of degree k, i.e.
+Notice that $f(x_1,x_2)$ can be written as $g(h(x_1,x_2))$ where $g(\cdot)$ is strictly increasing function and $h(\cdot)$is homogeneous of degree one, i.e.
 \begin{equation}
-	h(tx_1,tx_2) = t^kh(x_1,x_2),\quad \forall t>0
+	h(tx_1,tx_2) = t^kh(x_1,x_2),\quad \forall t>0, \quad k=1
 \end{equation}
 So, $f(x_1,x_2) = f(x^{'}_1,x^{'}_2)$ is to say $h(x_1,x_2) = h(x^{'}_1,x^{'}_2)$. Thus,
 \begin{equation}
@@ -40,7 +40,7 @@ So, $f(x_1,x_2) = f(x^{'}_1,x^{'}_2)$ is to say $h(x_1,x_2) = h(x^{'}_1,x^{'}_2)
 	= \frac{g^{'}(h(\alpha x_1, \alpha x_2))\frac{\partial h(\alpha x_1, \alpha x_2)}{\partial x_1}}{g^{'}(h(\alpha x_1, \alpha x_2))\frac{\partial h(\alpha x_1, \alpha x_2)}{\partial x_2}} 
 	= \frac{\alpha^{k-1} \frac{\partial h(x_1, x_2)}{\partial x_1}}{\alpha^{k-1} \frac{\partial h(x_1, x_2)}{\partial x_2}}\\ \notag
 	&=\frac{g^{'}(h( x_1,  x_2))\frac{\partial h( x_1,  x_2)}{\partial x_1}}{g^{'}(h( x_1,  x_2))\frac{\partial h( x_1,  x_2)}{\partial x_2}}
-	= \frac{\frac{\partial f( x_1,  x_2)}{\partial x_1}}{\frac{\partial f( x_2,  x_2)}{\partial x_2}} \\ \notag
+	= \frac{\frac{\partial h( x_1,  x_2)}{\partial x_1}}{\frac{\partial h( x_2,  x_2)}{\partial x_2}} \\ \notag
 	&= \text{MRTS}_{ x_1, x_2} 
 \end{align}
 \rightline{$\blacksquare$}
@@ -85,7 +85,7 @@ First order condition:
 	\end{cases}
 \end{equation}
 , where $\lambda$ is the undetermined coefficient.\\
-Solving it leads to the conditional factor demand functions:
+And it's easy to check the S.O.C is satisfied. Solving it leads to the conditional factor demand functions:
 \begin{equation}
 	\begin{cases}
 		x_1 = (Q (\frac{a_1}{a_2})^{a_2} (\frac{w_2}{w_1})^{a_1})^{\frac{1}{a_1 + a_2}} \\
@@ -162,9 +162,9 @@ It can be proved the only possible condition is:
 		x_2 = Q + 3w^{\frac{1}{2}}_1 w^{-\frac{1}{2}}_2	
 	\end{cases}
 \end{equation}
-Because $x_1$ is homogeneous of degree 1 in $\bm{w}$, for any $\alpha >0$, we must have:
+Because $x_1 (Q(p,\bm{w}), \bm{w})$ is homogeneous of degree zero in $(p,\bm{w})$, where $p$ is ignored for the given reduced form, for any $\alpha >0$, we must have:
 \begin{equation}
-	x_1(\alpha \bm{w}) = Q + 3\alpha w^ {a-\frac{1}{2}}_1 w^{-\frac{1}{2}}_1 w^{a}_2	 = Q + 3w^{-\frac{1}{2}}_1 w^{a}_2 = x_1(\bm{w})  
+	x_1(\alpha p, \alpha \bm{w}) = Q + 3\alpha w^ {a-\frac{1}{2}}_1 w^{-\frac{1}{2}}_1 w^{a}_2	 = Q + 3w^{-\frac{1}{2}}_1 w^{a}_2 = x_1(p, \bm{w})  
 \end{equation}
 So $a$ must equal to $\frac{1}{2}$. Next, we use the symmetry of cross price effect:
 \begin{equation}
@@ -189,7 +189,7 @@ So we only need to prove
 \begin{equation}\label{eq:Q6C}
 	f_{x_1}\frac{\partial x_1}{\partial p} > 0 
 \end{equation}
-Take care of $f_{x_1}>0$ and $f_{x_1 x_1}<0$, and differentiate both sides of F.O.C, $pf_{x_1} = w$, with respect to $p$:
+Take care of $f_{x_1}\geq0$ and $f_{x_1 x_1}<0$, and differentiate both sides of F.O.C, $pf_{x_1} = w$, with respect to $p$:
 \begin{equation}
 	f_{x_1} + pf_{x_1 x_1} \frac{\partial x_1}{\partial p} = 0
 \end{equation}

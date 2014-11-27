@@ -1,4 +1,4 @@
-\documentclass{article}
+\documentclass{book}
   \usepackage{amsmath}
   \usepackage{amssymb}
   \usepackage{graphicx}
@@ -30,19 +30,21 @@
 \newtheorem*{note}{Note}
 
 \begin{document}
-\title{Advanced Microeconomics\\Notes}
+\title{Advanced Microeconomics 2014 Fall\\Notes}
 \author{{\normalsize SHENG Hao, 1401211818, via \LaTeX}}
 \date{\today}
 
 \maketitle
-
 \def \Pr{{\rm Pr}}
 \baselineskip 0.6cm
 \tableofcontents
-\newpage
-\section{Production Problem}
-\subsection{Production Technology}
-\subsubsection{Production Function}
+\chapter{Introduction}
+\chapter{Preference and Utility}
+\chapter{Indifference Curve and Demand Function}
+
+\chapter{Production Problem}
+\section{Production Technology}
+\subsection{Production Function}
 \begin{equation}
 	Q = f(x_1,x_2,\dots,x_n)
 \end{equation}
@@ -83,7 +85,7 @@ Convex technology
 \end{equation}
 \end{defn}
 
-\subsubsection{Return to Scale}
+\subsection{Return to Scale}
 \begin{defn}[Constant return to scale]
 \begin{equation}
 	\forall \alpha >1, \bm{x}\in \bm{X}, f(\alpha \bm{x})= \alpha f(\bm{x})
@@ -124,7 +126,7 @@ Homethetic functions can be either constant increasing or decreasing return of s
 \end{note}
 
 
-\subsection{Profit Maximization}
+\section{Profit Maximization}
 \begin{asm}
 	The objection of a firm is to maximize its profit.
 \end{asm}
@@ -154,7 +156,7 @@ This leads to the supply function $Q(p, \bm{w})$ and profit function $\Pi(p,\bm{
 
 There are three reasons that we try to solve this problem in two ways. First, the second method gives us the cost function which is crucial in analyzing the cost(MC, AC, FC, VC). Second, for certain technology that has increasing return of technology, there is no meaningful solution for the profit maximization problem but for the cost minimization one. Finally, the second method is not bounded by the price taker assumption.
 
-\subsubsection{Solution of the problem}
+\subsection{Solution of the problem}
 For the profit maximization problem:
 \begin{equation}
 	\underset{\bm{x}}{Max}\quad p f(\bm{x}) - \bm{w}\cdot\bm{x}
@@ -168,7 +170,7 @@ For a given profit level $\overset{-}{\Pi}$, since $\Pi = p f(\bm{x}) - \bm{w} \
 	f(x_i,\overset{-}{x_{-i}}) = \frac{\overset{-}{\Pi}+}{p}
 \end{equation} 
 It's easy to check if there exist increasing return of scales, the optimal production level may be infinite. That's why we need the Second Order Condition. 
-\subsubsection{Property of Profit Function}
+\subsection{Property of Profit Function}
 \begin{prop}
 $\Pi(p,\bm{w})$ is homogeneous of degree one.
 \end{prop}
@@ -206,7 +208,7 @@ The second equation can be proved in a similar way.
 The direct effect of price change is depicted by Hotelling's lemma, the indirect effect is the relative price change and the substitution.
 \end{note}
 
-\subsubsection{Factor Demand Function and Supply Function}
+\subsection{Factor Demand Function and Supply Function}
 \begin{prop}
 $x_i(p,\bm{w}), Q(p,\bm{w})$ is homogeneous of degree zero.
 \end{prop}
@@ -251,7 +253,7 @@ This is because, $\forall i,j$,
 	\frac{\partial x_j}{\partial w_i} = \frac{\partial^2 \Pi(p, \bm{w})} {\partial w_i \partial w_j}=\frac{\partial^2 \Pi(p, \bm{w})} {\partial w_j \partial w_i} = \frac{\partial x_i}{\partial w_j}
 \end{equation}
 \end{prop}
-\subsection{Cost Minimization\protect \footnotemark}\footnotetext{MWG 5C }
+\section{Cost Minimization\protect \footnotemark}\footnotetext{MWG 5C }
 The cost minimization problem is described as following:
 \begin{align}\notag
 \underset{\bm{x}}{Min} \quad \bm{w}\cdot \bm{x} \\ \notag
@@ -261,7 +263,7 @@ It's F.O.C:
 \begin{equation}
 	\text{MRTS}_{x_i,x_j}=\frac{\frac{\partial f(x_i)}{\partial x_i}}{\frac{\partial f(x_j)}{\partial x_j}} = \frac{w_i}{w_j}
 \end{equation}
-\subsubsection{Conditional factor demand function and cost function}
+\subsection{Conditional factor demand function and cost function}
 \begin{prop}
 $C(Q,\bm{w})$ is homogeneous of degree 1 in $\bm{w}$.
 \end{prop}
@@ -295,7 +297,7 @@ Cross price effect is symmetric:
 \end{equation}
 \end{conj}
 
-\subsubsection{Cost in the long run and short run}
+\subsection{Cost in the long run and short run}
 \begin{defn}[Average Cost]
 \begin{equation}
 	\text{AC} = \frac{C(Q,\bm{w})}{Q}
@@ -382,8 +384,8 @@ Economic Profit = Revenue - Accounting cost - Opportunity cost
 \begin{defn}[Sunk Cost]
 \end{defn}
 
-\subsection{Supply Curve (Optimal Q)}
-This problem could be descarved as
+\section{Supply Curve (Optimal Q)}
+This problem could be described as
 \begin{equation}
 	\underset{Q}{Max} \quad PQ - C(Q,\bm{w})
 \end{equation}
@@ -392,5 +394,78 @@ Its F.O.C:
 	P = \frac{\partial C(Q,\bm{w})}{\partial Q} = MC
 \end{equation}
 
+\chapter{Uncertainty}
+\begin{defn}[Risk, Uncertainty and Ambiguity]
+Risk is objective probability distribution, while uncertainty is subjective probability distribution. We say ambiguity if one has no probability distribution.
+\end{defn}
+
+\section{Lottery Representation}
+\begin{defn}[Lottery]
+Consider a Lottery $X$:
+\begin{equation}
+	X = (x_1, p_1, x_2, p_2, \cdots, x_n, p_n)
+\end{equation}
+, where $p_i \in [0,1]$ and $\sum^n_{i=1}p_i=1$.\\
+$x_i$ is called price, it could be a consumption bundle, income or further lottery.
+\end{defn}
+e.g. $P_A = (x_1,\frac{1}{2}, x_2, \frac{1}{2})$, $P_B =(x_3,1)$. We can rewrite them as:
+\begin{align} \notag
+P_A &= (x_1,\frac{1}{2}, x_2, \frac{1}{2}, x_3, 0) \\ \notag
+P_B &= (x_1,0, x_2, 0, x_3, 1)
+\end{align}
+What we care is the trinary pair $(\frac{1}{2},\frac{1}{2},0)$ and $(0,0,1)$.
+\begin{defn}[Compound Lottery]
+Suppose $P_A = (x_1,\frac{1}{2}, x_2, \frac{1}{2})$, where $x_2$ is another lottery defined as $x_2=( y_1, \frac{2},{3}, y_2,\frac{1}{3})$. The reduced form of $P_A$ would be:
+	\begin{equation}
+		P_A=(x_1, \frac{1}{2}, y_1, \frac{1},{3}, y_2,\frac{1}{6})
+	\end{equation}
+\end{defn}
+
+\begin{defn}{Preference Function}
+When the space of lotteries satisfy the following two, say:
+Completeness: For any $P_A, P_B$, there must be $P_A< P_B$, $P_A>P_B$ or $P_A= P_B$\\
+Transitive: $P_A \geq P_B, P_B \geq P_C \Rightarrow P_A \geq P_C$
+There is a preference function $V(x_1, p_1, \cdots,x_n, p_n)$ just as the utility function.
+\end{defn}
+\subsection{First Order Stochastic Dominance (about mean)}
+\begin{asm}
+Let each $x_i$ be defined over the wealth space where we can rank them. Lottery can be represented by distribution PDF $f(\cdot)$ and CDF $F(\cdot)$.
+\end{asm}
+\begin{defn}[First Order Stochastic Dominance]
+$f(\cdot)$ is said first-order stochastically dominated by  $f^{*}(\cdot)$ if $f(\cdot)$ can be obtained from $F^{*}(\cdot)$ by rightward shifts of probability mass, that is , shift of probability mass from lower outcome values to higher outcome values.
+\end{defn}
+\begin{note}[1]
+This property has nothing to do with preference functions.
+\end{note}
+\subsection{Second-order Stochastic Dominance (about variance)}
+\begin{defn}[Mean-preserving spread]
+Mean-preserving spread is such a way that moves probability mass from the center of a probability distribution t its tails in a away that preserves the expected value of the distribution.
+\end{defn}
+
+\begin{defn}[Second-order Stochastic Dominance]
+We say $F(\cdot)$ second-order stochastically dominates $F^{*}(\cdot)$ if $F^{*}(\cdot)$  is a mean preserving spread from $F(\cdot)$
+\end{defn}
+\begin{note}[1]
+We can say $F^{*}(\cdot)$ is risker than $F(\cdot)$, keeping expected value the same.
+\end{note}
+\begin{note}[2]
+Mean presenting spread can be represented as X~random variable with distribution $F(\cdot)$. Let $X^{*} = X+ e$, where$E(e|x)=0, Var(e|X)=0$. Then $F^{*}(x^{*})$ is a mean presenting spread of $F(\cdot)$
+\end{note}
+\begin{note}[3]
+Any individual with risk averse preference would prefer $F(\cdot)$ to $F^{*}(\cdot)$
+\end{note}
+
+\section{Expected Utility Model}
+\subsection{Independent Axiom}
+If $L>L^{*}$, then for any $\alpha \in (0,1)$ and any $L^{*}$:
+\begin{equation}
+	\alpha L + (1-\alpha) L^{**} > \alpha L^{*} + (1-\alpha) L^{**}
+\end{equation}
+
+\begin{note}[1]
+This property implies linearity in probability.
+\end{note}
+\section{Subjective Probability Theory}
+\section{Lab and Field Evidence}
 \end{document}
 
