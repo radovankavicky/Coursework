@@ -1,0 +1,78 @@
+%Required Packages
+%\usepackage{listings}
+%\usepackage{textcomp}
+%\usepackage{color}
+%\usepackage{fontenc}
+
+%*********************************************
+%To do list:
+%1.Brackets of built-in functions
+%*********************************************
+%Define Standard Stata Do-File Editor Colors
+    \definecolor{gray}{rgb}{0.2,0.2,0.2}
+    \definecolor{Blue}{RGB}{0,0,255}
+    \definecolor{NavyBlue}{RGB}{0,0,128}
+    \definecolor{Maroon}{RGB}{128,0,0}
+    \definecolor{TealBlue}{RGB}{0,128,128}
+    \definecolor{OliveGreen}{RGB}{0,128,0}
+%Define Syntax
+\lstdefinelanguage{Stata}{
+    morekeywords=,
+    %1. System commands
+    morekeywords=[2]{
+        var, set, identify, nlag, outcov, symbol, plot, estimate
+        },
+    %2. Popular add-on commands
+    morekeywords=[3]{
+ },
+    %3. Control Statement
+    morekeywords=[4]{},
+    %4. Built-in functions
+    morekeywords=[5]{
+		proc, arima, run, quit, data
+        },
+    %5. Comments
+    morecomment=[l]{//},
+    morecomment=[f][commentstyle][0]{*},  
+    morecomment=[s]{/*}{*/},
+    %6. Macros
+    morecomment=[n][keywordstyle9]{`}{'},
+    %7. String
+    morestring=[b]",
+    sensitive=true,
+}
+
+\lstdefinestyle{SAS-editor}{
+    language=Stata,
+    keywordstyle={\color{NavyBlue}},  
+    %1. System commands
+    keywordstyle=[2]{\color{NavyBlue}},
+    %2. Popular add-on commands
+    keywordstyle=[3]{\color{NavyBlue}},
+    %3. Control Statement
+    keywordstyle=[4]{\color{NavyBlue}},
+    %4. Built-in functions 
+    keywordstyle=[5]{\color{Blue}},
+    %5. Comments
+    commentstyle=\color{OliveGreen},
+    %6. Macros
+    keywordstyle=[9]{\color{TealBlue}},
+    %7. String
+    stringstyle=\color{Maroon},
+    %Other settings
+    frame=shadowbox,
+    extendedchars=true,
+    rulesepcolor=\color{gray},
+    numbers=left, 
+    numberstyle=\tiny, 
+    basicstyle=\ttfamily\footnotesize,
+    breaklines=true, 
+    breakautoindent=true, 
+    fontadjust=true,
+    flexiblecolumns=true, 
+    aboveskip=1em,
+    xleftmargin=2em,xrightmargin=2em,
+    upquote=false,
+    showspaces=false,
+    showstringspaces=false
+}

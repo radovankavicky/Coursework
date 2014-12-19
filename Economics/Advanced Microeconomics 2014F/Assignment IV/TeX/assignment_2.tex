@@ -1,0 +1,531 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Programming/Coding Assignment
+% LaTeX Template
+%
+% This template has been downloaded from:
+% http://www.latextemplates.com
+%
+% Original author:
+% Ted Pavlic (http://www.tedpavlic.com)
+%
+% Note:
+% The \lipsum[#] commands throughout this template generate dummy text
+% to fill the template out. These commands should all be removed when 
+% writing assignment content.
+%
+% This template uses a Perl script as an example snippet of code, most other
+% languages are also usable. Configure them in the "CODE INCLUSION 
+% CONFIGURATION" section.
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%----------------------------------------------------------------------------------------
+%	PACKAGES AND OTHER DOCUMENT CONFIGURATIONS
+%----------------------------------------------------------------------------------------
+
+\documentclass{article}
+
+\usepackage{fancyhdr} % Required for custom headers
+\usepackage{lastpage} % Required to determine the last page for the footer
+\usepackage{extramarks} % Required for headers and footers
+\usepackage[usenames,dvipsnames]{color} % Required for custom colors
+\usepackage{graphicx} % Required to insert images
+\usepackage{listings} % Required for insertion of code
+\usepackage{courier} % Required for the courier font
+\usepackage{lipsum} % Used for inserting dummy 'Lorem ipsum' text into the template
+\usepackage{amsmath}
+
+% Margins
+\topmargin=-0.45in
+\evensidemargin=0in
+\oddsidemargin=0in
+\textwidth=6.5in
+\textheight=9.0in
+\headsep=0.25in
+
+\linespread{1.1} % Line spacing
+
+% Set up the header and footer
+\pagestyle{fancy}
+\lhead{\hmwkAuthorName} % Top left header
+\chead{\hmwkClass\ : \hmwkTitle} % Top center head
+%\rhead{\firstxmark} % Top right header
+%\lfoot{\lastxmark} % Bottom left footer
+\cfoot{} % Bottom center footer
+\rfoot{Page\ \thepage\ of\ \protect\pageref{LastPage}} % Bottom right footer
+\renewcommand\headrulewidth{0.4pt} % Size of the header rule
+\renewcommand\footrulewidth{0.4pt} % Size of the footer rule
+
+\setlength\parindent{0pt} % Removes all indentation from paragraphs
+
+%----------------------------------------------------------------------------------------
+%	CODE INCLUSION CONFIGURATION
+%----------------------------------------------------------------------------------------
+
+\definecolor{MyDarkGreen}{rgb}{0.0,0.4,0.0} % This is the color used for comments
+\lstloadlanguages{Perl} % Load Perl syntax for listings, for a list of other languages supported see: ftp://ftp.tex.ac.uk/tex-archive/macros/latex/contrib/listings/listings.pdf
+\lstset{language=Perl, % Use Perl in this example
+        frame=single, % Single frame around code
+        basicstyle=\small\ttfamily, % Use small true type font
+        keywordstyle=[1]\color{Blue}\bf, % Perl functions bold and blue
+        keywordstyle=[2]\color{Purple}, % Perl function arguments purple
+        keywordstyle=[3]\color{Blue}\underbar, % Custom functions underlined and blue
+        identifierstyle=, % Nothing special about identifiers                                         
+        commentstyle=\usefont{T1}{pcr}{m}{sl}\color{MyDarkGreen}\small, % Comments small dark green courier font
+        stringstyle=\color{Purple}, % Strings are purple
+        showstringspaces=false, % Don't put marks in string spaces
+        tabsize=5, % 5 spaces per tab
+        %
+        % Put standard Perl functions not included in the default language here
+        morekeywords={rand},
+        %
+        % Put Perl function parameters here
+        morekeywords=[2]{on, off, interp},
+        %
+        % Put user defined functions here
+        morekeywords=[3]{test},
+       	%
+        morecomment=[l][\color{Blue}]{...}, % Line continuation (...) like blue comment
+        numbers=left, % Line numbers on left
+        firstnumber=1, % Line numbers start with line 1
+        numberstyle=\tiny\color{Blue}, % Line numbers are blue and small
+        stepnumber=5 % Line numbers go in steps of 5
+}
+
+% Creates a new command to include a perl script, the first parameter is the filename of the script (without .pl), the second parameter is the caption
+\newcommand{\perlscript}[2]{
+\begin{itemize}
+\item[]\lstinputlisting[caption=#2,label=#1]{#1.pl}
+\end{itemize}
+}
+
+%----------------------------------------------------------------------------------------
+%	DOCUMENT STRUCTURE COMMANDS
+%	Skip this unless you know what you're doing
+%----------------------------------------------------------------------------------------
+
+% Header and footer for when a page split occurs within a problem environment
+\newcommand{\enterProblemHeader}[1]{
+\nobreak\extramarks{#1}{#1 continued on next page\ldots}\nobreak
+\nobreak\extramarks{#1 (continued)}{#1 continued on next page\ldots}\nobreak
+}
+
+% Header and footer for when a page split occurs between problem environments
+\newcommand{\exitProblemHeader}[1]{
+\nobreak\extramarks{#1 (continued)}{#1 continued on next page\ldots}\nobreak
+\nobreak\extramarks{#1}{}\nobreak
+}
+
+\setcounter{secnumdepth}{0} % Removes default section numbers
+\newcounter{homeworkProblemCounter} % Creates a counter to keep track of the number of problems
+
+\newcommand{\homeworkProblemName}{}
+\newenvironment{homeworkProblem}[1][Problem \arabic{homeworkProblemCounter}]{ % Makes a new environment called homeworkProblem which takes 1 argument (custom name) but the default is "Problem #"
+\stepcounter{homeworkProblemCounter} % Increase counter for number of problems
+\renewcommand{\homeworkProblemName}{#1} % Assign \homeworkProblemName the name of the problem
+\section{\homeworkProblemName} % Make a section in the document with the custom problem count
+\enterProblemHeader{\homeworkProblemName} % Header and footer within the environment
+}{
+\exitProblemHeader{\homeworkProblemName} % Header and footer after the environment
+}
+
+\newcommand{\problemAnswer}[1]{ % Defines the problem answer command with the content as the only argument
+\noindent\framebox[\columnwidth][c]{\begin{minipage}{0.98\columnwidth}#1\end{minipage}} % Makes the box around the problem answer and puts the content inside
+}
+
+\newcommand{\homeworkSectionName}{}
+\newenvironment{homeworkSection}[1]{ % New environment for sections within homework problems, takes 1 argument - the name of the section
+\renewcommand{\homeworkSectionName}{#1} % Assign \homeworkSectionName to the name of the section from the environment argument
+\subsection{\homeworkSectionName} % Make a subsection with the custom name of the subsection
+\enterProblemHeader{\homeworkProblemName\ [\homeworkSectionName]} % Header and footer within the environment
+}{
+\enterProblemHeader{\homeworkProblemName} % Header and footer after the environment
+}
+
+%----------------------------------------------------------------------------------------
+%	NAME AND CLASS SECTION
+%----------------------------------------------------------------------------------------
+
+\newcommand{\hmwkTitle}{Assignment\ 4} % Assignment title
+\newcommand{\hmwkDueDate}{Tuesday,\ December\ 16,\ 2014} % Due date
+\newcommand{\hmwkClass}{Advanced Microeconomics} % Course/class
+\newcommand{\hmwkClassTime}{} % Class/lecture time
+\newcommand{\hmwkClassInstructor}{} % Teacher/lecturer
+\newcommand{\hmwkAuthorName}{Xie Yuchen 1401211838} % Your name
+
+%----------------------------------------------------------------------------------------
+%	TITLE PAGE
+%----------------------------------------------------------------------------------------
+
+\title{
+\vspace{2in}
+\textmd{\textbf{\hmwkClass:\ \hmwkTitle}}\\
+\normalsize\vspace{0.1in}\small{Due\ on\ \hmwkDueDate}\\
+\vspace{0.1in}\large{\textit{\hmwkClassInstructor\ \hmwkClassTime}}
+\vspace{3in}
+}
+
+\author{\textbf{\hmwkAuthorName}}
+\date{} % Insert date here if you want it to appear below your name
+
+%----------------------------------------------------------------------------------------
+
+\begin{document}
+
+\maketitle
+
+%----------------------------------------------------------------------------------------
+%	TABLE OF CONTENTS
+%----------------------------------------------------------------------------------------
+
+%\setcounter{tocdepth}{1} % Uncomment this line if you don't want subsections listed in the ToC
+
+\newpage
+\tableofcontents
+\newpage
+
+%----------------------------------------------------------------------------------------
+%	PROBLEM 1
+%----------------------------------------------------------------------------------------
+
+% To have just one problem per page, simply put a \clearpage after each problembeg
+\begin{homeworkProblem}
+Suppose the individual's total amount of asset is $A$, and his allocation between two assets is $\left(A_1,A_2\right)$, where $A_1+A_2=A$. The individual maximizes his expected utility level, which is
+\begin{equation}
+	E\left[u\left(A_1 R_1+A_2 R_2+A\right)\right]
+\end{equation}
+First let's suppose the individual is risk averse, i.e.
+\begin{equation}
+	u^{\prime\prime}(w) < 0
+\end{equation}
+Since $R_1$ and $R_2$ satisfy the same distribution (with CDF $f(.)$), the expected utility can be written as:
+\begin{equation}
+	\label{eq_1_1_int_trans}
+	\begin{aligned}
+		E\left[u\left(A_1 R_1+A_2 R_2+A\right)\right] & = E\left[u\left(A_2 R_1+A_1 R_2+A\right)\right] \\
+		& = \frac{1}{2} \left( E\left[u\left(A_1 R_1+A_2 R_2+A\right)\right] +  E\left[u\left(A_2 R_1+A_1 R_2+A\right)\right] \right) \\
+		& = E \left( \frac{1}{2} \left[ u(A+A_1 R_1 + A_2 R_2) + u(A+A_2 R_1 + A_1 R_2) \right] \right)
+	\end{aligned}
+\end{equation}
+Note that the individual is risk averse, hence $u^{\prime\prime}(w) < 0$, we must have
+\begin{equation}
+	\label{eq_1_1_neq}
+	\frac{1}{2} \left[ u(A+A_1 R_1 + A_2 R_2) + u(A+A_2 R_1 + A_1 R_2) \right] \leq u \left( A+\frac{1}{2}A R_1 + \frac{1}{2}A R_2 \right)
+\end{equation}
+This simply follows from the property of concave functions and the fact that $A_1 + A_2 = A$. Note \eqref{eq_1_1_neq} holds for any allocation $(A_1, A_2)$ and return $(R_1, R_2)$. Thus, from \eqref{eq_1_1_int_trans} and \eqref{eq_1_1_neq}, we must have:
+\begin{equation}
+	E\left[u\left(A_1 R_1+A_2 R_2+A\right)\right] \leq E\left[u\left(\frac{1}{2} A R_1+  \frac{1}{2} A R_2+A\right)\right]
+\end{equation}
+ Thus we can conclude that if the individual is risk averse, then he maximize his expected utility when he evenly allocates his money between two assets.
+\par
+Now let's suppose the individual is risk loving. It then follows that
+\begin{equation}
+	u^{\prime\prime}(w) > 0
+\end{equation}
+From the property of convex functions, we have:
+\begin{equation}
+	\frac{A_1}{A}u(A+A R_1) + \frac{A_2}{A}u(A+A R_2) \geq u(A+A_1 R_1 + A_2 R_2)
+\end{equation}
+This also holds for any allocation $(A_1, A_2)$ and return $(R_1, R_2)$. Hence, we have:
+\begin{equation}
+	\label{eq_1_2_neq}
+	\frac{A_1}{A}E\left[ u(A+A R_1) \right] + \frac{A_2}{A} E \left[ u(A+A R_2) \right] \geq E \left[ u(A+A_1 R_1 + A_2 R_2) \right]
+\end{equation}
+Since $R_1$ and $R_2$ satisfy the same distribution, we have:
+\begin{equation}
+	E\left[ u(A+A R_1) \right] = E \left[ u(A+A R_2) \right]
+\end{equation}
+Thus \eqref{eq_1_2_neq} can be written as
+\begin{equation}
+	E\left[ u(A+A R_1) \right] \geq E \left[ u(A+A_1 R_1 + A_2 R_2) \right]
+\end{equation}
+This holds for any allocation $(A_1, A_2)$. Thus, when the individual is risk loving, the expected utility is maximized when the individual allocates all his money on one asset.
+\end{homeworkProblem}
+
+\newpage
+
+\begin{homeworkProblem}
+\begin{homeworkSection}{(1)}
+	If the individual owns the lottery, suppose the price he would sell it for is $S$. Then the expected utility if he sells the lottery would be:
+	\begin{equation}
+		u = u (w+S)
+	\end{equation}
+	On the other hand, if he does not sell the lottery, the expected utility would be:
+	\begin{equation}
+		u = p \cdot u(w+G) + (1-p) \cdot u(w+B)
+	\end{equation}
+	The minimum price he would sell the lottery for, $S^{*}$, is the price which makes the individual indifferent about selling the lottery, i.e.,
+	\begin{equation}
+		\label{eq_2_1_main}
+		u\left(w+S^*\right)=(1-p)\cdot u(w+B)+p\cdot u(w+G)
+	\end{equation}
+	This equation determines the minimum price $S^{*}$.
+\end{homeworkSection}
+\begin{homeworkSection}{(2)}
+	If the individual does not own the lottery, suppose the price he would buy it for is $P$. Then the expected utility if he buys the lottery would be:
+	\begin{equation}
+		u=(1-p)\cdot u(w+B-P)+p\cdot u(w+G-P)
+	\end{equation}
+	On the other hand, if he does not buy the lottery, the expected utility would be:
+	\begin{equation}
+		u = u (w)
+	\end{equation}
+	The maximum price he would buy the lottery for, $P^{*}$, is the price which makes the individual indifferent about buying the lottery, i.e.,
+	\begin{equation}
+		\label{eq_2_2_main}
+		u(w)=(1-p)\cdot u\left(w+B-P^*\right)+p\cdot u\left(w+G-P^*\right)
+	\end{equation}
+	This equation determines the maximum price $P^{*}$.
+\end{homeworkSection}
+\begin{homeworkSection}{(3)}
+	From \eqref{eq_2_1_main} and \eqref{eq_2_2_main} we can see that generally speaking, we \textbf{don't} have $S^*=P^*$, i.e. the minimum price the individual would sell the lottery for if he owns it \textbf{does not equate} the maximum price he would buy it for if he does not own it.
+	\par
+	Compare \eqref{eq_2_1_main} with \eqref{eq_2_2_main}, we can get:
+	\begin{equation}
+		\label{eq_2_3_P_and_S_relation}
+		\begin{aligned}
+			P^{*} (w) & = S^{*}(w-P^{*}(w)) \\
+			S^{*} (w) & = P^{*} (w + S^{*}(w)) 
+		\end{aligned}
+	\end{equation}
+	Hence, we have:
+	\begin{equation}
+		\label{eq_2_3_diff_S_and_P}
+		S^{*} (w) - P^{*}(w) = S^{*} (w) -  S^{*}(w-P^{*}(w))
+	\end{equation}
+	The economic implication of \eqref{eq_2_3_P_and_S_relation} and \eqref{eq_2_3_diff_S_and_P} is evident: the reason that $S^{*}(w) \neq P^{*}(w)$ is that the individual actually has different total wealth in the two cases: when the individual owns the lottery, his effective wealth is $w + S^{*}(w)$, but when the individual does not own the lottery, his effective wealth is $w$. If the individual has different risk preference under different total wealth, then he would assign different values to the lottery.
+	\par
+	From the analysis above, we can conclude that if the individual has the same risk preference under different total wealth, then we would have 
+	\begin{equation}
+		S^{*} (w) =  S^{*}(w-P^{*}(w))
+	\end{equation}
+	which is equivalent to
+	\begin{equation}
+		S^{*} (w) = P^{*}(w)
+	\end{equation}
+	Specifically, if 
+	\begin{equation}
+		u(w) = - a e^{-\lambda w}
+	\end{equation}
+	then we can easily verify that 
+	\begin{equation}
+		S^{*} = P^{*}
+	\end{equation}
+	
+\end{homeworkSection}
+\end{homeworkProblem}
+
+\newpage
+
+\begin{homeworkProblem}
+\begin{homeworkSection}{(1)}
+	The individual faces the following optimization problem:
+	\begin{equation}
+		\underset{x}{\text{max: }}\nu(w-x) + \nu(x)
+	\end{equation}
+	Since the function $\nu(.)$ is concave, we have:
+	\begin{equation}
+		\frac{1}{2} \left[ \nu(w-x)+ \nu(x) \right] \leq \nu\left( \frac{w}{2} \right)
+	\end{equation}
+	Thus the optimal saving $x_0 = w/2$.
+\end{homeworkSection}
+
+\begin{homeworkSection}{(2)}
+	Now the optimization problem becomes:
+	\begin{equation}
+		\underset{x}{\text{max: }}\nu(w-x) + E[\nu(x+y)]
+	\end{equation}
+	
+	Differentiate with respect to $x$: 
+	\begin{equation}
+		u^{\prime}(x) = E\left[ \nu^{\prime}(x+y)\right] -\nu^{\prime}(w-x)
+	\end{equation}
+	Differentiate again:
+	\begin{equation}
+		\label{eq_3_2_mu_diff}
+		u^{\prime\prime}(x) = E\left[ \nu^{\prime\prime}(x+y)\right] + \nu^{\prime\prime}(w-x)
+	\end{equation}
+	Since $\nu(.)$ is concave, we have $\nu^{\prime\prime}(.) < 0$. Thus from \eqref{eq_3_2_mu_diff} we can see that 
+	\begin{equation}
+		u^{\prime\prime}(x) < 0
+	\end{equation}
+	i.e., $u^{\prime}(.)$ is a decreasing function. Thus we can simply let $u^{\prime}(x^{*})=0$ to get $x^{*}$, i.e.,
+	\begin{equation}
+		\label{eq_3_2_def_x_star}
+		-\nu^{\prime}(w-x^{*}) + E\left[\nu^{\prime}(x^{*}+y)\right] = 0
+	\end{equation}
+	This is the equation that determines $x^{*}$.
+\end{homeworkSection}
+
+\begin{homeworkSection}{(3)}
+ If $E\left[\nu^{\prime}(x_0+y)\right]>\nu^{\prime}(x_0)$, it implies that 
+	\begin{equation}
+		u^{\prime}(x_0) = E\left[ \nu^{\prime}(x_0+y)\right] -\nu^{\prime}(w-x_0) = E\left[ \nu^{\prime}(x_0+y)\right] -\nu^{\prime}(x_0) > 0
+	\end{equation}
+	The last step uses the fact that $x_0 = w/2$. Also, we have 
+	\begin{equation}
+		u^{\prime}(x^{*}) = 0
+	\end{equation}
+	Hence,  
+	\begin{equation}
+		u^{\prime}(x_0) > u^{\prime}(x^{*})
+	\end{equation}
+	We have proved that $u^{\prime}(.)$ is a decreasing function, thus, 
+	\begin{equation}
+		x^{*} > x_0
+	\end{equation}
+\end{homeworkSection}
+\end{homeworkProblem}
+
+\newpage
+
+\begin{homeworkProblem}
+\begin{homeworkSection}{(1)}
+The definition of the risk premium for $\tilde{\varepsilon}$ is
+\begin{equation}
+	E\left[ u\left(\tilde{w}-\pi _u\right) \right] = E \left[  u\left(\tilde{w} + \tilde{\varepsilon}\right) \right]
+\end{equation}
+Expand the expected value:
+\begin{equation}
+	\label{eq_4_def_risk_premium}
+	p \,u(w_1 - \pi_u) + (1-p)\, u(w_2 - \pi_u) = p \left[ \frac{1}{2} u(w_1 + \varepsilon) + \frac{1}{2}u(w_1-\varepsilon)\right] + (1-p) \,u(w_2)
+\end{equation}
+If $\varepsilon$ is sufficiently small, we can expect $\pi_u$ is also small. We expand the LHS of \eqref{eq_4_def_risk_premium} to the smallest order of $\pi_u$ possible (at least to the first order):
+\begin{equation}
+	\label{eq_4_taylor_def_LHS}
+	\begin{aligned}
+		& p\, u(w_1 - \pi_u) + (1-p)\, u(w_2 - \pi_u) = \\
+		& p \,u(w_1) + (1-p)\, u(w_2) - \left[p \,u^{\prime}(w_1) + (1-p)\, u^{\prime}(w_2)\right] \pi_u + O\left( \pi_u^{2} \right)
+	\end{aligned}
+\end{equation}
+Expand the RHS of \eqref{eq_4_def_risk_premium} to the smallest order of $\varepsilon$ possible (at least to the first order):
+\begin{equation}
+	\label{eq_4-taylor_def_RHS}
+	\begin{aligned}
+		& p \left[ \frac{1}{2} u(w_1 + \varepsilon) + \frac{1}{2}u(w_1-\varepsilon)\right] + (1-p)\, u(w_2) = \\
+		& p \left[ u(w_1) + \frac{1}{2}u^{\prime\prime}(w_1)\varepsilon^2 \right] + (1-p)\, u(w_2) + O(\varepsilon^4)
+	\end{aligned}
+\end{equation}
+Compare \eqref{eq_4_taylor_def_LHS} and \eqref{eq_4-taylor_def_RHS} we have:
+\begin{equation}
+	- \left[p\, u^{\prime}(w_1) + (1-p)\, u^{\prime}(w_2)\right] \pi_u \approx  \frac{1}{2}p\,u^{\prime\prime}(w_1)\varepsilon^2
+\end{equation}
+which leads to
+\begin{equation}
+	\pi_u \approx -\frac{\frac{1}{2}p\,u^{\prime\prime}(w_1)\varepsilon^2}{p\, u^{\prime}(w_1) + (1-p)\, u^{\prime}(w_2)}
+\end{equation}
+\end{homeworkSection}
+\begin{homeworkSection}{(2)}
+	The Arrow-Pratt measure is defined as:
+	\begin{equation}
+		A(w) = -\frac{u^{\prime\prime}(w)}{u^{\prime}(w)}
+	\end{equation}
+	For utility function that has the form
+	\begin{equation}
+		\begin{aligned}
+			u(w) & = -e^{-a\,w} \\
+			v(w) & = -e^{-b\,w}
+		\end{aligned}
+	\end{equation}
+	the Arrow-Pratt measure is:
+	\begin{equation}
+		\begin{aligned}
+			A_{u}(w) & = a \\
+			A_{v}(w) & = b
+		\end{aligned}
+	\end{equation}
+\end{homeworkSection}
+\begin{homeworkSection}{(3)}
+	Plug the utility function:
+	\begin{equation}
+		u(\lambda,w) = - e^{-\lambda\,w}
+	\end{equation}
+	into \eqref{eq_4_def_risk_premium}, we get:
+	\begin{equation}
+		p e^{\lambda \pi} + (1-p) e^{\lambda \pi} e^{\lambda (w_1 - w_2)} = p \left( \frac{1}{2} e^{\lambda \varepsilon} + \frac{1}{2} e^{-\lambda \varepsilon} \right) + (1-p) e^{\lambda(w_1 - w_2)}
+	\end{equation}
+	Thus we have:
+	\begin{equation}
+		e^{\lambda \pi} = \frac{p \left( \frac{1}{2} e^{\lambda \varepsilon} + \frac{1}{2} e^{-\lambda \varepsilon} \right) + (1-p) e^{\lambda(w_1 - w_2)}}{p + (1-p) e^{\lambda (w_1 - w_2)} }
+	\end{equation}
+	which is equivalent to
+	\begin{equation}
+		e^{\lambda \pi} = 1+ \frac{p \left( \frac{1}{2} e^{\lambda \varepsilon} + \frac{1}{2} e^{-\lambda \varepsilon} -1 \right)}{p + (1-p) e^{\lambda (w_1 - w_2)} }
+	\end{equation}
+	We thus have:
+	\begin{equation}
+		\label{eq_4_risk_premium_calculation}
+		\pi = \frac{1}{\lambda} \log \left[ 1+ \frac{p \left( \frac{1}{2} e^{\lambda \varepsilon} + \frac{1}{2} e^{-\lambda \varepsilon} -1 \right)}{p + (1-p) e^{\lambda (w_1 - w_2)} } \right]
+	\end{equation}
+	Consider the numerator and denominator of 
+	\begin{equation}
+		\frac{p \left( \frac{1}{2} e^{\lambda \varepsilon} + \frac{1}{2} e^{-\lambda \varepsilon} -1 \right)}{p + (1-p) e^{\lambda (w_1 - w_2)} }
+	\end{equation}
+	We have:
+	\begin{equation}
+		\begin{aligned}
+			 \frac{\partial}{\partial \lambda} \left[ p \left( \frac{1}{2} e^{\lambda \varepsilon} + \frac{1}{2} e^{-\lambda \varepsilon} -1 \right) \right] & =  p \left( \frac{\varepsilon}{2} e^{\lambda \varepsilon} - \frac{\varepsilon}{2} e^{-\lambda \varepsilon} \right) \\
+			 \frac{\partial}{\partial \lambda} \left[ p + (1-p) e^{\lambda (w_1 - w_2)} \right] & = 
+			 (1-p)(w_1 - w_2)e^{\lambda (w_1 - w_2)} 
+		\end{aligned}
+	\end{equation}
+	Now consider $a>b$. If $w_1 - w_2$ is large enough s.t.:
+	\begin{equation}
+		w_1 - w_2 > \max_{\lambda \in [b,a]} \left[ \frac{\frac{\varepsilon}{2}e^{\lambda\varepsilon}}{(1-p)\left( \frac{1}{2} e^{\lambda \varepsilon} + \frac{1}{2} e^{-\lambda \varepsilon} -1 \right)} \right]
+	\end{equation}
+	Then, for $\lambda \in [b,a]$ we have:
+	\begin{equation}
+		\frac{p \left( \frac{\varepsilon}{2} e^{\lambda \varepsilon} - \frac{\varepsilon}{2} e^{-\lambda \varepsilon} \right) }{(1-p)(w_1 - w_2)e^{\lambda (w_1 - w_2)} }<\frac{p \left( \frac{1}{2} e^{\lambda \varepsilon} + \frac{1}{2} e^{-\lambda \varepsilon} -1 \right)}{p + (1-p) e^{\lambda (w_1 - w_2)} }
+	\end{equation}
+	which is
+	\begin{equation}
+		\frac{\frac{\partial}{\partial \lambda} \left[ p \left( \frac{1}{2} e^{\lambda \varepsilon} + \frac{1}{2} e^{-\lambda \varepsilon} -1 \right) \right]}{\frac{\partial}{\partial \lambda} \left[ p + (1-p) e^{\lambda (w_1 - w_2)} \right]} < \frac{p \left( \frac{1}{2} e^{\lambda \varepsilon} + \frac{1}{2} e^{-\lambda \varepsilon} -1 \right)}{p + (1-p) e^{\lambda (w_1 - w_2)} }
+	\end{equation}
+	Thus,  
+	\begin{equation}
+		\frac{p \left( \frac{1}{2} e^{\lambda \varepsilon} + \frac{1}{2} e^{-\lambda \varepsilon} -1 \right)}{p + (1-p) e^{\lambda (w_1 - w_2)} }
+	\end{equation}
+	is a decreasing function of $\lambda$ on $[b,a]$. Hence we must have:
+	\begin{equation}
+		\pi(b) > \pi(a)
+	\end{equation}
+	that is,
+	\begin{equation}
+		\pi_v > \pi_u
+	\end{equation}
+\end{homeworkSection}
+\end{homeworkProblem}
+
+\newpage
+
+\begin{homeworkProblem}
+Now the risk premium is defined as
+\begin{equation}
+	\frac{1}{2}u(w+\pi+\sigma) + \frac{1}{2}u(w+\pi-\sigma) = u(w)
+\end{equation}
+Suppose $\sigma$ is small enough, we can thus expect that $\pi$ is also small. It is easy to notice that $\sigma$ vanishes in the first order Taylor expansion of the LHS of the definition above. Thus, we expand to the second order:
+\begin{equation}
+	u(w) + u^{\prime}(w) \pi + \frac{1}{4}u^{\prime\prime}(w)\left[ (\pi+\sigma)^2 + (\pi-\sigma)^2 \right] + O((\pi\pm \sigma)^3) = u(w)
+\end{equation}
+This can be written as:
+\begin{equation}
+	u^{\prime}(w) \pi + \frac{1}{2}u^{\prime\prime}(w)\pi^2 + \frac{1}{2}u^{\prime\prime}(w)\sigma^2 + O((\pi \pm \sigma)^3) = 0
+\end{equation}
+Note that $\pi =O(\sigma ^2)$, thus $\pi^2$ term above can be dropped, and we have:
+\begin{equation}
+	u^{\prime}(w) \pi  + \frac{1}{2}u^{\prime\prime}(w)\sigma^2 \approx 0
+\end{equation}
+Thus we have
+\begin{equation}
+	\pi \approx -\frac{u^{\prime\prime}(w)}{2 u^{\prime}(w)}\sigma^2
+\end{equation}
+
+
+\end{homeworkProblem}
+
+\newpage
+
+
+%----------------------------------------------------------------------------------------
+
+\end{document}

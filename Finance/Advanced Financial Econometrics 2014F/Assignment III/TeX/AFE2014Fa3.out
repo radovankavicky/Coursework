@@ -2,3 +2,10 @@
 \BOOKMARK [1][-]{section.2}{Q2}{}% 2
 \BOOKMARK [1][-]{section.3}{Q3}{}% 3
 \BOOKMARK [1][-]{section.4}{Q4}{}% 4
+\BOOKMARK [2][-]{subsection.4.1}{Data}{section.4}% 5
+\BOOKMARK [2][-]{subsection.4.2}{Unit-root test and Difference}{section.4}% 6
+\BOOKMARK [2][-]{subsection.4.3}{Parameters of ARMA}{section.4}% 7
+\BOOKMARK [2][-]{subsection.4.4}{Specification and Results}{section.4}% 8
+\BOOKMARK [1][-]{appendix.A}{Appendix}{}% 9
+\BOOKMARK [2][-]{subsection.A.1}{Stata Do-file}{appendix.A}% 10
+\BOOKMARK [2][-]{subsection.A.2}{SAS Code-file}{appendix.A}% 11
