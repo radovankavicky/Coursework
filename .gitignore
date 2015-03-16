@@ -35,4 +35,8 @@
 *.toc
 *.bbl
 *.log.tex
+*.sh
+*.html
+*.DS_Store
 
+/XYC/

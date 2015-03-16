@@ -1,0 +1,125 @@
+\documentclass{article}
+  \usepackage{amsmath}
+  \usepackage{amssymb}
+  \usepackage{graphicx}
+  \usepackage{float}
+  \usepackage{setspace}
+  \usepackage{natbib}
+  \usepackage{indentfirst}
+  \usepackage{listings}
+  \usepackage{textcomp}
+  \usepackage{color}
+  \usepackage{fontenc}
+  \usepackage{accsupp}% http://ctan.org/pkg/accsupp
+  \usepackage[colorlinks, linkcolor=NavyBlue, anchorcolor=Maroon, citecolor=TealBlue]{hyperref}%For hyper-link reference
+  \usepackage{mdframed}
+\setlength{\parindent}{2em}
+
+\topmargin=-1.2cm \oddsidemargin=0.1cm \evensidemargin=0.1cm
+\textwidth=16 true cm \textheight=23 true cm
+
+\font\euler=EUSM10 \font\eulers=EUSM7
+
+\begin{document}
+
+\title{Financial Engineering\\Assignment $1^{\text{st}}$}
+\author{{\normalsize SHENG Hao, 1401211818, via \LaTeX}}
+\date{\today}
+
+\maketitle
+
+\def \Pr{{\rm Pr}}
+\baselineskip 0.6cm
+
+
+\section{Problem 1.}
+The bond pays $4$ every half year. The yield of the bond is $12 \%$. Thus, we have the following equation:
+\begin{equation}
+  \frac{4}{(1 + \frac{12 \%}{2})} + \frac{4}{(1 + \frac{12 \%}{2})^2} + \frac{100+ 4}{(1 + \frac{12 \%}{2})^3} = \frac{4}{(1 + \frac{10 \%}{2})} + \frac{4}{(1 + \frac{10 \%}{2})^2} + 
+\frac{100 + 4}{(1 + \frac{y}{2})^2}
+\end{equation}
+
+where $y$ is the 18-month zero rate. 
+
+Solving this equation:
+$$ y = 12.1 \% $$
+
+Thus, the 18-month zero rate is $12.1 \%$.
+
+\section{Problem 2.}
+Consider the portfolio that long 2 of the 4\% bond and short 1 of the 8\% bond. Except for initial and ending year, all the cash flows cancels out. This makes this portfolio an equivalent to a 10-year zero coupon rate bond, i.g. thus they have the same yield. And since this portfolio sells at \$70 at year 0 and yield a return of \$100 at year 10, if we compound continuously, the 10-year zero rate would be:
+\begin{equation}
+   r=\frac{1}{10} \log \left(\frac{100}{70}\right) = 3.57 \% 
+\end{equation}
+
+\section{Problem 3.}
+\subsection{(a)}
+The selling price of the bond would be:
+\begin{equation}
+  B = \sum_{i = 1}^{5} \frac{8}{(1+ 11\%)^i} + \frac{100}{(1+11 \%)^5} = 88.9
+\end{equation}
+Thus, the duration:
+\begin{equation}
+  D = \sum_{i=1}^{5} i \left[ \frac{8}{(1 + 11 \%)^i B} \right] + 5 \left[ \frac{100}{(1+ 11 \%)^5 B} \right ] = 4.3 
+\end{equation}
+
+\subsection{(b)}
+First we calculate the modified duration:
+\begin{equation}
+  D_{\text{m}} = 3.84
+\end{equation}
+Then, the effect led by yield change would be:
+\begin{equation}
+  \Delta B = - B D_{\text{mod}} \Delta y = - 88.9123 \cdot 3.84309 \cdot (- 0.2 \%) = 0.68
+\end{equation}
+That is a price increase about 0.68.
+
+\section{Problem 4.}
+\subsection{(a)}
+Since no dividend is paid, 
+\begin{equation}
+  F_0 = e^{0.1} 40 = \$44.21
+\end{equation}
+And the initial value is always 0.
+
+\subsection{(b)}
+Denote $F(t,T)$ for forward price at time $t$ which will be delivered at time $T (t<T)$.
+\begin{equation}
+  F(0.5, 1) = e^{r(T-t)} = e^{0.1 \times 0.5} 45 = \$47.31
+\end{equation}
+And the value of the forward contract would be:
+\begin{equation}
+  (47.3072 - 44.2068) \times e^{-0.1 \times 0.5} = \$2.95
+\end{equation}
+\section{Problem 5.}
+For a time-variant risk-free rate $r(t)$ and yield rate $q(t)$, both compounded continuously, the forward price for spot $t$ and delivered in $T$, $F(t, T)$ can be calculated as:
+\begin{equation}
+   F(t, T) = \exp \left( {\int_{t}^{T} (r(\tau) - q(\tau)) d\tau} \right) S(t) 
+\end{equation}
+Thus, the future price on Dec. $31^\text{st}$ would be:
+\begin{equation}
+  F = \exp \left( \frac{5}{12} \times 9 \% -\frac{2}{12} \times 5 \% - \frac{3}{12} \times 2 \% \right) \cdot 1300 = 1331.8
+\end{equation}
+\section{Problem 6.}
+Denote $Q_T$ as $Q_T = \frac{1}{S_T}$. The payoff of the instrument is:
+\begin{itemize}
+  \item $Q_T\leq \frac{1}{180}, 1000$
+  \item $\frac{1}{180} < Q_T < \frac{1}{90}, 1000(2-180Q_T)$
+  \item $Q_T\geq \frac{1}{180}, 0$
+\end{itemize}
+It's the combination of the following three:
+\begin{itemize}
+  \item A short position in a put option of \$ 1000 with S=180 Yen/USD
+  \begin{itemize}
+    \item $Q_T\leq\frac{1}{180},0$
+    \item $Q_T>\frac{1}{180}, 1000(1-180Q_T)$
+  \end{itemize}
+  \item A long position in a put option of \$ 2000 with S=90 Yen/USD
+  \begin{itemize}
+    \item $Q_T\leq\frac{1}{90},0$
+    \item $Q_T>\frac{1}{180}, 1000(-2+180Q_T)$
+  \end{itemize}
+  \item A long position in a zero coupon rate bond with a face value of \$1000
+\end{itemize}
+
+\end{document}
