@@ -7,12 +7,14 @@
 %\usepackage{ulem}
 \usepackage{booktabs}
 %\usepackage{cite}
+\usepackage{listings}
+\usepackage{color}
+\usepackage{xcolor}
 \usepackage{hyperref}
 \usepackage[round]{natbib}
 \usepackage{movie15}
 \usepackage{animate}
 \usepackage{mathtools}
-\DeclarePairedDelimiter{\ceil}{\lceil}{\rceil}
 \usepackage{threeparttable}
 \setbeamertemplate{theorems}[numbered]
 \setbeamertemplate{lemma}[numbered]
@@ -37,11 +39,9 @@
 %\usetheme{IAS_topNav_leftIASbar_12pt}	% As above only changed to fit 12pt fonts.
   \setbeamercovered{transparent}
 %   % or whatever (possibly just delete it)
-}
-
 % to remove the navigation symbols:
 %\setbeamertemplate{navigation symbols}{}
-
+}
 \usepackage[english]{babel}
 % or whatever
 
@@ -53,6 +53,57 @@
 % Or whatever. Note that the encoding and the font should match. If T1
 % does not look nice, try deleting the line with the fontenc.
 
+
+\definecolor{Black}{RGB}{0,0,0}
+\definecolor{Red}{RGB}{255,0,0}
+\definecolor{Green}{RGB}{0,255,0}
+\definecolor{Orange}{RGB}{255,165,0}
+\definecolor{Cyan}{RGB}{0,255,255}
+\definecolor{Yellow}{RGB}{255,255,0}
+\definecolor{White}{RGB}{255,255,255}
+\lstset
+{
+    breaklines=true,
+    tabsize=3,
+    showstringspaces=false
+}
+
+
+\lstdefinestyle{Common}
+{
+    extendedchars=\true,
+    language={[Visual]Basic},
+    frame=single,
+    %===========================================================
+    framesep=3pt,%expand outward.
+    framerule=0.4pt,%expand outward.
+    xleftmargin=3.4pt,%make the frame fits in the text area. 
+    xrightmargin=3.4pt,%make the frame fits in the text area.
+    %=========================================================== 
+    rulecolor=\color{Red}
+}
+
+\lstdefinestyle{A}
+{
+    style=Common,
+    backgroundcolor=\color{Yellow!10},
+    basicstyle=\color{Black}\ttfamily,
+    keywordstyle=\color{Orange},
+    identifierstyle=\color{Cyan},
+    stringstyle=\color{Red},
+    commentstyle=\color{Green}
+}
+
+\lstdefinestyle{B}
+{
+    style=Common,
+    backgroundcolor=\color{Black},
+    basicstyle=\color{White}\ttfamily,
+    keywordstyle=\color{Orange},
+    identifierstyle=\color{Cyan},
+    stringstyle=\color{Red},
+    commentstyle=\color{Green}
+}
 
 
 
@@ -118,6 +169,9 @@
 
 \begin{document}
 
+\DeclarePairedDelimiter{\ceil}{\lceil}{\rceil}
+
+
 \begin{frame}
   \titlepage
 \end{frame}
@@ -170,6 +224,64 @@
   \vspace{80pt}
 \end{frame}
 
+
+\section{Programing Language and VBA}
+
+\subsection{Programing Language}
+\begin{frame}[t]\frametitle{Programing Language}
+    \begin{itemize}
+    	\item Languages designed to manipulate the computer at a low level, that is, to manipulate the operating system (Windows or DOS) or even the hardware itself, are called low-level languages. 
+    	\begin{itemize}
+    		\item Assembly language
+    	\end{itemize}
+
+    	\item Languages designed to create standalone applications, such as Microsoft Excel, are high- level languages. 
+    	\begin{itemize}
+    		\item BASIC and Pascal
+    		\item C, C++, VB, Python
+    		\item MATLAB, Mathematica, R, SAS, Stata
+    	\end{itemize} 
+
+    	\item Languages that are designed to manipulate an application program, such as Microsoft Excel, are application-level languages. 
+    	\begin{itemize}
+    	 	\item Excel VBA, Word VBA, and PowerPoint VBA
+    	 \end{itemize} 
+    \end{itemize}
+
+\end{frame}
+
+\subsection{Programing Style}
+\begin{frame}[t]\frametitle{Programing Style}
+	\begin{itemize}
+		\item Comments
+		\item Readability
+		\item Modularity
+		\begin{itemize}
+			\item Next slide
+		\end{itemize}
+	\end{itemize}
+
+\end{frame}
+
+
+\begin{frame}[t]\frametitle{Programing Style}\framesubtitle{Modularity}
+\begin{itemize}
+	\item In one program
+\end{itemize}
+ \lstinputlisting[style = B, basicstyle=\tiny]{VBA1.txt}
+\end{frame}
+
+\begin{frame}[t]\frametitle{Programing Style}\framesubtitle{Modularity (cont.)}
+\begin{itemize}
+	\item Main program
+\end{itemize}
+ \lstinputlisting[style = B, basicstyle=\tiny]{VBA2.txt}
+\begin{itemize}
+	\item Modular
+\end{itemize}
+ \lstinputlisting[style = B, basicstyle=\tiny]{VBA3.txt}
+
+\end{frame}
 
 
 \section*{Reference}
