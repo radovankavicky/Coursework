@@ -1,0 +1,230 @@
+\documentclass{article}
+  \usepackage{amsmath}
+  \usepackage{amssymb}
+  \usepackage{graphicx}
+  \usepackage{float}
+  \usepackage{setspace}
+  \usepackage{natbib}
+  \usepackage{indentfirst}
+  \usepackage{listings}
+  \usepackage{textcomp}
+  \usepackage{color}
+  \usepackage{amsthm}
+  \usepackage{fontenc}
+  \usepackage{accsupp}% http://ctan.org/pkg/accsupp
+%\usepackage[colorlinks, linkcolor=NavyBlue, anchorcolor=Maroon, citecolor=TealBlue]{hyperref}%For hyper-link reference
+  \usepackage{mdframed}
+\setlength{\parindent}{2em}
+
+\topmargin=-1.2cm \oddsidemargin=0.1cm \evensidemargin=0.1cm
+\textwidth=16 true cm \textheight=23 true cm
+
+
+
+\begin{document}
+
+\title{Financial Engineering\\Assignment $2^{\text{nd}}$}
+\author{{\normalsize SHENG Hao, 1401211818, via \LaTeX}}
+\date{\today}
+
+\maketitle
+
+\def \Pr{{\rm Pr}}
+\baselineskip 0.6cm
+
+
+\section{Problem 1.}
+Suppose we have risk neutral probabilities:
+\begin{equation}
+  Q_u \times 1.2 + Q_d \times 0.8 = e^{0.1}
+\end{equation}
+Solve this equation with the requirement $Q_u + Q_d = 1$, we have $Q_u = 0.763$ and $Q_d = 0.237$
+
+\subsection{(a) European put at $t=2$ and $K=104$}
+\begin{equation}
+  p = e^{-0.1 \times 2}((104-64)\times {Q_d^2} + (104-96) \times 2 Q_u Q_d + 0 \times Q_u^2) \approx 4.21
+\end{equation}
+\subsection{(b) American put $K=104$}
+  Note the price at time $t$ as $S_t$. The price of the put option at $t=0$ is the discounted cash flow.
+  \begin{itemize}
+    \item $S_1 = 120$, the put is out of the money:
+    \begin{equation}
+      P(t=1|S_1=120) = e^{-0.1}(104-96)\times Q_d \approx 1.72
+    \end{equation}
+    \item $S_1 = 80$
+    \begin{equation}
+      P(t=1|S_1=80) = max{104-80, e^{-0.1}((104-96)\times Q_u +(104-64)\times Q_d)}=24
+    \end{equation}
+  \end{itemize}
+  Thus, 
+  \begin{equation}
+    S_0 = e^{-0.1} (P(t=1|S_1=120)\times Q_u + P(t=1|S_1=80) \times Q_d) \approx 6.33
+  \end{equation}
+
+\section{Problem 2.}
+\subsection{(a)Without Early Exercise}
+For $t_1$, we note $A_u, A_d$ for the price of Asian Option, if it goes up (or down, respectively). Similar notation could be made such as $A_{uu}$ or $A_{du}$. 
+
+Consider a portfolio at $t=1$ made by $\theta_S$ stock and $\theta_B$ bond: 
+\begin{equation}
+  \begin{pmatrix}
+  u^2S_0 & 1\\
+  udS_0 & 1
+  \end{pmatrix}
+  \begin{pmatrix}
+    \theta_S\\
+    \theta_B
+  \end{pmatrix}
+  =
+  \begin{pmatrix}
+    A_{uu}\\
+    A_{ud}
+  \end{pmatrix}
+\end{equation}
+Since $A_uu = (K - \frac{S_0(1+u+u^2)}{3})^+ = 0$, $A_{ud} = (K - \frac{S_0(1+u+u^2)}{3})^+ = 0$, we have:
+\begin{equation}
+  \begin{pmatrix}
+    \theta_S \\
+    \theta_B
+  \end{pmatrix}
+  =
+  \begin{pmatrix}
+    0\\
+    0
+  \end{pmatrix}
+\end{equation}
+Thus, $A_{u.} = 0$.
+
+Similarly, when the price is down, then we have:
+\begin{equation}
+  \begin{pmatrix}
+  duS_0 & 1\\
+  d^2S_0 & 1
+  \end{pmatrix}
+  \begin{pmatrix}
+    \theta_S\\
+    \theta_B
+  \end{pmatrix}
+  =
+  \begin{pmatrix}
+    A_{du}\\
+    A_{dd}
+  \end{pmatrix}
+\end{equation}
+We immediately have:
+\begin{equation}
+  \begin{pmatrix}
+    \theta_S\\
+    \theta_B
+  \end{pmatrix}
+  =
+  \begin{pmatrix}
+    -0.33\\
+    44
+  \end{pmatrix}
+\end{equation}
+Thus,$A_{d.} \approx 13.15$.
+
+Consequently, 
+\begin{equation}
+  \begin{pmatrix}
+  uS_0 & 1\\
+  dS_0 & 1
+  \end{pmatrix}
+  \begin{pmatrix}
+    \theta_S\\
+    \theta_B
+  \end{pmatrix}
+  =
+  \begin{pmatrix}
+    A_{u.}\\
+    A_{d.}
+  \end{pmatrix}
+\end{equation}
+$A_{..}\approx 2.82$
+
+\subsection{(b) With Early Exercise}
+By comparing the results of early exercise with their counterparts above, we have $A_{u.}=0, A_{d.}=14$: 
+\begin{equation}
+  \begin{pmatrix}
+  duS_0 & 1\\
+  d^2S_0 & 1
+  \end{pmatrix}
+  \begin{pmatrix}
+    \theta_S\\
+    \theta_B
+  \end{pmatrix}
+  =
+  \begin{pmatrix}
+    A_{du}\\
+    A_{dd}
+  \end{pmatrix}
+\end{equation}
+gives us: $A_{..} \approx 3.00$
+
+\section{Problem 3.}
+\subsection{(a)}
+The portfolio is constructed by a long position of 1 call option with strike price $K_1$ and 1 call option with strike price $K_3$, and a short position of 2 call option with price $K_2 = \frac{K_1+K_3}{2}$. Without losing generality, we assume $K_1<K_3$.
+
+The payoff could be calculated as ($t=T$):
+\begin{itemize}
+   \item $0$, if $S_T \in (0,K_1]$
+   \item $S_T-K_1$, if $S_T \in (K_1,K_2]$
+   \item $K_3-S_T$, if $S_T \in (K_2,K_3]$
+   \item $0$, if $S_T \in (K_3,\inf]$
+ \end{itemize} 
+
+The following can be verified:
+\begin{align} 
+  BS(t=T)\geq 0\\
+  P(BS(t=T)>0)>0
+\end{align}
+
+Then by the APT(arbitrage pricing theory), we must have $BS(t=T)> 0$, which indicates an initial investment. \qed
+
+\subsection{(b)}
+Now we replicate this portfolio by taking long position of 1 put option with strike price $K_1$ and strike price $K_3$, and a short position of 2 put option with strike price $K_2 = \frac{K_1+K_3}{2}$. Without losing generality, we assume $K_1<K_3$.
+
+It's easy to check that the payoff is same as before. Thus, by the APT, the cost of these two portfolio must be identical, otherwise, we can always arbitrage by taking long position of the cheaper one and short the other. \qed
+
+\section{Problem 4.}
+\subsection{(a)}
+Consider:
+\begin{equation}
+  W_s W_t = W_s(W_t - W_s) + W_s^2
+\end{equation}
+Since $W_t - W_s$ is independent of $W_s$, we have:
+\begin{equation}
+  E(W_sW_t) = E(W_s^2) = s
+\end{equation}
+\qed
+
+\subsection{(b)}
+\begin{equation}
+  V_{t_1} - V_{t_2} = \frac{1}{\sqrt{c}}(W_{ct_1} - W_{ct_2})
+\end{equation}
+First, by the property of Wiener process, we know that $V_{t_1} - V_{t_2} $ is independent of $V_{t_2} $.\\
+Second, $V_{t_1} - V_{t_2} $ is normally distributed random variable, with mean $0$ and variance $t_1 - t_2$\\
+Thus, by definition $V_t$ is also a Wiener process.
+
+
+\section{Problem 5.}
+Consider a portfolio consisting of a long position of one European call and a short position of one European put, which are of same strike price $K$.
+
+If $S_T<K$, then the put will be exercised; if $S_T>K$ then the call option will be exercised. This is to say, this portfolio is equivalent to long a forward contract of one share of stock.
+
+By the arbitrage pricing theory, we have:
+\begin{align}
+  c(S_0, K, T) - p(S_0, K, T) =&e^{-rT}(F(S_0,T)- K)\\
+  =&S_0 - \sum_{i}e^{-rt_i}d_i - e^{-rT}K
+\end{align}
+When $S_0 = 29, r=0.1, T=\frac{1}{2}, t_1 = \frac{1}{6}, t_2 = \frac{5}{12}, d_1 = d_2 = 0.5, K=30$:
+\begin{equation}
+  p(S_0,K,T) \approx 2.51
+\end{equation}
+So, if the European put is priced at \$ 3, then,
+\begin{equation}
+  c(S_0, K, T) - p(S_0, K, T) < S_0 - \sum_{i}e^{-rt_i}d_i - e^{-rT}K
+\end{equation}
+,which means we can take a long position of the call option, a short position of the put option, and short position in a corresponding forward contract, and generate risk-free payoff in six months. 
+\end{document}
