@@ -2,12 +2,14 @@
 *.o
 
 
-#Unrelated files
+#Unrelated data
 *.xls
 *.xlsx
 *.csv
 *.dta
 
+#Unrelated photo
+*.png
 
 *.txt
 *.rar
@@ -38,5 +40,8 @@
 *.sh
 *.html
 *.DS_Store
+*.out
+*.nav
+*.snm
 
 /XYC/
