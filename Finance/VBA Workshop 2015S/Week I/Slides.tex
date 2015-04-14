@@ -1,4 +1,4 @@
-%!TEX program = <pdflatex>
+%!TEX program = <xelatex>
 % !Mode:: "TeX:UTF-8"
 
 \documentclass[13pt]{beamer}
@@ -128,7 +128,7 @@
 % - Keep it simple, no one is interested in your street address.
 
 \date[\today] % (optional, should be abbreviation of conference name)
-{ At HEC, Mar. 2015}
+{ At HEC Paris, Mar. 2015}
 % - Either use conference name or its abbreviation.
 % - Not really informative to the audience, more for people (including
 %   yourself) who are reading the slides online
@@ -211,38 +211,60 @@
   \vspace{30pt}
 
   \begin{itemize}
-  \item Story in one sentence:
-  \vspace{5pt}
+  \item Take-aways:
   \begin{itemize}
-  		\only<1>{\item {\rm People with technology (or biological properties) harder to learn by others enjoy a larger genetic edge in the diffusion of this technology.}}
-
-  		\only<2,3>{\item \hyperlink{civilization}{\rm The rise and fall of civilizations in the ancient time may largely due to one or two ``unique'' technology. (Other parts are not that crucial.)}}
-  		\vspace{20pt}
-  		\uncover<3>{\item \citet{spolaore2009diffusion}}
+  		\item Basic concepts in VBA \pause
+      \item Tools in coding \pause
+      \item Specific coding cases \pause
+      \begin{itemize}
+        \item Data Formating \pause
+        \item Modeling \pause
+        \item Data Visualization 
+      \end{itemize}
  \end{itemize}
   \end{itemize}
   \vspace{80pt}
 \end{frame}
 
+\section{About This Seminar}
+\begin{frame}[t]\frametitle{About This Seminar}
+\begin{itemize}
+  \item Main topics 
+  \begin{itemize}
+    \item Writing Excel Macros with VBA, 2e \\
+    \includegraphics[width=0.25\textwidth]{Reilly.jpg}
+    
+  \end{itemize}
+  \item Coding (2-5 cases each time)
+    \begin{itemize}
+     \item Excel VBA in 150 programs
+    \end{itemize}
+  \item Real problems
+
+\end{itemize}
+  
+\end{frame}
 
 \section{Programing Language and VBA}
 
 \subsection{Programing Language}
 \begin{frame}[t]\frametitle{Programing Language}
     \begin{itemize}
-    	\item Languages designed to manipulate the computer at a low level, that is, to manipulate the operating system (Windows or DOS) or even the hardware itself, are called low-level languages. 
+    	\item Languages designed to manipulate the computer at a low level, that is, to manipulate the operating system (Windows or DOS) or even the hardware itself, are called low-level languages. \pause
     	\begin{itemize}
     		\item Assembly language
     	\end{itemize}
+      \pause
 
-    	\item Languages designed to create standalone applications, such as Microsoft Excel, are high- level languages. 
+    	\item Languages designed to create standalone applications, such as Microsoft Excel, are high-level languages. \pause
     	\begin{itemize}
-    		\item BASIC and Pascal
-    		\item C, C++, VB, Python
-    		\item MATLAB, Mathematica, R, SAS, Stata
+    		\item BASIC and Pascal \pause
+    		\item C, C++, VB, Python \pause
+    		\item MATLAB, Mathematica, R, SAS, Stata \pause
     	\end{itemize} 
+      \pause
 
-    	\item Languages that are designed to manipulate an application program, such as Microsoft Excel, are application-level languages. 
+    	\item Languages that are designed to manipulate an application program, such as Microsoft Excel, are application-level languages. \pause
     	\begin{itemize}
     	 	\item Excel VBA, Word VBA, and PowerPoint VBA
     	 \end{itemize} 
@@ -283,11 +305,23 @@
 
 \end{frame}
 
+\section{By Example (Application Object)}
+\subsection{StatusBar}
+\begin{frame}[t]\frametitle{StatusBar}
+     \lstinputlisting[style = B, basicstyle=\tiny]{VBA4.txt}
+\end{frame}
+\subsection{FullScreen and Exit}
+\begin{frame}[t]\frametitle{FullScreen and Exit}
+     \lstinputlisting[style = B, basicstyle=\tiny]{VBA5.txt}
+\end{frame}
+\subsection{Onkey}
+\begin{frame}[t]\frametitle{Onkey}
+     \lstinputlisting[style = B, basicstyle=\tiny]{VBA6.txt}
+\end{frame}
 
 \section*{Reference}
 \begin{frame}[allowframebreaks]
-
-	\frametitle{Reference -}
+	\frametitle{Reference}
 	\bibliographystyle{jpe}
 	\bibliography{Excelbib}
 	\nocite{*}

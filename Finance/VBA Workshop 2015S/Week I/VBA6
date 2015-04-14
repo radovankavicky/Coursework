@@ -1,0 +1,4 @@
+SUB PressKeytoRun()    
+	MsgBox "Ctrl+D ＝「testFullScreen」"   
+	Application.OnKey "^{d}", "testFullScreen" 
+End SUB

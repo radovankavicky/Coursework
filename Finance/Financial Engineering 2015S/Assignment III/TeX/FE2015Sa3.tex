@@ -1,0 +1,299 @@
+\documentclass{article}
+  \usepackage{amsmath}
+  \usepackage{amssymb}
+  \usepackage{graphicx}
+  \usepackage{float}
+  \usepackage{setspace}
+  \usepackage{natbib}
+  \usepackage{indentfirst}
+  \usepackage{listings}
+  \usepackage{textcomp}
+  \usepackage{color}
+  \usepackage{amsthm}
+  \usepackage{fontenc}
+  \usepackage{accsupp}% http://ctan.org/pkg/accsupp
+%\usepackage[colorlinks, linkcolor=NavyBlue, anchorcolor=Maroon, citecolor=TealBlue]{hyperref}%For hyper-link reference
+  \usepackage{mdframed}
+\setlength{\parindent}{2em}
+
+\topmargin=-1.2cm \oddsidemargin=0.1cm \evensidemargin=0.1cm
+\textwidth=16 true cm \textheight=23 true cm
+
+
+
+\begin{document}
+
+\title{Financial Engineering\\Assignment $3^{\text{rd}}$}
+\author{{\normalsize SHENG Hao, 1401211818, via \LaTeX}}
+\date{\today}
+
+\maketitle
+
+\def \Pr{{\rm Pr}}
+\baselineskip 0.6cm
+
+
+\section{Problem 1.}
+Note $Y$ as $Y(t, X(t), U(t))$. According to the Ito's Lemma, we have:
+\begin{equation}    
+dY = Y_t dt + Y_X dX + Y_U dU + \frac{1}{2}Y_{XX} dX dX + Y_{XU} dX dU + \frac{1}{2} Y_{UU} dU dU
+\end{equation}
+Since 
+\begin{align}
+dX &= \mu(t) dt + \sigma(t) dz(t)\\
+dU &= \nu(t) dt + \lambda(t) dz(t)
+\end{align}
+
+We have: 
+\begin{align}
+dX dX & = \sigma(t)^2 dt \\
+dX dU & = \sigma(t) \lambda(t) dt \\
+dU dU & = \lambda(t)^2 dt
+\end{align}
+
+
+Thus, we have the general expression:
+\begin{equation}
+  dY = \left(Y_t + Y_X \cdot \mu(t) + Y_U \cdot \nu(t) + \frac{1}{2}Y_{XX} \cdot \sigma(t)^2 + Y_{XU}\cdot  \sigma(t) \lambda(t) + \frac{1}{2} Y_{UU} \cdot \lambda(t)^2 \right) dt + (Y_X \cdot  \sigma(t) + Y_U \cdot \lambda(t)) dz(t)
+\end{equation}
+
+
+\subsection{{\(Y = X U\)}}
+
+ \(Y_t = Y_{XX} = Y_{UU} = 0\), \(Y_X = U\), \(Y_U = X\), and
+\(Y_{XU} = 1\). Thus:
+\begin{equation}
+  dY = \left( U(t) \cdot \mu(t) + X(t) \cdot \nu(t) + \sigma(t) \lambda(t) \right) dt + (U(t) \cdot  \sigma(t) + X(t) \cdot \lambda(t)) dz(t)
+\end{equation}
+
+\subsection{{\(Y = U/X\)}}
+\(Y_t = 0\), \(Y_X = - U / X^2\), \(Y_U = 1/X\),
+\(Y_{XX} = 2U / X^3\), \(Y_{XU} = -1/X^2\) and \(Y_{UU} = 0\). Thus:
+
+\begin{equation}
+  dY = \left( -\frac{U(t)}{X(t)^2} \cdot \mu(t) + \frac{1}{X(t)} \cdot \nu(t) + \frac{U(t)}{X(t)^3} \cdot \sigma(t)^2 - \frac{1}{X(t)^2} \cdot  \sigma(t) \lambda(t) \right) dt + \left( -\frac{U(t)}{X(t)^2} \cdot  \sigma(t) + \frac{1}{X(t)} \cdot \lambda(t) \right) dz(t)
+\end{equation}
+
+\subsection{{
+\(Y = \text{exp} (-(T-t)X)\)}}
+\(Y_U = Y_{XU} = Y_{UU} = 0\), and
+\(Y_t = X \text{exp} (-(T-t)X)\), \(Y_X = -(T-t) \text{exp} (-(T-t)X)\)
+and \(Y_{XX} = (T-t)^2 \text{exp} (-(T-t)X)\). Thus:
+\begin{equation}
+  dY = \left( X(t) e^{-(T-t)X(t)} -(T-t) e^{-(T-t)X(t)} \cdot \mu(t) + \frac{1}{2} (T-t)^2 e^{-(T-t)X(t)} \cdot \sigma(t)^2 \right) dt - (T-t) e^{-(T-t)X(t)} \cdot  \sigma(t) dz(t)
+\end{equation}
+
+\section{Problem 2}\label{problem-2}
+
+\textbf{Proof}:
+
+Since \(G(t, S(t)) = S(t)^n\), according to the Ito's lemma:
+\begin{equation}
+  dG = G_t dt + G_S dS + \frac{1}{2} G_{SS} dS dS
+\end{equation}
+, where
+\(G_t = 0\), \(G_S = nS^{n-1}\) and \(G_{SS} = n(n-1)S^{n-2}\) (suppose
+\(n \geq 1\)). And:
+\begin{align}
+dS & = \mu S(t) dt + \sigma S(t) dz(t) \\
+dS dS & = \sigma^2 S(t)^2 dt
+\end{align}
+
+
+Thus 
+\begin{align}
+dG & = nS(t)^{n-1} \left[ \mu S(t) dt + \sigma S(t) dz(t) \right] + \frac{1}{2} n(n-1)S(t)^{n-2} \sigma^2 S(t)^2 dt \\
+& = \left[ n \mu + \frac{1}{2} n(n-1) \sigma^2 \right] G(t, S(t)) dt + n \sigma G(t, S(t))dz(t)
+\end{align}
+
+
+Hence, \(G(t, S(t))\) also follows a geometric Brownian motion.$\qed$
+
+\textbf{Expectation of \(G(T, S(T))\)}:
+
+Consider a geometric Brownian motion \[dX = a X(t) dt + b X(t) dz(t)\]
+
+According to the Ito's lemma: 
+\begin{align}
+d(\log(X(t))) & = \frac{1}{X(t)} dX - \frac{1}{2 X(t)^2} dX dX \\
+& = a dt + b dz(t) - \frac{b^2}{2} dt \\
+& = (a-\frac{b^2}{2}) dt + b dz(t)
+\end{align}
+
+
+Hence, we have:
+\begin{equation}
+  \log(X(T)) =  \left(a-\frac{b^2}{2}\right)T + b \int_{0}^{T} dz(t)
+\end{equation}
+
+Note, that\[z(T) = \int_{0}^{T} dz(t) \sim N(0, T)\]
+,which leads to:
+\begin{equation}
+  X(T) = \text{exp}\left(\left(a-\frac{b^2}{2}\right)T + b z(T)\right)
+\end{equation}
+
+We can compute the expected value:
+\begin{align}
+E[X(T)] & = \int_{-\infty}^{+\infty} \text{exp}\left(\left(a-\frac{b^2}{2}\right)T + b z\right) \cdot \frac{1}{\sqrt{2\pi T}} \text{exp} (-\frac{z^2}{2T}) dz \\
+& = \text{exp}(a T)
+\end{align}
+
+
+For \(G\), \(a = n \mu + n(n-1) \sigma^2/2\), and \(b = n \sigma\).
+Thus: 
+\begin{equation}
+E[G(T)] = \text{exp} \left[ \left( n \mu + \frac{n(n-1)\sigma^2}{2} \right) T \right]  
+\end{equation}
+
+
+We can also directly compute \(E[X(t)^n]\): 
+\begin{align}
+E[X(T)^n] & = \int_{-\infty}^{+\infty} \text{exp}\left(n \left(a-\frac{b^2}{2}\right)T + n b z\right) \cdot \frac{1}{\sqrt{2\pi T}} \text{exp} (-\frac{z^2}{2T}) dz \\
+& = \text{exp} \left[ \left( n \mu + \frac{n(n-1)\sigma^2}{2} \right) T \right]
+\end{align}
+
+
+\section{Problem 3}\label{problem-3}
+
+The price of the zero coupon bond is \[B(t, y(t)) = e^{-(T-t)y(t)}\]
+
+In Problem 1, we already calculate the Stochastic differential equation of such a process. The result
+is:
+\begin{equation}
+  dB(t, y(t)) = \left( y(t) e^{-(T-t)y(t)} -(T-t) e^{-(T-t)y(t)} \cdot \mu(t) + \frac{1}{2} (T-t)^2 e^{-(T-t)y(t)} \cdot \sigma(t)^2 \right) dt - (T-t) e^{-(T-t)y(t)} \cdot  \sigma(t) dz(t)
+\end{equation}
+
+, where \(\mu(t) = \alpha_0 (y(0) - y(t))\) and
+\(\sigma(t) = \sigma y(t)\).
+
+\section{Problem 4}\label{problem-4}
+
+Consider process \(x(t,z(t)) = z(t)^2 / 2\), we have:
+\begin{equation}
+  dx = z(t)dz(t) + \frac{1}{2} dt
+\end{equation}
+
+Thus, we know: \begin{equation}
+  z(t)dz(t) = dx - \frac{1}{2}dt
+\end{equation}
+
+i.e.,
+  \begin{equation}
+  \int_{0}^{T} z(t)dz(t) = x(T) - x(0) - \frac{1}{2} T = \frac{z(T)^2}{2} - \frac{T}{2}    
+  \end{equation}
+
+
+\section{Problem 5}\label{problem-5}
+
+\subsection{(a)}\label{a}
+
+Consider the Black–Scholes equation:
+\[\frac{\partial c}{\partial t} + r S \frac{\partial c}{\partial S} + \frac{1}{2} \sigma^2 S^2 \frac{\partial^2 c}{\partial S^2} = rc\]
+
+Since \(c\) has the form \(c = g(t, T)S^n\), we substitute \(c\) in the
+Black–Scholes equation and we get:
+\[\frac{\partial g(t,T)}{\partial t} S^n + r S g(t, T) n S^{n-1} + \frac{1}{2} \sigma^2 S^2 g(t, T) n(n-1) S^{n-2} = r g(t,T) S^n
+\]
+
+i.e., \[
+\frac{\partial g(t,T)}{\partial t} = -(n-1)\left( r + \frac{n\sigma^2}{2}\right)g(t,T)
+\]
+
+Since the equation only contains (explicitly) partial derivative w.r.t
+\(t\), it can be seen as an ODE w.r.t \(t\) of \(g(t,T)\).
+
+\subsection{(b)}\label{b}
+
+Apparently, the boundary condition for \(t=T\) is \[g(T,T) = 1\]
+
+\subsection{(c)}\label{c}
+
+From the ODE and boundary condition of \(g(t,T)\) we have
+\[g(t,T) = \text{exp} \left((n-1)\left( r + \frac{n\sigma^2}{2} \right) (T-t) \right)\]
+
+\section{Problem 6}\label{problem-6}
+
+\subsection{(a)}\label{a-1}
+
+The price of the derivative can be calculated as:
+\begin{equation}
+  D(t, S(t)) = e^{-r(T-t)} E_{\mathcal{Q}} \left[ \log(S(T)) | \mathbb{I}(t) \right]
+\end{equation}
+
+In the risk-neutral measure (i.e., \(\mathcal{Q}\) measure), we have:
+\begin{equation}
+  dS = r S dt + \sigma S dw(t)
+\end{equation}
+
+where \(w(t)\) is a standard Brownian motion in \(\mathcal{Q}\) measure,
+and \(r\) is the risk-free rate.
+
+We know that
+\begin{equation}
+  S(T) = S(t) \text{exp} \left( \left( r - \frac{\sigma^2}{2} \right) (T-t) + \sigma (w(T) - w(t)) \right)
+\end{equation}
+
+Note \[ w(T) - w(t) \sim N(0, (T-t))\]
+
+Thus, the price of the derivative can be calculated as: 
+\begin{align}
+D(t,S(t)) & = e^{-r(T-t)} \int_{-\infty}^{+\infty} \left[ \log S(t) + \left( r - \frac{\sigma^2}{2} \right) (T-t) + \sigma x \right] \frac{1}{\sqrt{2 \pi (T-t)}} \exp \left( - \frac{x^2}{2(T-t)}\right) dx \\
+& = e^{-r(T-t)} \left[ \log S(t) + \left( r - \frac{\sigma^2}{2} \right) (T-t) \right]
+\end{align}
+
+
+\subsection{(b)}\label{b-1}
+
+\begin{align}
+D(t, S) & = e^{-r(T-t)} \left[ \log S + \left( r - \frac{\sigma^2}{2} \right) (T-t) \right] \\
+& = e^{r (t-T)} \left(\left(r-\frac{\sigma ^2}{2}\right) (T-t)+\log (S)\right)
+\end{align}
+
+
+we can verify that: 
+\begin{align}
+\frac{\partial D}{\partial t} & = \frac{1}{2} e^{r (t-T)} \left(2 r \log (S)-\left(2 r-\sigma ^2\right) (r (t-T)+1)\right)\\
+\frac{\partial D}{\partial S} & = \frac{e^{r (t-T)}}{S} \\
+\frac{\partial^2 D}{\partial S^2} & = -\frac{e^{r (t-T)}}{S^2}
+\end{align}
+
+
+Consider the Black–Scholes formula equation:
+\begin{equation}
+\frac{\partial D}{\partial t} + r S \frac{\partial D}{\partial S} + \frac{1}{2} \sigma^2 S^2 \frac{\partial^2 D}{\partial S^2} = rD  
+\end{equation}
+
+
+We can verify that:
+\begin{equation}
+  \text{Left Hand Side} = r e^{r (t-T)} \left(\left(r-\frac{\sigma ^2}{2}\right) (T-t)+\log (S)\right) = r D = \text{Right Hand Side}
+\end{equation}
+
+Thus, \(D(t,S)\) satisfies Black–Scholes formula equation, as expected.
+
+\section{Problem 7}\label{problem-7}
+
+\subsection{(a)}\label{a-2}
+
+We have: \(S = 52\), \(K = 50\), \(r = 0.12\), \(\sigma = 0.3\),
+\(\tau = 1/4\). Applying Black–Scholes formula, we have: \[ 
+\begin{aligned}
+c & = 5.05739 \\
+\Delta = \frac{\partial c}{\partial S} & = 0.704184 \\
+\Theta = - \frac{\partial c}{\partial \tau} & = -9.17661 \\
+\Gamma = \frac{\partial^2 c}{\partial S^2} & = 0.0442915 \\
+\nu = \frac{\partial c}{\partial \sigma} & = 8.98231 \\
+\rho = \frac{\partial c}{\partial r} & = 7.89004
+\end{aligned}
+\]
+
+\subsubsection{(b)}\label{b-2}
+
+Similarly, We have: \(S = 48\), \(K = 50\), \(r = 0.1\), \(\sigma = 0.2\),
+\(\tau = 1/2\). Applying Black–Scholes formula, we have: 
+\begin{equation}
+p = 2.47989  
+\end{equation}
+
+
+\end{document}
